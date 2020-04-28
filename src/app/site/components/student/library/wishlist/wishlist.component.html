@@ -1,0 +1,88 @@
+<div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
+  <div class="wrapper-my-courses" *ngIf="interestedCoursesArr.length">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="hdng-wishlist">{{ 'wishlist' | translate }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 custom-col-padding"
+        *ngFor="let course of interestedCoursesArr ; let cardIndex = index ">
+        <mdb-card class="my-1 card-main">
+          <div class="wrapper-inner-course" (mouseenter)="showVideoOnOver(course)" (mouseleave)="hideVideoOnOver()">
+            <a routerLink="/course-view/{{course.code}}/{{app_ser.urlString(course.name)}}">
+              <div class="main-div-course">
+                <img [src]="app_ser.img_url(course.cover_image,'course')" class="img-fluid course-img" alt="">
+                <div class="overlay-dark-background"></div>
+                <div class="overlay-course">
+                  <h3 class="course-title bold-hdng">{{course.name}}</h3>
+                  <p class="price">
+                    <span *ngIf="!course.price" class="current-discounted-price">{{'Free' | translate}}</span>
+                    <span *ngIf="course.price" class="current-discounted-price">${{course.price}}</span>
+                    <span *ngIf="course.old_price" class="old-price">${{course.old_price}}</span>
+                  </p>
+                </div>
+              </div>
+              <div class="wrapper-hover-course-video" *ngIf="playVideoOnHover == course.id">
+                <app-course-loader *ngIf="courseGifLoader" [class]="stopCourseLoader()"></app-course-loader>
+                <div class="wrap-course-over-vg-player">
+                  <vg-player (onPlayerReady)="onPlayerReady($event,course)">
+                    <video *ngIf="api" [vgMedia]="master" #master id="masterVideo" preload="auto" autoplay="true"
+                      [src]="app_ser.video_url(course.video)">
+                    </video>
+                  </vg-player>
+                </div>
+              </div>
+              <div class="overlay-course-summary-hover">
+                <div class="box-play-icon">
+                  <a routerLink="/course-view/{{course.code}}/{{app_ser.urlString(course.name)}}"><i
+                      class="fal fa-play"></i></a>
+                </div>
+                <h3 class="course-title bold-hdng">{{course.name}}</h3>
+                <div class="summary-course">
+                  <span class="course-date"><i class="fal fa-calendar-alt"></i>تاريخ:
+                    {{course.create_date |  date:'MM/dd/yyyy'}}</span>
+                  <span class="no-of-lessons"><i class="fal fa-book"></i>عدد الدروس: {{course.items_count}}</span>
+                  <br>
+                  <span class="course-time"><i class="fal fa-clock"></i>المدة الزمنية :
+                    {{app_ser.formatTime(course.duration).hours}} {{'hour' | translate}}
+                    {{app_ser.formatTime(course.duration).minutes}} {{'Minutes' | translate}}</span>
+                  <span class="registered-students"><i class="fal fa-users"></i>عدد الطلاب:
+                    {{course.students_count}}</span>
+                  <br>
+                  <span class="trainer-name"><i class="fal fa-chalkboard-teacher"></i>مدرب:
+                    {{course.trainer_name?course.trainer_name:"أكاديمية فوكس" }}</span>
+                </div>
+              </div>
+            </a>
+            <div class="wrapper-icons-links">
+              <div class="box-social-icon">
+                <a *ngIf="api" (click)="muteAndPlay(course)">
+                  <i *ngIf="course.volume" class="fal fa-volume"></i>
+                  <i *ngIf="! course.volume" class="fal fa-volume-mute"></i>
+                </a>
+              </div>
+              <div class="box-social-icon">
+                <a (click)="setFavourite(course)">
+                  <i class="fal fa-heart" *ngIf="!course.is_interested"></i>
+                  <i class="fal fa-heart" *ngIf="course.is_interested" style="color: red; font-weight: 1000"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </mdb-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!interestedCoursesArr.length && noData" class="wrap-no-course-found">
+    <div class="alert alert-danger" role="alert">
+      <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+  </div>
+  <div *ngIf="pager.show" class="card-footer pb-0 pt-3">
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div>

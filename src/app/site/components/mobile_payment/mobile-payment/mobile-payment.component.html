@@ -1,0 +1,86 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-payment-inner">
+
+    <img src="../../../../../assets/images/Logo.png" alt="" class="img-fluid text-center"
+      style="display: block;margin: 40px auto;width: 170px;">
+    <h4 *ngIf="showResult" class="payment-successfull"><i class="fal fa-check-circle"></i>
+      تمت الدفعة بنجاح</h4>
+    <!-- <ngx-paypal [config]="payPalConfig" class="paypal-main"></ngx-paypal> -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-12 text-center col-course-price">
+          <label for="" class="mb-2"><strong>{{ 'Price' | translate }}</strong> </label>
+          <span style="padding: 0 20px;"><strong>:</strong></span>
+          <label for="" class="mb-2"><strong>$ {{ cost}} || AED {{ app_ser.dollarToAED(cost)}}</strong> </label>
+        </div>
+
+
+
+      </div>
+      <form novalidate #resetForm="ngForm" class="style-form-width" *ngIf="!coupenSucces">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+
+            </div>
+            <div class="col-md-6 error-msg-div">
+              <div *ngIf="coupon.errors?.required && coupon.touched" class="error-message"> {{ 'Coupon' | translate }}
+                {{ 'is required' | translate }}</div>
+            </div>
+          </div>
+          <input minlength="15" class="form-control form-control-genrl mb-4" type="text" #code="ngModel" required
+            name="coupon" [(ngModel)]="coupon"
+            placeholder="{{'Enter the coupon and take advantage of discounts'|translate}}" />
+        </div>
+        <button [ngClass]="{'enabled':checked(resetForm),'disabled':!checked(resetForm) }" (click)="checkCoupon()"
+          mdbBtn rounded="true" block="true" type="submit" class="btn-set btn-coupen-code btn-coupen">
+          {{ 'Check the coupon' | translate }}</button>
+      </form>
+      <div class="after-success-coupen" *ngIf="coupenSucces">
+        <h4 class="label text-center">{{'Congratulations! You got a free course'|translate}}</h4>
+        <button (click)="buyFreeCourse()" mdbBtn rounded="true" block="true" type="submit"
+          class="btn-set btn-coupen-code">{{'Continue'|translate}}</button>
+      </div>
+    <div *ngIf="!coupenSucces">
+      <ngb-tabset #t="ngbTabset" (tabChange)="onTabChange($event)" class="tabset-main">
+        <ngb-tab id="bank_tab">
+          <ng-template ngbTabTitle>
+            <img src="../../../../../assets/images/visa-master-card.png" alt="" class="logo-visa-card img-fluid">
+          </ng-template>
+          <ng-template ngbTabContent>
+            <iframe id="bankFrame" #iframe [src]="paymentURL" frameBorder="0" width="100%"
+              (load)="onMyFrameLoad(iframe)" type='text/html'>
+            </iframe>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab id="paypal_tab">
+          <ng-template ngbTabTitle>
+
+            <img src="../../../../../assets/images/paypal.png" alt="" class="logo-paypal img-fluid">
+          </ng-template>
+          <ng-template ngbTabContent>
+            <ngx-paypal [config]="payPalConfig" class="paypal-main"></ngx-paypal>
+          </ng-template>
+        </ngb-tab>
+
+      </ngb-tabset>
+    </div>
+
+    
+    </div>
+
+
+    <a (click)="failure()" class="btn-cancel-payment">إلغاء</a>
+
+    <p class="text-footer-copyright text-center" style="font-weight: bold;">
+      {{ 'copyright' | translate }}</p>
+  </div>
+  <div class="loader" *ngIf="loader">
+    <img src="../../../../../assets/images/spiner.gif" alt="">
+  </div>
+
+
+  <!-- <div class="test" *ngIf="1">
+    <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, quis.</h1>
+  </div> -->
+</div>

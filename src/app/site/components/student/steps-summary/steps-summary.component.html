@@ -1,0 +1,142 @@
+<!-- <div [ngClass]="langStyle">
+  <div class="steps-summary-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+          <div class="steps-summary-video">
+            <vg-player>
+              <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+              </vg-overlay-play>
+              <vg-controls>
+                <vg-play-pause></vg-play-pause>
+                <vg-scrub-bar>
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                <vg-mute></vg-mute>
+                <vg-volume vgFor="masterVideo"></vg-volume>
+                <vg-fullscreen></vg-fullscreen>
+              </vg-controls>
+              <video [vgMedia]="master" #master  id="masterVideo" preload="auto" autoplay="true"
+                loop="true"
+                src="https://kun-academy.s3.amazonaws.com/media_files/1581614522536-0845ee00a-6329-44ad-b555-1b2429d5b637_720.mp4">
+              </video>
+            </vg-player>
+            <div class="wrap-summary-message">
+              <p> عند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة
+                للتصميم </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- ============================== -->
+<div [ngClass]="langStyle">
+  <ngx-ui-loader class="wrapper-app-video" *ngIf="!courseDetail.id"></ngx-ui-loader>
+  <div class="steps-summary-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-12">
+
+          <div class="steps-summary-video">
+            <!-- <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader> -->
+            <!-- <div class="loader-settings" *ngIf="courseGifLoader"
+      style="position:fixed;z-index:99999999999; left:0; right:0; margin-left:auto; margin-right: auto; top:50%;margin-top:-25px;">
+      <app-course-loader></app-course-loader>
+    </div> -->
+
+
+            <vg-player [ngClass]="showVideoControl()" (onPlayerReady)=" onPlayerReady($event)">
+              <div *ngIf="courseGifLoader" style="z-index:9999999999999999999999999999999;">
+                <app-course-loader></app-course-loader>
+              </div>
+              <!-- <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+              </vg-overlay-play> -->
+              <vg-controls [vgAutohide]="false">
+                <vg-play-pause></vg-play-pause>
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-scrub-bar class="vg-scrub-genrl">
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <!-- ================================ DUBBING SETTING START ================================  -->
+                <div *ngIf="dubbingList.length>0" class="dubbing" (click)="showDubbings()">
+                  <!-- <i class="fal fa-language dubbing-control-icon"></i> -->
+                  <div class="dubbing-inner">
+                    <span class="active-dubbing">{{ getActiveDubbing() | translate }}</span>
+                    <i class="fal fa-language dubbing-control-icon"></i>
+                  </div>
+                  <div class="content-dubbing" *ngIf="dubbingContent">
+                    <p class="title-dubbing"><i class="fal fa-language dubbing-title-icon"></i> {{'Dubbing'| translate}}
+                    </p>
+                    <ul class="dubbing-ul" *ngFor="let dubbing of dubbingList ; let dubbingIndex= index">
+                      <li (click)="changeDubbing(dubbingIndex)"
+                        [ngClass]="{'active': activeDubbing == dubbingIndex, 'inActive': !(activeDubbing == dubbingIndex)}">
+                        {{dubbing.name| translate}}</li>
+                      <li (click)="changeDubbing(-1)"
+                        [ngClass]="{'active': activeDubbing == -1 , 'inActive': !(activeDubbing == -1)}"
+                        *ngIf="dubbingIndex==dubbingList.length-1">{{'English'| translate}} </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- ================================ DUBBING SETTING END ================================  -->
+                <!-- ================================ SUBTITLE SETTING START ================================  -->
+                <div *ngIf="0" class="subtitle" (click)="showSubtitle()"><i
+                    class="fal fa-closed-captioning subtitle-control-icon"></i>
+                  <div class="content-subtitle">
+                    <p class="title-subtitle"><i class="fal fa-language subtitle-title-icon"></i> Subtitle</p>
+                    <ul class="subtitle-ul">
+                      <li>Ar</li>
+                      <li>En</li>
+                      <li>Default</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- ================================ SUBTITLE SETTING END ================================  -->
+                <!-- ================================ QUALITY SETTING START ================================  -->
+                <div *ngIf="qualitiesList.length>0" class="quality" (click)="showQuality()">
+                  <!-- <i class="fal fa-cog quality-control-icon"></i> -->
+                  <div class="quality-inner">
+                    <span class="active-quality">{{ getActiveQuality() | translate }}</span>
+                    <i class="fal fa-cog quality-control-icon"></i>
+                  </div>
+                  <div class="content-quality" *ngIf="qualityContent">
+                    <p class="title-quality"><i class="fal fa-cog quality-title-icon"></i> {{'Quality'| translate}}</p>
+                    <div class="wrap-quality-ul">
+                      <ul class="quality-ul" *ngFor="let qualitiy of qualitiesList ; let qualitiyIndex= index">
+                        <li (click)="changeQuality(qualitiyIndex)"
+                          [ngClass]="{'active': activeQuality == qualitiyIndex, 'inActive': !activeQuality == qualitiyIndex}">
+                          {{qualitiy.name| translate}}</li>
+                        <!-- <li (click)="changeQuality(-1)"
+                                      [ngClass]="{'active': activeQuality == -1 , 'inActive': !(activeQuality == -1)}"
+                                      *ngIf="dubbingIndex==qualitiesList.length-1">{{'Basic '| translate}} </li> -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- ================================ SUBTITLE SETTING END ================================  -->
+                <vg-mute></vg-mute>
+                <!-- <vg-volume vgFor="masterVideo"></vg-volume> -->
+                <!-- <vg-fullscreen></vg-fullscreen> -->
+
+              </vg-controls>
+              <div ng-show="API.isCompleted && API.currentState == 'stop'"><span ng-click="initNext()"></span></div>
+              <video [vgMedia]="master" #master id="masterVideo" preload="auto" isWaiting="" isCompleted=""
+                autoplay="true" [src]="app_ser.video_url(video, video_derivation)">
+              </video>
+            </vg-player>
+
+            <div *ngIf="showMsg" class="wrap-summary-message">
+              <p> {{'freeVideoMsg'|translate}}</p>
+              <a class="btn btn-addToFavourite" (click)="addToFavourite()">{{'Add To Favourite'|translate}} </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

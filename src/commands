@@ -1,0 +1,8 @@
+
+ng build  --base-href /kun/ang8/Web/
+
+
+ ng build --prod --outputPath online
+
+ng g component <name>
+

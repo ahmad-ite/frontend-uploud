@@ -1,0 +1,254 @@
+.wrapper-dashboard-ar {
+  direction: rtl;
+  text-align: right;
+
+  .link-card {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  // ANIMATION ICONS START
+  @keyframes jump {
+    0% {
+      top: 0;
+    }
+
+    50% {
+      top: 7px;
+    }
+
+    100% {
+      top: 0;
+    }
+  }
+
+  .wrap-icon i {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    animation: jump 1.5s infinite ease-in-out;
+  }
+
+  // ANIMATION ICONS END
+  .wrap-card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background: white;
+    padding: 40px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    .wrap-icon {
+      i {
+        font-size: 70px;
+        opacity: 0.4;
+
+      }
+    }
+
+    .wrap-card-content {
+      color: grey;
+
+      .title-card {
+        font-size: 15px;
+        margin-bottom: 0;
+      }
+
+      .no-of-results {
+        font-size: 50px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .wrap-card-corrections {
+    border-top: 5px solid orange;
+
+    .wrap-icon {
+      i {
+        color: orange;
+      }
+    }
+  }
+
+  .wrap-card-no-of-students {
+    border-top: 5px solid #3399f0;
+
+    .wrap-icon {
+      i {
+        color: #3399f0;
+      }
+    }
+  }
+
+  .wrap-card-no-of-courses {
+    border-top: 5px solid #49bf49;
+
+    .wrap-icon {
+      i {
+        color: #49bf49;
+      }
+    }
+  }
+
+  .wrap-card-certificates {
+    border-top: 5px solid #b7b7b7;
+
+    .wrap-icon {
+      i {
+        color: #b7b7b7;
+      }
+    }
+  }
+
+  .wrap-chart-pending-and-checked-corrections {
+    display: block !important;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .wrap-chart-passed-failed-students {
+    display: block !important;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .wrap-chart-earnings {
+    display: block !important;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .wrap-courses-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+    table {
+      thead {
+        tr {
+          th {
+            border-top: 0;
+          }
+
+          .th-course-students {
+            text-align: left;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            font-size: 16px;
+          }
+
+          .td-course-students {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  .wrap-courses-rating {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    min-height: 294px;
+
+    .carousel-course-rating {
+      .course-name-summary-rating {
+        color: black;
+        font-weight: bold;
+        padding: 50px 20px 20px 20px;
+        font-size: 24px;
+      }
+
+      .wrap-rating {
+        text-align: center;
+
+        .course-star-rating {
+          .fa-star {
+            font-size: 24px;
+            margin: 0 3px;
+          }
+
+          .star-full {
+            color: #dabe1a;
+
+          }
+
+          .star-empty {
+            color: #BCBCBC;
+          }
+        }
+      }
+
+      .carousel-indicators {
+        top: 200px !important;
+
+        li {
+          background-color: #009f9e !important;
+        }
+      }
+
+      .carousel-control-prev {
+        display: none !important;
+      }
+
+      .carousel-control-next {
+        display: none !important;
+      }
+    }
+  }
+
+}
+
+.classic-admin-card .card-body {
+  color: #fff;
+  margin-bottom: 0;
+  padding: 0.9rem;
+}
+
+.classic-admin-card .card-body p {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+.classic-admin-card .card-body h4 {
+  margin-top: 10px;
+}
+
+.classic-admin-card .card-body .float-right .fa {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.classic-admin-card .progress {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.table-ui {
+  border: 1px solid #e0e0e9;
+}
+
+.blue-gradient {
+  background: -webkit-linear-gradient(50deg, #45cafc, #303f9f);
+  background: linear-gradient(40deg, #45cafc, #4285f4);
+}
+
+.card.card-cascade {
+  .view {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.15), 0 3px 12px 0 rgba(0, 0, 0, 0.15);
+  }
+}

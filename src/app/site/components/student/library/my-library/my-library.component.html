@@ -1,0 +1,41 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-library-inner">
+    <div class="container container-custom-width">
+      <div class="row">
+        <div class="col-md-12">
+          <ngb-tabset type="pills" (tabChange)="onTabChange($event)" [activeId]="activeTab"
+            [orientation]="currentOrientation" class="tab-set-parent">
+            <ngb-tab id="my-courses">
+              <ng-template ngbTabTitle><b><i class="fal fa-book-user"></i> {{ 'myCourses' | translate }}</b>
+              </ng-template>
+              <ng-template ngbTabContent *ngIf="activeTab =='my-courses'">
+                <app-my-courses></app-my-courses>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="completed-courses">
+              <ng-template ngbTabTitle><b><i class="fal fa-file-check"></i> {{ 'completedCourses' | translate }}</b>
+              </ng-template>
+              <ng-template ngbTabContent *ngIf="activeTab=='completed-courses'">
+                <app-completed-courses></app-completed-courses>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="wishlist">
+              <ng-template ngbTabTitle><b><i class="fal fa-heart"></i> {{ 'wishlist' | translate }}</b>
+              </ng-template>
+              <ng-template *ngIf="activeTab=='wishlist'" ngbTabContent>
+                <app-wishlist></app-wishlist>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab id="certificates">
+              <ng-template ngbTabTitle><b><i class="fal fa-file-certificate"></i> {{ 'Certificates' | translate }}</b>
+              </ng-template>
+              <ng-template *ngIf="activeTab=='certificates'" ngbTabContent>
+                <app-certificates></app-certificates>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

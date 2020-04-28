@@ -1,0 +1,585 @@
+/* ============================= ARABIC STYLES START ============================= */
+.wrapper-lang-trainer-profile-setup-ar {
+  direction: rtl;
+  text-align: right;
+  font-size: 1rem !important;
+
+  .stepper-trainer-registration .card-body {
+    ul.stepper.horizontal .step .step-title::before {
+      font-weight: 500;
+      font-family: "Font Awesome 5 Pro";
+    }
+
+    ul.stepper.horizontal .step:nth-of-type(1) .step-title {
+      &:before {
+        content: "\f007";
+      }
+    }
+
+    ul.stepper.horizontal .step:nth-of-type(2) .step-title {
+      &:before {
+        content: "\f0b1";
+      }
+    }
+
+    ul.stepper.horizontal .step:nth-of-type(3) .step-title {
+      &:before {
+        content: "\f38a";
+      }
+    }
+
+    ul.stepper.horizontal .step:nth-of-type(4) .step-title {
+      &:before {
+        content: "\f00c";
+      }
+    }
+
+    ul.stepper.horizontal .step.active .step-title:before {
+      background-color: #00b5a9 !important;
+      background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    }
+
+    ul.stepper.horizontal {
+      overflow: hidden !important;
+    }
+
+    .error-msg-div {
+      text-align: left;
+    }
+
+    .error-message {
+      position: unset !important;
+      color: #f44336;
+    }
+
+    .success-message {
+      position: unset !important;
+      color: #00c851;
+    }
+
+    .btn-genrl {
+      margin: 15px 5px 0 0 !important;
+
+    }
+
+    .img-uploaded {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+
+
+    }
+
+    .btn-continue {
+      background-image: linear-gradient(to right, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      text-align: center;
+      border: 0;
+      padding: 12px 25px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+
+    .btn-back {
+      background-image: linear-gradient(to right, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      border: 0;
+      padding: 12px 25px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+
+    .btn-submit {
+      background-image: linear-gradient(to right, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      border: 0;
+      padding: 12px 25px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .input-female {
+    margin-left: 20px;
+  }
+
+  // RADIO BUTTON STYLE START
+  @keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-left: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }
+
+  .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .option-input:hover {
+    background: #9faab7;
+  }
+
+  .option-input:checked {
+    background: #00b5a9;
+  }
+
+  .option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    font-family: "Font Awesome 5 Pro";
+    content: "\f111";
+    font-weight: 900;
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 9px !important;
+    top: -10px;
+  }
+
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #00b5a9;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+
+  .option-input.radio {
+    border-radius: 50%;
+  }
+
+  .option-input.radio::after {
+    border-radius: 50%;
+  }
+
+  // RADIO BUTTON STYLE END
+  .margin-bottom-row {
+    margin-bottom: 100px !important;
+  }
+
+  // PROFILE PICTURE UPLOAD CSS START
+  .upload-profile-pic-file-upload {
+    position: relative;
+
+    .ngx-file-drop__drop-zone {
+      // background-image: url(../../../../assets/images/user-default.jpg);
+      // background-size: 100%;
+      // background-position: center;
+      // height: 250px !important;
+      // width: 250px !important;
+      // border-radius: 100px !important;
+      height: auto !important;
+      border: 0 !important;
+      // margin-left: 0 !important;
+
+      // z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__drop-zone--over {
+      background: rgba(0, 181, 169, 0.5) !important;
+      z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__content {
+      height: 250px !important;
+      margin-bottom: 75px;
+    }
+
+    .btn-upload-picture {
+      position: absolute;
+      top: 260px;
+      width: 250px;
+      text-align: center;
+      padding: 5px 15px;
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      right: 0;
+      outline: 0;
+    }
+
+    .btn-upload-picture:hover {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    }
+
+    .upload-image-limit {
+      position: absolute;
+      left: 200px;
+      color: #333;
+      width: 250px;
+    }
+
+    .drop-file-text {
+      color: #8c8c8c;
+      font-size: 12px;
+
+    }
+
+    .image-uploaded {
+      width: 250px !important;
+      height: 250px !important;
+      border-radius: 100px;
+
+    }
+
+    .img-file {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid lightgray;
+      border-radius: 200px;
+    }
+
+    // .img-file {
+
+    //   width: 150px !important;
+    //   height: 150px !important;
+    //   border-radius: 100px;
+    //   object-fit: cover !important;
+    //   object-position: top !important;
+    //   border: 1px solid lightgray;
+    // }
+  }
+
+  // PROFILE PICTURE UPLOAD CSS END
+
+  // SIGNATURE PICTURE UPLOAD CSS START
+  .upload-signature {
+
+
+    .ngx-file-drop__drop-zone {
+      height: 350px !important;
+      border-radius: 30px !important;
+      border: 2px dashed lightgray !important;
+      margin-left: 0 !important;
+      z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__drop-zone--over {
+      background: rgba(0, 181, 169, 0.5) !important;
+      z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__content {
+      height: 350px !important;
+    }
+
+    .btn-upload-signature {
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+    }
+
+    .btn-change-signature {
+      // border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+      position: absolute;
+      top: 45px;
+      right: 35px;
+    }
+
+
+
+    .drop-file-text {
+      color: #8c8c8c;
+      font-size: 12px;
+
+    }
+
+    .signature-img-uploaded {
+      position: absolute;
+      z-index: -1;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      padding: 15px;
+      right: 0 !important;
+    }
+
+    .img-file {
+      width: 100% !important;
+      height: 350px !important;
+      border-radius: 30px;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+  }
+
+  // SIGNATURE PICTURE UPLOAD CSS END
+
+
+  // CV UPLOAD CSS START
+  .upload-cv {
+
+
+    .ngx-file-drop__drop-zone {
+      height: 350px !important;
+      border-radius: 30px !important;
+      border: 2px dashed lightgray !important;
+      margin-left: 0 !important;
+      z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__drop-zone--over {
+      background: rgba(0, 181, 169, 0.5) !important;
+      z-index: 9999999999 !important;
+    }
+
+    .ngx-file-drop__content {
+      height: 350px !important;
+    }
+
+    .btn-upload-cv {
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+    }
+
+    .btn-update-cv {
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+      position: absolute;
+      top: 45px;
+      right: 35px;
+    }
+
+    .file-name {
+      position: absolute;
+      top: 50%;
+      margin-top: 0;
+
+
+    }
+
+    .drop-file-text {
+      color: #8c8c8c;
+      font-size: 12px;
+
+    }
+
+    // .image-uploaded {
+    //   position: absolute;
+    //   z-index: -1;
+    //   position: absolute;
+    //   z-index: -1;
+    //   width: 100%;
+    //   padding: 15px;
+    // }
+
+    // .img-file {
+    //   width: 100% !important;
+    //   height: 350px !important;
+    //   border-radius: 30px;
+    //   object-fit: cover !important;
+    //   object-position: center !important;
+    //   border: 1px solid lightgray;
+    // }
+  }
+
+  // CV UPLOAD CSS END
+
+  // CV UPLOAD CSS START
+  // .upload-cv {
+  //   position: relative;
+
+  //   .ngx-file-drop__drop-zone {
+
+  //     width: 350px !important;
+  //     height: 250px !important;
+  //     border-radius: 10px !important;
+  //     border: 2px dashed lightgray !important;
+  //     margin-left: 0 !important;
+  //     z-index: 9999999999 !important;
+  //   }
+
+  //   .ngx-file-drop__drop-zone--over {
+  //     background: rgba(0, 181, 169, 0.5) !important;
+  //     z-index: 9999999999 !important;
+  //   }
+
+  //   .ngx-file-drop__content {
+  //     height: 250px !important;
+  //   }
+
+  //   .btn-upload-cv {
+  //     border: 1px solid lightgray;
+  //     border-radius: 100px;
+  //     outline: 0;
+  //   }
+
+  //   .file-name {
+  //     position: absolute;
+  //     top: 100px;
+
+  //   }
+
+  //   .btn-update-cv {
+  //     position: absolute;
+  //     top: 130px;
+  //     width: 140px;
+  //     border: 1px solid lightgray;
+  //     border-radius: 100px;
+  //     outline: 0;
+  //   }
+
+
+  //   .drop-file-text {
+  //     color: #8c8c8c;
+  //     font-size: 12px;
+
+  //   }
+
+  //   .image-uploaded {
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     width: 350px !important;
+  //     height: 250px !important;
+
+
+  //   }
+
+  //   .img-file {
+  //     width: 350px !important;
+  //     height: 250px !important;
+  //     border-radius: 10px;
+  //     object-fit: cover !important;
+  //     object-position: center !important;
+  //     border: 1px solid lightgray;
+  //   }
+  // }
+
+  // CV UPLOAD CSS END
+
+  // DEMONSTRATION VIDEO CSS START
+  .upload-demonstration-video {
+    .ngx-file-drop__drop-zone {
+      height: 350px;
+      border: 2px dashed lightgray !important;
+    }
+
+    .ngx-file-drop__content {
+      height: 350px;
+    }
+
+    .btn-upload-video {
+
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+    }
+
+    .btn-change-video {
+      border: 1px solid lightgray;
+      border-radius: 100px;
+      outline: 0;
+      padding: 5px 20px;
+      position: absolute;
+      top: 45px;
+      right: 35px;
+    }
+
+
+
+  }
+
+  .video-uploaded {
+    width: 100% !important;
+    height: 354px !important;
+
+    vg-player {
+      height: 350px !important;
+      width: 100%;
+      border-radius: 30px !important;
+    }
+  }
+
+  // DEMONSTRATION VIDEO CSS END
+
+}
+
+
+/* ============================= ARABIC STYLES END ============================= */
+/* ============================= ENGLISH STYLES START ============================= */
+.wrapper-lang-trainer-profile-setup-en {
+  direction: ltr;
+  text-align: left;
+}
+
+/* ============================= ENGLISH STYLES END ============================= */
+
+.trainerSignUpModal {
+  background: rgba(0, 0, 0, 0.5);
+
+  .modal-dialog {
+    border-radius: 20px !important;
+
+    .modal-content {
+
+      border-radius: 20px !important;
+
+      .wrapper-sign-in-up-component {
+        border-radius: 20px !important;
+      }
+    }
+  }
+}
+
+pdf-viewer {
+  display: block;
+  height: 100vh;
+}

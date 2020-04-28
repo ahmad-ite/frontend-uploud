@@ -1,0 +1,277 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-my-certificates-lang-ar {
+  direction: rtl;
+  text-align: right;
+
+  .container-custom-width {
+    max-width: calc(100% - 150px) !important;
+  }
+
+  .custom-col-padding {
+    padding: 0 4px !important;
+  }
+
+  .hdng-certificates {
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 30px !important;
+  }
+
+  .hdng-certificates:after {
+    background-image: linear-gradient(to left, #00b5a9, #01637f);
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    width: 70px;
+    margin: 10px 0 20px;
+    right: 15px;
+    bottom: -5px;
+    border-radius: 100px !important;
+  }
+
+  .wrap-certificate-thumbnail {
+    position: relative;
+  }
+
+  .wrap-certificate-thumbnail:hover {
+    cursor: pointer;
+  }
+
+  .img-certificate {
+
+    height: 170px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 0px 0px 5px lightgray;
+  }
+
+  .overlay-certificate-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170px;
+    border-radius: 20px;
+    z-index: 20;
+    border: 1px solid white;
+    background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.8));
+    z-index: 10;
+
+    .certificate-name {
+      color: white;
+      font-size: 24px;
+      margin-top: 54px;
+      padding: 0 15px;
+      text-shadow: 0px 0px 2px black;
+
+    }
+  }
+
+  .icon-certificate {
+    position: absolute;
+    top: 1px;
+    right: 20px;
+    z-index: 20;
+    height: 50px;
+    padding: 5px 6px 5px 5px;
+    background-image: linear-gradient(to right, #00b5a9, #01637f);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    i {
+      color: white;
+      font-size: 20px;
+      margin-top: 17px;
+    }
+  }
+
+  // MEDIA QUERY START HERE 
+
+  /* Small devices (phones, 576px and up) */
+  @media (max-width: 575px) {
+
+    .wrapper-certificates {
+      margin-bottom: 10px;
+
+      .hdng-certificates {
+        margin-top: 20px;
+      }
+    }
+
+    .wrap-no-course-found {
+      margin-top: 290px !important;
+    }
+
+  }
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767px) {}
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) and (max-width: 991px) {}
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1499px) {}
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1500px) and (max-width: 3000px) {}
+
+  // MEDIA QUERY END HERE 
+}
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-my-certificates-lang-en {
+  direction: rtl;
+  text-align: right;
+
+  .container-custom-width {
+    max-width: calc(100% - 150px) !important;
+  }
+
+  .custom-col-padding {
+    padding: 0 4px !important;
+  }
+
+  .hdng-certificates {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 30px !important;
+  }
+
+  .hdng-certificates:after {
+    background-image: linear-gradient(to left, #00b5a9, #01637f);
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    width: 70px;
+    margin: 10px 0 20px;
+    left: 15px;
+    bottom: -5px;
+    border-radius: 100px !important;
+  }
+
+  .wrap-certificate-thumbnail {
+    position: relative;
+  }
+
+  .wrap-certificate-thumbnail:hover {
+    cursor: pointer;
+  }
+
+  .img-certificate {
+
+    height: 170px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 0px 0px 5px lightgray;
+  }
+
+  .overlay-certificate-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170px;
+    border-radius: 20px;
+    z-index: 20;
+    border: 1px solid white;
+    background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.8));
+    z-index: 10;
+
+    .certificate-name {
+      color: white;
+      font-size: 24px;
+      margin-top: 54px;
+      padding: 0 15px;
+      text-shadow: 0px 0px 2px black;
+
+    }
+  }
+
+  .icon-certificate {
+    position: absolute;
+    top: 1px;
+    right: 20px;
+    z-index: 20;
+    height: 50px;
+    padding: 5px 6px 5px 5px;
+    background-image: linear-gradient(to right, #00b5a9, #01637f);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    i {
+      color: white;
+      font-size: 20px;
+      margin-top: 17px;
+    }
+  }
+
+  // MEDIA QUERY START HERE 
+
+  /* Small devices (phones, 576px and up) */
+  @media (max-width: 575px) {
+    .wrapper-certificates {
+      margin-bottom: 10px;
+
+      .hdng-certificates {
+        margin-top: 20px;
+      }
+    }
+
+    .wrap-no-course-found {
+      margin-top: 290px !important;
+    }
+
+  }
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767px) {}
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) and (max-width: 991px) {}
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1499px) {}
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1500px) and (max-width: 3000px) {}
+
+  // MEDIA QUERY END HERE 
+}
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */

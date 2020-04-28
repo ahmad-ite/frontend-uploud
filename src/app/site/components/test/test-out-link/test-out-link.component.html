@@ -1,0 +1,14 @@
+<!-- <iframe [src]="paymentURL" height="600" width="800"></iframe>
+
+-->
+<!-- <a (click)="start()">{{"Reload"| translate}}</a> -->
+<div style="width:300px; margin:0 auto;">
+  <a class="btn btn-get-it-now" (click)="start()">{{'Refresh' | translate}}</a>
+</div>
+<iframe #iframe id="tcsFrame" [src]="paymentURL" frameBorder="0" width="100%" height="1000" type='text/html'>
+</iframe>
+
+
+
+<!-- <a (click)="func()" class="page-link">{{"Success"| translate}}</a>
+<a (click)="func1()" class="page-link">{{"Failure"| translate}}</a> -->

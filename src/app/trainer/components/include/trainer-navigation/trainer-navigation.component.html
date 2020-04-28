@@ -1,0 +1,385 @@
+<div [ngClass]="langStyle">
+  <!-- Sidebar navigation -->
+  <mdb-sidenav #sidenav class=" fixed" [fixed]="true" class="sidebar-main-div">
+    <logo>
+      <!-- Logo -->
+      <li>
+        <div class="logo-wrapper waves-light">
+          <a href="#">
+            <img src="../../../../../assets/images/Logo-white.png" class="img-fluid flex-center">
+          </a>
+        </div>
+      </li>
+      <!--/. Logo -->
+    </logo>
+    <links>
+      <!--Social-->
+      <!-- <li>
+                    <ul class="social">
+                        <li>
+                            <a class="icons-sm fb-ic">
+                                <mdb-icon fab icon="facebook-f" class="mr-1"></mdb-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="icons-sm pin-ic">
+                                <mdb-icon fab icon="pinterest-p" class="mr-1"> </mdb-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="icons-sm gplus-ic">
+                                <mdb-icon fab icon="google-plus-g" class="mr-1"> </mdb-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="icons-sm tw-ic">
+                                <mdb-icon fab icon="twitter" class="mr-1"></mdb-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
+      <!--/Social-->
+      <!--Search Form-->
+      <!-- <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group md-form waves-light" mdbWavesEffect>
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </li> -->
+      <!--/.Search Form-->
+      <!-- Side navigation links -->
+      <li>
+        <ul class="collapsible collapsible-accordion ul-sidebar-lins">
+          <mdb-squeezebox [multiple]="false" aria-multiselectable="false">
+            <!-- <mdb-item>
+              <mdb-item-head mdbWavesEffect>
+                <mdb-icon fas icon="tachometer-alt" class="mr-1"></mdb-icon> Dashboards
+              </mdb-item-head>
+              <mdb-item-body>
+                <ul>
+                  <li>
+                    <a [routerLink]='[{ outlets: { trainer: ["a"] } }]' class="waves-effect" mdbWavesEffect>A</a>
+                  </li>
+                  <li>
+                    <a [routerLink]='[{ outlets: { trainer: ["b"] } }]' class="waves-effect" mdbWavesEffect>B</a>
+                  </li>
+                  <li>
+                    <a routerLink="dashboards/v3" class="waves-effect" mdbWavesEffect>Version 3</a>
+                  </li>
+                  <li>
+                    <a routerLink="dashboards/v4" class="waves-effect" mdbWavesEffect>Version 4</a>
+                  </li>
+                  <li>
+                    <a routerLink="dashboards/v5" class="waves-effect" mdbWavesEffect>Version 5</a>
+                  </li>
+                </ul>
+              </mdb-item-body>
+            </mdb-item> -->
+            <!-- <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="camera" class="mr-1"></mdb-icon> Pages
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="pages/login" class="waves-effect" mdbWavesEffect>Login</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/register" class="waves-effect" mdbWavesEffect>Register</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/pricing" class="waves-effect" mdbWavesEffect>Pricing</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/lock" class="waves-effect" mdbWavesEffect>Lock screen</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/single-post" class="waves-effect" mdbWavesEffect>Single
+                                                post</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/post-listing" class="waves-effect" mdbWavesEffect>Post
+                                                listing</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="pages/customers" class="waves-effect"
+                                               mdbWavesEffect>Customers</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="user" class="mr-1"></mdb-icon> Profiles
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="profiles/profile1" class="waves-effect" mdbWavesEffect>Version
+                                                1</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="profiles/profile2" class="waves-effect" mdbWavesEffect>Version
+                                                2</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="profiles/profile3" class="waves-effect" mdbWavesEffect>Version
+                                                3</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fab icon="css3" class="mr-1"></mdb-icon> CSS
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="css/grid" class="waves-effect" mdbWavesEffect>Grid system</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/utilities" class="waves-effect" mdbWavesEffect>Utilities</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/icons" class="waves-effect" mdbWavesEffect>Icons</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/images" class="waves-effect" mdbWavesEffect>Images</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/typography" class="waves-effect"
+                                               mdbWavesEffect>Typography</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/colors" class="waves-effect" mdbWavesEffect>Colors</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="css/shadow" class="waves-effect" mdbWavesEffect>Shadow</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="th-large" class="mr-1"></mdb-icon> Components
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="components/buttons" class="waves-effect"
+                                               mdbWavesEffect>Buttons</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/cards" class="waves-effect" mdbWavesEffect>Cards</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/panels" class="waves-effect" mdbWavesEffect>Panels</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/lists" class="waves-effect" mdbWavesEffect>List
+                                                groups</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/pagination" class="waves-effect" mdbWavesEffect>Pagination</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/progress-bars" class="waves-effect" mdbWavesEffect>Progress
+                                                bars</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/tabs" class="waves-effect" mdbWavesEffect>Tabs &
+                                                pills</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/tags" class="waves-effect" mdbWavesEffect>Tags, labels
+                                                & badges</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/date-picker" class="waves-effect" mdbWavesEffect>Date
+                                                picker</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/time-picker" class="waves-effect" mdbWavesEffect>Time
+                                                picker</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/tooltips" class="waves-effect"
+                                               mdbWavesEffect>Tooltips</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="components/popovers" class="waves-effect"
+                                               mdbWavesEffect>Popovers</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon far icon="check-square" class="mr-1"></mdb-icon> Forms
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="forms/form1" class="waves-effect" mdbWavesEffect>Basic</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="forms/form2" class="waves-effect" mdbWavesEffect>Extended</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="forms/form3" class="waves-effect" mdbWavesEffect>Validation</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="table" class="mr-1"></mdb-icon> Tables
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="tables/table1" class="waves-effect" mdbWavesEffect>Basic</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="tables/table2" class="waves-effect" mdbWavesEffect>Extended</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="map" class="mr-1"></mdb-icon> Maps
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="maps/map1" class="waves-effect" mdbWavesEffect>Basic</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="maps/map2" class="waves-effect" mdbWavesEffect>Fullscreen</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="maps/map3" class="waves-effect" mdbWavesEffect>Markers</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="chart-pie" class="mr-1"></mdb-icon> Charts
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="charts/chart1" class="waves-effect" mdbWavesEffect>Version 1</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="charts/chart2" class="waves-effect" mdbWavesEffect>Version 2</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="charts/chart3" class="waves-effect" mdbWavesEffect>Version 3</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item>
+                            <mdb-item>
+                                <mdb-item-head mdbWavesEffect>
+                                    <mdb-icon fas icon="wrench" class="mr-1"></mdb-icon> Settings
+                                </mdb-item-head>
+                                <mdb-item-body>
+                                    <ul>
+                                        <li>
+                                            <a routerLink="settings/settings1" class="waves-effect" mdbWavesEffect>Version
+                                                1</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="settings/settings2" class="waves-effect" mdbWavesEffect>Version
+                                                2</a>
+                                        </li>
+                                        <li>
+                                            <a routerLink="settings/settings3" class="waves-effect" mdbWavesEffect>Version
+                                                3</a>
+                                        </li>
+                                    </ul>
+                                </mdb-item-body>
+                            </mdb-item> -->
+            <a routerLink="/trainer/addCourseLayout" class="add-course-btn"><i class="far fa-plus"></i>
+              {{ 'Add new course' | translate }}</a>
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <!-- <mdb-icon far icon="bell" class="mr-1"></mdb-icon> Courses -->
+                <a routerLink="/trainer/courses/list" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-book icon-genrl-style"></i> {{'Courses' | translate}} </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <!-- <mdb-icon far icon="bell" class="mr-1"></mdb-icon> Courses -->
+                <a routerLink="/trainer/corrections/list" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-book icon-genrl-style"></i> {{'Corrections' | translate}} </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <!-- <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a routerLink="/trainer/courses/add/:id" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-file-check icon-genrl-style"></i> Add Course </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item> -->
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a routerLink="courses/view/id" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-file-check icon-genrl-style"></i> {{'View Course Summary' | translate}}</a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <!-- <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a [routerLink]='[{ outlets: { trainer: ["add-items"] } }]' class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-file-check icon-genrl-style"></i> Add Items </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a routerLink="/trainer/gallery" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-file-check icon-genrl-style"></i> Gallery </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item> -->
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a routerLink="courses/steps" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-file-check icon-genrl-style"></i> {{'Steps' | translate}} </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <!-- <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-cogs icon-genrl-style"></i> Available Tools </a> </mdb-item-head>
+            </mdb-item> -->
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-user icon-genrl-style"></i> {{'Profile' | translate}} </a></mdb-item-head>
+            </mdb-item>
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
+                <a class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-sign-out-alt icon-genrl-style"></i> {{'Logout' | translate}} </a></mdb-item-head>
+            </mdb-item>
+          </mdb-squeezebox>
+        </ul>
+      </li>
+      <!--/. Side navigation links -->
+    </links>
+  </mdb-sidenav>
+  <!--/. Sidebar navigation -->
+</div>

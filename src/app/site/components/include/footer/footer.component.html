@@ -1,0 +1,98 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-footer">
+    <div class="container">
+      <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-4">
+          <!-- <img src="../../../assets/images/Logo.png" alt="" class="img-fluid footer-logo"> -->
+          <h3 class="footer-hdng-genrl">عن كن</h3>
+          <p>المنصة الأكبر في العالم العربي التي توفر خدمات التدريب عبر الانترنت في مختلف المجالات والتخصصات مع أفضل
+            المدربين والأكثر مبيعا على مستوى العالم. ستقدم منصة كن لأول مرة التدريب عبر الانترنت بشكل مختلف وبطرق عدة.
+            ستقدم كن دورات التفاعلية باستخدام أسئلة وتقنيات حديثة لتدريب المتدرب ودورات الماستر كلاس مع أهم نجوم العالم
+            العربي ودورات مدبلجة للغة العربية والانجليزية ودورات مترجمة ودورات البث المباشر وكتب مصورة وكتب مسموعة.</p>
+          <div class="wrap-download-mobile-app-icons">
+            <a href="https://apps.apple.com/us/app/kun-academy/id1482771056?ls=1" class="icon-mobile-app app-store"
+              target="_blank">
+              <img src="../../../assets/images/app-store.png" alt="" class="img-fluid">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.Kun.Kun" class="icon-mobile-app google-play"
+              target="_blank">
+              <img src="../../../assets/images/google-play.png" alt="" class="img-fluid">
+            </a>
+          </div>
+          <div class="wrap-social-media-icons-footer">
+            <a href="https://twitter.com/kun_academy_" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/Kun-Academy-103944987920666/" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/kun_academy/?igshid=kq9eauofy8bv" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/kun-academy" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h3 class="footer-hdng-genrl">برامجنا</h3>
+          <ul class="ul-genrl ul-support">
+            <li *ngFor="let template of globals.footerTemplates">
+              <a (click)="templateNavigation(template)"> {{app_ser.stringLang(template.name, template.name_en)}}</a>
+            </li>
+          </ul>
+          <!-- <ul class="ul-genrl ul-support" >
+                      <li><a href="">دورات تفاعلية</a></li>
+                      <li><a href="">دورات الماستر كلاس</a></li>
+                      <li><a href="">دورات مدبلجة</a></li>
+                      <li><a href="">دورات تدريبية</a></li>
+                      <li><a href="">دورات مترجمة</a></li>
+                      <li><a href="">دورات البث المباشر</a></li>
+                      <li><a href="">كتب مصورة</a></li>
+                      <li><a href="">كتب مسموعة</a></li>
+                      <li><a href="">تنزيل تطبيق كن أكاديمي</a></li>
+                      <li><a href="">برامج المؤسسات</a></li>
+                    </ul> -->
+        </div>
+        <div class="col-md-2">
+          <h3 class="footer-hdng-genrl">عن كن أكاديمي</h3>
+          <ul class="ul-genrl ul-support">
+            <li><a routerLink="/about">من نحن؟</a></li>
+            <!-- <li><a routerLink="">فريقنا</a></li> -->
+            <li><a routerLink="/terms">الشروط والأحكام</a></li>
+            <!-- <li><a routerLink="">القانونية والخصوصية</a></li> -->
+            <!-- <li>Social Media Icons Here ...</li> -->
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h3 class="footer-hdng-genrl">خدامات الدعم</h3>
+          <ul class="ul-genrl ul-quick-links">
+            <li><a routerLink="/contact">اتصل بنا</a></li>
+            <!-- <li><a routerLink="">الأسئلة والتعليمات</a></li> -->
+            <!-- <li><a routerLink="">شراكاتنا وعملاؤنا</a></li> -->
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <h3 class="footer-hdng-genrl">المسار المهني</h3>
+          <ul class="ul-genrl ul-quick-links">
+            <li><a>عن شهادة كن أكاديمي</a></li>
+            <li><a>جد وظيفتك</a></li>
+            <li><a>خريجينا</a></li>
+            <li><a>توظيف خريجينا</a></li>
+            <li><a>قصص نجاح</a></li>
+            <li><a>مشاريع مشاركينا</a></li>
+            <li><a>كن مدربا</a></li>
+          </ul>
+        </div>
+        <!-- <div class="col-md-4">
+          <h3 class="footer-hdng-genrl">Reach Us</h3>
+          <ul class="ul-genrl ul-footer-contact">
+            <li><i class="icon-location"></i>Concord Tower, Media City, Dubai, UAE. </li>
+            <li><i class="icon-mobile"></i>+12345678</li>
+            <li><i class="icon-email"></i>info@kun.academy</li>
+            <li><i class="icon-web"></i>kun.academy</li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="text-footer-copyright"> {{ 'copyright' | translate }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div [ngClass]="langStyle">
+  <section id="trainerAddCourse">
+    <!-- Breadcrumbs start  -->
+    <!-- <nav aria-label="breadcrumb">
+      <ol class="breadcrumb custom-breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> {{'Home' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink="/trainer/courses/list"><i class="fal fa-book"></i>
+            {{'Courses' | translate}}</a></li>
+        <li class="breadcrumb-item active">{{title | translate}}</li>
+      </ol>
+    </nav> -->
+    <!-- Breadcrumbs End  -->
+    <mdb-card>
+      <mdb-card-body>
+        <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+        <form class="p-2 pb-4 form-genrl" novalidate #addCourseForm="ngForm">
+          <h3 class="mb-3">{{title | translate}}</h3>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Course name' | translate }}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message" *ngIf="courseName.errors?.required && courseName.touched">
+                  {{ 'Course name' | translate }} {{ 'is required' | translate }}</div>
+              </div>
+            </div>
+            <input class="form-control form-control-genrl mb-4" type="text" #courseName="ngModel" required
+              name="courseName" [(ngModel)]="course.name" placeholder="{{ 'Course name' | translate }}" />
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{'Template'| translate}}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message" *ngIf="course.template_id==0 && template.touched">
+                  {{ 'Template' | translate }} {{ 'is required' | translate }} </div>
+              </div>
+            </div>
+            <select (change)="onChangeTemplate()"
+              class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" [(ngModel)]="course.template_id"
+              #template="ngModel" name="template" style="height: 50px;" required>
+              <option [ngValue]="0">{{ 'Select' | translate }} {{'Template'| translate}}</option>
+              <option [value]="template.id" *ngFor="let template of templates">
+                {{ app_ser.stringLang(template.name, template.en_name)}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{'Category'| translate}}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message" *ngIf="course.course_category==0 && category.touched">
+                  {{ 'Category' | translate }} {{ 'is required' | translate }} </div>
+              </div>
+            </div>
+            <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4"
+              [(ngModel)]="course.course_category" #category="ngModel" name="category" style="height: 50px;" required>
+              <option [ngValue]="0">{{ 'Select' | translate }} {{'Category'| translate}}</option>
+              <option [value]="category.id" *ngFor="let category of categories">
+                {{ app_ser.stringLang(category.name, category.en_name)}}</option>
+            </select>
+          </div>
+          <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"
+            rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course"> {{'Add
+            Course' | translate}}</button>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </section>
+</div>

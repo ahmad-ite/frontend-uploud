@@ -1,0 +1,277 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-footer-lang-ar {
+  direction: rtl !important;
+  text-align: right !important;
+
+  .wrapper-footer {
+    background: #0a151b;
+    padding: 30px 0 0 0;
+    color: white;
+  }
+
+  .footer-hdng-genrl {
+    font-size: 20px;
+  }
+
+  .footer-logo {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .wrap-download-mobile-app-icons {
+    margin-bottom: 20px;
+
+    .icon-mobile-app {
+      background: black;
+      padding: 5px 10px;
+      border: 1px solid #4e4e4e;
+      border-radius: 5px;
+      margin-left: 7px;
+
+      img {
+        border-radius: 5px;
+        height: 30px;
+      }
+    }
+
+    .icon-mobile-app:hover {
+      cursor: pointer;
+    }
+  }
+
+  .wrap-social-media-icons-footer {
+    margin-bottom: 20px;
+
+    a {
+      margin: 0 5px;
+      padding: 10px;
+
+      i {
+        color: white;
+        font-size: 18px;
+      }
+    }
+
+    a:hover i {
+      color: #00b5a9;
+      cursor: pointer;
+    }
+  }
+
+  .footer-hdng-genrl::after {
+    background-image: linear-gradient(to right, #00b5a9, #01637f);
+    content: "";
+    display: block;
+    height: 5px;
+    position: relative;
+    width: 70px;
+    border-radius: 100px;
+    margin: 10px 0 20px;
+  }
+
+  .text-footer-copyright {
+    background: black;
+    margin-bottom: 0;
+    padding: 25px;
+  }
+
+  .ul-genrl li {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    margin-bottom: 5px;
+  }
+
+  .ul-genrl li:hover {
+    cursor: pointer;
+  }
+
+  .ul-genrl li a {
+    display: inline-block;
+    position: relative;
+    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  .ul-genrl li a:after {
+    background-color: hsl(0, 0%, 100%);
+    content: "";
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    transform: translateY(1px);
+    transition: 0.15s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition-property: opacity, transform;
+    width: 100%;
+  }
+
+  .ul-genrl li a:hover:after {
+    opacity: 1;
+    transform: translateY(-3px) translateZ(0);
+  }
+
+  .ul-support li a {
+    color: white;
+
+  }
+
+  .ul-quick-links li a {
+    color: white;
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-footer-lang-en {
+  direction: ltr !important;
+  text-align: left !important;
+
+  .wrapper-footer {
+    background: #0a151b;
+    padding: 30px 0 0 0;
+    color: white;
+  }
+
+  .footer-hdng-genrl {
+    font-size: 20px;
+  }
+
+  .footer-logo {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .wrap-download-mobile-app-icons {
+    margin-bottom: 20px;
+
+    .icon-mobile-app {
+      background: black;
+      padding: 5px 10px;
+      border: 1px solid #4e4e4e;
+      border-radius: 5px;
+      margin-left: 7px;
+
+      img {
+        border-radius: 5px;
+        height: 30px;
+      }
+    }
+
+    .icon-mobile-app:hover {
+      cursor: pointer;
+    }
+  }
+
+  .wrap-social-media-icons-footer {
+    margin-bottom: 20px;
+
+    a {
+      margin: 0 5px;
+      padding: 10px;
+
+      i {
+        color: white;
+        font-size: 18px;
+      }
+    }
+
+    a:hover i {
+      color: #00b5a9;
+      cursor: pointer;
+    }
+  }
+
+  .footer-hdng-genrl::after {
+    background-image: linear-gradient(to right, #00b5a9, #01637f);
+    content: "";
+    display: block;
+    height: 5px;
+    position: relative;
+    width: 70px;
+    border-radius: 100px;
+    margin: 10px 0 20px;
+  }
+
+  .text-footer-copyright {
+    background: black;
+    margin-bottom: 0;
+    padding: 25px;
+  }
+
+  .ul-genrl li {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    margin-bottom: 5px;
+  }
+
+  .ul-genrl li:hover {
+    cursor: pointer;
+  }
+
+  .ul-genrl li a {
+    display: inline-block;
+    position: relative;
+    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+  }
+
+  .ul-genrl li a:after {
+    background-color: hsl(0, 0%, 100%);
+    content: "";
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    transform: translateY(1px);
+    transition: 0.15s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition-property: opacity, transform;
+    width: 100%;
+  }
+
+  .ul-genrl li a:hover:after {
+    opacity: 1;
+    transform: translateY(-3px) translateZ(0);
+  }
+
+  .ul-support li a {
+    color: white;
+
+  }
+
+  .ul-quick-links li a {
+    color: white;
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */

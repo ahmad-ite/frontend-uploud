@@ -1,0 +1,104 @@
+<div [ngClass]="langStyle">
+  <section id="courseViewSummary" style="margin-top:80px">
+    <!-- Breadcrumbs Start  -->
+    <!-- <nav aria-label="breadcrumb">
+      <ol class="breadcrumb custom-breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><i class="fal fa-home-lg-alt"></i> {{'Home' | translate}}</a></li>
+        <li class="breadcrumb-item"><a href="#"><i class="fal fa-book"></i> {{'Courses' | translate }}</a></li>
+        <li class="breadcrumb-item active">{{'View Course Items' | translate }}</li>
+      </ol>
+    </nav> -->
+    <!-- Breadcrumbs End  -->
+    <!-- <div class="wrap-course-small-summary"> -->
+    <!-- <p class="course-name">Course Name: <span>{{courseInfo.name}}</span> </p>
+      <p class="course-code">Course Code: <span>{{courseInfo.code}}</span> </p>
+      <p class="status">Status: <span>{{courseInfo.status}}</span> </p> -->
+    <!-- </div> -->
+    <!-- Course Grid Start -->
+    <div class="wrap-course-summary-inner">
+      <mdb-card cascade="true" narrower="true" [ngClass]="{ 'z-depth-0': !shadows }">
+        <div class="wrapper-top-area">
+          <div class="row m-0">
+            <div class="col-md-12">
+              <a routerLink="/trainer/courses/add-item" class="test">
+                <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
+                    class="far fa-plus-circle"></i> {{'Add Item' | translate}}</button>
+              </a>
+              <!-- <a routerLink="/trainer/courses/media-gallery">
+                    <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
+                        class="far fa-photo-video"></i> {{'Gallery' | translate}}</button>
+                  </a> -->
+            </div>
+          </div>
+        </div>
+        <div class="px-4">
+          <div class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0 table-course-data">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th class="th-lg">
+                    <a> # </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Arrange'|translate}} </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Type'|translate}} </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Name'|translate}} </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Steps'|translate}} </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Total Marks'|translate}}</a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('pass_mark')">{{'Passing Marks'|translate}} </a>
+                  </th>
+                  <th class="th-lg actions-th">
+                    <a>{{'Actions'|translate}} </a>
+                  </th>
+                </tr>
+              </thead>
+              <!--Table head-->
+              <!--Table body-->
+              <tbody>
+                <tr *ngFor="let item of courseItems,let i =index">
+                  <td>{{i+1}}</td>
+                  <td>
+                    <i class="fal fa-arrow-circle-up arrange-icons-genrl"></i>
+                    <i class="fal fa-arrow-circle-down arrange-icons-genrl"></i>
+                  </td>
+                  <td>{{item.type|translate}}</td>
+                  <td class="item-name">{{item.name}}</td>
+                  <td>{{item.steps}}</td>
+                  <td>{{item.marks}}</td>
+                  <td>{{item.pass_mark}} %</td>
+                  <td class="actions-td"><button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect><i
+                        class="fal fa-edit"></i> {{'Edit Item' | translate }}</button>
+                    <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect><i
+                        class="fal fa-trash-alt"></i> {{'Delete Item' | translate}}</button>
+                    <button mdbBtn rounded="true" class="waves-light btn-steps" mdbWavesEffect><i
+                        class="fal fa-layer-group"></i> {{'Steps' | translate}}</button></td>
+                </tr>
+              </tbody>
+              <!--Table body-->
+            </table>
+            <!--Table-->
+          </div>
+          <hr class="my-0" />
+          <!-- Pagination Start -->
+          <!-- <div class="d-flex justify-content-between wrapper-pagination">
+          <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+        </div> -->
+          <!-- Pagination End -->
+        </div>
+      </mdb-card>
+    </div>
+    <!-- Course Grid End -->
+  </section>
+</div>

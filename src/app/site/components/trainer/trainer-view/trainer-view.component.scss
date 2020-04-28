@@ -1,0 +1,464 @@
+.wrapper-trainer-view {
+  direction: rtl;
+  text-align: right;
+
+  .container-custom-width-video {
+    max-width: 1300px !important;
+  }
+
+  // .trainer-video {
+  //   vg-player {
+  //     border-bottom-left-radius: 100px !important;
+  //     height: 700px !important;
+
+  //     vg-controls {
+  //       padding: 0 70px !important;
+  //     }
+  //   }
+  // }
+  /* ================= STYLES TRAINER VIDEO START ================= */
+  .trainer-video {
+    position: relative;
+    background: #0c1c23;
+
+
+
+    vg-player {
+      // border-bottom-left-radius: 100px;
+      // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+      vg-overlay-play.video-big-play-icon {
+        .vg-icon-play_arrow:before {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f144";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+        }
+
+        .vg-icon-play_arrow:before:hover {
+          cursor: pointer;
+        }
+      }
+
+      vg-controls {
+        padding: 0 70px;
+      }
+
+      video {
+        height: 750px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  /* ================= STYLES TRAINER VIDEO END ================= */
+
+  .wrapper-biography-summary {
+    box-shadow: 0px 0px 10px lightgrey;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid white;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px black;
+    // margin-top: -150px;
+  }
+
+  .wrap-trainer-name {
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  .trainer-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 20px;
+    color: black;
+  }
+
+  .trainer-designation {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00b5a9;
+  }
+
+  .personal-summary {
+    text-align: right;
+
+    p {
+      color: gray;
+
+      i {
+        margin: 0 5px;
+        color: #00b5a9;
+      }
+    }
+  }
+
+  .custom-class-avatar {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    overflow: hidden;
+    border: 3px solid #fff !important;
+    box-shadow: 0px 0px 2px grey;
+    background: white;
+
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .testimonial-card {
+    border-radius: 20px !important;
+  }
+
+  .testimonial-card:hover {
+    cursor: pointer;
+  }
+
+  .gradient-trainer-bg {
+    background: linear-gradient(180deg, #01637f, #00b5a9) !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+  }
+
+  .link-card {
+    color: black;
+  }
+
+
+  .price {
+    margin-bottom: 0;
+
+    .current-discounted-price {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      margin: 0 5px;
+    }
+  }
+
+  .star-rating {
+    margin-bottom: 0;
+
+    i {
+      font-size: 10px;
+      margin: 2px;
+    }
+
+    .star-full {
+      color: #FFDA00;
+
+    }
+
+    .star-half {
+      color: #FFDA00;
+    }
+
+    .star-empty {
+      color: #BCBCBC;
+    }
+
+    .rating-text {
+      font-size: 12px;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+  }
+
+  .btn-view-course {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 100px;
+
+    a {
+      color: white;
+    }
+  }
+
+  .btn-view-course:hover {
+    color: white !important;
+  }
+
+  .card-image {
+    border-radius: 15px !important;
+    min-height: 290px !important;
+    background-size: 100%;
+    background-position: center center;
+  }
+
+  .wrap-content-course {
+    border-radius: 15px !important;
+    min-height: 290px !important;
+  }
+
+  .wrap-trainer-courses .row .col-padd-custom {
+    padding: 5px;
+  }
+
+  .wrap-more-trainers .row .col-padd-custom {
+    padding: 5px;
+  }
+}
+
+
+.card-main {
+
+  box-shadow: 0 0 0 0 !important;
+  transition: 0.3s ease-in;
+  border: 0 !important;
+  background: transparent;
+
+  .wrapper-inner-course {
+    position: relative;
+    height: 150px;
+    z-index: 100 !important;
+    transition: .3s ease-in;
+
+    .main-div-course {
+      .course-img {
+        position: absolute;
+        border-radius: 25px !important;
+        height: 150px;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: center;
+        object-position: center;
+        z-index: 10;
+        transition: .3s;
+      }
+
+      .overlay-dark-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px !important;
+        z-index: 20;
+        border: 1px solid white;
+        background-image: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.8));
+        box-shadow: 0px 0px 2px grey;
+      }
+
+      .overlay-course {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: #fff;
+        padding: 15px;
+        border-radius: 25px !important;
+        z-index: 30;
+
+        .course-title {
+          max-width: 150px;
+          word-wrap: break-word;
+          font-size: 16px;
+          line-height: 22px;
+          margin-bottom: 0;
+        }
+
+        .price {
+          margin-bottom: 0;
+
+          .current-discounted-price {
+            font-size: 16px;
+            font-weight: 700;
+          }
+
+          .old-price {
+            text-decoration: line-through;
+            margin: 0 5px;
+          }
+        }
+
+        .star-rating {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+
+
+    .wrapper-hover-course-video {
+      .wrap-course-over-vg-player {
+        vg-player {
+          z-index: 99;
+          border-radius: 10px;
+          height: 150px !important;
+          border: 1px solid white !important;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
+
+          .play-pause {
+            position: absolute;
+            z-index: 999;
+          }
+        }
+      }
+    }
+
+    .overlay-course-summary-hover {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      color: white;
+      padding: 15px;
+      border-radius: 15px;
+      opacity: 0;
+      z-index: 100;
+      transition: 0.2s ease-in;
+
+      .summary-course span {
+        margin-bottom: 0;
+        font-size: 5px;
+        margin: 0 0 0 3px;
+        line-height: 0px;
+
+      }
+
+
+      .course-title {
+        font-size: 10px;
+        width: 200px;
+        margin-bottom: 5px;
+      }
+
+      .box-play-icon {
+        background: rgba(0, 0, 0, 0.5);
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 100%;
+        padding-top: 4px;
+        margin-bottom: 10px;
+        transition: 0.2s ease-in;
+
+        i {
+          color: white;
+        }
+      }
+
+      .box-play-icon:hover {
+        background-image: linear-gradient(#01637f, #00b5a9) !important;
+        transition: 0.2s ease-in;
+      }
+    }
+
+    .wrapper-icons-links {
+      opacity: 0;
+      position: absolute;
+      left: 15px;
+      top: 80px;
+      color: white;
+      z-index: 110;
+      font-size: 20px;
+
+
+      .box-social-icon {
+        background: rgba(0, 0, 0, 0.5);
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border: 1px solid lightgray;
+        border-radius: 100%;
+        padding-top: 4px;
+        margin-bottom: 10px;
+        transition: 0.2s ease-in;
+      }
+
+      .box-social-icon:hover {
+        // background-image: linear-gradient(#01637f, #00b5a9) !important;
+        border: 1px solid white;
+        transform: scale(1.2);
+        transition: 0.2s ease-in;
+        cursor: pointer;
+      }
+
+      i {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding-top: 1px;
+        font-weight: 400;
+      }
+
+      .fa-hover-scale:hover {
+        transform: scale(1.5);
+      }
+    }
+
+    // transition: 0.3s ease-in;
+  }
+
+  .wrapper-inner-course:hover .overlay-course-summary-hover {
+    opacity: 1;
+    transition: 0.3s ease-in;
+
+    .summary-course {
+      line-height: 14px;
+    }
+
+    .summary-course span {
+      margin-bottom: 0;
+      font-size: 8px;
+      margin: 0 0 0 3px;
+    }
+
+    .summary-course i {
+      margin: 0 0 0 3px;
+    }
+
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  .wrapper-inner-course:hover .wrapper-icons-links {
+    opacity: 1;
+  }
+}
+
+.card-main:hover {
+  transform: scale(1.2);
+  transition: 0.3s ease-in;
+  z-index: 9999999 !important;
+  transform-origin: center;
+  cursor: pointer;
+}

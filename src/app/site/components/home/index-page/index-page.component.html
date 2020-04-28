@@ -1,0 +1,186 @@
+<div [ngClass]="langStyle">
+  <ngx-ui-loader class="wrapper-app-video" *ngIf="!load_data.app_video"></ngx-ui-loader>
+  <div class="wrap-app-video-background" *ngIf="!load_data.app_video">
+    <img src="../../../../../assets/images/app-video-bg.PNG" alt="" class="img-fluid">
+  </div>
+  <div class="wrapper-app-video">
+    <div class="wrapper-app-video-inner">
+      <div class="row row-app-video">
+        <div class="col-md-12 col-12-app-video">
+          <vg-player *ngIf="globals.appVideo" (onPlayerReady)="onPlayerReady($event,'video_app',null)">
+            <vg-overlay-play (click)="runAppVideo()" vgFor="masterVideo" class="video-big-play-icon">
+            </vg-overlay-play>
+            <!-- <vg-controls>
+              <vg-play-pause (click)="runAppVideo()"></vg-play-pause>
+              <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+              </vg-scrub-bar>
+              <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+              <vg-mute></vg-mute>
+              <vg-volume vgFor="masterVideo"></vg-volume>
+              <vg-fullscreen></vg-fullscreen>
+            </vg-controls> -->
+            <video [vgMedia]="master" #master id="masterVideo" autoplay="true"
+              [src]="app_ser.video_url(globals.appVideo , globals.appVideoDeravations,'q_720')">
+            </video>
+          </vg-player>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper-main-categories" *ngFor="let template of this.load_data.main_categories; let i = index"
+    [ngClass]="{'main-categories-first': i==0}">
+    <div class="wrapper-categories-inner" [ngClass]="template.css_class">
+      <div class="container container-custom-width">
+        <div class="row">
+          <div class="col-lg-5" style="padding: 5px;">
+            <div class="wrapper-template-video">
+              <vg-player [style.border-color]="template.color"
+                (onPlayerReady)="onPlayerReady($event,'template',template)">
+                <vg-overlay-play (click)="runTemplateVideo(template)" vgFor="masterVideo" class="video-big-play-icon">
+                </vg-overlay-play>
+                <vg-controls>
+                  <vg-play-pause (click)="runTemplateVideo(template)"></vg-play-pause>
+                  <vg-scrub-bar>
+                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                  </vg-scrub-bar>
+                  <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                  <vg-mute></vg-mute>
+                  <vg-volume vgFor="masterVideo"></vg-volume>
+                  <vg-fullscreen></vg-fullscreen>
+                </vg-controls>
+                <video [vgMedia]="master" #master id="masterVideo" preload="auto"
+                  [src]="app_ser.video_url(template.video, template.video_derivation,'q_720')">
+                </video>
+              </vg-player>
+              <span (click)="templateNavigation(template)" class="category-title" [style.background]="template.color">
+                {{ app_ser.stringLang(template.name,template.name_en) }} </span>
+            </div>
+          </div>
+          <div class="col-lg-7" style="padding: 5px;">
+            <div class="wrapper-courses">
+              <div class="container-all-courses">
+                <div class="row">
+                  <div class="col-md-12">
+                    <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation carousel-courses"
+                      [type]="'carousel-multi-item'" [animation]="'slide'" [interval]="'1000000'">
+                      <mdb-carousel-item *ngFor="let item of template.slide_courses; let slideIndex= index;"
+                        class="carousel-item-custom">
+                        <div class="row ml-0 mr-0">
+                          <div class="col-md-4 custom-col-padding" *ngFor="let course of item ; let cardIndex = index">
+                            <mdb-card class="my-1 card-main">
+                              <div class="wrapper-inner-course" (mouseenter)="showVideoOnOver(course)"
+                                [ngClass]="getCoursePopupClass(cardIndex,item.length,course.id)"
+                                (mouseleave)="hideVideoOnOver(course)">
+                                <a routerLink="/course-view/{{course.code}}/{{app_ser.urlString(course.name)}}">
+                                  <div class="main-div-course">
+                                    <img [src]="app_ser.img_url(course.cover_image,'course')"
+                                      class="img-fluid course-img" alt="">
+                                    <div class="overlay-dark-background" [style.border-color]="template.color"></div>
+                                    <div class="overlay-course">
+                                      <h3 class="course-title bold-hdng">{{course.name}}</h3>
+                                      <p class="price">
+                                        <span *ngIf="!course.price" class="current-discounted-price"
+                                          [style.color]="template.color">{{'Free'| translate}}</span>
+                                        <span *ngIf="course.price" class="current-discounted-price"
+                                          [style.color]="template.color">${{course.price}}</span>
+                                        <span *ngIf="course.old_price" class="old-price">${{course.old_price}}</span>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="wrapper-hover-course-video d-none d-sm-block"
+                                    *ngIf="playVideoOnHover == course.id">
+                                    <app-course-loader *ngIf="courseGifLoader" [class]="stopCourseLoader()">
+                                    </app-course-loader>
+                                    <div class="wrap-course-over-vg-player">
+                                      <vg-player (onPlayerReady)="onPlayerReady($event,'courses',course)"
+                                        [style.border-color]="template.color">
+                                        <video [vgMedia]="master" #master id="masterVideo" preload="auto"
+                                          autoplay="true"
+                                          [src]="app_ser.video_url(course.video,course.video_derivation,'q_480')">
+                                        </video>
+                                      </vg-player>
+                                    </div>
+                                  </div>
+                                  <div class="overlay-course-summary-hover d-none d-sm-block">
+                                    <div class="box-play-icon">
+                                      <a routerLink="/course-view/{{course.code}}/{{app_ser.urlString(course.name)}}"><i
+                                          class="fal fa-play"></i></a>
+                                    </div>
+                                    <h3 class="course-title bold-hdng">{{course.name}}</h3>
+                                    <div class="summary-course">
+                                      <span class="course-date"><i
+                                          class="fal fa-calendar-alt"></i>{{'courseDate' | translate }}
+                                        {{course.create_date |  date:'MM/dd/yyyy'}}</span>
+                                      <span class="no-of-lessons"><i
+                                          class="fal fa-book"></i>{{'noOfLessons' | translate }}
+                                        {{course.items_count}}</span>
+                                      <br>
+                                      <span class="course-time"><i class="fal fa-clock"></i>
+                                        <!-- {{'courseDuration' | translate }} {{course.hours}} -->
+                                        {{app_ser.formatTime(course.duration).hours}} {{'hour' | translate}}
+                                        {{app_ser.formatTime(course.duration).minutes}} {{'Minutes' | translate}}
+                                      </span>
+                                      <span class="registered-students"><i
+                                          class="fal fa-users"></i>{{'noOfStudents' | translate }}
+                                        {{course.students_count}}</span> <br>
+                                      <span class="trainer-name"><i
+                                          class="fal fa-chalkboard-teacher"></i>{{'courseTrainer' | translate }}
+                                        {{course.trainer_name?course.trainer_name:"أكاديمية كن" }}</span>
+                                    </div>
+                                  </div>
+                                </a>
+                                <div class="wrapper-icons-links d-none d-sm-block">
+                                  <div class="box-social-icon" [style.border-color]="template.color">
+                                    <a (click)="muteAndPlay(course)">
+                                      <i *ngIf="course.volume" class="fal fa-volume" [style.color]="template.color"></i>
+                                      <i *ngIf="!course.volume" class="fal fa-volume-mute"
+                                        [style.color]="template.color"></i>
+                                    </a>
+                                  </div>
+                                  <div class="box-social-icon" [style.border-color]="template.color">
+                                    <a (click)="setFavourite(course)">
+                                      <i class="fal fa-heart" *ngIf="!course.is_interested"
+                                        [style.color]="template.color"></i>
+                                      <i class="fal fa-heart" *ngIf="course.is_interested"
+                                        style="color: red; font-weight: 1000"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </mdb-card>
+                          </div>
+                        </div>
+                      </mdb-carousel-item>
+                    </mdb-carousel>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container container-custom-width container-shortcut-links" *ngIf="i==1">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="wrap-best-courses">
+            <i class="icon-genrl fal fa-hand-holding-seedling"></i>
+            <h3>اكتشاف أفضل الدورات تصنيفا</h3>
+            <a href="" class="lnk-view-now">تصفح الآن</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="wrap-top-rated-courses">
+            <i class="icon-genrl fal fa-hand-holding-seedling"></i>
+            <h3>أعلى تصنيف الدورات الشهر الماضي</h3>
+            <a href="" class="lnk-view-now">تصفح الآن</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-download-app-popup></app-download-app-popup>
+</div>

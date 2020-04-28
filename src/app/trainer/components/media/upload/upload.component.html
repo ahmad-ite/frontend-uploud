@@ -1,0 +1,134 @@
+<!-- <div style="padding-top: 100px;">
+  <label class=" btn btn-default">
+    <input type="file" (change)="selectFile($event)">
+  </label>
+
+  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+</div> -->
+<div [ngClass]="langStyle">
+  <div class="row justify-content-center" style="padding: 50px 0;">
+    <div class="col-md-9 center mb-3">
+      <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector" class="wrapper-browse-btn">
+          <button type="button" (click)="openFileSelector()">Browse Files</button><br>
+          <p class="txt-files-limit">Maximum Files: {{maximumFiles}} | Maximum Filesize: {{maximumFilesize}}GB</p>
+        </ng-template>
+      </ngx-file-drop>
+      <div *ngIf="uploadded_files.length" class="upload-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Dubbed? <input (change)="ChangedDubbing()" type="checkbox" [checked]="dubbing" data-toggle="toggle"
+                  data-onstyle="success">
+              </th>
+              <th>Course <br>
+                <select [(ngModel)]="selectedCourse" (change)="ChangedCourse()" class="course-dd">
+                  <option disabled>Select Course</option>
+                  <option [value]="0">No course</option>
+                  <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
+                </select>
+              </th>
+              <th>Size ({{ round( totalSize /1048576 )}} MB)</th>
+              <th>Progress</th>
+              <th>Status</th>
+              <th>Upload</th>
+            </tr>
+          </thead>
+          <tbody class="upload-name-style">
+            <tr *ngFor="let item of uploadded_files; let i=index">
+              <td><strong>{{i+1}}</strong></td>
+              <td><strong>{{ item.file.name }}</strong></td>
+              <td>
+                <input [checked]="item.dubbing" (click)="changeDubbingItem(i)" type="checkbox" checked
+                  data-toggle="toggle" data-onstyle="success">
+              </td>
+              <td>
+                <select [(ngModel)]="item.course" class="course-dd">
+                  <option disabled>Select Course</option>
+                  <option [value]="0">No course</option>
+                  <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
+                </select>
+              </td>
+              <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
+              <td>
+                <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">{{item.uploaded}} %
+                </ngb-progressbar>
+              </td>
+              <td><strong>{{item.status}}</strong></td>
+              <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
+                  (click)="uploadFile(i)" type="button" class="btn btn-success m-1">Upload</button>
+                <button (click)="deleteFile(i)" type="button" class="btn btn-danger m-1">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align:center;">
+          <button (click)="uploadFiles()" type="button" class="btn btn-success m-1">Upload All</button>
+          <button (click)="uploadded_files=[]" type="button" class="btn btn-danger m-1">Remove All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="wrapper-upload-document" *ngIf="activeStep.step.type=='video'||activeStep.step.type=='video-autocue'">
+  <div class="wrap-inner-upload-document">
+    <h5 class="question">{{activeStep.step.question}}</h5>
+    <div class="file-upload-wrapper" *ngIf="!activeStep.enabled">
+      <div class="center relative-div-upload-genrl">
+        <i class="fal fa-video icon-upload-genrl"></i>
+        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+          (onFileLeave)="fileLeave($event)">
+          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+
+            <button type="button" (click)="openFileSelector()" class="btn-upload">Upload Video</button>
+          </ng-template>
+        </ngx-file-drop>
+
+
+
+      </div>
+    </div>
+
+    <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader>
+
+    <div *ngIf="activeStep.enabled" class="show-video-file">
+      <div class="video-file-inner" *ngFor="let item of activeStep.files; let i=index">
+
+
+        <vg-player (onPlayerReady)="onPlayerReady($event)">
+          <vg-controls [vgAutohide]="false">
+            <vg-play-pause></vg-play-pause>
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+            <vg-scrub-bar class="vg-scrub-genrl">
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+              <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+            <vg-mute></vg-mute>
+
+            <vg-fullscreen></vg-fullscreen>
+          </vg-controls>
+          <video [vgMedia]="master" #master  id="masterVideo" preload="auto" isCompleted=""
+            autoplay="true" [src]="app_ser.video_url(activeStep.data)">
+          </video>
+        </vg-player>
+
+
+        <i class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button [ngClass]="{'enabled':activeStep.enabled, 'disabled': !activeStep.enabled}" type="button"
+          class="btn btn-outline-default btn-rounded waves-effect btn-next-custom" (click)="setAnswer()">التالى</button>
+      </div>
+    </div>
+  </div>
+</div> -->

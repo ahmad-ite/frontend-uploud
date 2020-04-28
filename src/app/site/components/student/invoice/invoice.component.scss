@@ -1,0 +1,209 @@
+.invoiceModal {
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto !important;
+
+  .modal-dialog {
+    border-radius: 20px !important;
+    min-height: 800px;
+
+    .modal-content {
+      min-height: 800px;
+      border-radius: 20px !important;
+
+      .wrapper-sign-in-up-component {
+        border-radius: 20px !important;
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+  *****************************************************************************************
+  =========================================================================================
+  ARABIC STYLE START
+  =========================================================================================
+  *****************************************************************************************
+  ====================================================================================== */
+.wrapper-invoice-ar {
+  direction: rtl;
+  text-align: right;
+
+  .wrap-modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+
+    .title-modal-invoice {
+      text-align: right;
+    }
+
+    .wrap-cross-icon {
+      text-align: left;
+    }
+
+    .wrap-cross-icon:hover {
+      cursor: pointer;
+    }
+  }
+
+  .modal-body {
+    text-align: center;
+
+    .logo-kun {
+      width: 200px;
+    }
+
+    .wrap-thanks-message {
+      background: #f1f1f1;
+      color: black;
+      margin-top: 50px;
+      padding: 20px;
+      text-align: right;
+    }
+
+    .wrap-message-summary {
+
+      color: black;
+      padding: 20px;
+      text-align: right;
+    }
+
+    .wrap-tbl-invoice-detail {
+      margin-top: 50px;
+
+      table {
+
+        thead {
+          tr {
+            th {
+              border-top: 0;
+              text-align: right;
+            }
+
+            .th-price {
+              text-align: left;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              text-align: right;
+            }
+
+            .td-price {
+              text-align: left;
+            }
+
+
+          }
+        }
+
+
+      }
+
+      .vat-amount {
+        text-align: left;
+      }
+
+      .footer-total {
+        text-align: left;
+        font-weight: bold;
+        font-size: 18px;
+        border-top: 1px solid lightgray;
+        padding-top: 10px;
+      }
+    }
+
+    // .btn-student-signup {
+    //   background-image: linear-gradient(to right, #00b5a9, #01637f);
+    //   color: white !important;
+    //   font-weight: bold;
+    //   text-align: center;
+    //   width: 80%;
+    //   border: 0;
+    //   padding: 15px;
+    //   border-radius: 100px;
+    //   margin-bottom: 15px;
+
+    //   .icon-student {
+    //     font-size: 20px;
+    //     padding: 0 5px;
+    //   }
+    // }
+
+
+  }
+
+}
+
+/* ======================================================================================
+  *****************************************************************************************
+  =========================================================================================
+  ARABIC STYLE END
+  =========================================================================================
+  *****************************************************************************************
+  ====================================================================================== */
+
+
+
+/* ======================================================================================
+  *****************************************************************************************
+  =========================================================================================
+  ENGLISH STYLE START
+  =========================================================================================
+  *****************************************************************************************
+  ====================================================================================== */
+.wrapper-invoice-en {
+  direction: ltr;
+  text-align: left;
+
+  .wrap-modal-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+
+    .title-modal-invoice {
+      text-align: left;
+    }
+
+    .wrap-cross-icon {
+      text-align: right;
+    }
+
+    .wrap-cross-icon:hover {
+      cursor: pointer;
+    }
+  }
+
+  .modal-body {
+    text-align: center;
+
+    .btn-student-signup {
+      background-image: linear-gradient(to right, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      text-align: center;
+      width: 80%;
+      border: 0;
+      padding: 15px;
+      border-radius: 100px;
+      margin-bottom: 15px;
+
+      .icon-student {
+        font-size: 20px;
+        padding: 0 5px;
+      }
+    }
+  }
+
+
+
+}
+
+/* ======================================================================================
+  *****************************************************************************************
+  =========================================================================================
+  ENGLISH STYLE END
+  =========================================================================================
+  *****************************************************************************************
+  ====================================================================================== */

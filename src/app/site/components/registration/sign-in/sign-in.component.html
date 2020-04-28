@@ -1,0 +1,80 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-sign-in-up-component">
+    <div class="wrap-modal-header">
+      <div class="row">
+        <div class="col-10">
+          <h3 class="mb-0 title-modal-register">{{ 'signIn' | translate }}</h3>
+        </div>
+        <div class="col-2 wrap-cross-icon">
+          <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content-signin wrapper-genrl-signin-signup">
+      <div class="wrap-social-signin-buttons">
+        <div class="row">
+          <div class="col-md-6">
+            <button mdbBtn type="button" color="primary" class="social-signin-btn-fb" mdbWavesEffect
+              (click)="socialSignIn('facebook')">
+              <i class="fab fa-facebook-f icon-fb"></i> {{ 'signInFacebook' | translate }} </button>
+          </div>
+          <div class="col-md-6">
+            <button mdbBtn type="button" color="primary" class="social-signin-btn-google" mdbWavesEffect
+              (click)="socialSignIn('google')">
+              <i class="fab fa-google-plus-g icon-google"></i> {{ 'signInGoogle' | translate }} </button>
+          </div>
+        </div>
+      </div>
+      <!-- Default form login -->
+      <div class="div-or">
+        <span>{{ 'or' | translate }}</span>
+      </div>
+      <form class="text-center border border-light p-5 custom-form-class-genrl" [formGroup]="loginForm"
+        (ngSubmit)="onFormSubmit()">
+        <!-- Email -->
+        <input type="email" formControlName="email" class="form-control form-control-genrl mb-4"
+          [ngClass]="{ 'is-invalid': submitted && fval.email.errors }" placeholder="{{ 'Email' | translate }}">
+        <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+          <div *ngIf="fval.email.errors.required">{{ 'Email' | translate }} {{ 'is required' | translate }}</div>
+          <div *ngIf="fval.email.errors.email">{{ 'Email' | translate }} {{ 'is not correct' | translate }}</div>
+        </div>
+        <!-- Password -->
+        <input type="password" formControlName="password" class="form-control form-control-genrl mb-4"
+          placeholder="{{ 'Password' | translate }}" [ngClass]="{ 'is-invalid': submitted && fval.password.errors }">
+        <div *ngIf="submitted && fval.password.errors" class="invalid-feedback">
+          <div *ngIf="fval.password.errors.required">{{ 'Password' | translate }} {{ 'is required' | translate }}</div>
+          <div *ngIf="fval.password.errors?.minlength && fval.password.touched" class="alert alert-danger">
+            {{ 'Password 6 chars at least' | translate }}</div>
+        </div>
+        <!-- <div class="d-flex">
+          <div>
+            <div class="row">
+              <div class="col-1">
+                <mdb-checkbox [(ngModel)]="templateChecked" name="templateChecked" class="chkbox-terms"
+                  (click)="terms()" [name]="templateChecked?'templateChecked':'templateUnchecked'">
+                </mdb-checkbox>
+              </div>
+              <div class="col-11 padding-text-terms">
+                {{'I agree with all' | translate }}
+                &nbsp;
+                <a class="link-terms" (click)="this.app_ser.openTerms()"> {{'Terms and Conditions' | translate }} </a> &
+                <a class="link-terms" (click)="this.app_ser.openTerms()">{{'Privacy Policy' | translate }}
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div> -->
+        <!-- Sign in button -->
+        <button [ngClass]="{'enabled':checked(),'disabled':!checked() }" mdbBtn color="info" block="true" class="my-4"
+          type="submit" class="btn-signin">{{ 'signIn' | translate }}</button>
+        <!-- Register -->
+        <p>{{'dontHaveAcc'| translate}} <a class="link-signup"
+            (click)="activeModal.close(false);showSignUpType()">{{ 'register' | translate }}!</a>
+        </p>
+        <a (click)="reset()" class="link-forgot-pass">{{'forgotPass'| translate}}</a>
+      </form>
+    </div>
+  </div>
+</div>

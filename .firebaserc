@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "employeesmanagement-33c7d": {
+      "hosting": {
+        "ang8": [
+          "employeesmanagement-33c7d"
+        ]
+      }
+    }
+  }
+}

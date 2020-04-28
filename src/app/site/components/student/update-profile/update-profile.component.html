@@ -1,0 +1,157 @@
+<style>
+  .wrap-email-input {
+    position: relative;
+    width: 100%;
+  }
+
+  .email-authenticatino-icon-valid {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: green;
+    font-size: 20px;
+  }
+
+  .email-authenticatino-icon-valid:hover {
+    cursor: pointer;
+  }
+
+  .email-authenticatino-icon-invalid {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: red;
+    font-size: 20px;
+  }
+
+  .email-authenticatino-icon-invalid:hover {
+    cursor: pointer;
+  }
+
+  .emailLoader {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+  }
+
+</style>
+<div [ngClass]="langStyle">
+  <div class="wrapper-sign-in-up-component">
+    <div class="wrap-modal-header">
+      <div class="row">
+        <div class="col-10">
+          <h3 class="mb-0 title-modal-register">{{'Update Profile' | translate }}</h3>
+        </div>
+        <div class="col-2 col-cross-icon">
+          <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content-signin wrapper-genrl-signin-signup">
+      <!-- {{user.name}} -->
+      <form class="text-center border border-light p-5 custom-form-class-genrl" novalidate #registerForm="ngForm">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Full Name' | translate }}</label>
+            </div>
+            <!-- <div class="col-md-6 error-msg-div">
+              <div *ngIf="Name.errors?.required && Name.touched" class="error-message">
+                {{ 'Please insert your Full name' | translate }}</div>
+            </div> -->
+          </div>
+          <input class="form-control form-control-genrl mb-4" type="text" #Name="ngModel" required name="first_name"
+            [(ngModel)]="user.name" placeholder="{{ 'Full Name' | translate }}" />
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Phone' | translate }}</label>
+            </div>
+            <!-- <div class="col-md-6 error-msg-div">
+                <div *ngIf="Name.errors?.required && Name.touched" class="error-message">
+                    {{ 'Please insert your Full name' | translate }}</div>
+                </div> -->
+          </div>
+          <input class="form-control form-control-genrl mb-4" type="text" #Phone="ngModel" required name="phone"
+            [(ngModel)]="user.phone" placeholder="{{ 'Phone' | translate }}" />
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Address' | translate }}</label>
+            </div>
+            <!-- <div class="col-md-6 error-msg-div">
+                      <div *ngIf="Name.errors?.required && Name.touched" class="error-message">
+                          {{ 'Please insert your Full name' | translate }}</div>
+                      </div> -->
+          </div>
+          <textarea class="form-control form-control-genrl mb-4" name="address" #Address="ngModel"
+            [(ngModel)]="user.address" rows="3" placeholder="{{ 'Address' | translate }}"></textarea>
+        </div>
+        <div class="form-group">
+          <!-- Material inline 1 -->
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" id="materialInline1" name="inlineMaterialRadiosExample"
+              mdbInput>
+            <label class="form-check-label" for="materialInline1">Male</label>
+          </div>
+          <!-- Material inline 2 -->
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" id="materialInline2" name="inlineMaterialRadiosExample"
+              mdbInput>
+            <label class="form-check-label" for="materialInline2">Female</label>
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Email' | translate }}</label>
+            </div>
+            <div class="col-md-6 error-msg-div">
+              <div *ngIf="userEmail.errors?.required && userEmail.touched" class="error-message">
+                {{ 'Email' | translate }} {{ 'is required' | translate }}</div>
+              <div *ngIf="userEmail.errors?.email && userEmail.touched" class="error-message"> {{ 'Email' | translate }}
+                {{ 'is not correct' | translate }}</div>
+              
+            </div>
+          </div>
+          
+        </div> -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Nationality' | translate }}</label>
+            </div>
+          </div>
+          <select required name="nationality" [(ngModel)]="user.nationality"
+            class="mdb-select md-form form-control form-control-genral mb-4" name="nationality" #Nationality="ngModel"
+            placeholder="Nationality" style="height: 50px;cursor: pointer;">
+            <!-- <option *ngIf="!user.nationality">اختر دولة </option> -->
+            <option [ngValue]="null">{{ 'select_your_county' | translate }}</option>
+            <option [value]="item.key" *ngFor="let item of app_ser.nationalities()|keyvalue:app_ser.valueAscOrder">
+              {{item.value}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Residence' | translate }}</label>
+            </div>
+          </div>
+          <select required name="residence" [(ngModel)]="user.residence"
+            class="mdb-select md-form form-control form-control-genrl mb-4" name="nationality" #Residence="ngModel"
+            placeholder="Residence" style="height: 50px;cursor: pointer;">
+            <option [value]="item.key" *ngFor="let item of app_ser.nationalities()|keyvalue:app_ser.valueAscOrder">
+              {{item.value}}</option>
+          </select>
+        </div>
+        <button (click)="updateProfile()" mdbBtn color="info" block="true" class="my-4" type="submit"
+          class="btn-signin"> {{ 'Update' | translate }}</button>
+      </form>
+    </div>
+  </div>
+  <div class="loader" *ngIf="loader">
+    <img src="../../../../../assets/images/spiner.gif" alt="">
+  </div>
+</div>

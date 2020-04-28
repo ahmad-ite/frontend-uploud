@@ -1,0 +1,200 @@
+<div class="wrapper-trainer-view" style="min-height: 1500px;">
+  <!-- <div class="cover-photo">
+
+    <mat-video title="kun Academy" [autoplay]="false" [preload]="true" [fullscreen]="true" [showFrameByFrame]="true"
+      [download]="true" color="green" spinner="dot" poster="https://mdbootstrap.com/img/screens/yt/screen-video-1.jpg"
+      class="video-genrl-styles trainer-video">
+      <source matVideoSource
+        src="https://kun-academy.s3-ap-southeast-1.amazonaws.com/media_files/8BD6AE03-6B4C-49A2-8003-5A79825C8007.mp4"
+        type="video/mp4">
+      <source src="../../../assets/subtitles/sintel-short.webm" type="video/webm">
+    </mat-video>
+    <div class="overlay-cover-photo"></div>
+  </div> -->
+  <div class="trainer-video">
+    <vg-player>
+      <vg-controls>
+        <vg-play-pause></vg-play-pause>
+        <vg-scrub-bar>
+          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+        <vg-mute></vg-mute>
+        <vg-fullscreen></vg-fullscreen>
+      </vg-controls>
+      <video *ngIf="trainerData.trainer.demonstration_video" [vgMedia]="master" #master id="masterVideo" autoplay="true"
+        preload="auto"
+        [src]="app_ser.video_url(trainerData.trainer.demonstration_video.doc, trainerData.trainer.demonstration_video.video_derivation,'q_720')">
+      </video>
+      <video *ngIf="!trainerData.trainer.demonstration_video" [vgMedia]="master" #master id="masterVideo"
+        autoplay="true" preload="auto" [src]="app_ser.video_url(null, null,'q_720')">
+      </video>
+    </vg-player>
+  </div>
+  <div class="container" style="margin-top: 120px;">
+    <div class="row mt-5">
+      <div class="col-md-3">
+        <div class="wrapper-biography-summary">
+          <!-- <img src="../../../assets/images/ammar-shahab.jpg" alt="" class="img-fluid profile-img"> -->
+          <img [src]="app_ser.img_url(trainerData.trainer.image,'trainer')" alt="" class="img-fluid profile-img">
+          <div class="wrap-trainer-name">
+            <!-- <h3 class="trainer-name">عمّار شهاب</h3> -->
+            <h3 class="trainer-name">{{trainerData.trainer.name}}</h3>
+            <p class="trainer-designation">{{trainerData.trainer.position}}</p>
+            <!-- <p class="trainer-designation">{{trainerData.trainer.position}}</p> -->
+          </div>
+          <!-- <div class="personal-summary">
+            <p class="nationality"><i class="fal fa-flag-usa"></i> <strong>الجنسية:
+              </strong>{{app_ser.nationalities()[trainerData.trainer.nationality]}} </p>
+            <p class="residence"><i class="fal fa-flag"></i> <strong>بلد الإقامة:
+              </strong>{{app_ser.nationalities()[trainerData.trainer.residence]}}</p>
+            <p class="age"><i class="fal fa-calendar-alt"></i> <strong>العمر:</strong>
+              {{trainerData.trainer.details.old}} سنة</p>
+            <p class="qualification"><i class="fal fa-user-graduate"></i> <strong>المؤهلات:</strong>
+              {{trainerData.trainer.qualifications}} </p>
+            <p class="current-job"><i class="fal fa-briefcase"></i> <strong>الوظيفة الحالية:</strong>
+              {{trainerData.trainer.foundation}}</p>
+            <p class="experts"><i class="fal fa-users"></i> <strong>الخبرة:</strong> {{trainerData.trainer.experience}}
+            </p>
+          </div> -->
+        </div>
+      </div>
+      <div class="col-md-9">
+        <h4 class="hdng-genrl">سيرة شخصية:</h4>
+        <p class="about-info">{{trainerData.trainer.description}}</p>
+        <div class="wrap-trainer-courses mt-5">
+          <h4 class="hdng-genrl">الدورات التي يدرسها {{trainerData.trainer.name}} :</h4>
+          <div class="row">
+            <div class="col-md-4 col-padd-custom" *ngFor="let trainerCourse of trainerData.trainer.courses">
+              <!-- <mdb-card [ngStyle]="{background: 'url(' + app_ser.img_url(trainerCourse.cover_image) + ')'}"
+                class="card-image mb-3">
+
+                <div
+                  class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 wrap-content-course">
+                  <div class="w-100">
+                    <h3 class="card-title pt-2"><strong>{{trainerCourse.name}}</strong></h3>
+                    <p class="price">
+                      <span class="current-discounted-price">{{trainerCourse.price}}</span>
+                      <span class="old-price">${{trainerCourse.price}}</span>
+                    </p>
+                    <p class="star-rating">
+                      <i class="fas fa-star star-full" aria-hidden="true"></i>
+                      <i class="fas fa-star star-full" aria-hidden="true"></i>
+                      <i class="fas fa-star-half-alt star-half" aria-hidden="true"></i>
+                      <i class="far fa-star star-empty" aria-hidden="true"></i>
+                      <i class="far fa-star star-empty" aria-hidden="true"></i>
+                      <span class="rating-text">{{trainerCourse.average_rate}}</span>
+                    </p>
+
+                    <a (click)="viewCourse(trainerCourse)" mdbBtn class="waves-light btn-view-course" mdbWavesEffect>
+                      <i class="fal fa-eye"></i> عرض دورة </a>
+                  </div>
+                </div>
+
+              </mdb-card> -->
+              <a routerLink="/course-view/{{trainerCourse.code}}/{{app_ser.urlString(trainerCourse.name)}}">
+                <mdb-card class="my-1 card-main">
+                  <div class="wrapper-inner-course">
+                    <div class="main-div-course">
+                      <img [src]="app_ser.img_url(trainerCourse.cover_image,'course')" class="img-fluid course-img"
+                        alt="">
+                      <div class="overlay-dark-background"></div>
+                      <div class="overlay-course">
+                        <h3 class="course-title bold-hdng">{{trainerCourse.name}}</h3>
+                        <p class="price">
+                          <span *ngIf="!trainerCourse.price" class="current-discounted-price">Free</span>
+                          <span *ngIf="trainerCourse.price"
+                            class="current-discounted-price">${{trainerCourse.price}}</span>
+                          <span *ngIf="trainerCourse.old_price" class="old-price">${{trainerCourse.old_price}}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <!-- <div class="wrapper-hover-course-video" *ngIf="playVideoOnHover == course.register_id">
+                      <app-course-loader *ngIf="courseGifLoader" [class]="stopCourseLoader()"></app-course-loader>
+                      <div class="wrap-course-over-vg-player">
+                        <vg-player (onPlayerReady)="onPlayerReady($event,course)">
+                          <video *ngIf="api" [vgMedia]="master" #master  id="masterVideo"
+                            preload="auto" autoplay="true" [src]="app_ser.video_url(course.video)">
+                          </video>
+                        </vg-player>
+                      </div>
+                    </div> -->
+                    <!-- <div class="overlay-course-summary-hover">
+                      <div class="box-play-icon">
+                        <a routerLink="/steps/{{course.register_id}}/{{app_ser.urlString(course.name)}}"><i
+                            class="fal fa-play"></i></a>
+                      </div>
+                      <h3 class="course-title bold-hdng">{{course.name}}</h3>
+                      <div class="summary-course">
+                        <span class="course-date"><i class="fal fa-calendar-alt"></i>تاريخ:
+                          {{course.create_date |  date:'MM/dd/yyyy'}}</span>
+                        <span class="no-of-lessons"><i class="fal fa-book"></i>عدد الدروس: {{course.items_count}}</span>
+                        <br>
+                        <span class="course-time"><i class="fal fa-clock"></i>المدة الزمنية : {{course.hours}}</span>
+                        <span class="registered-students"><i class="fal fa-users"></i>عدد الطلاب:
+                          {{course.students_count}}</span>
+                        <br>
+                        <span class="trainer-name"><i class="fal fa-chalkboard-teacher"></i>مدرب:
+                          {{course.trainer_name?course.trainer_name:"أكاديمية فوكس" }}</span>
+                      </div>
+                    </div> -->
+                    <!-- <div class="wrapper-icons-links">
+                    <div class="box-social-icon">
+                      <a *ngIf="api" (click)="muteAndPlay(course)">
+                        <i *ngIf="course.volume" class="fal fa-volume"></i>
+                        <i *ngIf="! course.volume" class="fal fa-volume-mute"></i>
+                      </a>
+                    </div>
+                    <div class="box-social-icon">
+                      <a (click)="setFavourite(course)">
+                        <i class="fal fa-heart" *ngIf="!course.is_interested"></i>
+                        <i class="fal fa-heart" *ngIf="course.is_interested" style="color: red; font-weight: 1000"></i>
+                      </a>
+                    </div>
+                  </div> -->
+                  </div>
+                </mdb-card>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="wrap-more-trainers  mt-5 mb-5">
+          <h4 class="hdng-genrl">المزيد من المدربين:</h4>
+          <div class="row mt-2 mb-2">
+            <div class="col-md-4 col-padd-custom" *ngFor="let trainer of trainerData.other_trainers|slice:0:3">
+              <!-- <a class="link-card" routerLink="/trainer-view/{{trainer.id}}"> -->
+              <a class="link-card" (click)="view_trainer(trainer.id)">
+                <!-- <button (click)="view_trainer(trainer.id)">show</button> -->
+                <!--Card-->
+                <mdb-card class="testimonial-card">
+                  <!--Bacground color-->
+                  <div class="card-up aqua-gradient gradient-trainer-bg">
+                  </div>
+                  <!--Avatar-->
+                  <div class="avatar mx-auto custom-class-avatar">
+                    <!-- <img src="../../../assets/images/muntaha-marha.jpg" class="rounded-circle trainer-img"> -->
+                    <!-- <img [src]="trainer.image" class="rounded-circle trainer-img"> -->
+                    <img [src]="app_ser.img_url(trainer.image, 'trainer')" class="rounded-circle trainer-img" alt="">
+                  </div>
+                  <mdb-card-body>
+                    <!--Name-->
+                    <mdb-card-title>
+                      <!-- <h4>منتهى الرمحي</h4> -->
+                      <h4>{{trainer.name}}</h4>
+                    </mdb-card-title>
+                    <p>مدرب ومستشار معتمد</p>
+                    <hr>
+                    <!--Quotation-->
+                    <p> {{trainer.description | slice:1:100}}</p>
+                  </mdb-card-body>
+                </mdb-card>
+                <!--/.Card-->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,318 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-course-summary-ar {
+  direction: rtl;
+  text-align: right;
+
+  #courseViewSummary {
+    .wrap-course-small-summary {
+      background: transparent;
+      margin: 30px 0 20px 0;
+
+      p {
+        margin-bottom: 5px;
+        padding: 0 20px;
+        font-size: 16px;
+
+        span {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+
+
+    }
+
+    .gradient-btn {
+      background-image: linear-gradient(to top, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      margin-top: 30px !important;
+      height: 50px;
+    }
+
+    .wrap-course-summary-inner {
+      mdb-card {
+        border-radius: 20px !important;
+        padding: 0 0 20px 0 !important;
+
+        .table-wrapper {
+          .table-course-data {
+            thead {
+              text-align: center;
+
+              tr {
+                th {
+                  vertical-align: middle;
+                  border-top: 0;
+                  padding-top: 30px;
+                }
+
+                .actions-th {
+                  text-align: left;
+
+                  a {
+                    padding: 0 10px;
+                  }
+
+                }
+              }
+            }
+
+            tbody {
+              text-align: center;
+
+              tr {
+                td {
+                  vertical-align: middle;
+
+                  .arrange-icons-genrl {
+                    color: #00b5a9;
+                    font-size: 20px;
+                    margin: 0 3px;
+                  }
+
+                  .arrange-icons-genrl:hover {
+                    cursor: pointer;
+                  }
+                }
+
+                td.item-name a {
+                  color: #00b5a9;
+                  font-weight: bold;
+                }
+
+                td.item-name a:hover {
+                  text-decoration: underline;
+                }
+
+                td.actions-td {
+                  text-align: left;
+
+
+                  .btn-edit {
+                    background: green;
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+
+                  .btn-delete {
+                    background: #d43f3a;
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+
+                  .btn-steps {
+                    background-image: linear-gradient(to top, #00b5a9, #01637f);
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-course-summary-en {
+  direction: rtl;
+  text-align: right;
+
+  #courseViewSummary {
+    .wrap-course-small-summary {
+      background: transparent;
+      margin: 30px 0 20px 0;
+
+      p {
+        margin-bottom: 5px;
+        padding: 0 20px;
+        font-size: 16px;
+
+        span {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+
+
+    }
+
+    .gradient-btn {
+      background-image: linear-gradient(to top, #00b5a9, #01637f);
+      color: white !important;
+      font-weight: bold;
+      margin-top: 30px !important;
+      height: 50px;
+    }
+
+    .wrap-course-summary-inner {
+      mdb-card {
+        border-radius: 20px !important;
+        padding: 0 0 20px 0 !important;
+
+        .table-wrapper {
+          .table-course-data {
+            thead {
+              text-align: center;
+
+              tr {
+                th {
+                  vertical-align: middle;
+                  border-top: 0;
+                  padding-top: 30px;
+                }
+
+                .actions-th {
+                  text-align: right;
+
+                  a {
+                    padding: 0 10px;
+                  }
+
+                }
+              }
+            }
+
+            tbody {
+              text-align: center;
+
+              tr {
+                td {
+                  vertical-align: middle;
+
+                  .arrange-icons-genrl {
+                    color: #00b5a9;
+                    font-size: 20px;
+                    margin: 0 3px;
+                  }
+
+                  .arrange-icons-genrl:hover {
+                    cursor: pointer;
+                  }
+                }
+
+                td.item-name a {
+                  color: #00b5a9;
+                  font-weight: bold;
+                }
+
+                td.item-name a:hover {
+                  text-decoration: underline;
+                }
+
+                td.actions-td {
+                  text-align: right;
+
+
+                  .btn-edit {
+                    background: green;
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+
+                  .btn-delete {
+                    background: #d43f3a;
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+
+                  .btn-steps {
+                    background-image: linear-gradient(to top, #00b5a9, #01637f);
+                    color: white !important;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 10px;
+                    padding: 10px 15px;
+
+                    i {
+                      font-size: 12px;
+                    }
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */

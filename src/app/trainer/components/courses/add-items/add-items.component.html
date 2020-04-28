@@ -1,0 +1,65 @@
+<div [ngClass]="langStyle">
+  <section id="trainerAddItem">
+    <!-- Breadcrumbs start  -->
+    <!-- <nav aria-label="breadcrumb">
+      <ol class="breadcrumb custom-breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> {{'Home' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink="/trainer/courses/list"><i class="fal fa-book"></i>
+            {{'Courses' | translate}}</a></li>
+        <li class="breadcrumb-item active"><i class="fal fa-layer-plus"></i> {{'Add Item' | translate}}</li>
+      </ol>
+    </nav> -->
+    <!-- Breadcrumbs End  -->
+    <mdb-card>
+      <mdb-card-body>
+        <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+        <form class="p-2 pb-4 form-genrl">
+          <h3 class="mb-3">{{'Add Item' | translate}}</h3>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{'Item Type'| translate}}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message"> {{ 'Item Type' | translate }} {{ 'is required' | translate }} </div>
+              </div>
+            </div>
+            <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" name="itemType"
+              style="height: 50px;" required>
+              <option [ngValue]="0">{{ 'Select' | translate }} {{'Item Type'| translate}}</option>
+              <option [value]="1"> {{'Lesson' | translate}}</option>
+              <option [value]="2"> {{'Exam' | translate}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Item Name' | translate }}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message"> {{ 'Item Name' | translate }} {{ 'is required' | translate }}</div>
+              </div>
+            </div>
+            <input class="form-control form-control-genrl mb-4" type="text" name="itemName"
+              placeholder="{{ 'Item Name' | translate }}" required />
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{'Upload Cover Image' | translate}}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message"> {{ 'Cover Image' | translate }} {{ 'is required' | translate }}</div>
+              </div>
+            </div>
+            <a (click)="app_ser.openGalleryPopup()" class="wrap-btn-upload-cover"><i
+                class="fal fa-cloud-upload upload-cover-img-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
+                media gallery' | translate}}</span></a>
+          </div>
+          <button rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course">
+            {{'Add Item' | translate}}</button>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </section>
+</div>

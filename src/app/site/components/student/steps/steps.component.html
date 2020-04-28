@@ -1,0 +1,1205 @@
+<!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+<div [ngClass]="langStyle">
+  <div class="wrapper-course-inside" style="padding: 70px 0">
+    <div class="container">
+      <div class="row">
+        <!-- **************************************** WRAPPER STEPS MAIN DIV START **************************************** -->
+        <div [ngClass]="{'wrapper-steps':!fullScreen, 'make-full-screen':fullScreen}">
+          <div *ngIf="activeStep.step.type!='play' && activeStep.type!='course-video'&& activeStep.type!='error-video'"
+            class="full-screen-control-outside-video" (click)="fullScreenSwitch()">
+            <i class="far fa-expand" *ngIf="!fullScreen"></i>
+            <i class="far fa-compress" *ngIf="fullScreen"></i>
+          </div>
+          <!-- **************************************** VIDEO TOOL START **************************************** -->
+          <div *ngIf="courseGifLoader" style="z-index:9999999999999999999999999999999;">
+            <app-course-loader></app-course-loader>
+          </div>
+          <div class="wrap-video-player" *ngIf="activeStep.step.type=='play'">
+            <!-- <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader> -->
+            <!-- <div class="loader-settings" *ngIf="courseGifLoader"
+              style="position:fixed;z-index:99999999999; left:0; right:0; margin-left:auto; margin-right: auto; top:50%;margin-top:-25px;">
+              <app-course-loader></app-course-loader>
+            </div> -->
+            <vg-player [ngClass]="showVideoControl()" (onPlayerReady)=" onPlayerReady($event)">
+              <vg-overlay-play *ngIf='showControl' vgFor="masterVideo" class="video-big-play-icon">
+              </vg-overlay-play>
+              <vg-controls [vgAutohide]="false">
+                <vg-play-pause></vg-play-pause>
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-scrub-bar class="vg-scrub-genrl">
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <!-- ================================ DUBBING SETTING START ================================  -->
+                <div *ngIf="activeStep.dubbingList.length>0" class="dubbing" (click)="showDubbings()">
+                  <!-- <i class="fal fa-language dubbing-control-icon"></i> -->
+                  <div class="dubbing-inner">
+                    <span class="active-dubbing">{{ getActiveDubbing() | translate }}</span>
+                    <i class="fal fa-language dubbing-control-icon"></i>
+                  </div>
+                  <div class="content-dubbing" *ngIf="dubbingContent">
+                    <p class="title-dubbing"><i class="fal fa-language dubbing-title-icon"></i> {{'Dubbing'| translate}}
+                    </p>
+                    <ul class="dubbing-ul" *ngFor="let dubbing of activeStep.dubbingList ; let dubbingIndex= index">
+                      <li (click)="changeDubbing(dubbingIndex)"
+                        [ngClass]="{'active': activeDubbing == dubbingIndex, 'inActive': !(activeDubbing == dubbingIndex)}">
+                        {{dubbing.name| translate}}</li>
+                      <li (click)="changeDubbing(-1)"
+                        [ngClass]="{'active': activeDubbing == -1 , 'inActive': !(activeDubbing == -1)}"
+                        *ngIf="dubbingIndex==activeStep.dubbingList.length-1">{{'English'| translate}} </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- ================================ DUBBING SETTING END ================================  -->
+                <!-- ================================ SUBTITLE SETTING START ================================  -->
+                <div *ngIf="0" class="subtitle" (click)="showSubtitle()"><i
+                    class="fal fa-closed-captioning subtitle-control-icon"></i>
+                  <div class="content-subtitle">
+                    <p class="title-subtitle"><i class="fal fa-language subtitle-title-icon"></i> Subtitle</p>
+                    <ul class="subtitle-ul">
+                      <li>Ar</li>
+                      <li>En</li>
+                      <li>Default</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- ================================ SUBTITLE SETTING END ================================  -->
+                <!-- ================================ QUALITY SETTING START ================================  -->
+                <div *ngIf="qualitiesList.length>0" class="quality" (click)="showQuality()">
+                  <!-- <i class="fal fa-cog quality-control-icon"></i> -->
+                  <div class="quality-inner">
+                    <span class="active-quality">{{ getActiveQuality() | translate }}</span>
+                    <i class="fal fa-cog quality-control-icon"></i>
+                  </div>
+                  <div class="content-quality" *ngIf="qualityContent">
+                    <p class="title-quality"><i class="fal fa-cog quality-title-icon"></i> {{'Quality'| translate}}</p>
+                    <div class="wrap-quality-ul">
+                      <ul class="quality-ul" *ngFor="let qualitiy of qualitiesList ; let qualitiyIndex= index">
+                        <li (click)="changeQuality(qualitiyIndex)"
+                          [ngClass]="{'active': activeQuality == qualitiyIndex, 'inActive': !activeQuality == qualitiyIndex}">
+                          {{qualitiy.name| translate}}</li>
+                        <!-- <li (click)="changeQuality(-1)"
+                                              [ngClass]="{'active': activeQuality == -1 , 'inActive': !(activeQuality == -1)}"
+                                              *ngIf="dubbingIndex==qualitiesList.length-1">{{'Basic '| translate}} </li> -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- ================================ SUBTITLE SETTING END ================================  -->
+                <vg-mute></vg-mute>
+                <!-- <vg-volume vgFor="masterVideo"></vg-volume> -->
+                <!-- <vg-fullscreen></vg-fullscreen> -->
+                <div class="full-screen-control" (click)="fullScreenSwitch()">
+                  <i class="far fa-expand" *ngIf="!fullScreen"></i>
+                  <i class="far fa-compress" *ngIf="fullScreen"></i>
+                </div>
+              </vg-controls>
+              <div ng-show="API.isCompleted && API.currentState == 'stop'"><span ng-click="initNext()"></span></div>
+              <video [vgMedia]="master" #master id="masterVideo" preload="auto" isWaiting="" isCompleted=""
+                autoplay="true" [src]="app_ser.video_url(activeStep.video,activeStep.video_derivation)">
+              </video>
+            </vg-player>
+          </div>
+          <!-- **************************************** VIDEO TOOL END **************************************** -->
+          <!-- **************************************** INSERT TEXT TOOL START **************************************** -->
+          <div class="wrapper-insert-text" *ngIf="activeStep.step.type=='textbox'">
+            <div class="wrap-text-inner">
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <!-- <pre style="color: white; text-align: center;min-height: 50px; max-height: 140px;">
+                              <h5 class="question"  style="color: white; text-align: center;">
+                               {{activeStep.step.question|slice:0:50}}
+                              </h5>
+                              </pre> -->
+              <div class="md-form amber-textarea active-amber-textarea wrap-text-area">
+                <textarea [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                  [(ngModel)]="activeStep.data" id="form22" class="md-textarea form-control" rows="3"
+                  placeholder="يرجى كتابة إجابتك هنا"></textarea>
+                <button [ngClass]="{'enabled':checkNextBtn(), 'disabled': !checkNextBtn()}" type="button"
+                  class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                  (click)="setAnswer()">{{'next'| translate}}</button>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** INSERT TEXT TOOL END **************************************** -->
+          <!-- **************************************** SELECT CHOICE TOOL START **************************************** -->
+          <div class="wrapper-choose-single-option" *ngIf="activeStep.step.type=='choice'">
+            <div class="wrap-inner-choice">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="choice-items">
+                <form>
+                  <div *ngIf="!activeStep.showResult">
+                    <div *ngFor="let opt of activeStep.data, let i=index;">
+                      <div class="form-check">
+                        <input type="radio" class="form-check-input option-input radio"
+                          [id]="activeStep.selected==i?'materialChecked':'materialUnchecked'"
+                          name="materialExampleRadios" [(ngModel)]="activeStep.selected" [value]="i">
+                        <label class="form-check-label">{{activeStep.data[i]["option"]}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="activeStep.showResult">
+                    <div *ngIf="applayResultDetails.is_correct" class="answer-correct"> {{'Correct' | translate}}</div>
+                    <div *ngIf="!applayResultDetails.is_correct" class="answer-incorrect">{{'Incorrect' | translate}}
+                    </div>
+                    <div *ngFor="let opt of activeStep.data, let i=index;">
+                      <div class="form-check">
+                        <input [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                          type="radio" class="form-check-input option-input radio"
+                          [id]="activeStep.selected==i?'materialChecked':'materialUnchecked'"
+                          name="materialExampleRadios" [(ngModel)]="activeStep.selected" [value]="i">
+                        <label class="form-check-label"
+                          [ngClass]="{'showResultCorrect':applayResultDetails.correct[i].correct , 'showResultIncorrect':!applayResultDetails.correct[i].correct}">{{activeStep.data[i]["option"]}}</label>
+                      </div>
+                    </div>
+                  </div>
+                  <button [ngClass]="{'enabled':checkNextBtn(), 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** SELECT CHOICE TOOL END **************************************** -->
+          <!-- **************************************** SELECT MULTI OPTIONS TOOL START **************************************** -->
+          <div class="wrapper-multi-option" *ngIf="activeStep.step.type=='correct'">
+            <div class="wrap-inner-multi-option">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="wrap-option">
+                <form #multiSelect="ngForm" class="form-multi-select">
+                  <div *ngIf="!activeStep.showResult">
+                    <div *ngFor="let opt of activeStep.data, let i=index;">
+                      <mdb-checkbox [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                        [(ngModel)]="activeStep.data[i]['selected']"
+                        [name]="activeStep.data[i]['selected']?'templatechecked':'templateUnchecked'"
+                        class="input-check-custom"> {{activeStep.data[i]["option"] }}</mdb-checkbox>
+                    </div>
+                  </div>
+                  <div *ngIf="activeStep.showResult">
+                    <div *ngIf="applayResultDetails.is_correct" class="answer-correct" style="color: white;">
+                      {{'Correct' | translate}} </div>
+                    <div *ngIf="!applayResultDetails.is_correct" class="answer-incorrect">{{'Incorrect' | translate}}
+                    </div>
+                    <div *ngFor="let opt of activeStep.data, let i=index;">
+                      <mdb-checkbox [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                        [(ngModel)]="activeStep.data[i]['selected']"
+                        [name]="activeStep.data[i]['selected']?'templatechecked':'templateUnchecked'"
+                        class="input-check-custom"><label
+                          [ngClass]="{'showResultCorrect':applayResultDetails.correct[i].correct , 'showResultIncorrect':!applayResultDetails.correct[i].correct}">{{activeStep.data[i]["option"] }}</label>
+                      </mdb-checkbox>
+                    </div>
+                  </div>
+                  <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** SELECT MULTI OPTIONS TOOL END **************************************** -->
+          <!-- **************************************** ARRANGE OPTIONS TOOL START **************************************** -->
+          <div class="wrapper-arrange" *ngIf="activeStep.step.type=='match'">
+            <div class="wrapper-inner-arrange">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="options">
+                <div *ngIf="!activeStep.showResult">
+                  <div class="row">
+                    <div class="col-6">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="dropQ($event)">
+                        <div class="option-item" *ngFor="let q of activeStep.data, let i=index;" cdkDrag
+                          [cdkDragDisabled]="true">
+                          <div [(ngModel)]="activeStep.data[i]['question']" class="example-custom-placeholder"
+                            *cdkDragPlaceholder></div> {{activeStep.data[i]["question"] }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="dropA($event)">
+                        <div class="option-item" *ngFor="let o of activeStep.options, let i=index;" cdkDrag
+                          [cdkDragDisabled]="!activeStep.changeable">
+                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div> {{o}} <i
+                            class="fal fa-arrows-v arrow-drap-up-down" mdbTooltip="Drag and drop to match"
+                            placement="top" mdbWavesEffect></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="activeStep.showResult">
+                  <div *ngIf="applayResultDetails.is_correct" class="answer-correct"> {{'Correct' | translate}}</div>
+                  <div *ngIf="!applayResultDetails.is_correct" class="answer-incorrect">{{'Incorrect' | translate}}
+                  </div>
+                  <!-- <div *ngIf="applayResultDetails.is_correct" class="answer-correct" style="color: white;">
+                    <img src="../../../../../assets/images/smile-emoji.gif" alt="" class="img-fluid"
+                      style="width: 60px;">
+                  </div>
+                  <div *ngIf="!applayResultDetails.is_correct" class="answer-correct" style="color: white;">
+                    <img src="../../../../../assets/images/sad-emoji.gif" alt="" class="img-fluid" style="width: 40px;">
+                  </div> -->
+                  <div class="row">
+                    <div class="col-6">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="dropQ($event)">
+                        <div class="option-item" *ngFor="let q of activeStep.data, let i=index;" cdkDrag
+                          [cdkDragDisabled]="true">
+                          <div [(ngModel)]="activeStep.data[i]['question']" class="example-custom-placeholder"
+                            *cdkDragPlaceholder></div> {{activeStep.data[i]["question"] }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="dropA($event)">
+                        <div class="option-item" *ngFor="let o of activeStep.options, let i=index;" cdkDrag
+                          [cdkDragDisabled]="!activeStep.changeable">
+                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div> {{o}} <i
+                            class="fal fa-arrows-v arrow-drap-up-down" mdbTooltip="Drag and drop to match"
+                            placement="top" mdbWavesEffect></i>
+                          <label class="arrange-number"
+                            [ngClass]="{'correct-green':xyz(o)==i+1,'incorrect-red': xyz(o)!=i+1}">{{xyz(o)}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                      class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                      (click)="setAnswer()">{{'next'| translate}}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** ARRANGE OPTIONS TOOL END **************************************** -->
+          <!-- **************************************** SELECT COURSE TOOL START **************************************** -->
+          <div class="wrapper-choose-single-option" *ngIf="activeStep.step.type=='select-course'">
+            <div class="wrap-inner-choice">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="choice-items">
+                <form>
+                  <div *ngFor="let opt of activeStep.step.options, let i=index;">
+                    <div class="form-check">
+                      <a class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                        (click)="selectCourse(opt)" class="form-check-label label-course-opt"><i
+                          class="fal fa-book"></i> {{opt.name}}</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** SELECT COURSE TOOL END **************************************** -->
+          <!-- **************************************** MATCH OPTIONS TOOL START **************************************** -->
+          <div class="wrapper-match-options" *ngIf="activeStep.step.type=='arrange'">
+            <div class="wrapper-inner-match-options">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="options">
+                <div *ngIf="!activeStep.showResult">
+                  <div class="row justify-content-center">
+                    <div class="col-md-8">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="matchOpts($event)">
+                        <div class="option-item" *ngFor="let o of activeStep.options, let i=index;" cdkDrag
+                          [cdkDragDisabled]="!activeStep.changeable">
+                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div> {{o}} <i
+                            class="fal fa-arrows-v arrow-drap-up-down" mdbTooltip="Drag and drop to match"
+                            placement="top" mdbWavesEffect></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="activeStep.showResult">
+                  <div *ngIf="applayResultDetails.is_correct" class="answer-correct"> {{'Correct' | translate}}</div>
+                  <div *ngIf="!applayResultDetails.is_correct" class="answer-incorrect">{{'Incorrect' | translate}}
+                  </div>
+                  <!-- <div *ngIf="applayResultDetails.is_correct" class="answer-correct" style="color: white;">
+                    <img src="../../../../../assets/images/smile-emoji.gif" alt="" class="img-fluid"
+                      style="width: 60px;">
+                  </div>
+                  <div *ngIf="!applayResultDetails.is_correct" class="answer-correct" style="color: white;">
+                    <img src="../../../../../assets/images/sad-emoji.gif" alt="" class="img-fluid" style="width: 40px;">
+                  </div> -->
+                  <div class="row justify-content-center">
+                    <div class="col-md-8">
+                      <div cdkDropList class="wrap-options-items" (cdkDropListDropped)="matchOpts($event)">
+                        <div class="option-item" *ngFor="let o of activeStep.options, let i=index;" cdkDrag
+                          [cdkDragDisabled]="!activeStep.changeable">
+                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div> {{o}} <i
+                            class="fal fa-arrows-v arrow-drap-up-down" mdbTooltip="Drag and drop to match"
+                            placement="top" mdbWavesEffect></i>
+                          <label class="arrange-number"
+                            [ngClass]="{'correct-green':xyz(o)==i+1,'incorrect-red': xyz(o)!=i+1}">{{xyz(o)}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                      class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                      (click)="setAnswer()">{{'next'| translate}}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** MATCH OPTIONS TOOL END **************************************** -->
+          <!-- **************************************** UPLOAD FILE TOOL START **************************************** -->
+          <div class="wrapper-upload-document" *ngIf="activeStep.step.type=='upload-document'">
+            <div class="wrap-inner-upload-document">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div class="center relative-div-upload-genrl">
+                  <i class="fal fa-cloud-upload icon-upload-genrl"></i>
+                  <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                    (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-upload">{{'Upload Document'| translate}}</button>
+                    </ng-template>
+                  </ngx-file-drop>
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="wrap-uploaded-file">
+                <a (click)="app_ser.showFile(activeStep.data)">
+                  <img src="../../../../assets/images/file_icon.png" alt="" class="img-cv-thumbnail img-fluid">
+                </a>
+                <!-- <a [href]="app_ser.file_url(activeStep.data)">
+                  <img [src]="app_ser.file_url(activeStep.data)" />
+                </a> -->
+                <!-- <p class="upload-file-name">{{ item.relativePath }}</p> -->
+              </div>
+              <!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** UPLOAD FILE TOOL END **************************************** -->
+          <!-- **************************************** UPLOAD SOUND TOOL START **************************************** -->
+          <div class="wrapper-upload-document" *ngIf="activeStep.step.type=='upload-sound'">
+            <div class="wrap-inner-upload-document">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="audio-record-wrapper" *ngIf="!activeStep.data">
+                <div class="center relative-div-upload-genrl">
+                  <i class="fal fa-headset icon-upload-genrl"></i>
+                  <ngx-file-drop [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      <button [ngClass]="{'enabled':!activeStep.enabled, 'disabled': activeStep.enabled}" type="button"
+                        (click)="openFileSelector()" class="btn-upload">{{'Upload Sound'| translate}}</button>
+                    </ng-template>
+                  </ngx-file-drop>
+                  <!-- <div class="wrap-uploaded-file" *ngFor="let item of activeStep.files; let i=index">
+                        <p class="upload-file-name">{{ item.relativePath }}</p>
+                      </div> -->
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="show-audio-file">
+                <div class="audio-file-inner">
+                  <audio controls>
+                    <source src="horse.ogg" type="audio/ogg">
+                    <source [src]="app_ser.audio_url(activeStep.data)" type="audio/mpeg">
+                    {{'audioNotSupported'|translate}} </audio>
+                  <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+                </div>
+              </div>
+              <!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** UPLOAD SOUND TOOL END **************************************** -->
+          <!-- **************************************** AUTOCUE VOICE TOOL START **************************************** -->
+          <div class="wrapper-record-sound" *ngIf="activeStep.step.type=='autocue-voice'">
+            <div class="wrap-inner-record-sound">
+              <h5 class="question">{{'Voice Autocue Test'|translate}}</h5>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div *ngIf="!activeStep.data" class="center relative-div-upload-genrl">
+                  <div class="start-recording" *ngIf="!isRecording && !blobUrl" (click)="startRecording();">
+                    <i class="fal fa-microphone" title="{{'Click to Start Recording'|translate}}"></i>
+                  </div>
+                  <div class="stop-recording" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">
+                    <i class="fal fa-microphone-slash" title="{{'Click to Stop Recording'|translate}}"></i>
+                  </div>
+                  <div *ngIf="isRecording && !blobUrl" class="recording-time"> {{recordedTime}} </div>
+                  <div class="audio-file-inner">
+                    <audio *ngIf="!isRecording && blobUrl" controls>
+                      <source [src]="blobUrl" type="audio/webm">
+                    </audio>
+                    <div class="wrap-upload-del-btns">
+                      <i *ngIf="!isRecording && blobUrl && !isSaving" class="fal fa-trash-alt icon-close-style"
+                        (click)="clearRecordedData()" title="{{'Delete'|translate}}"></i>
+                      <button *ngIf="!isRecording && blobUrl" [ngClass]="{'enabled':!isSaving , 'disabled': isSaving}"
+                        (click)="uploadRecordFile()" class="btn-upload-audio" title="{{'Save'|translate}}"><i
+                          class="fal fa-cloud-upload"></i> </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="show-audio-file">
+                <div class="audio-file-inner">
+                  <audio controls>
+                    <source [src]="app_ser.audio_url(activeStep.data)" type="audio/mpeg">
+                    {{'audioNotSupported'|translate}}</audio>
+                  <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+                </div>
+              </div>
+              <div class="row" style="border-radius:20px;border: 1px solid #00b5a9;margin: 20px 0;font-size: 16px;">
+                <div class="col-md-12 text-center p-0">
+                  <div class="wrap-sliding-text">
+                    <div class="text-controls"
+                      style="background: #00b5a9; padding: 10px 20px;border-top-left-radius: 20px; border-top-right-radius: 20px;;">
+                      <div class="row row-controls">
+                        <div class="col-md-5 text-right" style="padding:0 40px;">
+                          <i class="fal fa-plus-circle" (click)="changeFontSize('+')"></i> {{'Font'|translate}} <i
+                            class="fal fa-minus-circle" (click)="changeFontSize('-')"></i>
+                        </div>
+                        <div class="col-md-2 text-center" style="padding:0 40px;">
+                          <i class="fas fa-sync" (click)="startMarquee()" title="{{'Start'|translate}}"></i>
+                          <!-- <i class="fas fa-play"></i> -->
+                        </div>
+                        <div class="col-md-5 text-left" style="padding:0 40px;">
+                          <i class="fal fa-plus-circle" (click)="changeMarqueeSpeed('+')"></i> {{'Speed'|translate}} <i
+                            class="fal fa-minus-circle" (click)="changeMarqueeSpeed('-')"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-content">
+                      <marquee onfinish="marqueeFinished()" onbounce="marqueeFinished()" id="soundMarquee" loop="-1"
+                        scrolldelay="0" scrollamount="1.5" onmouseover="this.stop();" onmouseout="this.start();"
+                        behavior="scroll" direction="up" [ngStyle]="{'font-size': fontSize+'px'}">
+                        <pre class="moving-text-pre" style="color: white;">{{activeStep.step.question}}</pre>
+                      </marquee>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn()  , 'disabled': !checkNextBtn() }" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** AUTOCUE VOICE TOOL END **************************************** -->
+          <!-- **************************************** AUTOCUE VIDEO TOOL START **************************************** -->
+          <div class="wrapper-record-video-autoque" *ngIf="activeStep.step.type=='autocue'">
+            <div class="wrap-inner-record-video">
+              <h5 class="question">{{'Video Autocue Test'|translate}}</h5>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div *ngIf="!activeStep.data" class="center relative-div-upload-genrl">
+                  <div class="wrapper-live-video" *ngIf="!downloadUrl">
+                    <video class="video video-recording-live" #video autoplay controls muted="true"></video>
+                    <span class="m-1"></span>
+                    <button class="btn btn-primary start-recording" *ngIf="!isVideoRecording"
+                      (click)="startVideoRecording()"><i class="fal fa-video video-icon"></i>
+                      {{'Start Recording'| translate}}</button>
+                    <button class="btn btn-warning stop-recording" *ngIf="isVideoRecording"
+                      (click)="stopVideoRecording()">{{'Stop Recording'| translate}}</button>
+                  </div>
+                  <div *ngIf="downloadUrl" class="video-file-inner">
+                    <vg-player>
+                      <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+                      </vg-overlay-play>
+                      <vg-controls [vgAutohide]="false">
+                        <vg-play-pause></vg-play-pause>
+                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                        <vg-scrub-bar class="vg-scrub-genrl">
+                          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                        </vg-scrub-bar>
+                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                        <vg-mute></vg-mute>
+                        <vg-volume vgFor="masterVideo" style="padding-right: 20px;"></vg-volume>
+                      </vg-controls>
+                      <video *ngIf="downloadUrl" [vgMedia]="master" #master id="masterVideo" preload="auto"
+                        isCompleted="" autoplay="true" [src]="downloadUrl">
+                      </video>
+                    </vg-player>
+                    <div class="wrap-upload-del-btns">
+                      <i *ngIf="!isVideoRecording && downloadUrl && !isSaving" class="fal fa-trash-alt icon-close-style"
+                        (click)="clearRecordedData()" title="{{'Delete'|translate}}"></i>
+                      <button *ngIf="!isVideoRecording && downloadUrl"
+                        [ngClass]="{'enabled':!isSaving , 'disabled': isSaving}" (click)="uploadRecordFile('video')"
+                        class="btn-upload-audio" title="{{'Save'|translate}}"><i class="fal fa-cloud-upload"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="video-file-inner">
+                <vg-player>
+                  <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+                  </vg-overlay-play>
+                  <vg-controls [vgAutohide]="false">
+                    <vg-play-pause></vg-play-pause>
+                    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                    <vg-scrub-bar class="vg-scrub-genrl">
+                      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                    </vg-scrub-bar>
+                    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                    <vg-mute></vg-mute>
+                    <vg-volume vgFor="masterVideo"></vg-volume>
+                    <vg-fullscreen></vg-fullscreen>
+                  </vg-controls>
+                  <video [vgMedia]="master" #master id="masterVideo" preload="auto" isCompleted="" autoplay="true"
+                    [src]="app_ser.video_url(activeStep.data)">
+                  </video>
+                </vg-player>
+                <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                  class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+              </div>
+              <div class="row" style="border-radius:20px;border: 1px solid #00b5a9;margin: 20px 0;font-size: 16px;">
+                <div class="col-md-12 text-center p-0">
+                  <div class="wrap-sliding-text">
+                    <div class="text-controls">
+                      <div class="row row-controls">
+                        <div class="col-5 text-right col-font-size">
+                          <i class="fal fa-plus-circle" (click)="changeFontSize('+')"></i> {{'Font'|translate}} <i
+                            class="fal fa-minus-circle" (click)="changeFontSize('-')"></i>
+                        </div>
+                        <div class="col-2 text-center col-refresh">
+                          <i class="fas fa-sync" (click)="startMarquee()" title="{{'Start'|translate}}"></i>
+                          <!-- <i class="fas fa-play"></i> -->
+                        </div>
+                        <div class="col-5 text-left col-text-speed">
+                          <i class="fal fa-plus-circle" (click)="changeMarqueeSpeed('+')"></i> {{'Speed'|translate}} <i
+                            class="fal fa-minus-circle" (click)="changeMarqueeSpeed('-')"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-content">
+                      <marquee class="marquee-video-record" onfinish="marqueeFinished()" onbounce="marqueeFinished()"
+                        id="soundMarquee" loop="-1" scrolldelay="0" scrollamount="1.5" onmouseover="this.stop();"
+                        onmouseout="this.start();" behavior="scroll" direction="up"
+                        [ngStyle]="{'font-size': fontSize+'px'}">
+                        <pre class="moving-text-pre" style="color: white;">{{activeStep.step.question}}</pre>
+                      </marquee>
+                      <!-- <marquee onfinish="marqueeFinished()" onbounce="marqueeFinished()" id="soundMarquee"
+                        class="marquee-video-record" loop="-1" scrolldelay="0" scrollamount="1.5"
+                        onmouseover="this.stop();" onmouseout="this.start();" behavior="scroll" direction="up"
+                        [ngStyle]="{'font-size': fontSize+'px'}">
+                        <pre class="moving-text-pre" style="color: white;">{{activeStep.step.question}}</pre>
+                      </marquee> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn()  , 'disabled': !checkNextBtn() }" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** AUTOCUE VIDEO TOOL END **************************************** -->
+          <!-- **************************************** RECORD VIDEO TOOL START **************************************** -->
+          <div class="wrapper-record-video" *ngIf="activeStep.step.type=='video'">
+            <div class="wrap-inner-record-video">
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div *ngIf="!activeStep.data" class="center relative-div-upload-genrl">
+                  <div class="wrapper-live-video" *ngIf="!downloadUrl">
+                    <video class="video video-recording-live" #video autoplay controls muted="true"></video>
+                    <span class="m-1"></span>
+                    <button class="btn btn-primary start-recording" *ngIf="!isVideoRecording"
+                      (click)="startVideoRecording()"><i class="fal fa-video video-icon"></i>
+                      {{'Start Recording'| translate}}</button>
+                    <button class="btn btn-warning stop-recording" *ngIf="isVideoRecording"
+                      (click)="stopVideoRecording()">{{'Stop Recording'| translate}}</button>
+                  </div>
+                  <div *ngIf="downloadUrl" class="video-file-inner">
+                    <vg-player>
+                      <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+                      </vg-overlay-play>
+                      <vg-controls [vgAutohide]="false">
+                        <vg-play-pause></vg-play-pause>
+                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                        <vg-scrub-bar class="vg-scrub-genrl">
+                          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                        </vg-scrub-bar>
+                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                        <vg-mute></vg-mute>
+                        <vg-volume vgFor="masterVideo" style="padding-right: 20px;"></vg-volume>
+                      </vg-controls>
+                      <video *ngIf="downloadUrl" [vgMedia]="master" #master id="masterVideo" preload="auto"
+                        isCompleted="" autoplay="true" [src]="downloadUrl">
+                      </video>
+                    </vg-player>
+                    <div class="wrap-upload-del-btns">
+                      <i *ngIf="!isVideoRecording && downloadUrl && !isSaving" class="fal fa-trash-alt icon-close-style"
+                        (click)="clearRecordedData()" title="{{'Delete'|translate}}"></i>
+                      <button *ngIf="!isVideoRecording && downloadUrl"
+                        [ngClass]="{'enabled':!isSaving , 'disabled': isSaving}" (click)="uploadRecordFile('video')"
+                        class="btn-upload-audio" title="{{'Save'|translate}}"><i class="fal fa-cloud-upload"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="video-file-inner">
+                <vg-player>
+                  <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+                  </vg-overlay-play>
+                  <vg-controls [vgAutohide]="false">
+                    <vg-play-pause></vg-play-pause>
+                    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                    <vg-scrub-bar class="vg-scrub-genrl">
+                      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                    </vg-scrub-bar>
+                    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                    <vg-mute></vg-mute>
+                    <vg-volume vgFor="masterVideo"></vg-volume>
+                    <vg-fullscreen></vg-fullscreen>
+                  </vg-controls>
+                  <video [vgMedia]="master" #master id="masterVideo" preload="auto" isCompleted="" autoplay="true"
+                    [src]="app_ser.video_url(activeStep.data)">
+                  </video>
+                </vg-player>
+                <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                  class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** RECORD VIDEO TOOL END **************************************** -->
+          <!-- **************************************** RECORD SOUND TOOL START **************************************** -->
+          <div class="wrapper-upload-document" *ngIf="activeStep.step.type=='sound'">
+            <div class="wrap-inner-upload-document">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div *ngIf="!activeStep.data" class="center relative-div-upload-genrl">
+                  <div class="start-recording" *ngIf="!isRecording && !blobUrl" (click)="startRecording('audio',false)">
+                    <i class="fal fa-microphone" title="{{'Click to Start Recording'|translate}}"></i>
+                  </div>
+                  <div class="stop-recording" *ngIf="isRecording && !blobUrl" (click)="stopRecording('audio',false)">
+                    <i class="fal fa-microphone-slash" title="{{'Click to Stop Recording'|translate}}"></i>
+                  </div>
+                  <div *ngIf="isRecording && !blobUrl" class="recording-time"> {{recordedTime}} </div>
+                  <div class="audio-file-inner">
+                    <audio *ngIf="!isRecording && blobUrl" controls>
+                      <source [src]="blobUrl" type="audio/webm">
+                    </audio>
+                    <div class="wrap-upload-del-btns">
+                      <i *ngIf="!isRecording && blobUrl && !isSaving" class="fal fa-trash-alt icon-close-style"
+                        (click)="clearRecordedData()" title="{{'Delete'|translate}}"></i>
+                      <button *ngIf="!isRecording && blobUrl" [ngClass]="{'enabled':!isSaving , 'disabled': isSaving}"
+                        (click)="uploadRecordFile()" class="btn-upload-audio" title="{{'Save'|translate}}"><i
+                          class="fal fa-cloud-upload"></i> </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="show-audio-file">
+                <div class="audio-file-inner">
+                  <audio controls>
+                    <source [src]="app_ser.audio_url(activeStep.data)" type="audio/mpeg">
+                    {{'audioNotSupported'|translate}} </audio>
+                  <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn(), 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** RECORD SOUND TOOL END **************************************** -->
+          <!-- **************************************** UPLOAD IMAGE TOOL START **************************************** -->
+          <div class="wrapper-upload-image" *ngIf="activeStep.step.type=='upload-image'">
+            <div class="wrap-inner-upload-image">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div class="center relative-div-upload-genrl">
+                  <i class="fal fa-image icon-upload-genrl"></i>
+                  <ngx-file-drop [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-upload">{{'Upload Image'| translate}}</button>
+                    </ng-template>
+                  </ngx-file-drop>
+                  <!-- <div class="wrap-uploaded-file" *ngFor="let item of files; let i=index">
+                            <p class="upload-file-name">{{ item.relativePath }}</p>
+                          </div> -->
+                </div>
+              </div>
+              <div *ngIf="activeStep.data" class="show-img-file">
+                <div class="img-file-inner" *ngFor="let item of activeStep.files; let i=index">
+                  <img [src]="app_ser.img_url(activeStep.data)" alt="">
+                  <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+                </div>
+              </div>
+              <!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+              <!-- <div class="upload-img-div-main">
+                <i class="fal fa-image icon-upload-genrl position-img-icon"></i>
+                <p class="text-upload-img">Upload Image</p>
+                <ngx-image-uploader class="upload-image-main" [options]="imageOptions" #imageUploader>
+                </ngx-image-uploader>
+              </div>
+
+              <button type="button" (click)="imageUploader.uploadImage()">Upload</button>
+              !-->
+              <div class="row" [ngClass]="{'margin-row-next-btn-top': activeStep.enabled}">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn(), 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** UPLOAD IMAGE TOOL END **************************************** -->
+          <!-- **************************************** UPLOAD VIDEO TOOL START **************************************** -->
+          <div class="wrapper-upload-document" *ngIf="activeStep.step.type=='upload-video'">
+            <div class="wrap-inner-upload-document">
+              <!-- <h5 class="question">{{activeStep.step.question}}</h5> -->
+              <pre style="color: white;" class="question"><h5>{{activeStep.step.question}}</h5></pre>
+              <div class="file-upload-wrapper" *ngIf="!activeStep.data">
+                <div class="center relative-div-upload-genrl">
+                  <i class="fal fa-video icon-upload-genrl"></i>
+                  <ngx-file-drop [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-upload">{{'Upload Video'|translate}}</button>
+                    </ng-template>
+                  </ngx-file-drop>
+                  <!-- <div class="wrap-uploaded-file" *ngFor="let item of activeStep.files; let i=index">
+                  <p class="upload-file-name">{{ item.relativePath }}</p>
+                </div> -->
+                </div>
+              </div>
+              <!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+              <div *ngIf="activeStep.data" class="show-video-file">
+                <div class="video-file-inner">
+                  <vg-player>
+                    <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon">
+                    </vg-overlay-play>
+                    <vg-controls [vgAutohide]="false">
+                      <vg-play-pause></vg-play-pause>
+                      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                      <vg-scrub-bar class="vg-scrub-genrl">
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                      </vg-scrub-bar>
+                      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                      <vg-mute></vg-mute>
+                      <vg-volume vgFor="masterVideo"></vg-volume>
+                    </vg-controls>
+                    <video [vgMedia]="master" #master id="masterVideo" preload="auto" isCompleted="" autoplay="true"
+                      [src]="app_ser.video_url(activeStep.data)">
+                    </video>
+                  </vg-player>
+                  <i [ngClass]="{'enabled':activeStep.changeable, 'disabled': !activeStep.changeable}"
+                    class="fal fa-trash-alt icon-close-style" (click)="deleteMedia()"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button [ngClass]="{'enabled':checkNextBtn() , 'disabled': !checkNextBtn()}" type="button"
+                    class="btn btn-outline-default btn-rounded waves-effect btn-next-custom"
+                    (click)="setAnswer()">{{'next'| translate}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** UPLOAD VIDEO TOOL END **************************************** -->
+          <!-- **************************************** EXTRA STEPS START **************************************** -->
+          <!-- **************************************** VIDEO START **************************************** -->
+          <div class="wrap-video-player" *ngIf="activeStep.type=='course-video'">
+            <!-- <ngx-ui-loader fgsColor="#00b5a9"></ngx-ui-loader> -->
+            <!-- <ngx-ui-loader [loaderId]="'loader-01'"></ngx-ui-loader> -->
+            <!-- <div class="loader-settings" *ngIf="courseGifLoader"
+              style="position:fixed;z-index:99999999999; left:0; right:0; margin-left:auto; margin-right: auto; top:50%;margin-top:-25px;">
+              <app-course-loader></app-course-loader>
+            </div> -->
+            <vg-player (onPlayerReady)="onPlayerReady($event)">
+              <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon" *ngIf="!shouldShow">
+              </vg-overlay-play>
+              <vg-controls [vgAutohide]="false">
+                <vg-play-pause></vg-play-pause>
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-scrub-bar class="vg-scrub-genrl">
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <div *ngIf="activeStep.dubbingList.length>0" class="dubbing" (click)="showDubbings()"><i
+                    class="fal fa-language dubbing-control-icon"></i>
+                  <div class="content-dubbing" *ngIf="dubbingContent">
+                    <p class="title-dubbing"><i class="fal fa-language dubbing-title-icon"></i> {{'Dubbing'|translate}}
+                    </p>
+                    <ul class="dubbing-ul" *ngFor="let dubbing of activeStep.dubbingList ; let dubbingIndex= index">
+                      <li (click)="changeDubbing(dubbingIndex)"
+                        [ngClass]="{'active': activeDubbing == dubbingIndex, 'inActive': !(activeDubbing == dubbingIndex)}">
+                        {{dubbing.name}}</li>
+                      <li (click)="changeDubbing(-1)"
+                        [ngClass]="{'active': activeDubbing == -1 , 'inActive': !(activeDubbing == -1)}"
+                        *ngIf="dubbingIndex==activeStep.dubbingList.length-1">{{'Default'|translate}} </li>
+                    </ul>
+                  </div>
+                </div>
+                <vg-mute></vg-mute>
+                <vg-volume vgFor="masterVideo"></vg-volume>
+                <!-- <vg-fullscreen></vg-fullscreen> -->
+                <div class="full-screen-control" (click)="fullScreenSwitch()">
+                  <i class="far fa-expand" *ngIf="!fullScreen"></i>
+                  <i class="far fa-compress" *ngIf="fullScreen"></i>
+                </div>
+              </vg-controls>
+              <div ng-show="API.isCompleted && API.currentState == 'stop'"><span ng-click="initNext()"></span></div>
+              <video [vgMedia]="master" #master id="masterVideo" preload="auto" isCompleted="" autoplay="true"
+                [src]="app_ser.video_url(activeStep.video,activeStep.video_derivation,'q_720')">
+              </video>
+            </vg-player>
+            <!-- <div>
+            <button style="font-size:40px ;" (click)="setSound()" class="finish-course-btn">الصوت</button>
+          </div> -->
+          </div>
+          <!-- **************************************** VIDEO END **************************************** -->
+          <!-- **************************************** ERROR VIDEO START **************************************** -->
+          <div class="wrap-video-player" *ngIf="activeStep.type=='error-video'">
+            <vg-player (onPlayerReady)="onPlayerReady($event)">
+              <vg-overlay-play vgFor="masterVideo" class="video-big-play-icon" *ngIf="!shouldShow">
+              </vg-overlay-play>
+              <vg-controls [vgAutohide]="false">
+                <vg-play-pause></vg-play-pause>
+                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                <vg-scrub-bar class="vg-scrub-genrl">
+                  <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                  <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                </vg-scrub-bar>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                <div *ngIf="activeStep.dubbingList.length>0" class="dubbing" (click)="showDubbings()"><i
+                    class="fal fa-language dubbing-control-icon"></i>
+                  <div class="content-dubbing" *ngIf="dubbingContent">
+                    <p class="title-dubbing"><i class="fal fa-language dubbing-title-icon"></i> {{'Dubbing'|translate}}
+                    </p>
+                    <ul class="dubbing-ul" *ngFor="let dubbing of activeStep.dubbingList ; let dubbingIndex= index">
+                      <li (click)="changeDubbing(dubbingIndex)"
+                        [ngClass]="{'active': activeDubbing == dubbingIndex, 'inActive': !(activeDubbing == dubbingIndex)}">
+                        {{dubbing.name}}</li>
+                      <li (click)="changeDubbing(-1)"
+                        [ngClass]="{'active': activeDubbing == -1 , 'inActive': !(activeDubbing == -1)}"
+                        *ngIf="dubbingIndex==activeStep.dubbingList.length-1">{{'Default'|translate}} </li>
+                    </ul>
+                  </div>
+                </div>
+                <vg-mute></vg-mute>
+                <vg-volume vgFor="masterVideo"></vg-volume>
+                <!-- <vg-fullscreen></vg-fullscreen> -->
+                <div class="full-screen-control" (click)="fullScreenSwitch()">
+                  <i class="far fa-expand" *ngIf="!fullScreen"></i>
+                  <i class="far fa-compress" *ngIf="fullScreen"></i>
+                </div>
+              </vg-controls>
+              <div ng-show="API.isCompleted && API.currentState == 'stop'"><span ng-click="initNext()"></span></div>
+              <video [vgMedia]="master" #master id="masterVideo" preload="auto" isCompleted="" autoplay="true"
+                [src]="app_ser.video_url(activeStep.video,activeStep.video_derivation,'q_720')">
+              </video>
+            </vg-player>
+            <!-- <div>
+                                <button style="font-size:40px ;" (click)="setSound()" class="finish-course-btn">الصوت</button>
+                              </div> -->
+          </div>
+          <!-- **************************************** ERROR VIDEO END **************************************** -->
+          <!-- **************************************** FINISH START **************************************** -->
+          <div class="wrapper-finish" *ngIf="activeStep.type=='finish'">
+            <div class="wrapper-finish-inner">
+              <textarea [(ngModel)]="courseReview" class="md-textarea form-control text-review" rows="3"
+                placeholder="{{'Please write your review about this course' | translate}}"></textarea>
+              <div class="starRating">
+                <span class="rate-course" *ngFor="let rate of course_reivew_rate; let i=index">
+                  <i [class]="rate" (click)="setRate(i+1)"></i>
+                </span>
+              </div>
+              <!-- <p class="finish-course-msg"> هل تريد انهاء الكورس؟ </p> -->
+              <button (click)="finishCourse()" class="finish-course-btn">{{'Finish Course'| translate}}</button>
+            </div>
+          </div>
+          <!-- **************************************** FINISH END **************************************** -->
+          <!-- **************************************** RESULT START **************************************** -->
+          <div class="wrapper-test-result" *ngIf="activeStep.type=='result'">
+            <!-- Result Data -->
+            <div class="test-result-inner">
+              <div class="text-center">
+                <i class="fal fa-smile icon-tick-check"></i>
+                <p class="thank-you-msg">{{'Thanks for completing the Lesson'|translate}}</p>
+                <div class="total-marks">
+                </div>
+                <div class="wrapper-questions">
+                  <table class="table table-striped table-responsive-md btn-table table-results">
+                    <thead>
+                      <tr valign="middle">
+                        <th valign="middle" style="width:50px;text-align: right; padding-right: 0">#</th>
+                        <th valign="middle" style="text-align: right">{{'Step'|translate}}</th>
+                        <th valign="middle" style="width:100px;text-align: center;padding-left:0">{{'Status'|translate}}
+                        </th>
+                        <th valign="middle" style="width:100px;text-align: center;padding-left:0">{{'Mark'|translate}}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr valign="middle" *ngFor="let result of applayResultDetails.apply_result.answers;let i=index">
+                        <td valign="middle" style="width:50px;text-align: right; padding-right: 0;">#{{i +1}}</td>
+                        <td valign="middle" style="text-align: right">
+                          {{result.step_info.question?result.step_info.question: result.step_info.title}}</td>
+                        <td valign="middle" style="width:100px;text-align: center; padding-left: 0;">
+                          <i class="fal fa-check-circle correct-answer"
+                            *ngIf="result.mark_by==-1 && result.step_info.mark>0 && result.mark==result.step_info.mark"></i>
+                          <i class="fal fa-times-circle wrong-answer"
+                            *ngIf="result.mark_by==-1 && result.step_info.mark>0 && result.mark != result.step_info.mark"></i>
+                          <button *ngIf="result.step_info.mark==0 || result.mark_by==1" mdbBtn size="sm"
+                            class="m-0 btn-result-show no-marks" mdbWavesEffect>{{'No Mark'|translate}}</button>
+                          <i class="fal fa-question-circle pending-answer"
+                            *ngIf="result.mark_by == 0 && result.step_info.mark>0"></i>
+                        </td>
+                        <td valign="middle" style="width:100px;text-align: center; padding-left: 0;">
+                          <button *ngIf="result.mark_by==-1 && result.step_info.mark>0" mdbBtn size="sm"
+                            class="m-0 btn-result-show"
+                            mdbWavesEffect>{{result.mark}}/{{result.step_info.mark}}</button>
+                          <button *ngIf="result.step_info.mark==0 || result.mark_by==1" mdbBtn size="sm"
+                            class="m-0 btn-result-show" mdbWavesEffect>{{'No Mark'|translate}}</button>
+                          <button *ngIf="result.mark_by==0 && result.step_info.mark>0" mdbBtn size="sm"
+                            class="m-0 btn-result-show" mdbWavesEffect>{{'Pending'|translate}}</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-light btn-next-result"
+                (click)="activeItem(-1)">التالي</button>
+            </div>
+          </div>
+          <!-- **************************************** RESULT END **************************************** -->
+          <!-- **************************************** RESULT START **************************************** -->
+          <div class="" *ngIf="activeStep.type=='default'">
+          </div>
+          <!-- **************************************** RESULT END **************************************** -->
+          <!-- **************************************** EXTRA STEPS END **************************************** -->
+          <div *ngIf="active_item_index && stepsInfo.student_steps.length >1 && activeStep.type!='error-video'"
+            class="wrapper-step-item" [ngClass]="{'wrapper-step-item-conditional': (activeStep.step.type !='play') }">
+            <span class="step-item-inner" *ngFor="let step of stepsInfo.student_steps, let i=index;">
+              <!-- <div class="tile"
+                [ngStyle]="{'width': !(i==activeStep.index) ? (100/(stepsInfo.student_steps.length+1))+'%' : (200/(stepsInfo.student_steps.length+1))+'%' }"
+                ngbTooltip="{{stepsInfo.student_steps[i].step.title}}" tooltipClass="my-custom-class"
+                [ngClass]="{'activeStepTile':( i==activeStep.index), 'inActiveStepTile': !( i==activeStep.index)}">
+                <a class="step-item">&nbsp;</a>
+              </div> -->
+              <div class="tile" (mouseenter)="showStepTitle($event, i)" (mouseleave)="showStepTitle($event, i)"
+                [ngStyle]="{'width': !(i==activeStep.index) ? (100/(stepsInfo.student_steps.length+1))+'%' : (200/(stepsInfo.student_steps.length+1))+'%' }"
+                [ngClass]="{'activeStepTile':( i==activeStep.index), 'inActiveStepTile': !( i==activeStep.index)}">
+                <a class="step-item">&nbsp;</a>
+                <div [ngClass]="opacityShowHideSteps" *ngIf="i==stepMouseOverIndex"> {{stepsInfo.steps[i].title}} </div>
+              </div>
+            </span>
+          </div>
+          <!-- **************************************** LESSONS START NEW **************************************** -->
+          <div class="wrapper-lesson-item">
+            <div class="lesson-inner" *ngFor="let ui_item of items, let i=index;"
+              [ngStyle]="{'height': (i==0) ?0 +'%'  : ( !( i==active_item_index) ? (100/(items.length))+'%' : (200/(items.length))+'%') }"
+              [ngClass]="{'activeLessonTile':( i==active_item_index), 'inActiveStepTile': !(i==active_item_index)}">
+              <!-- <div class="tile" *ngIf="i==0" (mouseenter)="changeStyle($event, i)"
+                (mouseleave)="changeStyle($event, i)">
+                <a class="lesson-item">&nbsp;</a>
+                <div [ngClass]="opacityShowHide" class="summary-lesson-box" *ngIf="i==itemMouseOverIndex">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="wrap-course-outline-summary">
+                        <h1 class="lesson-title">{{ 'courseDetails' | translate }}</h1>
+                        <br>
+                        <a *ngIf="active_item_index!=0 && checkItem(items[itemMouseOverIndex].item) == 0"
+                          [ngClass]="{'enabled':1}" (click)="activeItem(i)" class="btn-resume-test"><i
+                            class="fal fa-play icon-btn-genrl"></i>{{ 'Start' | translate }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="tile" *ngIf="i>0" (mouseenter)="changeStyle($event, i)" (mouseleave)="changeStyle($event, i)">
+                <a class="lesson-item">&nbsp;</a>
+                <div class="summary-lesson-box" [ngClass]="opacityShowHide" *ngIf="i==itemMouseOverIndex">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="wrap-course-outline-summary">
+                        <h1 class="lesson-title">{{items[itemMouseOverIndex].item.name}}</h1>
+                        <p class="course-time"><i class="far fa-clock icon-width-genrl"
+                            aria-hidden="true"></i><strong>المدة الزمنية :</strong>
+                          {{app_ser.secToTime(items[itemMouseOverIndex].item.duration)}}</p>
+                        <p class="course-level"><i class="far fa-analytics icon-width-genrl"
+                            aria-hidden="true"></i><strong>عدد الخطوات:</strong>
+                          {{items[itemMouseOverIndex].item.steps_count}} </p>
+                        <p *ngIf="items[itemMouseOverIndex].item.apply_repeat" class="course-level"><i
+                            class="far fa-ballot icon-width-genrl"></i><strong>{{'noOfAttemptsAvlbl'| translate}}</strong>
+                          {{items[itemMouseOverIndex].item.apply_repeat}} </p>
+                        <p *ngIf="!items[itemMouseOverIndex].item.apply_repeat" class="course-level"><i
+                            class="far fa-ballot icon-width-genrl"></i><strong>
+                            {{'noOfAttemptsAvlbl'| translate}}</strong> {{'Unlimited' | translate}} </p>
+                        <p class="course-level"><i class="far fa-user-check icon-width-genrl"></i><strong>
+                            {{'Number of attempts'|translate}}</strong> {{items[itemMouseOverIndex].item.apply.length}}
+                        </p>
+                        <p *ngIf="completePercentHtml(items[itemMouseOverIndex].item)==100 && !(items[itemMouseOverIndex].item.settings.exam_no_mark ||items[itemMouseOverIndex].item.settings.lesson_no_mark)"
+                          class="course-level"><i
+                            class="far fa-poll-h icon-width-genrl"></i><strong>{{'Result:'| translate}}</strong>
+                          {{currentResult(items[itemMouseOverIndex].item)|translate}} </p>
+                        <p *ngIf="items[itemMouseOverIndex].item.settings && items[itemMouseOverIndex].item.settings.save_answers_on_move"
+                          class="course-level"><i class="far fa-save icon-width-genrl"></i><strong>
+                            {{'Save each step'| translate}}</strong> {{'Yes'| translate}} </p>
+                        <p *ngIf="!(items[itemMouseOverIndex].item.settings && items[itemMouseOverIndex].item.settings.save_answers_on_move)"
+                          class="course-level"><i class="far fa-save icon-width-genrl"></i><strong>
+                            {{'Save each step'| translate}}</strong> {{'No'|translate}} </p>
+                        <div class="wrap-progress-bar">
+                          <p class="progress-text"> {{completePercentHtml(items[itemMouseOverIndex].item)}} % </p>
+                          <div class="progress md-progress progress-bar-style">
+                            <div class="progress-bar bg-success" role="progressbar"
+                              [style.width.%]="completePercentHtml(items[itemMouseOverIndex].item)" aria-valuenow="25"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                        <br>
+                        <button *ngIf="active_item_index!=i && checkItem(items[itemMouseOverIndex].item)==0"
+                          type="button" [disabled]="!canOpenSteps(itemMouseOverIndex-1)" (click)="activeItem(i)"
+                          [ngClass]="{'a':canOpenSteps(itemMouseOverIndex-1), 'b': !canOpenSteps(itemMouseOverIndex-1)}"
+                          class="btn-resume-test">
+                          <i class="fal fa-play icon-btn-genrl"></i>{{'Start'| translate}} </button>
+                        <button *ngIf="active_item_index!=i && checkItem(items[itemMouseOverIndex].item)==1"
+                          (click)="activeItem(i)"
+                          [ngClass]="{'a':canOpenSteps(itemMouseOverIndex-1), 'b': !canOpenSteps(itemMouseOverIndex-1)}"
+                          class="btn-resume-test">
+                          <i class="fal fa-play icon-btn-genrl"></i>{{'Resume testing'| translate}} </button>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- **************************************** LESSONS END NEW **************************************** -->
+          <!-- **************************************** NEXT AND PREVIOUS BUTTONS START **************************************** -->
+          <div *ngIf="canPrevious()" class="wrap-next" (click)="previous()" (mouseenter)="togglePrev($event)"
+            (mouseleave)="togglePrev($event)">
+            <a class="prev-btn"><i class="fal fa-chevron-left"></i></a>
+            <span class="prev-step-tooltip" *ngIf="toggleTooltipPrev">{{'goBackStep'| translate}}</span>
+          </div>
+          <div *ngIf="canSkip()" class="wrap-prev" (click)="skip()" (mouseenter)="toggleSkip($event)"
+            (mouseleave)="toggleSkip($event)">
+            <a class="nxt-btn">
+              <i class="fal fa-chevron-right"></i>
+            </a>
+            <span class="skip-step-tooltip" *ngIf="showToolTipSkip">{{'skipStep'| translate}}</span>
+          </div>
+          <!-- **************************************** NEXT AND PREVIOUS BUTTONS END **************************************** -->
+          <!-- **************************************** COUNTER DIV START **************************************** -->
+          <div *ngIf="activeStep.step.type!='play' && activeStep.step.expected_time && !activeStep.showResult"
+            class="wrapper-time-counter">
+            <countdown #countdown [config]="{leftTime: activeStep.step.expected_time, notify:[25,50], format: 'mm:ss'}"
+              [ngClass]="{'clock-time-red': redTimer,'clock-time-yellow': yellowTimer}" (event)="timesUp($event)">
+            </countdown>
+            <audio *ngIf="soundTimer" autoplay loop>
+              <source src="../../../../../assets/audios/clock-ticking-2.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <!-- **************************************** COUNTER DIV END **************************************** -->
+          <!-- **************************************** INSTRUCTIONS DIV START **************************************** -->
+          <div *ngIf="activeStep.step && activeStep.step.instructions" class="wrap-instructions">
+            <div class="icon-info" (mouseenter)="setInstructionsBox()" (mouseleave)="!setInstructionsBox()">
+              <i class=" fal fa-exclamation-circle info-icon"></i>
+            </div>
+            <div *ngIf="instructionsBox" class="instructions-text"
+              [ngClass]="{'styleInstructionsOpen':instructionsBox}"> {{activeStep.step.instructions}} </div>
+          </div>
+          <!-- **************************************** INSTRUCTIONS DIV END **************************************** -->
+          <!-- **************************************** COURSE DETAIL DIV START **************************************** -->
+          <div *ngIf="activeStep.type=='course-video'" class="icon-course-detail">
+            <i class="fal"
+              [ngClass]="!shouldShow? 'fa-arrow-circle-down icon-arrow-down':'fa-arrow-circle-up icon-arrow-up'"
+              (click)="shouldShow = !shouldShow ; handlePlayer()"></i>
+          </div>
+          <!-- *************** DETAILS START *************** -->
+          <div *ngIf="activeStep.type=='course-video'" class="wrapperCourseDetai"
+            [ngClass]="{show: shouldShow, hide: !shouldShow}">
+            <div class="courseDetailInner">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="course-title">
+                    <h3>{{courseDetail.name}}</h3>
+                  </div>
+                  <!-- <span class="course-star-rating" *ngFor="let rate of rating_arr">
+                    <i [class]="rate"></i>
+                  </span> -->
+                  <p class="course-description"> {{courseDetail.description}} </p>
+                  <div class="course-summary">
+                    <p class="course-date"><i class="fal fa-calendar-alt"></i>{{'Date'|translate}}
+                      {{courseDetail.create_date | date:'mediumDate' }}</p>
+                    <p class="no-of-lessons"><i class="fal fa-book"></i>{{'noOfLessons'| translate}}
+                      {{courseDetail.lessons}}</p>
+                    <p class="trainer-name"><i class="fal fa-chalkboard-teacher"></i>{{'Trainer'|translate}}
+                      {{courseDetail.trainer}} </p>
+                    <p class="course-time"><i class="fal fa-clock"></i>{{'courseDuration' | translate}}
+                      {{app_ser.formatTime(courseDetail.duration).hours}} {{'hour' | translate}}
+                      {{app_ser.formatTime(courseDetail.duration).minutes}} {{'Minutes' | translate}} </p>
+                    <p class="registered-students"><i class="fal fa-users"></i>{{'noOfStudents'| translate}}
+                      {{courseDetail.students_count}} </p>
+                    <p class="course-level"><i class="fal fa-analytics"></i>{{'Level'| translate}}
+                      {{courseDetail.course_level.name}} </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <i class="fal fa-arrow-circle-up icon-arrow-up" (click)="shouldShow = !shouldShow ;handlePlayer()"></i> -->
+          </div>
+          <!-- *************** DETAILS END *************** -->
+          <!-- **************************************** COURSE DETAIL DIV END **************************************** -->
+        </div>
+        <!-- **************************************** WRAPPER STEPS MAIN DIV END **************************************** -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div *ngIf="trainer.name" [ngClass]="langStyle" style="margin-top: 60px;">
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 hdng-gradient">{{ 'Add new course' | translate }}</h3>
+      <p class="text-center txt-complete-course-steps">{{'Create your course in three steps' | translate }}</p>
+    </div>
+    <div class="col-md-12">
+      <mdb-stepper #stepper [linear]="true" class="stepper-add-course">
+        <!-- =============================== STEP 1 - STEP BASIC INFO START =============================== -->
+        <mdb-step name="1- {{ 'Add Course' | translate }}" class="step1">
+          <!-- <app-trainer-courses></app-trainer-courses> -->
+          <app-add-course></app-add-course>
+          <!-- BUTTONS CONTINUE AND BACK START -->
+          <div class="wrap-next-and-prev-buttons">
+            <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
+              class="btn-genrl btn-continue">{{ 'Save'| translate }} <i class="far fa-long-arrow-right"></i></button>
+          </div>
+          <!-- BUTTONS CONTINUE AND BACK END -->
+        </mdb-step>
+        <!-- =============================== STEP 1 - STEP BASIC INFO END =============================== -->
+        <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS START =============================== -->
+        <mdb-step name="2- {{ 'Add Item' | translate }}" class="step2">
+          <!-- <app-course-summary></app-course-summary> -->
+          <app-add-items></app-add-items>
+          <!-- BUTTONS CONTINUE AND BACK START -->
+          <div class="wrap-next-and-prev-buttons">
+            <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()" class="btn-genrl btn-back"><i
+                class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
+            <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
+              class="btn-genrl btn-continue">{{ 'Save'| translate }} <i class="far fa-long-arrow-right"></i></button>
+          </div>
+          <!-- BUTTONS CONTINUE AND BACK END -->
+        </mdb-step>
+        <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS END =============================== -->
+        <!-- =============================== STEP 3 - STEP BANK DETAILS START =============================== -->
+        <mdb-step name="3- {{ 'Add Step'| translate }}" class="step3">
+          <app-steps-management></app-steps-management>
+          <!-- BUTTONS CONTINUE AND BACK START -->
+          <div class="wrap-next-and-prev-buttons">
+            <button mdbBtn size="sm" color="secondary" class="btn-genrl btn-back" (click)="stepper.previous()"><i
+                class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
+            <button mdbBtn size="sm" color="primary" class="btn-genrl btn-continue"
+              (click)="stepper.next(); updateTrainerProfile('bank')">{{ 'Save' | translate }} <i
+                class="far fa-long-arrow-right"></i></button>
+          </div>
+          <!-- BUTTONS CONTINUE AND BACK END -->
+        </mdb-step>
+        <!-- =============================== STEP 3 - STEP BANK DETAILS END =============================== -->
+        <!-- =============================== STEP 4 - STEP FINISH START =============================== -->
+        <mdb-step name="{{ 'Finish' | translate }}" class="step4">
+          <p class="pl-2">{{ 'Do you want to save your data and send it to the Admins for approval?' | translate }} </p>
+          <!-- BUTTONS SUBMIT AND BACK START -->
+          <div class="wrap-next-and-prev-buttons">
+            <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()" class="btn-genrl btn-back"><i
+                class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
+            <button mdbBtn size="sm" color="primary" (click)="approve()"
+              class="btn-genrl btn-submit btn-ask-approve">{{ 'Ask Approval' | translate }} <i
+                class="far fa-long-arrow-right"></i></button>
+          </div>
+          <!-- BUTTONS SUBMIT AND BACK END -->
+        </mdb-step>
+        <!-- =============================== STEP 4 - STEP FINISH END =============================== -->
+      </mdb-stepper>
+    </div>
+  </div>
+</div>

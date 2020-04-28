@@ -1,0 +1,37 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-reset-password-component">
+    <div class="wrap-modal-header">
+      <div class="row">
+        <div class="col-10">
+          <h3 class="mb-0 title-modal-register">{{ 'restore my password' | translate }}</h3>
+        </div>
+        <div class="col-2 col-cross-icon">
+          <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content-signin wrapper-genrl-signin-signup">
+      <!-- {{user.name}} -->
+      <form class="text-center p-5 custom-form-class-genrl" novalidate #resetForm="ngForm">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Email' | translate }}</label>
+            </div>
+            <div class="col-md-6 error-msg-div">
+              <div *ngIf="userEmail.errors?.required && userEmail.touched" class="error-message">
+                {{ 'Email' | translate }} {{ 'is required' | translate }}</div>
+              <div *ngIf="userEmail.errors?.email && userEmail.touched" class="error-message"> {{ 'Email' | translate }}
+                {{ 'is not correct' | translate }}</div>
+            </div>
+          </div>
+          <input class="form-control form-control-genrl mb-4" type="email" #userEmail="ngModel" required email="true"
+            name="email" [(ngModel)]="email" placeholder="{{ 'Email' | translate }}" />
+        </div>
+        <button [ngClass]="{'enabled':checked(resetForm),'disabled':!checked(resetForm) }" (click)="send(resetForm)"
+          mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-reset" rounded="true">
+          {{ 'send' | translate }}</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<p>item1 works!</p>
+
+global role: <b>{{globals.role}}</b>
+<div>
+  <!-- translation: translation pipe -->
+  <h1>{{ 'Add skill' | translate }}</h1>
+
+  <!-- translation: directive (key as attribute)-->
+  <p [translate]="'Actions'"></p>
+  <p [translate]="'Asterlap'"></p>
+  <!-- translation: directive (key as content of element) -->
+  <p translate>Find correct</p>
+  <p translate>Koko</p>
+  <p translate>Email</p>
+  <p translate>Asterlap</p>
+
+  <div>
+
+    <br />
+    <br />
+
+    <button (click)="changedLang()"> Change</button>
+  </div>
+</div>

@@ -1,0 +1,445 @@
+.signUpModal {
+  background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto !important;
+  z-index: 999999 !important;
+
+  .modal-dialog {
+    border-radius: 20px !important;
+
+    .modal-content {
+
+      border-radius: 20px !important;
+
+      .wrapper-sign-in-up-component {
+        border-radius: 20px !important;
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-lang-ar {
+
+  direction: rtl !important;
+  text-align: right;
+  border-radius: 20px !important;
+
+  .error-message {
+    color: #f44336;
+  }
+
+  .error-msg-div {
+    text-align: left;
+  }
+
+  .label-div {
+    text-align: right !important;
+  }
+
+  .wrapper-sign-in-up-component {
+    .wrap-modal-header {
+      border-bottom: 1px solid lightgray;
+      margin-bottom: 0px;
+      padding: 20px 30px;
+
+      .col-cross-icon {
+        text-align: left;
+
+        .btn-close {
+          padding: 0;
+        }
+      }
+
+      .cross-icon {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+
+      .title-modal-register {
+        text-align: right;
+      }
+
+      .cross-icon:hover {
+        cursor: pointer;
+      }
+    }
+
+    .chkbox-terms .form-check .form-check-label {
+      padding-right: 35px !important;
+    }
+
+    .chkbox-terms .form-check .form-check-label:before {
+      left: auto !important;
+      right: 10px !important;
+    }
+
+    .padding-text-terms {
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    .padding-text-terms:hover {
+      cursor: pointer !important;
+    }
+
+    .link-terms {
+      color: #0275d8 !important;
+    }
+
+    link-terms:hover {
+      cursor: pointer !important;
+    }
+
+    position: relative;
+
+
+
+    background: white !important;
+    margin: auto !important;
+
+    .row .col-md-12 {
+      padding: 0 !important;
+    }
+
+    .row .col-md-12:first-child {
+      border-bottom: 1px solid #e4e4e4 !important;
+    }
+
+    li.nav-item a.active {
+      // background-image: linear-gradient(#01637f, #00b5a9) !important;
+      // border-color:  #00b5a9 !important;
+      border-bottom: 5px solid #00b5a9 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 0 !important;
+    }
+
+    li.nav-item {
+      width: 50% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+
+      a span {
+        color: black !important;
+        font-size: 24px !important;
+      }
+    }
+
+    // .container-fluid .row div{
+
+    // }
+    .tab-content.card {
+      box-shadow: 0 0 0 0 !important;
+      border: 0px !important;
+    }
+
+    .form-check-input[type=checkbox]:checked+label:before {
+      border-right: 2px solid #00b5a9 !important;
+      border-bottom: 2px solid #00b5a9 !important;
+    }
+
+    .wrapper-genrl-signin-signup {
+      padding: 30px !important;
+
+      .custom-form-class-genrl {
+        padding: 0px 0px 0px 0px !important;
+        border: 0px !important;
+      }
+
+      .social-signin-btn-fb {
+        background: #496893 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        border-radius: 100px !important;
+      }
+
+      .social-signin-btn-google {
+        background: #bf322e !important;
+        margin: 0 !important;
+        width: 100% !important;
+        border-radius: 100px !important;
+      }
+
+      .btn-signin {
+        background-image: linear-gradient(#01637f, #00b5a9) !important;
+        margin: 20px 0 !important;
+        border-radius: 100px !important;
+        padding: 15px 0;
+
+      }
+
+      .btn-cancel {
+        background: #ef0500 !important;
+        margin: 20px 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+      }
+
+      .cross-icon {
+        position: absolute;
+        top: 0 !important;
+
+      }
+    }
+
+    .div-or {
+      position: relative;
+      border-top: 1px solid lightgray;
+      margin: 40px 0 10px;
+
+      span {
+        position: absolute;
+        z-index: 9999;
+        top: -13px;
+        background: white;
+        width: 40px;
+        height: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+      }
+    }
+
+
+
+  }
+
+
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-lang-en {
+
+  direction: ltr !important;
+  text-align: left;
+  border-radius: 20px !important;
+
+  .error-message {
+    color: #f44336;
+  }
+
+  .error-msg-div {
+    text-align: right;
+  }
+
+  .label-div {
+    text-align: left !important;
+  }
+
+  .wrapper-sign-in-up-component {
+    position: relative;
+    background: white !important;
+    margin: auto !important;
+
+    .row .col-md-12 {
+      padding: 0 !important;
+    }
+
+    .row .col-md-12:first-child {
+      border-bottom: 1px solid #e4e4e4 !important;
+    }
+
+    .wrap-modal-header {
+      border-bottom: 1px solid lightgray;
+      margin-bottom: 0px;
+      padding: 20px 30px;
+
+      .col-cross-icon {
+        text-align: right;
+
+        .btn-close {
+          padding: 0;
+        }
+      }
+
+      .cross-icon {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+
+      .title-modal-register {
+        text-align: left;
+      }
+
+      .cross-icon:hover {
+        cursor: pointer;
+      }
+    }
+
+    .chkbox-terms .form-check .form-check-label {
+      padding-right: 35px !important;
+    }
+
+    .chkbox-terms .form-check .form-check-label:before {
+      left: auto !important;
+      right: 50px !important;
+    }
+
+    .padding-text-terms {
+      text-align: left;
+      padding-right: 20px;
+    }
+
+    .padding-text-terms:hover {
+      cursor: pointer !important;
+    }
+
+    .link-terms {
+      color: #0275d8 !important;
+    }
+
+    link-terms:hover {
+      cursor: pointer !important;
+    }
+
+
+
+    li.nav-item a.active {
+      // background-image: linear-gradient(#01637f, #00b5a9) !important;
+      // border-color:  #00b5a9 !important;
+      border-bottom: 5px solid #00b5a9 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 0 !important;
+    }
+
+    li.nav-item {
+      width: 50% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+
+      a span {
+        color: black !important;
+        font-size: 24px !important;
+      }
+    }
+
+    // .container-fluid .row div{
+
+    // }
+    .tab-content.card {
+      box-shadow: 0 0 0 0 !important;
+      border: 0px !important;
+    }
+
+    .form-check-input[type=checkbox]:checked+label:before {
+      border-right: 2px solid #00b5a9 !important;
+      border-bottom: 2px solid #00b5a9 !important;
+    }
+
+    .wrapper-genrl-signin-signup {
+      padding: 30px !important;
+
+      .custom-form-class-genrl {
+        padding: 0px 0px 0px 0px !important;
+        border: 0px !important;
+      }
+
+      .social-signin-btn-fb {
+        background: #496893 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        border-radius: 100px !important;
+      }
+
+      .social-signin-btn-google {
+        background: #bf322e !important;
+        margin: 0 !important;
+        width: 100% !important;
+        border-radius: 100px !important;
+      }
+
+      .btn-signin {
+        background-image: linear-gradient(#01637f, #00b5a9) !important;
+        margin: 20px 0 !important;
+        border-radius: 100px !important;
+        padding: 15px 0;
+
+      }
+
+      .btn-cancel {
+        background: #ef0500 !important;
+        margin: 20px 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+      }
+
+      .cross-icon {
+        position: absolute;
+        top: 0 !important;
+
+      }
+    }
+
+    .div-or {
+      position: relative;
+      border-top: 1px solid lightgray;
+      margin: 40px 0 10px;
+
+      span {
+        position: absolute;
+        z-index: 9999;
+        top: -13px;
+        background: white;
+        width: 40px;
+        height: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+      }
+    }
+
+
+
+  }
+
+
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    width: 80px !important;
+  }
+}

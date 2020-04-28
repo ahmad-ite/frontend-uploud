@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.561" height="20.561" viewBox="0 0 20.561 20.561">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #a0a0a0;
+        stroke-linecap: round;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Search_Icon" data-name="Search Icon" transform="translate(0.068 0.068)">
+    <g id="Ellipse_3" data-name="Ellipse 3" class="cls-1" transform="translate(-0.068 -0.068)">
+      <circle class="cls-2" cx="9" cy="9" r="9"/>
+      <circle class="cls-3" cx="9" cy="9" r="8.25"/>
+    </g>
+    <line id="Line_1" data-name="Line 1" class="cls-1" x2="4.572" y2="4.572" transform="translate(14.859 14.859)"/>
+  </g>
+</svg>

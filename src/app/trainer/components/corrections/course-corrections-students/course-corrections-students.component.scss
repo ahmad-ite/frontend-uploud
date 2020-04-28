@@ -1,0 +1,318 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-courses-ar {
+  direction: rtl;
+  text-align: right;
+
+  #trainerCourses {
+    .wrapper-top-area {
+      .wrapper-search-filter {
+        mdb-card {
+          border-radius: 20px !important;
+
+          .form-search {
+            .mdb-select-toggle {
+              left: 0 !important;
+              right: auto !important;
+            }
+
+            .btn-search {
+              height: 40px;
+              padding: 0 30px;
+              width: 60px;
+              background-image: linear-gradient(to top, #00b5a9, #01637f) !important;
+              margin: 0;
+              border-top-left-radius: 100px !important;
+              border-bottom-left-radius: 100px !important;
+            }
+
+            .search-input-group {
+              width: 100%;
+            }
+
+            .search-input {
+              height: 40px;
+              border-radius: 100px !important;
+              border-top-left-radius: 0 !important;
+              border-bottom-left-radius: 0 !important;
+              width: 100% !important;
+            }
+          }
+        }
+
+        .mdb-select-toggle:before {
+          font-family: "Font Awesome 5 Pro" !important;
+          content: '\f107' !important;
+          font-weight: 500 !important;
+        }
+
+
+
+        .dropdown-content li span {
+          font-family: "CairoRegular" !important;
+          color: #212529 !important;
+        }
+
+        mdb-select .below .single .value {
+          font-family: "CairoRegular" !important;
+          color: #212529 !important;
+        }
+
+      }
+
+      .gradient-btn {
+        background-image: linear-gradient(to top, #00b5a9, #01637f);
+        color: white !important;
+        font-weight: bold;
+        margin-top: 30px !important;
+        height: 50px;
+      }
+    }
+
+    .wrapper-courses-list {
+      mdb-card {
+        border-radius: 20px !important;
+        padding: 0 0 20px 0;
+      }
+
+      .table-wrapper {
+
+
+        .table-trainer-courses {
+          thead {
+            text-align: center;
+
+            tr {
+              th {
+                vertical-align: middle;
+                border-top: 0;
+                padding-top: 30px;
+
+                .fa-sort {
+                  color: #00b5a9 !important;
+                }
+
+                .fa-sort-circle {
+                  color: #00b5a9 !important;
+                }
+
+                .fa-sort-circle:hover {
+                  cursor: pointer;
+                }
+              }
+
+              td {
+                vertical-align: middle;
+              }
+            }
+          }
+
+          tbody {
+            text-align: center;
+
+            tr {
+              td {
+                vertical-align: middle;
+              }
+
+              .td-student-name {
+                color: #00b5a9;
+                font-weight: bold;
+              }
+
+              .td-student-name:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .tr-hover:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+
+      }
+    }
+
+    .wrapper-pagination {
+      jw-pagination {
+        display: block;
+        margin: 20px auto;
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-courses-en {
+  #trainerCourses {
+    .wrapper-top-area {
+      .wrapper-search-filter {
+        mdb-card {
+          border-radius: 20px !important;
+
+          .form-search {
+            .btn-search {
+              height: 40px;
+              padding: 0 30px;
+              width: 60px;
+              background-image: linear-gradient(to top, #00b5a9, #01637f) !important;
+              margin: 0;
+              border-top-right-radius: 100px !important;
+              border-bottom-right-radius: 100px !important;
+            }
+
+            .search-input-group {
+              width: 100%;
+            }
+
+            .search-input {
+              height: 40px;
+              border-radius: 100px !important;
+              border-top-right-radius: 0 !important;
+              border-bottom-right-radius: 0 !important;
+              width: 100% !important;
+            }
+          }
+        }
+
+        .mdb-select-toggle:before {
+          font-family: "Font Awesome 5 Pro" !important;
+          content: '\f107' !important;
+          font-weight: 500 !important;
+        }
+
+
+
+        .dropdown-content li span {
+          font-family: "CairoRegular" !important;
+          color: #212529 !important;
+        }
+
+        mdb-select .below .single .value {
+          font-family: "CairoRegular" !important;
+          color: #212529 !important;
+        }
+
+      }
+
+      .gradient-btn {
+        background-image: linear-gradient(to top, #00b5a9, #01637f);
+        color: white !important;
+        font-weight: bold;
+        margin-top: 30px !important;
+        height: 50px;
+      }
+    }
+
+    .wrapper-courses-list {
+      mdb-card {
+        border-radius: 20px !important;
+        padding: 0 0 20px 0;
+      }
+
+      .table-wrapper {
+
+
+
+        .table-trainer-courses {
+          thead {
+            text-align: center;
+
+            tr {
+              th {
+                vertical-align: middle;
+                border-top: 0;
+                padding-top: 30px;
+
+                .fa-sort {
+                  color: #00b5a9 !important;
+                }
+
+                .fa-sort-circle {
+                  color: #00b5a9 !important;
+                }
+
+                .fa-sort-circle:hover {
+                  cursor: pointer;
+                }
+              }
+
+              td {
+                vertical-align: middle;
+              }
+            }
+          }
+
+          tbody {
+            text-align: center;
+
+            tr {
+              td {
+                vertical-align: middle;
+              }
+
+              .td-student-name {
+                color: #00b5a9;
+                font-weight: bold;
+              }
+
+              .td-student-name:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .tr-hover:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+
+      }
+    }
+
+    .wrapper-pagination {
+      jw-pagination {
+        display: block;
+        margin: 20px auto;
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+
+
+
+// .table-ui {
+//   border: 1px solid #e0e0e9;
+// }

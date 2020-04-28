@@ -1,0 +1,93 @@
+<div [ngClass]="langStyle">
+  <section id="trainerCourses" style="margin-top:80px">
+    <!-- Breadcrumbs start  -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb custom-breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> Home</a></li>
+        <li class="breadcrumb-item active">Courses</li>
+      </ol>
+    </nav>
+    <!-- Breadcrumbs End  -->
+    <!-- Course Grid Start -->
+    <div class="wrapper-courses-list">
+      <mdb-card cascade="true" narrower="true" [ngClass]="{ 'z-depth-0': !shadows }">
+        <div class="px-4">
+          <div class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0 table-trainer-courses">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th class="th-lg">
+                    <a>#
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('name')">{{'Name'|translate}} <i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('code')">{{'Course Code'|translate}} <i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('template')"> {{'Template'|translate}}<i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('course_category')"> {{'Category'|translate}}<i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+
+
+                  <th class="th-lg">
+                    <a (click)="sortBy('items_count')"> {{'No of Items'|translate}}<i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('items_waiting_count')"> {{'Waiting Items'|translate}}<i
+                        class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+
+                </tr>
+              </thead>
+              <!--Table head-->
+              <!--Table body-->
+              <tbody>
+                <tr *ngFor="let trainerCourse of mycourses;let i =index" class="tr-hover"
+                  (click)="students(trainerCourse.id)">
+                  <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
+                  <td> {{trainerCourse.name}}</td>
+                  <td>{{trainerCourse.code}}</td>
+                  <!-- <td>{{trainerCourse.template}}</td>
+                  <td>{{trainerCourse.course_category}}</td> -->
+                  <td>
+                    {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}}
+                  </td>
+                  <td>
+                    {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}}
+                  </td>
+                  <!-- <td>{{trainerCourse.students_count}}</td> -->
+
+                  <td>{{trainerCourse.items_count}}</td>
+                  <td>{{trainerCourse.items_waiting_count}}</td>
+
+                </tr>
+              </tbody>
+              <!--Table body-->
+            </table>
+            <!--Table-->
+          </div>
+          <hr class="my-0" />
+          <!-- Pagination Start -->
+          <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+            <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+          </div>
+          <!-- Pagination End -->
+        </div>
+      </mdb-card>
+    </div>
+    <!-- Course Grid End -->
+  </section>
+</div>

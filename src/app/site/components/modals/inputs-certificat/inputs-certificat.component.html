@@ -1,0 +1,35 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-sign-in-up-component">
+    <div class="wrap-modal-header">
+      <div class="row">
+        <div class="col-10">
+          <h3 class="mb-0 title-modal-register">{{ 'personal_info' | translate }}</h3>
+        </div>
+        <div class="col-2 col-cross-icon">
+          <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content-signin wrapper-genrl-signin-signup">
+      <!-- {{user.name}} -->
+      <form class="text-center border border-light p-5 custom-form-class-genrl" novalidate #registerForm="ngForm">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 label-div">
+              <label for="" class="mb-2">{{ 'Full Name' | translate }}</label>
+            </div>
+            <div class="col-md-6 error-msg-div">
+              <div *ngIf="Name.errors?.required && Name.touched" class="error-message">
+                {{ 'Please insert your Full name' | translate }}</div>
+            </div>
+          </div>
+          <input class="form-control form-control-genrl mb-4" type="text" #Name="ngModel" required name="first_name"
+            [(ngModel)]="name" placeholder="{{ 'passport_name' | translate }}" />
+        </div>
+        <button [ngClass]="{'enabled':checked(registerForm),'disabled':!checked(registerForm) }"
+          (click)="register(registerForm)" mdbBtn color="info" block="true" class="my-4" type="submit"
+          class="btn-signin"> {{ 'issueCertificate' | translate }}</button>
+      </form>
+    </div>
+  </div>
+</div>

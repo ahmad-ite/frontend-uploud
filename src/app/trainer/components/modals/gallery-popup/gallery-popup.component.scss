@@ -1,0 +1,681 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+.galleryPopupModal {
+  background: rgba(0, 0, 0, .5);
+  overflow-y: auto !important;
+
+  .modal-dialog {
+    border-radius: 20px;
+    max-width: 1000px !important;
+    min-height: 500px;
+
+    .modal-content {
+      border-radius: 20px;
+      min-height: 500px;
+
+      .wrapper-trainer-gallery-popup-ar {
+        direction: rtl;
+        text-align: right;
+
+        .wrap-header {
+          padding: 20px;
+          border-bottom: 1px solid lightgray;
+
+          .wrap-cross-icon {
+            text-align: left;
+          }
+
+          .wrap-cross-icon:hover {
+            cursor: pointer;
+          }
+        }
+
+        ngb-tabset#tabset-media-types {
+
+          /* ********************* GENERAL STYLES START ********************* */
+          .wrapper-tab-genrl {
+            padding: 20px !important;
+            min-height: 500px !important;
+          }
+
+          .loader {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 99;
+            top: 50%;
+            margin-top: -120px;
+          }
+
+          .file-upload-wrapper {
+            display: inline-block;
+
+            .gradient-btn {
+              background-image: linear-gradient(to top, #00b5a9, #01637f) !important;
+              color: white !important;
+              font-weight: bold;
+              margin-top: 10px !important;
+              height: 50px;
+              padding: 10px 50px;
+            }
+
+            .btn-animate-icon {
+              float: left !important;
+              -webkit-transform: scaleX(-1);
+              transform: scaleX(-1);
+
+            }
+          }
+
+          .or-select {
+            color: #616161;
+            font-size: 16px;
+            padding: 10px;
+          }
+
+          .wrap-notFound-message {
+            img {
+              width: 350px;
+              display: block;
+              margin: 60px auto;
+            }
+          }
+
+          .img-hover-cursor:hover {
+            cursor: pointer;
+            border: 3px solid #00ada4 !important;
+
+          }
+
+
+          /* ********************* GENERAL STYLES END ********************* */
+
+          /* ********************* TABS LIST STYLES START ********************* */
+          ul.nav-tabs {
+            margin-top: 20px !important;
+            font-size: 16px;
+
+            .nav-item {
+              .nav-link {
+                box-shadow: 0 0 0 0;
+                outline: 0;
+                color: #00b5a9 !important;
+              }
+
+              .nav-link.active {
+                color: #495057 !important;
+              }
+            }
+          }
+
+          /* ********************* TABS LIST STYLES END ********************* */
+
+
+          /* ********************* CONTENT IMAGE TAB START ********************* */
+
+          .wrapper-tab-images {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-image-panel {
+              .wrap-img {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-image {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-image:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT IMAGE TAB END ********************* */
+
+          /* ********************* CONTENT VIDEO TAB START ********************* */
+
+          .wrapper-tab-videos {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-video-panel {
+              .wrap-video-thumbnail {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-video {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-video:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT VIDEO TAB END ********************* */
+
+          /* ********************* CONTENT DUBBING VIDEO TAB START ********************* */
+
+          .wrapper-tab-dubbing-videos {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-dubbing-panel {
+              .wrap-dubbing-thumbnail {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-dubbing {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-dubbing:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT DUBBING VIDEO TAB END ********************* */
+
+          /* ********************* CONTENT SUBTITLES TAB START ********************* */
+
+          .wrapper-tab-subtitles {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-subtitles-panel {
+              .wrap-subtitle {
+                border: 1px solid lightgray;
+                padding: 20px 10px;
+                border-radius: 10px;
+                margin: 10px 0;
+                text-align: center;
+                color: #00b4a9;
+
+                .icon-subtitle {
+                  color: #00b5a9;
+                  font-size: 30px;
+                  display: block;
+                  margin: 10px auto;
+                  text-align: center;
+                }
+
+                .file-name-subtitle {
+                  color: #616161;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-subtitle:hover {
+                  color: #00b5a9;
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+
+              .wrap-subtitle:hover {
+                cursor: pointer;
+              }
+            }
+          }
+
+          /* ********************* CONTENT SUBTITLES TAB END ********************* */
+
+          /* ********************* CONTENT AUDIO TAB START ********************* */
+
+          .wrapper-tab-audio {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-audio-files-listing-panel {
+              .wrap-audio-files {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-audio {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-audio:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT AUDIO TAB END ********************* */
+
+
+          /* ********************* SECONDRY TABSET LANGUAGE STYLES START  ********************* */
+          ngb-tabset#tabset-languages-subtitle,
+          ngb-tabset#tabset-languages-dubbing {
+            ul.nav-tabs {
+              margin-top: 20px !important;
+
+              .nav-item {
+                .nav-link {
+                  box-shadow: 0 0 0 0;
+                  outline: 0;
+                  font-weight: bold;
+                  color: #017186 !important;
+                }
+
+                .nav-link.active {
+                  color: #495057 !important;
+                }
+              }
+            }
+          }
+
+          /* ********************* SECONDRY TABSET LANGUAGE STYLES START  ********************* */
+        }
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+.galleryPopupModal {
+  background: rgba(0, 0, 0, .5);
+
+  .modal-dialog {
+    border-radius: 20px;
+    max-width: 1000px !important;
+    min-height: 500px;
+
+    .modal-content {
+      border-radius: 20px;
+      min-height: 500px;
+
+      .wrapper-trainer-gallery-popup-en {
+
+        .wrap-header {
+          padding: 20px;
+          border-bottom: 1px solid lightgray;
+
+          .wrap-cross-icon {
+            text-align: right;
+          }
+
+          .wrap-cross-icon:hover {
+            cursor: pointer;
+          }
+        }
+
+        ngb-tabset#tabset-media-types {
+
+          /* ********************* GENERAL STYLES START ********************* */
+          .wrapper-tab-genrl {
+            padding: 20px !important;
+            min-height: 500px !important;
+          }
+
+          .loader {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 99;
+            top: 50%;
+            margin-top: -120px;
+          }
+
+          .file-upload-wrapper {
+            display: inline-block;
+
+            .gradient-btn {
+              background-image: linear-gradient(to top, #00b5a9, #01637f) !important;
+              color: white !important;
+              font-weight: bold;
+              margin-top: 10px !important;
+              height: 50px;
+              padding: 10px 50px;
+            }
+
+            .btn-animate-icon {
+              float: right !important;
+
+            }
+          }
+
+          .or-select {
+            color: #616161;
+            font-size: 16px;
+            padding: 10px;
+          }
+
+          .wrap-notFound-message {
+            img {
+              width: 350px;
+              display: block;
+              margin: 60px auto;
+            }
+          }
+
+          .img-hover-cursor:hover {
+            cursor: pointer;
+            border: 3px solid #00ada4 !important;
+
+          }
+
+
+          /* ********************* GENERAL STYLES END ********************* */
+
+          /* ********************* TABS LIST STYLES START ********************* */
+          ul.nav-tabs {
+            margin-top: 20px !important;
+            font-size: 16px;
+
+            .nav-item {
+              .nav-link {
+                box-shadow: 0 0 0 0;
+                outline: 0;
+                color: #00b5a9 !important;
+              }
+
+              .nav-link.active {
+                color: #495057 !important;
+              }
+            }
+          }
+
+          /* ********************* TABS LIST STYLES END ********************* */
+
+
+          /* ********************* CONTENT IMAGE TAB START ********************* */
+
+          .wrapper-tab-images {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-image-panel {
+              .wrap-img {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-image {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-image:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT IMAGE TAB END ********************* */
+
+          /* ********************* CONTENT VIDEO TAB START ********************* */
+
+          .wrapper-tab-videos {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-video-panel {
+              .wrap-video-thumbnail {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-video {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-video:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT VIDEO TAB END ********************* */
+
+          /* ********************* CONTENT DUBBING VIDEO TAB START ********************* */
+
+          .wrapper-tab-dubbing-videos {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-dubbing-panel {
+              .wrap-dubbing-thumbnail {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-dubbing {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-dubbing:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT DUBBING VIDEO TAB END ********************* */
+
+          /* ********************* CONTENT SUBTITLES TAB START ********************* */
+
+          .wrapper-tab-subtitles {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-files-listing-subtitles-panel {
+              .wrap-subtitle {
+                border: 1px solid lightgray;
+                padding: 20px 10px;
+                border-radius: 10px;
+                margin: 10px 0;
+                text-align: center;
+                color: #00b4a9;
+
+                .icon-subtitle {
+                  color: #00b5a9;
+                  font-size: 30px;
+                  display: block;
+                  margin: 10px auto;
+                  text-align: center;
+                }
+
+                .file-name-subtitle {
+                  color: #616161;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-subtitle:hover {
+                  color: #00b5a9;
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+
+              .wrap-subtitle:hover {
+                cursor: pointer;
+              }
+            }
+          }
+
+          /* ********************* CONTENT SUBTITLES TAB END ********************* */
+
+          /* ********************* CONTENT AUDIO TAB START ********************* */
+
+          .wrapper-tab-audio {
+            padding: 30px 0;
+            min-height: 500px;
+
+            .wrapper-audio-files-listing-panel {
+              .wrap-audio-files {
+                margin: 20px 0;
+
+                img {
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  object-position: top;
+
+                }
+
+                .file-name-audio {
+                  color: #00b4a9;
+                  display: block;
+                  margin: 10px auto;
+                  font-weight: bold;
+                }
+
+                .file-name-audio:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          /* ********************* CONTENT AUDIO TAB END ********************* */
+
+
+          /* ********************* SECONDRY TABSET LANGUAGE STYLES START  ********************* */
+          ngb-tabset#tabset-languages-subtitle,
+          ngb-tabset#tabset-languages-dubbing {
+            ul.nav-tabs {
+              margin-top: 20px !important;
+
+              .nav-item {
+                .nav-link {
+                  box-shadow: 0 0 0 0;
+                  outline: 0;
+                  font-weight: bold;
+                  color: #017186 !important;
+                }
+
+                .nav-link.active {
+                  color: #495057 !important;
+                }
+              }
+            }
+          }
+
+          /* ********************* SECONDRY TABSET LANGUAGE STYLES START  ********************* */
+        }
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+  *****************************************************************************************
+  =========================================================================================
+  ENGLISH STYLE END
+  =========================================================================================
+  *****************************************************************************************
+  ====================================================================================== */

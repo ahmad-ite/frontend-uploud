@@ -1,0 +1,21 @@
+.confirmationModal {
+  z-index: 10000000000000000000 !important;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  .modal-dialog {
+    z-index: 10000000000000000000 !important;
+    position: fixed;
+    min-height: 200px;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -150px;
+    border-radius: 30px;
+  }
+
+  .modal-content {
+    border-radius: 30px;
+  }
+}

@@ -1,0 +1,34 @@
+<div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
+  <div [ngClass]="langStyle">
+    <div class="wrapper-certificates">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="hdng-certificates">{{ 'Certificates' | translate }}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6 custom-col-padding"
+          *ngFor="let certificates of myCertificates ;">
+          <!-- <div class="col-md-3"> -->
+          <!-- <h3>سيأتي محتوى الشهادات هنا ...</h3> -->
+          <div class="wrap-certificate-thumbnail" (click)="app_ser.showPdf(certificates.cirtificate)">
+            <img [src]="app_ser.img_url(certificates.course_image,'course')" alt="" class="img-fluid img-certificate">
+            <div class="overlay-certificate-img">
+              <h2 class="certificate-name">{{certificates.course_name}}</h2>
+            </div>
+            <div class="icon-certificate">
+              <i class="fal fa-file-certificate"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap-no-course-found" *ngIf="!myCertificates.length && noData" style="width:100%;margin-top: 290px;">
+      <div class="alert alert-danger" role="alert">
+        <i class="fal fa-exclamation-triangle"></i> {{ 'dataNotFound' | translate}} </div>
+    </div>
+  </div>

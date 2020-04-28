@@ -1,0 +1,7973 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+.wrapper-courseInside-lang-ar {
+  .wrapper-course-inside {
+    background-image: url(../../../../../assets/images/kun-background-pattern-white.png);
+    background-position: center;
+    background-size: 1000px;
+  }
+
+
+
+  /* =================================
+  ************************************
+  FULL SCREEN STYLES START
+  ************************************
+  ================================= */
+  .make-full-screen {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 640px;
+    object-fit: contain !important;
+    position: fixed !important;
+    top: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    box-sizing: border-box !important;
+    min-width: 0px !important;
+    max-width: none !important;
+    min-height: 0px !important;
+    max-height: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    margin: 0px !important;
+    z-index: 99999 !important;
+    border-radius: 0px !important;
+    transition: 1s ease-in-out !important;
+
+    .wrap-video-player {
+
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+
+      vg-player {
+        object-fit: contain !important;
+        position: fixed !important;
+        top: 0px !important;
+        right: 0px !important;
+        bottom: 0px !important;
+        left: 0px !important;
+        box-sizing: border-box !important;
+        min-width: 0px !important;
+        max-width: none !important;
+        min-height: 0px !important;
+        max-height: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        margin: 0px !important;
+        z-index: 999999 !important;
+        border-radius: 0px !important;
+        border: 1px solid #011113 !important;
+        transition: 1s ease-in-out !important;
+
+        vg-overlay-play.video-big-play-icon .vg-icon-play_arrow:before {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f144";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          z-index: 999999;
+        }
+
+        vg-controls {
+          bottom: -1px !important;
+        }
+
+        video {
+          object-fit: contain !important;
+          position: fixed !important;
+          top: 0px !important;
+          right: 0px !important;
+          bottom: 0px !important;
+          left: 0px !important;
+          box-sizing: border-box !important;
+          min-width: 0px !important;
+          max-width: none !important;
+          min-height: 0px !important;
+          max-height: none !important;
+          width: 100% !important;
+          height: 100% !important;
+          transform: none !important;
+          margin: 0px !important;
+          transition: 1s ease-in-out !important;
+
+        }
+      }
+    }
+
+    .full-screen-control-outside-video {
+      position: absolute !important;
+      bottom: 0px !important;
+      right: 0px !important;
+      z-index: 999999999;
+      background: rgba(0, 0, 0, 0.1);
+      border-top-left-radius: 18px;
+
+
+      i {
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        color: white;
+        line-height: 50px;
+        font-size: 18px;
+      }
+    }
+
+  }
+
+  .make-full-screen .wrapper-lesson-item {
+    z-index: 99999999999 !important;
+    padding-bottom: 20px;
+    height: calc(100% - 50px);
+
+    .lesson-inner {
+      .tile {
+        .summary-lesson-box {
+          width: 250px !important;
+        }
+
+        .lastLessonItem {
+          top: -200px !important;
+        }
+      }
+    }
+  }
+
+  .make-full-screen .wrapper-step-item {
+    z-index: 99999999999 !important;
+
+  }
+
+  .make-full-screen .wrap-prev {
+    z-index: 99999999 !important;
+
+  }
+
+  .make-full-screen .wrap-next {
+    z-index: 99999999 !important;
+
+  }
+
+  .make-full-screen .wrap-instructions {
+    z-index: 99999999999 !important;
+  }
+
+  .make-full-screen .icon-course-detail {
+    z-index: 9999999999999 !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  .make-full-screen .wrapperCourseDetai {
+    z-index: 99999999 !important;
+
+    .courseDetailInner {
+      widows: 70% !important;
+    }
+  }
+
+  /* =================================
+  ************************************
+  FULL SCREEN STYLES END
+  ************************************
+  ================================= */
+
+
+
+  .wrapper-steps {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 640px;
+
+    .full-screen-control-outside-video {
+      position: absolute;
+      bottom: 0px !important;
+      right: 0px !important;
+      z-index: 999999999;
+      background: rgba(0, 0, 0, 0.1);
+      border-top-left-radius: 18px;
+
+
+      i {
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        color: white;
+        line-height: 50px;
+        font-size: 18px;
+      }
+    }
+  }
+
+
+
+  /* =================================
+  ************************************
+  STEPS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-step-item {
+    position: absolute;
+    bottom: 50px;
+    width: calc(100% - 28px);
+    padding: 2px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding-top: 0px;
+    z-index: 9999999999 !important;
+
+    .step-item-inner {
+      .step-title {
+        color: white;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+
+
+      }
+
+      .tile {
+        padding: 5px 2px;
+        display: inline-block;
+        position: relative;
+
+        .step-item {
+          height: 2px;
+          background: #00b5a9;
+          border-radius: 100px;
+          display: inline-block;
+          width: 100%;
+          line-height: 0;
+        }
+
+      }
+
+      .title-hover-step {
+        position: absolute;
+        left: 0;
+
+        margin: auto;
+        border-radius: 100px;
+        text-align: center;
+        bottom: 25px;
+        // background: rgba(255, 255, 255, 0.5);
+        background: white;
+        border: 1px solid lightgray;
+        padding: 10px;
+        color: black;
+        min-width: 150px;
+
+
+      }
+
+      .last4StepsTitle {
+        position: absolute;
+        right: 0;
+
+        margin: auto;
+        border-radius: 4px;
+        text-align: center;
+        bottom: 25px;
+        // background: rgba(255, 255, 255, 0.5);
+        background: white;
+        border: 1px solid lightgray;
+        padding: 10px;
+        color: black;
+        min-width: 150px;
+      }
+
+      .activeStepTile {
+        a {
+          background: white !important;
+        }
+      }
+    }
+
+    .step-item-inner:hover {
+      cursor: pointer;
+    }
+  }
+
+  .wrapper-step-item-conditional {
+    bottom: 0px !important;
+  }
+
+  /* =================================
+  ************************************
+  STEPS STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  LESSONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-lesson-item {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding-top: 20px;
+    // padding-bottom: 100px;
+    // height: 100%;
+    padding-bottom: 20px;
+    height: calc(100% - 50px);
+    background: rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 15px;
+    z-index: 9999999999 !important;
+
+    .lesson-inner {
+      .tile {
+        position: relative;
+        padding: 2px 13px;
+        height: 100%;
+
+        .lesson-item {
+          height: 100%;
+          background: #00b5a9;
+          border-radius: 100px;
+          display: inline-block;
+          width: 2px;
+        }
+
+
+        .lastLessonItem {
+          top: -200px !important;
+        }
+
+        .summary-lesson-box {
+          position: absolute;
+          top: 3px;
+          right: 23px;
+          background: white;
+          text-align: right;
+          width: 200px;
+          padding: 15px;
+          border-radius: 20px;
+          z-index: 990;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+          border: 1px solid lightgray;
+          direction: rtl;
+
+
+          .wrap-course-outline-summary {
+            .lesson-title {
+              color: #00b5a9;
+              font-size: 18px;
+            }
+
+            p {
+              margin-bottom: 5px;
+              font-size: 12px;
+            }
+
+            p i.icon-width-genrl {
+              width: 25px;
+            }
+
+            .btn-resume-test {
+              background-image: linear-gradient(to right, #00b5a9, #01637f);
+              color: white;
+              padding: 2px 15px;
+              border-radius: 100px;
+              font-size: 14px;
+              border: 0;
+              outline: 0;
+
+              i {
+                margin-left: 5px;
+              }
+            }
+
+            .b {
+              background-image: linear-gradient(to right, #00b5a9, #01637f);
+              opacity: 0.5;
+            }
+
+            .b:hover {
+              cursor: no-drop !important;
+            }
+
+            .btn-resume-test:hover {
+              cursor: pointer;
+            }
+
+            .wrap-progress-bar {
+              margin-top: 10px;
+
+              .progress-text {
+                font-weight: bold;
+                margin-bottom: 0;
+              }
+
+              .progress-bar-style {
+                height: 4px;
+                border-radius: 100px;
+                direction: ltr;
+
+                .bg-success {
+                  background-color: #00b5a9 !important;
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+      .show .summary-lesson-box {
+        opacity: 1;
+        transition: 0.3s ease-in;
+      }
+
+      .hide .summary-lesson-box {
+        opacity: 0;
+      }
+    }
+
+    .lesson-inner:hover {
+      cursor: pointer;
+    }
+
+    .activeLessonTile .tile {
+      .lesson-item {
+        background: white !important;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  LESSONS STYLES END
+  ************************************
+  ================================= */
+
+
+
+  /* =================================
+  ************************************
+  PREVIOUS AND NEXT STYLES START
+  ************************************
+  ================================= */
+  .wrap-prev {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 100px;
+    z-index: 999999999 !important;
+
+    .nxt-btn {
+      background-color: transparent !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 100px;
+    }
+
+    .nxt-btn i {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .wrap-prev:hover {
+    cursor: pointer;
+  }
+
+  .wrap-next {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 100px;
+    z-index: 9999999999 !important;
+
+    .prev-btn {
+      background-color: transparent !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 100px;
+    }
+
+    .prev-btn i {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .wrap-next:hover {
+    cursor: pointer;
+  }
+
+  .skip-step-tooltip {
+    position: absolute;
+    top: -40px;
+    right: -15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-radius: 100px;
+    width: 140px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .prev-step-tooltip {
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-radius: 100px;
+    width: 140px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+
+
+  /* =================================
+  ************************************
+  PREVIOUS AND NEXT STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  INSTRUCTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrap-instructions {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 9999999999 !important;
+
+  }
+
+  .info-icon {
+    color: white;
+    font-size: 30px;
+  }
+
+  .info-icon:hover {
+    cursor: pointer;
+  }
+
+  .instructions-text {
+    width: 250px;
+    margin-top: 5px !important;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0 5px;
+    border-radius: 10px;
+  }
+
+
+  .styleInstructionsOpen {
+    padding: 10px 15px;
+    border: 1px solid lightgray;
+
+  }
+
+  /* =================================
+  ************************************
+  INSTRUCTIONS STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  COURSE DETAIL SUMMARY STYLES START
+  ************************************
+  ================================= */
+  .icon-course-detail i {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 22px;
+    color: #00b4a9;
+    font-size: 28px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    z-index: 9999999999 !important;
+  }
+
+  .icon-course-detail:hover {
+    cursor: pointer;
+  }
+
+  .wrapperCourseDetai {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 100%;
+    color: white;
+    direction: rtl;
+    text-align: right;
+    z-index: 999999 !important;
+  }
+
+  .wrapperCourseDetai.show .courseDetailInner {
+    min-height: 480px;
+    height: 480px;
+    transition: 0.3s ease-in;
+
+    .course-star-rating {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .wrapperCourseDetai.hide .courseDetailInner {
+    height: 0;
+    transition: 0.3s ease-in;
+  }
+
+  .courseDetailInner {
+    width: 80%;
+    margin: auto;
+    min-height: 480px;
+    height: 480px;
+    padding-right: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 60px;
+    padding-left: 10px;
+  }
+
+  // SCROLLBAR STYLE START
+  .courseDetailInner::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  .courseDetailInner::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+  }
+
+  .courseDetailInner::-webkit-scrollbar-thumb {
+    background-color: #00b5a9;
+    outline: 1px solid transparent;
+    border-radius: 100px;
+  }
+
+  // SCROLLBAR STYLE END
+
+  .course-summary {
+    margin: 10px 0;
+
+    p {
+      margin-bottom: 5px;
+      font-weight: bold;
+
+      i {
+        margin: 0 0 0px 10px;
+        color: #00b5a9;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .course-star-rating {
+    i {
+      margin: 0 0 0 2px;
+    }
+
+    .star-full {
+      color: #FFDA00;
+    }
+
+    .star-half {
+      color: #FFDA00;
+    }
+
+    .star-empty {
+      color: #BCBCBC;
+    }
+
+    .rating-text {
+      font-size: 14px !important;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+  }
+
+  .what-you-learn {
+    border: 1px solid white;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+
+    .course-short-summary-ul {
+      margin-bottom: 0 !important;
+      list-style: none !important;
+      padding: 0 !important;
+
+      li:before {
+        font-family: FontAwesome;
+        content: "\f00c";
+        margin: 0 0 0 5px;
+        color: #00b5a9;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  COURSE DETAIL SUMMARY STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  LESSON OR EXAM TIMER STYLES START
+  ************************************
+  ================================= */
+  .wrapper-time-counter {
+    position: absolute;
+    top: 12px;
+    color: white;
+    right: 40px;
+    font-size: 30px;
+
+    .clock-time-red {
+      color: red;
+    }
+
+    .clock-time-yellow {
+      color: yellow;
+    }
+  }
+
+  /* =================================
+  ************************************
+  LESSON OR EXAM TIMER STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  VIDEO TOOL STYLES START
+  ************************************
+  ================================= */
+  .wrap-video-player {
+    position: relative;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    vg-player {
+      overflow: visible !important;
+      background: transparent;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border: 1px solid #00b4a9 !important;
+
+      video {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      vg-overlay-play.video-big-play-icon .vg-icon-play_arrow:before {
+        font-family: "Font Awesome 5 Pro";
+        content: "\f144";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 200;
+        color: #00b5a9;
+        z-index: 999999;
+      }
+
+      vg-controls {
+        background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+
+        /* =========================================== STYLE DUBBING START =========================================== */
+        .dubbing {
+          position: relative;
+          text-align: center;
+
+          .dubbing-inner {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            padding: 0 10px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            text-align: center;
+          }
+
+          i.dubbing-control-icon {
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            padding-top: 5px;
+          }
+
+          .active-dubbing {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
+        }
+
+        .full-screen-control {
+          position: relative;
+
+          i {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 18px;
+          }
+        }
+
+
+
+        .content-dubbing {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+          padding-bottom: 32px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border: 1px solid lightgray;
+          border-bottom: 0;
+
+          .title-dubbing {
+            border-bottom: 1px solid lightgray;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+
+            i.dubbing-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .dubbing-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE DUBBING END =========================================== */
+
+        /* =========================================== STYLE SUBTITLES START =========================================== */
+        .subtitle {
+          position: relative;
+
+          i.subtitle-control-icon {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 30px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+          }
+        }
+
+        .content-subtitle {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+
+          .title-subtitle {
+            border-bottom: 1px solid #424242;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 0px;
+
+            i.subtitle-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .subtitle-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE SUBTITLES END =========================================== */
+
+        /* =========================================== STYLE QUALITY START =========================================== */
+        .quality {
+          position: relative;
+          text-align: center;
+
+          // i.quality-control-icon {
+          //   user-select: none;
+          //   display: flex;
+          //   justify-content: center;
+          //   height: 50px;
+          //   width: 30px;
+          //   cursor: pointer;
+          //   color: white;
+          //   line-height: 50px;
+          //   font-size: 22px;
+          // }
+          .quality-inner {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            padding: 0 10px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            text-align: center;
+          }
+
+          i.quality-control-icon {
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            padding-top: 5px;
+          }
+
+          .active-quality {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
+        }
+
+        .content-quality {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+          padding-bottom: 32px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border: 1px solid lightgray;
+          border-bottom: 0;
+
+          .title-quality {
+            border-bottom: 1px solid lightgray;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+
+            i.quality-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .quality-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE QUALITY END =========================================== */
+      }
+    }
+
+    .wrap-video-steps {
+      position: absolute;
+      bottom: 70px;
+      width: 100%;
+      z-index: 9999;
+      padding: 0px 20px;
+    }
+
+
+    .wrap-lessons {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      z-index: 9999;
+
+      span {
+        color: white;
+      }
+
+    }
+
+    vg-controls {
+      vg-scrub-bar-current-time .background {
+        border: 1px solid white !important;
+        background-color: white !important;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  VIDEO TOOL STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  INSERT TEXT STYLES START
+  ************************************
+  ================================= */
+  .wrapper-insert-text {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-text-inner {
+      width: 60%;
+      margin: auto;
+      margin-top: 150px;
+      height: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .wrap-text-area {
+        margin-top: 30px;
+
+        textarea {
+          background: transparent;
+          border: 0;
+          border-bottom: 1px solid lightgray;
+          border-radius: 0;
+          color: white;
+        }
+
+        .btn-next-custom {
+          color: #00b5a9;
+          border: 1px solid #00b5a9;
+          padding: 7px 30px;
+          margin-top: 30px;
+          border-radius: 100px;
+        }
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-text-inner::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-text-inner::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-text-inner::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR  STYLE END
+    /* ========== TEXTAREA DEFAULT ========== */
+    .active-amber-textarea.md-form label.active {
+      color: #00b5a9;
+    }
+
+    .amber-textarea textarea.md-textarea:focus:not([readonly]) {
+      border-bottom: 1px solid #00b5a9;
+      box-shadow: 0 1px 0 0 #00b5a9;
+    }
+
+    .amber-textarea.md-form .prefix.active {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2 textarea.md-textarea {
+      border-bottom: 1px solid #00b5a9;
+      box-shadow: 0 1px 0 0 #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form label.active {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form label {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form .prefix {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+      color: #00b5a9;
+    }
+
+    /* ========== TEXTAREA DEFAULT ========== */
+  }
+
+  /* =================================
+  ************************************
+  INSERT TEXT STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  SELECT SINGLE OPTION STYLES START
+  ************************************
+  ================================= */
+  .wrapper-choose-single-option {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-choice {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px !important;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .choice-items {
+        text-align: right;
+        direction: rtl;
+        margin-top: 40px;
+        padding-right: 35px !important;
+        font-size: 1rem;
+
+        .showResultCorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f058";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          background: transparent;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 15px);
+          font-size: 20px;
+        }
+
+        .showResultIncorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f055";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: red;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 15px);
+          font-size: 20px;
+          transform: rotate(45deg);
+        }
+      }
+
+      .form-check-label {
+        padding-left: 0 !important;
+        padding-right: 30px !important;
+        margin-bottom: 10px !important;
+        vertical-align: middle;
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-choice::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-choice::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-choice::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+
+
+  }
+
+  // RADIO BUTTON STYLE START
+  @keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-right: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }
+
+  .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .option-input:hover {
+    background: #9faab7;
+  }
+
+  .option-input:checked {
+    background: #00b5a9;
+  }
+
+  .option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: "⬤";
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 8px;
+    top: -10px;
+  }
+
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #00b5a9;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+
+  .option-input.radio {
+    border-radius: 50%;
+  }
+
+  .option-input.radio::after {
+    border-radius: 50%;
+  }
+
+  // RADIO BUTTON STYLE END
+
+
+  /* =================================
+  ************************************
+  SELECT SINGLE OPTION STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  SELECT MULTI OPTION STYLES START
+  ************************************
+  ================================= */
+  .wrapper-multi-option {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-multi-option {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .wrap-option {
+        text-align: right;
+        direction: rtl;
+        margin-top: 40px;
+        padding-right: 35px !important;
+        font-size: 1rem;
+
+        .showResultCorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f058";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          background: transparent;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 12px);
+          font-size: 20px;
+        }
+
+        .showResultIncorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f055";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: red;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 12px);
+          font-size: 20px;
+          transform: rotate(45deg);
+        }
+      }
+
+      .form-multi-select {
+        .form-check-input[type=checkbox]:checked+label:before {
+          right: 0 !important;
+          left: auto !important;
+        }
+
+        .form-check-input[type=checkbox]+label:before {
+          right: 0 !important;
+          left: auto !important;
+        }
+
+        .form-check-label {
+          padding-left: 0 !important;
+          padding-right: 30px !important;
+          margin-bottom: 10px !important;
+          padding-right: 30px !important;
+          vertical-align: middle;
+        }
+
+        .form-check-input[type=checkbox]+label:before {
+          border: 2px solid white !important;
+        }
+
+        .form-check-input[type=checkbox]:checked+label:before {
+          top: -4px;
+          left: -5px;
+          width: 12px;
+          height: 1.375rem;
+          border-top: 2px solid transparent !important;
+          border-left: 2px solid transparent !important;
+          border-right: 2px solid #00b5a9 !important;
+          border-bottom: 2px solid #00b5a9 !important;
+          margin-right: 10px !important;
+        }
+
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-multi-option::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-multi-option::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-multi-option::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+
+  }
+
+  /* =================================
+  ************************************
+  SELECT MULTI OPTION STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  FILE UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-upload-document {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-upload-document {
+      width: 60%;
+      margin: auto;
+      margin-top: 160px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .file-upload-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      ngx-file-drop .ngx-file-drop__drop-zone {
+        height: 150px !important;
+        margin: auto;
+        border: 1.5px dashed white !important;
+        border-radius: 30px;
+      }
+
+      ngx-file-drop .ngx-file-drop__content {
+        height: 150px !important;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-upload-document::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-upload-document::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-upload-document::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .btn-upload {
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 20px;
+      margin-top: 60px;
+      outline: 0;
+    }
+
+    .btn-upload:hover {
+      text-decoration: underline;
+    }
+
+    .upload-file-name {
+      margin-top: 20px !important;
+    }
+
+    .relative-div-upload-genrl {
+      position: relative;
+    }
+
+    .icon-upload-genrl {
+      position: absolute;
+      top: 40px;
+      font-size: 40px;
+      left: 0;
+      right: 0;
+      color: #00b5a9;
+    }
+
+    .icon-upload-genrl:hover {
+      cursor: pointer;
+    }
+  }
+
+  /* =================================
+  ************************************
+  FILE UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  IMAGE UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-upload-image {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+
+    .wrap-inner-upload-image {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .file-upload-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      ngx-file-drop .ngx-file-drop__drop-zone {
+        height: 150px !important;
+        margin: auto;
+        border: 1.5px dashed white !important;
+        border-radius: 30px;
+      }
+
+      ngx-file-drop .ngx-file-drop__content {
+        height: 150px !important;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-upload-image::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-upload-image::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-upload-image::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .btn-upload {
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 20px;
+      margin-top: 60px;
+      outline: 0;
+    }
+
+    .btn-upload:hover {
+      text-decoration: underline;
+    }
+
+    .upload-file-name {
+      margin-top: 20px !important;
+    }
+
+    .relative-div-upload-genrl {
+      position: relative;
+    }
+
+    .icon-upload-genrl {
+      position: absolute;
+      top: 40px;
+      font-size: 40px;
+      left: 0;
+      right: 0;
+      color: #00b5a9;
+    }
+
+    .icon-upload-genrl:hover {
+      cursor: pointer;
+    }
+
+    .show-img-file {
+      width: 370px;
+      margin: 20px auto;
+
+      .img-file-inner {
+        height: 200px !important;
+
+        img {
+          width: auto;
+          height: 100%;
+          border: 1px solid white;
+          border-radius: 15px;
+          max-width: 100%;
+        }
+      }
+
+      .icon-close-style {
+        color: #ff3e3e;
+        font-size: 25px;
+        margin-top: 14px;
+        display: block !important;
+
+      }
+
+      .style:hover {
+        cursor: pointer;
+      }
+    }
+
+    .margin-row-next-btn-top {
+      margin-top: 50px !important;
+    }
+
+
+
+
+  }
+
+  /* =================================
+  ************************************
+  IMAGE UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  AUDIO UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+  .icon-close-style {
+    color: #ff3e3e;
+    font-size: 25px;
+    margin-top: 14px;
+    display: block !important;
+
+  }
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  AUDIO UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+
+
+  /* =================================
+  ************************************
+  AUDIO RECORD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-sound {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-sound {
+      width: 70%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .audio-record-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 257px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .moving-text-pre {
+          white-space: pre-wrap;
+          /* Since CSS 2.1 */
+          white-space: -moz-pre-wrap;
+          /* Mozilla, since 1999 */
+          white-space: -pre-wrap;
+          /* Opera 4-6 */
+          white-space: -o-pre-wrap;
+          /* Opera 7 */
+          word-wrap: break-word;
+          color: white;
+          font-family: "CairoRegular";
+          overflow: hidden !important;
+          text-align: center;
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-sound::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-sound::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-sound::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+  .start-recording {
+    i {
+      color: #00b5a9;
+      font-size: 50px;
+    }
+
+  }
+
+  .start-recording:hover {
+    cursor: pointer;
+  }
+
+  .stop-recording {
+    i {
+      font-size: 50px;
+      color: red;
+    }
+
+  }
+
+  .stop-recording:hover {
+    cursor: pointer;
+  }
+
+  .recording-genrl {
+    padding: 20px 40px;
+    border-radius: 100px;
+    font-size: 20px;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+
+
+
+  }
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  AUDIO RECORD STYLES END
+  ************************************
+  ================================= */
+  /* =================================
+  ************************************
+  VIDEO AUTOQUE STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-video-autoque {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-video {
+      width: 70%;
+      margin: auto;
+      margin-top: 30px;
+      height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .video-recording-live {
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #00b4a9;
+        height: 200px;
+        margin-bottom: 10px;
+        outline: 0;
+        box-shadow: 0;
+      }
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .video-file-inner {
+        vg-player {
+          border: 1px solid #00b4a9;
+          border-radius: 20px;
+          width: 250px;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .wrap-upload-del-btns {
+          margin-top: 0 !important;
+          margin-bottom: 20px;
+        }
+      }
+
+      .start-recording {
+        background: transparent !important;
+        color: #00b5a9 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          color: #00b5a9;
+          font-size: 24px;
+        }
+
+      }
+
+      .start-recording:hover {
+        cursor: pointer;
+      }
+
+      .stop-recording {
+        background: transparent !important;
+        color: white !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 50px;
+          color: red;
+        }
+
+      }
+
+      .stop-recording:hover {
+        cursor: pointer;
+      }
+
+      .recording-genrl {
+        padding: 20px 40px;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+
+
+
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 0px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 200px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .marquee-video-record {
+          color: white !important;
+          padding: 10px !important;
+          font-size: 20px !important;
+          height: 140px !important;
+
+          .moving-text-pre {
+
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+            font-family: "CairoRegular";
+            overflow: hidden !important;
+            text-align: center;
+          }
+
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-video::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  VIDEO AUTOQUE STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  RECORD VIDEO STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-video {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-video {
+      width: 70%;
+      margin: auto;
+      margin-top: 100px;
+      height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .video-recording-live {
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #00b4a9;
+        height: 200px;
+        margin-bottom: 10px;
+        outline: 0;
+        box-shadow: 0;
+      }
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .video-file-inner {
+        vg-player {
+          border: 1px solid #00b4a9;
+          border-radius: 20px;
+          width: 250px;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .wrap-upload-del-btns {
+          margin-top: 0 !important;
+          margin-bottom: 20px;
+        }
+      }
+
+      .start-recording {
+        background: transparent !important;
+        color: #00b5a9 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          color: #00b5a9;
+          font-size: 24px;
+        }
+
+      }
+
+      .start-recording:hover {
+        cursor: pointer;
+      }
+
+      .stop-recording {
+        background: transparent !important;
+        color: white !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 50px;
+          color: red;
+        }
+
+      }
+
+      .stop-recording:hover {
+        cursor: pointer;
+      }
+
+      .recording-genrl {
+        padding: 20px 40px;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+
+
+
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 0px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 200px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .marquee-video-record {
+          color: white !important;
+          height: 140px !important;
+          padding: 10px !important;
+          font-size: 20px !important;
+
+          .moving-text-pre {
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+            font-family: "CairoRegular";
+            overflow: hidden !important;
+            text-align: center;
+          }
+
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-video::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  RECORD VIDEO STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  VIDEO UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .show-video-file {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  .video-vide-inner {
+    height: 200px !important;
+  }
+
+  .icon-close-style {
+    color: #ff3e3e;
+    font-size: 25px;
+    margin-top: 14px;
+    display: block !important;
+
+  }
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  VIDEO UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  ARRANGE OPTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-arrange {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-inner-arrange {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+
+      }
+
+      .options {
+        margin-top: 30px;
+
+        .wrap-options-items {
+          border: 0;
+          min-height: 60px;
+          background: transparent;
+          border-radius: 4px;
+        }
+
+        .option-item {
+          margin-bottom: 15px;
+          padding: 15px 30px;
+          border-radius: 100px;
+        }
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .arrow-drap-up-down {
+        color: #00b5a9;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .arrow-drap-up-down:hover {
+        cursor: pointer;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrapper-inner-arrange::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrapper-inner-arrange::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrapper-inner-arrange::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .arrange-number {
+      width: 20px;
+      border-radius: 100px;
+      margin: 0;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct-green {
+      background: green;
+    }
+
+    .incorrect-red {
+      background: red;
+    }
+
+  }
+
+  /* =================================
+  ************************************
+  ARRANGE OPTIONS STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  SELECT COURSE STYLES START
+  ************************************
+  ================================= */
+  .label-course-opt {
+    padding: 6px 0 !important;
+  }
+
+  .label-course-opt:hover {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    color: #00b5a9 !important;
+  }
+
+  /* =================================
+  ************************************
+  SELECT COURSE STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  MATCH OPTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-match-options {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-inner-match-options {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .options {
+        margin-top: 30px;
+
+        .wrap-options-items {
+          border: 0;
+          min-height: 60px;
+          background: transparent;
+          border-radius: 4px;
+        }
+
+        .option-item {
+          margin-bottom: 15px;
+          padding: 15px 30px;
+          border-radius: 100px;
+        }
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .arrow-drap-up-down {
+        color: #00b5a9;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .arrow-drap-up-down:hover {
+        cursor: pointer;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrapper-inner-match-options::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrapper-inner-match-options::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrapper-inner-match-options::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .arrange-number {
+      width: 20px;
+      border-radius: 100px;
+      margin: 0;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct-green {
+      background: green;
+    }
+
+    .incorrect-red {
+      background: red;
+    }
+
+  }
+
+  /* =================================
+  ************************************
+  MATCH OPTIONS STYLES END
+  ************************************
+  ================================= */
+
+  /* ======== ********* ARRANGE AND MATCH DRAG AND DROP MUTUAL STYELS START ********* ======== */
+  .wrap-options-items {
+
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    display: block;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .option-item {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .option-item:last-child {
+    border: none;
+  }
+
+  .wrap-options-items.cdk-drop-list-dragging .option-item:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .example-custom-placeholder {
+    background: #ccc;
+    border: dotted 3px #999;
+    min-height: 60px;
+    border-radius: 100px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  /* ======== ********* ARRANGE AND MATCH DRAG AND DROP MUTUAL STYELS END ********* ======== */
+
+
+  /* =================================
+  ************************************
+  RESULT SCREEN STYLES START
+  ************************************
+  ================================= */
+  .wrapper-test-result {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .test-result-inner {
+      width: 60%;
+      margin: auto;
+      margin-top: 40px;
+
+      .wrapper-questions {
+        height: 400px;
+        overflow-y: auto;
+        padding-left: 8px;
+      }
+
+      .wrapper-questions::-webkit-scrollbar {
+        width: 5px !important;
+      }
+
+      .wrapper-questions::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 100px;
+      }
+
+      .wrapper-questions::-webkit-scrollbar-thumb {
+        background: #00b5a9 !important;
+        outline: 1px solid transparent !important;
+        border-radius: 100px;
+      }
+
+      .fa-smile {
+        color: #00b5a9;
+        font-size: 35px;
+      }
+
+      .thank-you-msg {
+        font-size: 24px;
+      }
+
+      .table-results {
+        tr th {
+          color: #00b5a9;
+          border: 0;
+          font-weight: bold;
+          font-size: 20px;
+          padding-top: 0;
+        }
+
+        tr td {
+          color: white;
+        }
+      }
+
+      .btn-result-show {
+        background: rgba(255, 255, 255, 0.2);
+        font-weight: bold;
+        border-radius: 4px;
+        width: 100%;
+        color: white;
+      }
+
+      .btn-result-show:hover {
+        color: white;
+      }
+
+      .btn-next-result {
+        color: #00b5a9 !important;
+        border: 1px solid #00b5a9 !important;
+        padding: 7px 30px !important;
+        margin-top: 30px !important;
+        border-radius: 100px !important;
+      }
+
+      .correct-answer {
+        color: green;
+      }
+
+      .wrong-answer {
+        color: red;
+      }
+
+      .pending-answer {
+        color: orange;
+      }
+
+      .no-marks i {
+        color: red;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  RESULT SCREEN STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  FINISH COURSE STYLES START
+  ************************************
+  ================================= */
+  .wrapper-finish {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-finish-inner {
+      width: 60%;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+
+      .finish-course-msg {
+        font-size: 20px;
+      }
+
+      .finish-course-btn {
+        background-image: linear-gradient(to right, #00b5a9, #01637f);
+        border: 0;
+        padding: 10px 30px;
+        color: white;
+        font-weight: bold;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 !important;
+        outline: 0 !important;
+      }
+
+      .text-review {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid white;
+        border-radius: 0;
+        transition: 0.3s ease-in-out;
+        color: white;
+      }
+
+      .text-review:focus {
+        border-bottom: 1px solid #00b4a9;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+        transition: 0.3s ease-in-out;
+      }
+
+      .starRating {
+        margin: 30px 0 50px;
+
+        .rate-course {
+          font-size: 20px;
+          margin: 0 4px;
+        }
+
+        .star-full,
+        .star-half {
+          color: #e4cd00;
+        }
+
+        .rate-course:hover {
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+  /* =================================
+  ************************************
+  FINISH COURSE STYLES END
+  ************************************
+  ================================= */
+
+  /* ======== ********* GLOBAL STYELS START ********* ======== */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .answer-correct {
+    color: #00b5a9;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    i {
+      color: #00b5a9;
+      margin: 0 5px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .answer-incorrect {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: red;
+
+    i {
+      color: red;
+      margin: 0 5px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .show {
+    height: 100%;
+    transition: 0.3s ease-in;
+  }
+
+  .hide {
+    height: 0%;
+    overflow: hidden;
+    transition: 0.3s ease-in;
+
+  }
+
+  .icon-arrow-up {
+    display: block !important;
+    margin: auto;
+    text-align: center;
+    font-size: 24px !important;
+  }
+
+  .icon-arrow-down {
+    font-size: 25px !important;
+  }
+
+  .icon-arrow-up:hover {
+    cursor: pointer;
+  }
+
+  .showItemSummary {
+    display: block;
+  }
+
+  .hideItemSummary {
+    display: none;
+  }
+
+  .showStepTitle {
+    display: block !important;
+  }
+
+  .hideStepTitle {
+    display: none !important;
+  }
+
+  .wrap-step-title {
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    width: auto;
+    text-align: center;
+    padding: 3px 15px;
+    border-radius: 70px;
+  }
+
+  .my-custom-class {
+    background: linear-gradient(to right, #00b5a9, #01637f) !important;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    position: absolute;
+  }
+
+  .my-custom-class .arrow::before {
+    display: none !important;
+  }
+
+  .customTooltip1 {
+    pointer-events: none;
+    position: relative;
+  }
+
+  .customTooltip1 .tooltip-inner {
+    background: linear-gradient(to right, #00b5a9, #01637f) !important;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    position: relative;
+
+  }
+
+  .customTooltip1 .arrow::before {
+    display: none !important;
+  }
+
+  /* ======== ********* GLOBAL STYELS END ********* ======== */
+
+  /* ================= MEDIA QUERY START ================= */
+  /* Extra Small devices (Mobile phones, max width 575px) */
+  @media (max-width:575px) {
+    .wrapper-steps {
+      min-height: 500px !important;
+
+      .wrapper-upload-document {
+        .wrap-inner-upload-document {
+          height: 400px;
+          overflow-y: auto;
+
+
+          .question {
+            h5 {
+              font-size: 15px;
+            }
+          }
+
+          margin-top: 50px !important;
+
+          .show-audio-file {
+            width: auto;
+
+            audio {
+              width: 200px !important;
+            }
+          }
+
+          .show-video-file {
+            width: auto;
+
+            .video-file-inner {
+              vg-player {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+
+
+      .wrapper-multi-option {
+        .wrap-inner-multi-option {
+          width: 60%;
+          margin: auto;
+          margin-top: 80px;
+          height: 360px !important;
+          overflow: auto !important;
+
+          .choice-items {
+            padding-right: 35px !important;
+          }
+        }
+      }
+
+      .wrapper-choose-single-option {
+        .wrap-inner-choice {
+          width: 60%;
+          margin: auto;
+          margin-top: 80px;
+          height: 360px !important;
+          overflow: auto !important;
+
+          .choice-items {
+            padding-right: 35px !important;
+          }
+        }
+      }
+
+      .wrapper-match-options {
+        .wrapper-inner-match-options {
+          margin-top: 50px !important;
+          height: 400px;
+          overflow-y: auto;
+
+          .options {
+            .wrap-options-items {
+              .option-item {
+                font-size: 12px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      .wrapper-arrange {
+        .wrapper-inner-arrange {
+          width: 75%;
+          margin-top: 50px !important;
+          height: 400px;
+          overflow-y: auto;
+
+          .options {
+            .wrap-options-items {
+              .option-item {
+                font-size: 12px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      .wrap-next {
+        left: 20px !important;
+      }
+
+      .wrap-video-player {
+        width: calc(100% - 80px) !important;
+        margin: auto !important;
+        top: 50% !important;
+        margin-top: -90px !important;
+      }
+
+
+
+      .wrapper-upload-document {
+        .wrap-inner-upload-document {
+          margin-top: 100px !important;
+          height: 350px;
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          .audio-file-inner {
+            audio {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .wrapper-insert-text {
+        .wrap-text-inner {
+          margin-top: 100px;
+          height: 350px;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+      }
+
+      .wrapper-record-video-autoque {
+        .wrap-inner-record-video {
+          width: 70%;
+          margin: auto;
+          margin-top: 20px;
+          height: 445px;
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          .video-recording-live {
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 1px solid #00b4a9;
+            height: 120px;
+            margin-bottom: 10px;
+            outline: 0;
+            box-shadow: 0;
+            width: 100%;
+          }
+
+          .question {
+            line-height: 30px !important;
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+          }
+
+          .video-file-inner {
+            vg-player {
+              border: 1px solid #00b4a9;
+              border-radius: 20px;
+              width: 250px;
+              display: block;
+              margin: 0 auto;
+            }
+
+            .wrap-upload-del-btns {
+              margin-top: 0 !important;
+            }
+          }
+
+          .start-recording {
+            background: transparent !important;
+            color: #00b5a9 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            box-shadow: 0 0 0 0 !important;
+            margin-bottom: 20px;
+
+            i {
+              color: #00b5a9;
+              font-size: 24px;
+            }
+
+          }
+
+          .start-recording:hover {
+            cursor: pointer;
+          }
+
+          .stop-recording {
+            background: transparent !important;
+            color: white !important;
+            border: 0 !important;
+            outline: 0 !important;
+            box-shadow: 0 0 0 0 !important;
+            margin-bottom: 20px;
+
+            i {
+              font-size: 50px;
+              color: red;
+            }
+
+          }
+
+          .stop-recording:hover {
+            cursor: pointer;
+          }
+
+          .recording-genrl {
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-size: 20px;
+            box-shadow: 0 0 0 0;
+            outline: 0;
+
+
+
+          }
+
+          .btn-next-custom {
+            color: #00b5a9;
+            border: 1px solid #00b5a9;
+            padding: 7px 30px;
+            margin-top: 0px;
+            border-radius: 100px;
+          }
+
+          .wrap-sliding-text {
+            height: 150px;
+
+            .text-controls {
+              background: #00b5a9;
+              padding: 5px 20px !important;
+              border-top-left-radius: 20px;
+              border-top-right-radius: 20px;
+            }
+
+            .marquee-video-record {
+              color: white !important;
+              height: 100px !important;
+              padding: 10px !important;
+              font-size: 16px !important;
+
+              overflow: hidden;
+
+              .moving-text-pre {
+                white-space: pre-wrap;
+                /* Since CSS 2.1 */
+                white-space: -moz-pre-wrap;
+                /* Mozilla, since 1999 */
+                white-space: -pre-wrap;
+                /* Opera 4-6 */
+                white-space: -o-pre-wrap;
+                /* Opera 7 */
+                word-wrap: break-word;
+                color: white;
+                font-family: "CairoRegular";
+                overflow: hidden !important;
+                text-align: center;
+              }
+
+            }
+
+            .col-font-size {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+            .col-refresh {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+            .col-text-speed {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+
+
+
+          }
+        }
+      }
+
+      .wrapper-record-video {
+        .wrap-inner-record-video {
+          margin-top: 40px;
+          height: 400px;
+          overflow-y: auto;
+
+          .video-recording-live {
+            width: 100%;
+          }
+        }
+      }
+
+      .instructions-text {
+        background: white;
+        color: black;
+      }
+
+      .wrapper-test-result {
+
+
+        .test-result-inner {
+          width: 75% !important;
+
+          .wrapper-questions {
+            height: 250px;
+            overflow: auto;
+          }
+        }
+      }
+
+    }
+  }
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767px) {
+    .wrap-video-player {
+      width: calc(100% - 80px) !important;
+      margin: auto !important;
+      top: 50% !important;
+      margin-top: -90px !important;
+    }
+
+    .wrapper-multi-option {
+      .wrap-inner-multi-option {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+    .wrapper-choose-single-option {
+      .wrap-inner-choice {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+  }
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .wrap-video-player {
+      width: calc(100% - 80px) !important;
+      margin: auto !important;
+      top: 50% !important;
+      margin-top: -170px !important;
+    }
+
+    .wrapper-multi-option {
+      .wrap-inner-multi-option {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+    .wrapper-choose-single-option {
+      .wrap-inner-choice {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1499px) {
+    .wrap-sliding-text {
+      height: 190px;
+    }
+
+  }
+
+
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1500px) and (max-width: 3000px) {
+    .wrap-sliding-text {
+      height: 250px;
+    }
+  }
+
+  /* ================= MEDIA QUERY END ================= */
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-courseInside-lang-en {
+  .wrapper-course-inside {
+    background-image: url(../../../../../assets/images/kun-background-pattern-white.png);
+    background-position: center;
+    background-size: 1000px;
+  }
+
+
+
+  /* =================================
+  ************************************
+  FULL SCREEN STYLES START
+  ************************************
+  ================================= */
+  .make-full-screen {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 640px;
+    object-fit: contain !important;
+    position: fixed !important;
+    top: 0px !important;
+    right: 0px !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    box-sizing: border-box !important;
+    min-width: 0px !important;
+    max-width: none !important;
+    min-height: 0px !important;
+    max-height: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    margin: 0px !important;
+    z-index: 99999 !important;
+    border-radius: 0px !important;
+    transition: 1s ease-in-out !important;
+
+    .wrap-video-player {
+
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+
+      vg-player {
+        object-fit: contain !important;
+        position: fixed !important;
+        top: 0px !important;
+        right: 0px !important;
+        bottom: 0px !important;
+        left: 0px !important;
+        box-sizing: border-box !important;
+        min-width: 0px !important;
+        max-width: none !important;
+        min-height: 0px !important;
+        max-height: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        transform: none !important;
+        margin: 0px !important;
+        z-index: 999999 !important;
+        border-radius: 0px !important;
+        border: 1px solid #011113 !important;
+        transition: 1s ease-in-out !important;
+
+        vg-overlay-play.video-big-play-icon .vg-icon-play_arrow:before {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f144";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          z-index: 999999;
+        }
+
+        vg-controls {
+          bottom: -1px !important;
+        }
+
+        video {
+          object-fit: contain !important;
+          position: fixed !important;
+          top: 0px !important;
+          right: 0px !important;
+          bottom: 0px !important;
+          left: 0px !important;
+          box-sizing: border-box !important;
+          min-width: 0px !important;
+          max-width: none !important;
+          min-height: 0px !important;
+          max-height: none !important;
+          width: 100% !important;
+          height: 100% !important;
+          transform: none !important;
+          margin: 0px !important;
+          transition: 1s ease-in-out !important;
+
+        }
+      }
+    }
+
+    .full-screen-control-outside-video {
+      position: absolute !important;
+      bottom: 0px !important;
+      right: 0px !important;
+      z-index: 999999999;
+      background: rgba(0, 0, 0, 0.1);
+      border-top-left-radius: 18px;
+
+
+      i {
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        color: white;
+        line-height: 50px;
+        font-size: 18px;
+      }
+    }
+
+  }
+
+  .make-full-screen .wrapper-lesson-item {
+    z-index: 99999999999 !important;
+    padding-bottom: 20px;
+    height: calc(100% - 50px);
+
+    .lesson-inner {
+      .tile {
+        .summary-lesson-box {
+          width: 250px !important;
+        }
+
+        .lastLessonItem {
+          top: -200px !important;
+        }
+      }
+    }
+  }
+
+  .make-full-screen .wrapper-step-item {
+    z-index: 99999999999 !important;
+
+  }
+
+  .make-full-screen .wrap-prev {
+    z-index: 99999999 !important;
+
+  }
+
+  .make-full-screen .wrap-next {
+    z-index: 99999999 !important;
+
+  }
+
+  .make-full-screen .wrap-instructions {
+    z-index: 99999999999 !important;
+  }
+
+  .make-full-screen .icon-course-detail {
+    z-index: 9999999999999 !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  .make-full-screen .wrapperCourseDetai {
+    z-index: 99999999 !important;
+
+    .courseDetailInner {
+      widows: 70% !important;
+    }
+  }
+
+  /* =================================
+  ************************************
+  FULL SCREEN STYLES END
+  ************************************
+  ================================= */
+
+
+
+  .wrapper-steps {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: relative;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    min-height: 640px;
+
+    .full-screen-control-outside-video {
+      position: absolute;
+      bottom: 0px !important;
+      right: 0px !important;
+      z-index: 999999999;
+      background: rgba(0, 0, 0, 0.1);
+      border-top-left-radius: 18px;
+
+
+      i {
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        color: white;
+        line-height: 50px;
+        font-size: 18px;
+      }
+    }
+  }
+
+
+
+  /* =================================
+  ************************************
+  STEPS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-step-item {
+    position: absolute;
+    bottom: 50px;
+    width: calc(100% - 28px);
+    padding: 2px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding-top: 0px;
+    z-index: 9999999999 !important;
+
+    .step-item-inner {
+      .step-title {
+        color: white;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+
+
+      }
+
+      .tile {
+        padding: 5px 2px;
+        display: inline-block;
+        position: relative;
+
+        .step-item {
+          height: 2px;
+          background: #00b5a9;
+          border-radius: 100px;
+          display: inline-block;
+          width: 100%;
+          line-height: 0;
+        }
+
+      }
+
+      .title-hover-step {
+        position: absolute;
+        left: 0;
+
+        margin: auto;
+        border-radius: 100px;
+        text-align: center;
+        bottom: 25px;
+        // background: rgba(255, 255, 255, 0.5);
+        background: white;
+        border: 1px solid lightgray;
+        padding: 10px;
+        color: black;
+        min-width: 150px;
+
+
+      }
+
+      .last4StepsTitle {
+        position: absolute;
+        right: 0;
+
+        margin: auto;
+        border-radius: 4px;
+        text-align: center;
+        bottom: 25px;
+        // background: rgba(255, 255, 255, 0.5);
+        background: white;
+        border: 1px solid lightgray;
+        padding: 10px;
+        color: black;
+        min-width: 150px;
+      }
+
+      .activeStepTile {
+        a {
+          background: white !important;
+        }
+      }
+    }
+
+    .step-item-inner:hover {
+      cursor: pointer;
+    }
+  }
+
+  .wrapper-step-item-conditional {
+    bottom: 0px !important;
+  }
+
+  /* =================================
+  ************************************
+  STEPS STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  LESSONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-lesson-item {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding-top: 20px;
+    // padding-bottom: 100px;
+    // height: 100%;
+    padding-bottom: 20px;
+    height: calc(100% - 50px);
+    background: rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 15px;
+    z-index: 9999999999 !important;
+
+    .lesson-inner {
+      .tile {
+        position: relative;
+        padding: 2px 13px;
+        height: 100%;
+
+        .lesson-item {
+          height: 100%;
+          background: #00b5a9;
+          border-radius: 100px;
+          display: inline-block;
+          width: 2px;
+        }
+
+
+        .lastLessonItem {
+          top: -200px !important;
+        }
+
+        .summary-lesson-box {
+          position: absolute;
+          top: 3px;
+          right: 23px;
+          background: white;
+          text-align: right;
+          width: 200px;
+          padding: 15px;
+          border-radius: 20px;
+          z-index: 990;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+          border: 1px solid lightgray;
+          direction: rtl;
+
+
+          .wrap-course-outline-summary {
+            .lesson-title {
+              color: #00b5a9;
+              font-size: 18px;
+            }
+
+            p {
+              margin-bottom: 5px;
+              font-size: 12px;
+            }
+
+            p i.icon-width-genrl {
+              width: 25px;
+            }
+
+            .btn-resume-test {
+              background-image: linear-gradient(to right, #00b5a9, #01637f);
+              color: white;
+              padding: 2px 15px;
+              border-radius: 100px;
+              font-size: 14px;
+              border: 0;
+              outline: 0;
+
+              i {
+                margin-left: 5px;
+              }
+            }
+
+            .b {
+              background-image: linear-gradient(to right, #00b5a9, #01637f);
+              opacity: 0.5;
+            }
+
+            .b:hover {
+              cursor: no-drop !important;
+            }
+
+            .btn-resume-test:hover {
+              cursor: pointer;
+            }
+
+            .wrap-progress-bar {
+              margin-top: 10px;
+
+              .progress-text {
+                font-weight: bold;
+                margin-bottom: 0;
+              }
+
+              .progress-bar-style {
+                height: 4px;
+                border-radius: 100px;
+                direction: ltr;
+
+                .bg-success {
+                  background-color: #00b5a9 !important;
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+      .show .summary-lesson-box {
+        opacity: 1;
+        transition: 0.3s ease-in;
+      }
+
+      .hide .summary-lesson-box {
+        opacity: 0;
+      }
+    }
+
+    .lesson-inner:hover {
+      cursor: pointer;
+    }
+
+    .activeLessonTile .tile {
+      .lesson-item {
+        background: white !important;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  LESSONS STYLES END
+  ************************************
+  ================================= */
+
+
+
+  /* =================================
+  ************************************
+  PREVIOUS AND NEXT STYLES START
+  ************************************
+  ================================= */
+  .wrap-prev {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 100px;
+    z-index: 999999999 !important;
+
+    .nxt-btn {
+      background-color: transparent !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 100px;
+    }
+
+    .nxt-btn i {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .wrap-prev:hover {
+    cursor: pointer;
+  }
+
+  .wrap-next {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid lightgray;
+    text-align: center;
+    padding-top: 12px;
+    border-radius: 100px;
+    z-index: 9999999999 !important;
+
+    .prev-btn {
+      background-color: transparent !important;
+      width: 40px;
+      height: 40px;
+      border-radius: 100px;
+    }
+
+    .prev-btn i {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .wrap-next:hover {
+    cursor: pointer;
+  }
+
+  .skip-step-tooltip {
+    position: absolute;
+    top: -40px;
+    right: -15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-radius: 100px;
+    width: 140px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .prev-step-tooltip {
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-radius: 100px;
+    width: 140px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+
+
+  /* =================================
+  ************************************
+  PREVIOUS AND NEXT STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  INSTRUCTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrap-instructions {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 9999999999 !important;
+
+  }
+
+  .info-icon {
+    color: white;
+    font-size: 30px;
+  }
+
+  .info-icon:hover {
+    cursor: pointer;
+  }
+
+  .instructions-text {
+    width: 250px;
+    margin-top: 5px !important;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0 5px;
+    border-radius: 10px;
+  }
+
+
+  .styleInstructionsOpen {
+    padding: 10px 15px;
+    border: 1px solid lightgray;
+
+  }
+
+  /* =================================
+  ************************************
+  INSTRUCTIONS STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  COURSE DETAIL SUMMARY STYLES START
+  ************************************
+  ================================= */
+  .icon-course-detail i {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 22px;
+    color: #00b4a9;
+    font-size: 28px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    z-index: 9999999999 !important;
+  }
+
+  .icon-course-detail:hover {
+    cursor: pointer;
+  }
+
+  .wrapperCourseDetai {
+    background-image: url(../../../../../assets/images/QestionBackGround.png);
+    background-size: 100%;
+    background-position: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 100%;
+    color: white;
+    direction: rtl;
+    text-align: right;
+    z-index: 999999 !important;
+  }
+
+  .wrapperCourseDetai.show .courseDetailInner {
+    min-height: 480px;
+    height: 480px;
+    transition: 0.3s ease-in;
+
+    .course-star-rating {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .wrapperCourseDetai.hide .courseDetailInner {
+    height: 0;
+    transition: 0.3s ease-in;
+  }
+
+  .courseDetailInner {
+    width: 80%;
+    margin: auto;
+    min-height: 480px;
+    height: 480px;
+    padding-right: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 60px;
+    padding-left: 10px;
+  }
+
+  // SCROLLBAR STYLE START
+  .courseDetailInner::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  .courseDetailInner::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+  }
+
+  .courseDetailInner::-webkit-scrollbar-thumb {
+    background-color: #00b5a9;
+    outline: 1px solid transparent;
+    border-radius: 100px;
+  }
+
+  // SCROLLBAR STYLE END
+
+  .course-summary {
+    margin: 10px 0;
+
+    p {
+      margin-bottom: 5px;
+      font-weight: bold;
+
+      i {
+        margin: 0 0 0px 10px;
+        color: #00b5a9;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .course-star-rating {
+    i {
+      margin: 0 0 0 2px;
+    }
+
+    .star-full {
+      color: #FFDA00;
+    }
+
+    .star-half {
+      color: #FFDA00;
+    }
+
+    .star-empty {
+      color: #BCBCBC;
+    }
+
+    .rating-text {
+      font-size: 14px !important;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+  }
+
+  .what-you-learn {
+    border: 1px solid white;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+
+    .course-short-summary-ul {
+      margin-bottom: 0 !important;
+      list-style: none !important;
+      padding: 0 !important;
+
+      li:before {
+        font-family: FontAwesome;
+        content: "\f00c";
+        margin: 0 0 0 5px;
+        color: #00b5a9;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  COURSE DETAIL SUMMARY STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  LESSON OR EXAM TIMER STYLES START
+  ************************************
+  ================================= */
+  .wrapper-time-counter {
+    position: absolute;
+    top: 12px;
+    color: white;
+    right: 40px;
+    font-size: 30px;
+
+    .clock-time-red {
+      color: red;
+    }
+  }
+
+  /* =================================
+  ************************************
+  LESSON OR EXAM TIMER STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  VIDEO TOOL STYLES START
+  ************************************
+  ================================= */
+  .wrap-video-player {
+    position: relative;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    vg-player {
+      overflow: visible !important;
+      background: transparent;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border: 1px solid #00b4a9 !important;
+
+      video {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      vg-overlay-play.video-big-play-icon .vg-icon-play_arrow:before {
+        font-family: "Font Awesome 5 Pro";
+        content: "\f144";
+        display: inline-block;
+        padding-right: 3px;
+        vertical-align: middle;
+        font-weight: 200;
+        color: #00b5a9;
+        z-index: 999999;
+      }
+
+      vg-controls {
+        background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+
+        /* =========================================== STYLE DUBBING START =========================================== */
+        .dubbing {
+          position: relative;
+          text-align: center;
+
+          .dubbing-inner {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            padding: 0 10px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            text-align: center;
+          }
+
+          i.dubbing-control-icon {
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            padding-top: 5px;
+          }
+
+          .active-dubbing {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
+        }
+
+        .full-screen-control {
+          position: relative;
+
+          i {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 18px;
+          }
+        }
+
+
+
+        .content-dubbing {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+          padding-bottom: 32px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border: 1px solid lightgray;
+          border-bottom: 0;
+
+          .title-dubbing {
+            border-bottom: 1px solid lightgray;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+
+            i.dubbing-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .dubbing-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE DUBBING END =========================================== */
+
+        /* =========================================== STYLE SUBTITLES START =========================================== */
+        .subtitle {
+          position: relative;
+
+          i.subtitle-control-icon {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 30px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+          }
+        }
+
+        .content-subtitle {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+
+          .title-subtitle {
+            border-bottom: 1px solid #424242;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 0px;
+
+            i.subtitle-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .subtitle-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE SUBTITLES END =========================================== */
+
+        /* =========================================== STYLE QUALITY START =========================================== */
+        .quality {
+          position: relative;
+          text-align: center;
+
+          // i.quality-control-icon {
+          //   user-select: none;
+          //   display: flex;
+          //   justify-content: center;
+          //   height: 50px;
+          //   width: 30px;
+          //   cursor: pointer;
+          //   color: white;
+          //   line-height: 50px;
+          //   font-size: 22px;
+          // }
+          .quality-inner {
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            padding: 0 10px;
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            text-align: center;
+          }
+
+          i.quality-control-icon {
+            cursor: pointer;
+            color: white;
+            line-height: 50px;
+            font-size: 22px;
+            padding-top: 5px;
+          }
+
+          .active-quality {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
+        }
+
+        .content-quality {
+          position: absolute;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          font-size: 14px;
+          bottom: 50px;
+          width: 150px;
+          left: -53px;
+          right: auto;
+          margin: 0 auto;
+          text-align: left;
+          padding: 0px 0 5px;
+          padding-bottom: 32px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+          border: 1px solid lightgray;
+          border-bottom: 0;
+
+          .title-quality {
+            border-bottom: 1px solid lightgray;
+            color: white;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+
+            i.quality-title-icon {
+              color: white;
+              font-size: 13px;
+              padding-right: 8px;
+            }
+          }
+
+          .quality-ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+
+            li {
+              color: white !important;
+              line-height: 20px;
+              padding: 3px 15px;
+              padding-left: 25px;
+            }
+
+            li:hover {
+              cursor: pointer;
+              background: rgba(255, 255, 255, 0.2)
+            }
+
+            li.active {
+              padding-left: 10px !important;
+            }
+
+            li.active:before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f00c";
+              // color: #00b5a9;
+              font-size: 10px;
+              margin-right: 5px;
+              font-weight: 500;
+
+            }
+          }
+        }
+
+        /* =========================================== STYLE QUALITY END =========================================== */
+      }
+    }
+
+    .wrap-video-steps {
+      position: absolute;
+      bottom: 70px;
+      width: 100%;
+      z-index: 9999;
+      padding: 0px 20px;
+    }
+
+
+    .wrap-lessons {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      z-index: 9999;
+
+      span {
+        color: white;
+      }
+
+    }
+
+    vg-controls {
+      vg-scrub-bar-current-time .background {
+        border: 1px solid white !important;
+        background-color: white !important;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  VIDEO TOOL STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  INSERT TEXT STYLES START
+  ************************************
+  ================================= */
+  .wrapper-insert-text {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-text-inner {
+      width: 60%;
+      margin: auto;
+      margin-top: 150px;
+      height: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .wrap-text-area {
+        margin-top: 30px;
+
+        textarea {
+          background: transparent;
+          border: 0;
+          border-bottom: 1px solid lightgray;
+          border-radius: 0;
+          color: white;
+        }
+
+        .btn-next-custom {
+          color: #00b5a9;
+          border: 1px solid #00b5a9;
+          padding: 7px 30px;
+          margin-top: 30px;
+          border-radius: 100px;
+        }
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-text-inner::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-text-inner::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-text-inner::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR  STYLE END
+    /* ========== TEXTAREA DEFAULT ========== */
+    .active-amber-textarea.md-form label.active {
+      color: #00b5a9;
+    }
+
+    .amber-textarea textarea.md-textarea:focus:not([readonly]) {
+      border-bottom: 1px solid #00b5a9;
+      box-shadow: 0 1px 0 0 #00b5a9;
+    }
+
+    .amber-textarea.md-form .prefix.active {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2 textarea.md-textarea {
+      border-bottom: 1px solid #00b5a9;
+      box-shadow: 0 1px 0 0 #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form label.active {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form label {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form .prefix {
+      color: #00b5a9;
+    }
+
+    .active-amber-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+      color: #00b5a9;
+    }
+
+    /* ========== TEXTAREA DEFAULT ========== */
+  }
+
+  /* =================================
+  ************************************
+  INSERT TEXT STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  SELECT SINGLE OPTION STYLES START
+  ************************************
+  ================================= */
+  .wrapper-choose-single-option {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-choice {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px !important;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .choice-items {
+        text-align: right;
+        direction: rtl;
+        margin-top: 40px;
+        padding-right: 35px !important;
+        font-size: 1rem;
+
+        .showResultCorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f058";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          background: transparent;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 15px);
+          font-size: 20px;
+        }
+
+        .showResultIncorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f055";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: red;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 15px);
+          font-size: 20px;
+          transform: rotate(45deg);
+        }
+      }
+
+      .form-check-label {
+        padding-left: 0 !important;
+        padding-right: 30px !important;
+        margin-bottom: 10px !important;
+        vertical-align: middle;
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-choice::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-choice::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-choice::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+
+
+  }
+
+  // RADIO BUTTON STYLE START
+  @keyframes click-wave {
+    0% {
+      height: 40px;
+      width: 40px;
+      opacity: 0.35;
+      position: relative;
+    }
+
+    100% {
+      height: 200px;
+      width: 200px;
+      margin-right: -80px;
+      margin-top: -80px;
+      opacity: 0;
+    }
+  }
+
+  .option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .option-input:hover {
+    background: #9faab7;
+  }
+
+  .option-input:checked {
+    background: #00b5a9;
+  }
+
+  .option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: "⬤";
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 8px;
+    top: -10px;
+  }
+
+  .option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #00b5a9;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+
+  .option-input.radio {
+    border-radius: 50%;
+  }
+
+  .option-input.radio::after {
+    border-radius: 50%;
+  }
+
+  // RADIO BUTTON STYLE END
+
+
+  /* =================================
+  ************************************
+  SELECT SINGLE OPTION STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  SELECT MULTI OPTION STYLES START
+  ************************************
+  ================================= */
+  .wrapper-multi-option {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-multi-option {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .wrap-option {
+        text-align: right;
+        direction: rtl;
+        margin-top: 40px;
+        padding-right: 35px !important;
+        font-size: 1rem;
+
+        .showResultCorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f058";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+          background: transparent;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 12px);
+          font-size: 20px;
+        }
+
+        .showResultIncorrect:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f055";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: red;
+          z-index: 999999;
+          position: absolute;
+          right: -35px;
+          top: calc(50% - 12px);
+          font-size: 20px;
+          transform: rotate(45deg);
+        }
+      }
+
+      .form-multi-select {
+        .form-check-input[type=checkbox]:checked+label:before {
+          right: 0 !important;
+          left: auto !important;
+        }
+
+        .form-check-input[type=checkbox]+label:before {
+          right: 0 !important;
+          left: auto !important;
+        }
+
+        .form-check-label {
+          padding-left: 0 !important;
+          padding-right: 30px !important;
+          margin-bottom: 10px !important;
+          padding-right: 30px !important;
+          vertical-align: middle;
+        }
+
+        .form-check-input[type=checkbox]+label:before {
+          border: 2px solid white !important;
+        }
+
+        .form-check-input[type=checkbox]:checked+label:before {
+          top: -4px;
+          left: -5px;
+          width: 12px;
+          height: 1.375rem;
+          border-top: 2px solid transparent !important;
+          border-left: 2px solid transparent !important;
+          border-right: 2px solid #00b5a9 !important;
+          border-bottom: 2px solid #00b5a9 !important;
+          margin-right: 10px !important;
+        }
+
+      }
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-multi-option::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-multi-option::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-multi-option::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+
+  }
+
+  /* =================================
+  ************************************
+  SELECT MULTI OPTION STYLES END
+  ************************************
+  ================================= */
+
+
+
+
+  /* =================================
+  ************************************
+  FILE UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-upload-document {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-upload-document {
+      width: 60%;
+      margin: auto;
+      margin-top: 160px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .file-upload-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      ngx-file-drop .ngx-file-drop__drop-zone {
+        height: 150px !important;
+        margin: auto;
+        border: 1.5px dashed white !important;
+        border-radius: 30px;
+      }
+
+      ngx-file-drop .ngx-file-drop__content {
+        height: 150px !important;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-upload-document::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-upload-document::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-upload-document::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .btn-upload {
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 20px;
+      margin-top: 60px;
+      outline: 0;
+    }
+
+    .btn-upload:hover {
+      text-decoration: underline;
+    }
+
+    .upload-file-name {
+      margin-top: 20px !important;
+    }
+
+    .relative-div-upload-genrl {
+      position: relative;
+    }
+
+    .icon-upload-genrl {
+      position: absolute;
+      top: 40px;
+      font-size: 40px;
+      left: 0;
+      right: 0;
+      color: #00b5a9;
+    }
+
+    .icon-upload-genrl:hover {
+      cursor: pointer;
+    }
+  }
+
+  /* =================================
+  ************************************
+  FILE UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  IMAGE UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-upload-image {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+
+    .wrap-inner-upload-image {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .file-upload-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      ngx-file-drop .ngx-file-drop__drop-zone {
+        height: 150px !important;
+        margin: auto;
+        border: 1.5px dashed white !important;
+        border-radius: 30px;
+      }
+
+      ngx-file-drop .ngx-file-drop__content {
+        height: 150px !important;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-upload-image::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-upload-image::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-upload-image::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .btn-upload {
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 20px;
+      margin-top: 60px;
+      outline: 0;
+    }
+
+    .btn-upload:hover {
+      text-decoration: underline;
+    }
+
+    .upload-file-name {
+      margin-top: 20px !important;
+    }
+
+    .relative-div-upload-genrl {
+      position: relative;
+    }
+
+    .icon-upload-genrl {
+      position: absolute;
+      top: 40px;
+      font-size: 40px;
+      left: 0;
+      right: 0;
+      color: #00b5a9;
+    }
+
+    .icon-upload-genrl:hover {
+      cursor: pointer;
+    }
+
+    .show-img-file {
+      width: 370px;
+      margin: 20px auto;
+
+      .img-file-inner {
+        height: 200px !important;
+
+        img {
+          width: auto;
+          height: 100%;
+          border: 1px solid white;
+          border-radius: 15px;
+          max-width: 100%;
+        }
+      }
+
+      .icon-close-style {
+        color: #ff3e3e;
+        font-size: 25px;
+        margin-top: 14px;
+        display: block !important;
+
+      }
+
+      .style:hover {
+        cursor: pointer;
+      }
+    }
+
+    .margin-row-next-btn-top {
+      margin-top: 50px !important;
+    }
+
+
+
+
+  }
+
+  /* =================================
+  ************************************
+  IMAGE UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  AUDIO UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+  .icon-close-style {
+    color: #ff3e3e;
+    font-size: 25px;
+    margin-top: 14px;
+    display: block !important;
+
+  }
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  AUDIO UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+
+
+  /* =================================
+  ************************************
+  AUDIO RECORD STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-sound {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-sound {
+      width: 70%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .audio-record-wrapper {
+        margin-top: 30px;
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 257px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .moving-text-pre {
+          white-space: pre-wrap;
+          /* Since CSS 2.1 */
+          white-space: -moz-pre-wrap;
+          /* Mozilla, since 1999 */
+          white-space: -pre-wrap;
+          /* Opera 4-6 */
+          white-space: -o-pre-wrap;
+          /* Opera 7 */
+          word-wrap: break-word;
+          color: white;
+          font-family: "CairoRegular";
+          overflow: hidden !important;
+          text-align: center;
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-sound::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-sound::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-sound::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+  .start-recording {
+    i {
+      color: #00b5a9;
+      font-size: 50px;
+    }
+
+  }
+
+  .start-recording:hover {
+    cursor: pointer;
+  }
+
+  .stop-recording {
+    i {
+      font-size: 50px;
+      color: red;
+    }
+
+  }
+
+  .stop-recording:hover {
+    cursor: pointer;
+  }
+
+  .recording-genrl {
+    padding: 20px 40px;
+    border-radius: 100px;
+    font-size: 20px;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+
+
+
+  }
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  AUDIO RECORD STYLES END
+  ************************************
+  ================================= */
+  /* =================================
+  ************************************
+  VIDEO AUTOQUE STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-video-autoque {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-video {
+      width: 70%;
+      margin: auto;
+      margin-top: 30px;
+      height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .video-recording-live {
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #00b4a9;
+        height: 200px;
+        margin-bottom: 10px;
+        outline: 0;
+        box-shadow: 0;
+      }
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .video-file-inner {
+        vg-player {
+          border: 1px solid #00b4a9;
+          border-radius: 20px;
+          width: 250px;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .wrap-upload-del-btns {
+          margin-top: 0 !important;
+          margin-bottom: 20px;
+        }
+      }
+
+      .start-recording {
+        background: transparent !important;
+        color: #00b5a9 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          color: #00b5a9;
+          font-size: 24px;
+        }
+
+      }
+
+      .start-recording:hover {
+        cursor: pointer;
+      }
+
+      .stop-recording {
+        background: transparent !important;
+        color: white !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 50px;
+          color: red;
+        }
+
+      }
+
+      .stop-recording:hover {
+        cursor: pointer;
+      }
+
+      .recording-genrl {
+        padding: 20px 40px;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+
+
+
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 0px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 200px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .marquee-video-record {
+          color: white !important;
+          padding: 10px !important;
+          font-size: 20px !important;
+          height: 140px !important;
+
+          .moving-text-pre {
+
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+            font-family: "CairoRegular";
+            overflow: hidden !important;
+            text-align: center;
+          }
+
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-video::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  VIDEO AUTOQUE STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  RECORD VIDEO STYLES START
+  ************************************
+  ================================= */
+  .wrapper-record-video {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrap-inner-record-video {
+      width: 70%;
+      margin: auto;
+      margin-top: 100px;
+      height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .video-recording-live {
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid #00b4a9;
+        height: 200px;
+        margin-bottom: 10px;
+        outline: 0;
+        box-shadow: 0;
+      }
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .video-file-inner {
+        vg-player {
+          border: 1px solid #00b4a9;
+          border-radius: 20px;
+          width: 250px;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .wrap-upload-del-btns {
+          margin-top: 0 !important;
+          margin-bottom: 20px;
+        }
+      }
+
+      .start-recording {
+        background: transparent !important;
+        color: #00b5a9 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          color: #00b5a9;
+          font-size: 24px;
+        }
+
+      }
+
+      .start-recording:hover {
+        cursor: pointer;
+      }
+
+      .stop-recording {
+        background: transparent !important;
+        color: white !important;
+        border: 0 !important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0 !important;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 50px;
+          color: red;
+        }
+
+      }
+
+      .stop-recording:hover {
+        cursor: pointer;
+      }
+
+      .recording-genrl {
+        padding: 20px 40px;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 0 0 0;
+        outline: 0;
+
+
+
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 0px;
+        border-radius: 100px;
+      }
+
+      .wrap-sliding-text {
+        height: 200px;
+
+        .text-controls {
+          background: #00b5a9;
+          padding: 10px 20px !important;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
+
+        .marquee-video-record {
+          color: white !important;
+          height: 140px !important;
+          padding: 10px !important;
+          font-size: 20px !important;
+
+          .moving-text-pre {
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+            font-family: "CairoRegular";
+            overflow: hidden !important;
+            text-align: center;
+          }
+
+        }
+
+        .col-font-size {
+          padding: 0 40px;
+
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-refresh {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+        .col-text-speed {
+          padding: 0 40px;
+          font-size: 12px;
+          font-weight: bold;
+
+          i {
+            font-size: 23px;
+          }
+
+          i:hover {
+            cursor: pointer;
+          }
+        }
+
+
+
+        i:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    // SCROLLBAR STYLE START
+    .wrap-inner-record-video::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrap-inner-record-video::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+  }
+
+
+
+  .recording-time {
+    color: red !important;
+    font-size: 20px;
+  }
+
+  .wrap-upload-del-btns {
+    margin-top: 14px;
+
+    .icon-close-style {
+      color: #ff3e3e;
+      font-size: 25px;
+
+      margin: 0 10px;
+      display: inline-block !important;
+    }
+
+    .btn-upload-audio {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 25px;
+      direction: ltr;
+      margin: 0 10px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+  }
+
+  .show-audio-file {
+    position: relative;
+    width: 370px;
+    margin: 20px auto;
+  }
+
+
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  RECORD VIDEO STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  VIDEO UPLOAD STYLES START
+  ************************************
+  ================================= */
+  .show-video-file {
+    position: relative;
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  .video-vide-inner {
+    height: 200px !important;
+  }
+
+  .icon-close-style {
+    color: #ff3e3e;
+    font-size: 25px;
+    margin-top: 14px;
+    display: block !important;
+
+  }
+
+  .icon-close-style:hover {
+    cursor: pointer;
+  }
+
+  .margin-row-next-btn-top {
+    margin-top: 50px !important;
+  }
+
+  /* =================================
+  ************************************
+  VIDEO UPLOAD STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  ARRANGE OPTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-arrange {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-inner-arrange {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+
+      }
+
+      .options {
+        margin-top: 30px;
+
+        .wrap-options-items {
+          border: 0;
+          min-height: 60px;
+          background: transparent;
+          border-radius: 4px;
+        }
+
+        .option-item {
+          margin-bottom: 15px;
+          padding: 15px 30px;
+          border-radius: 100px;
+        }
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .arrow-drap-up-down {
+        color: #00b5a9;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .arrow-drap-up-down:hover {
+        cursor: pointer;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrapper-inner-arrange::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrapper-inner-arrange::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrapper-inner-arrange::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .arrange-number {
+      width: 20px;
+      border-radius: 100px;
+      margin: 0;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct-green {
+      background: green;
+    }
+
+    .incorrect-red {
+      background: red;
+    }
+
+  }
+
+  /* =================================
+  ************************************
+  ARRANGE OPTIONS STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  SELECT COURSE STYLES START
+  ************************************
+  ================================= */
+  .label-course-opt {
+    padding: 6px 0 !important;
+  }
+
+  .label-course-opt:hover {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    color: #00b5a9 !important;
+  }
+
+  /* =================================
+  ************************************
+  SELECT COURSE STYLES END
+  ************************************
+  ================================= */
+
+
+  /* =================================
+  ************************************
+  MATCH OPTIONS STYLES START
+  ************************************
+  ================================= */
+  .wrapper-match-options {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    text-align: right;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-inner-match-options {
+      width: 60%;
+      margin: auto;
+      margin-top: 80px;
+      height: 480px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .question {
+        line-height: 30px !important;
+        white-space: pre-wrap;
+        /* Since CSS 2.1 */
+        white-space: -moz-pre-wrap;
+        /* Mozilla, since 1999 */
+        white-space: -pre-wrap;
+        /* Opera 4-6 */
+        white-space: -o-pre-wrap;
+        /* Opera 7 */
+        word-wrap: break-word;
+        color: white;
+      }
+
+      .options {
+        margin-top: 30px;
+
+        .wrap-options-items {
+          border: 0;
+          min-height: 60px;
+          background: transparent;
+          border-radius: 4px;
+        }
+
+        .option-item {
+          margin-bottom: 15px;
+          padding: 15px 30px;
+          border-radius: 100px;
+        }
+      }
+
+      .btn-next-custom {
+        color: #00b5a9;
+        border: 1px solid #00b5a9;
+        padding: 7px 30px;
+        margin-top: 30px;
+        border-radius: 100px;
+      }
+
+      .arrow-drap-up-down {
+        color: #00b5a9;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .arrow-drap-up-down:hover {
+        cursor: pointer;
+      }
+
+
+
+    }
+
+    // SCROLLBAR STYLE START
+    .wrapper-inner-match-options::-webkit-scrollbar {
+      width: 4px !important;
+    }
+
+    .wrapper-inner-match-options::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 100px;
+    }
+
+    .wrapper-inner-match-options::-webkit-scrollbar-thumb {
+      background-color: #00b5a9;
+      outline: 1px solid transparent;
+      border-radius: 100px;
+    }
+
+    // SCROLLBAR STYLE END
+    .arrange-number {
+      width: 20px;
+      border-radius: 100px;
+      margin: 0;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .correct-green {
+      background: green;
+    }
+
+    .incorrect-red {
+      background: red;
+    }
+
+  }
+
+  /* =================================
+  ************************************
+  MATCH OPTIONS STYLES END
+  ************************************
+  ================================= */
+
+  /* ======== ********* ARRANGE AND MATCH DRAG AND DROP MUTUAL STYELS START ********* ======== */
+  .wrap-options-items {
+
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    display: block;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .option-item {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .option-item:last-child {
+    border: none;
+  }
+
+  .wrap-options-items.cdk-drop-list-dragging .option-item:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .example-custom-placeholder {
+    background: #ccc;
+    border: dotted 3px #999;
+    min-height: 60px;
+    border-radius: 100px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  /* ======== ********* ARRANGE AND MATCH DRAG AND DROP MUTUAL STYELS END ********* ======== */
+
+
+  /* =================================
+  ************************************
+  RESULT SCREEN STYLES START
+  ************************************
+  ================================= */
+  .wrapper-test-result {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .test-result-inner {
+      width: 60%;
+      margin: auto;
+      margin-top: 40px;
+
+      .wrapper-questions {
+        height: 400px;
+        overflow-y: auto;
+        padding-left: 8px;
+      }
+
+      .wrapper-questions::-webkit-scrollbar {
+        width: 5px !important;
+      }
+
+      .wrapper-questions::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 100px;
+      }
+
+      .wrapper-questions::-webkit-scrollbar-thumb {
+        background: #00b5a9 !important;
+        outline: 1px solid transparent !important;
+        border-radius: 100px;
+      }
+
+      .fa-smile {
+        color: #00b5a9;
+        font-size: 35px;
+      }
+
+      .thank-you-msg {
+        font-size: 24px;
+      }
+
+      .table-results {
+        tr th {
+          color: #00b5a9;
+          border: 0;
+          font-weight: bold;
+          font-size: 20px;
+          padding-top: 0;
+        }
+
+        tr td {
+          color: white;
+        }
+      }
+
+      .btn-result-show {
+        background: rgba(255, 255, 255, 0.2);
+        font-weight: bold;
+        border-radius: 4px;
+        width: 100%;
+        color: white;
+      }
+
+      .btn-result-show:hover {
+        color: white;
+      }
+
+      .btn-next-result {
+        color: #00b5a9 !important;
+        border: 1px solid #00b5a9 !important;
+        padding: 7px 30px !important;
+        margin-top: 30px !important;
+        border-radius: 100px !important;
+      }
+
+      .correct-answer {
+        color: green;
+      }
+
+      .wrong-answer {
+        color: red;
+      }
+
+      .pending-answer {
+        color: orange;
+      }
+
+      .no-marks i {
+        color: red;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  RESULT SCREEN STYLES END
+  ************************************
+  ================================= */
+
+  /* =================================
+  ************************************
+  FINISH COURSE STYLES START
+  ************************************
+  ================================= */
+  .wrapper-finish {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    color: white !important;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.2);
+    direction: rtl;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .wrapper-finish-inner {
+      width: 60%;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+
+      .finish-course-msg {
+        font-size: 20px;
+      }
+
+      .finish-course-btn {
+        background-image: linear-gradient(to right, #00b5a9, #01637f);
+        border: 0;
+        padding: 10px 30px;
+        color: white;
+        font-weight: bold;
+        border-radius: 100px;
+        font-size: 20px;
+        box-shadow: 0 !important;
+        outline: 0 !important;
+      }
+    }
+  }
+
+  /* =================================
+  ************************************
+  FINISH COURSE STYLES END
+  ************************************
+  ================================= */
+
+  /* ======== ********* GLOBAL STYELS START ********* ======== */
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .answer-correct {
+    color: #00b5a9;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+
+    i {
+      color: #00b5a9;
+      margin: 0 5px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .answer-incorrect {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: red;
+
+    i {
+      color: red;
+      margin: 0 5px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .show {
+    height: 100%;
+    transition: 0.3s ease-in;
+  }
+
+  .hide {
+    height: 0%;
+    overflow: hidden;
+    transition: 0.3s ease-in;
+
+  }
+
+  .icon-arrow-up {
+    display: block !important;
+    margin: auto;
+    text-align: center;
+    font-size: 24px !important;
+  }
+
+  .icon-arrow-down {
+    font-size: 25px !important;
+  }
+
+  .icon-arrow-up:hover {
+    cursor: pointer;
+  }
+
+  .showItemSummary {
+    display: block;
+  }
+
+  .hideItemSummary {
+    display: none;
+  }
+
+  .showStepTitle {
+    display: block !important;
+  }
+
+  .hideStepTitle {
+    display: none !important;
+  }
+
+  .wrap-step-title {
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    width: auto;
+    text-align: center;
+    padding: 3px 15px;
+    border-radius: 70px;
+  }
+
+  .my-custom-class {
+    background: linear-gradient(to right, #00b5a9, #01637f) !important;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    position: absolute;
+  }
+
+  .my-custom-class .arrow::before {
+    display: none !important;
+  }
+
+  .customTooltip1 {
+    pointer-events: none;
+    position: relative;
+  }
+
+  .customTooltip1 .tooltip-inner {
+    background: linear-gradient(to right, #00b5a9, #01637f) !important;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+    font-size: 125%;
+    position: relative;
+
+  }
+
+  .customTooltip1 .arrow::before {
+    display: none !important;
+  }
+
+  /* ======== ********* GLOBAL STYELS END ********* ======== */
+
+  /* ================= MEDIA QUERY START ================= */
+  /* Extra Small devices (Mobile phones, max width 575px) */
+  @media (max-width:575px) {
+    .wrapper-steps {
+      min-height: 500px !important;
+
+      .wrapper-upload-document {
+        .wrap-inner-upload-document {
+          height: 400px;
+          overflow-y: auto;
+
+
+          .question {
+            h5 {
+              font-size: 15px;
+            }
+          }
+
+          margin-top: 50px !important;
+
+          .show-audio-file {
+            width: auto;
+
+            audio {
+              width: 200px !important;
+            }
+          }
+
+          .show-video-file {
+            width: auto;
+
+            .video-file-inner {
+              vg-player {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+
+
+      .wrapper-multi-option {
+        .wrap-inner-multi-option {
+          width: 60%;
+          margin: auto;
+          margin-top: 80px;
+          height: 360px !important;
+          overflow: auto !important;
+
+          .choice-items {
+            padding-right: 35px !important;
+          }
+        }
+      }
+
+      .wrapper-choose-single-option {
+        .wrap-inner-choice {
+          width: 60%;
+          margin: auto;
+          margin-top: 80px;
+          height: 360px !important;
+          overflow: auto !important;
+
+          .choice-items {
+            padding-right: 35px !important;
+          }
+        }
+      }
+
+      .wrapper-match-options {
+        .wrapper-inner-match-options {
+          margin-top: 50px !important;
+          height: 400px;
+          overflow-y: auto;
+
+          .options {
+            .wrap-options-items {
+              .option-item {
+                font-size: 12px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      .wrapper-arrange {
+        .wrapper-inner-arrange {
+          width: 75%;
+          margin-top: 50px !important;
+          height: 400px;
+          overflow-y: auto;
+
+          .options {
+            .wrap-options-items {
+              .option-item {
+                font-size: 12px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      .wrap-next {
+        left: 20px !important;
+      }
+
+      .wrap-video-player {
+        width: calc(100% - 80px) !important;
+        margin: auto !important;
+        top: 50% !important;
+        margin-top: -90px !important;
+      }
+
+
+
+      .wrapper-upload-document {
+        .wrap-inner-upload-document {
+          margin-top: 100px !important;
+          height: 350px;
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          .audio-file-inner {
+            audio {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .wrapper-insert-text {
+        .wrap-text-inner {
+          margin-top: 100px;
+          height: 350px;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+      }
+
+      .wrapper-record-video-autoque {
+        .wrap-inner-record-video {
+          width: 70%;
+          margin: auto;
+          margin-top: 20px;
+          height: 445px;
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          .video-recording-live {
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            border: 1px solid #00b4a9;
+            height: 120px;
+            margin-bottom: 10px;
+            outline: 0;
+            box-shadow: 0;
+            width: 100%;
+          }
+
+          .question {
+            line-height: 30px !important;
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            color: white;
+          }
+
+          .video-file-inner {
+            vg-player {
+              border: 1px solid #00b4a9;
+              border-radius: 20px;
+              width: 250px;
+              display: block;
+              margin: 0 auto;
+            }
+
+            .wrap-upload-del-btns {
+              margin-top: 0 !important;
+            }
+          }
+
+          .start-recording {
+            background: transparent !important;
+            color: #00b5a9 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            box-shadow: 0 0 0 0 !important;
+            margin-bottom: 20px;
+
+            i {
+              color: #00b5a9;
+              font-size: 24px;
+            }
+
+          }
+
+          .start-recording:hover {
+            cursor: pointer;
+          }
+
+          .stop-recording {
+            background: transparent !important;
+            color: white !important;
+            border: 0 !important;
+            outline: 0 !important;
+            box-shadow: 0 0 0 0 !important;
+            margin-bottom: 20px;
+
+            i {
+              font-size: 50px;
+              color: red;
+            }
+
+          }
+
+          .stop-recording:hover {
+            cursor: pointer;
+          }
+
+          .recording-genrl {
+            padding: 20px 40px;
+            border-radius: 100px;
+            font-size: 20px;
+            box-shadow: 0 0 0 0;
+            outline: 0;
+
+
+
+          }
+
+          .btn-next-custom {
+            color: #00b5a9;
+            border: 1px solid #00b5a9;
+            padding: 7px 30px;
+            margin-top: 0px;
+            border-radius: 100px;
+          }
+
+          .wrap-sliding-text {
+            height: 150px;
+
+            .text-controls {
+              background: #00b5a9;
+              padding: 5px 20px !important;
+              border-top-left-radius: 20px;
+              border-top-right-radius: 20px;
+            }
+
+            .marquee-video-record {
+              color: white !important;
+              height: 100px !important;
+              padding: 10px !important;
+              font-size: 16px !important;
+
+              overflow: hidden;
+
+              .moving-text-pre {
+                white-space: pre-wrap;
+                /* Since CSS 2.1 */
+                white-space: -moz-pre-wrap;
+                /* Mozilla, since 1999 */
+                white-space: -pre-wrap;
+                /* Opera 4-6 */
+                white-space: -o-pre-wrap;
+                /* Opera 7 */
+                word-wrap: break-word;
+                color: white;
+                font-family: "CairoRegular";
+                overflow: hidden !important;
+                text-align: center;
+              }
+
+            }
+
+            .col-font-size {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+            .col-refresh {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+            .col-text-speed {
+              padding: 0 5px;
+              font-size: 12px;
+              font-weight: bold;
+
+              i {
+                font-size: 12px;
+              }
+
+              i:hover {
+                cursor: pointer;
+              }
+            }
+
+
+
+
+          }
+        }
+      }
+
+      .wrapper-record-video {
+        .wrap-inner-record-video {
+          margin-top: 40px;
+          height: 400px;
+          overflow-y: auto;
+
+          .video-recording-live {
+            width: 100%;
+          }
+        }
+      }
+
+      .instructions-text {
+        background: white;
+        color: black;
+      }
+
+      .wrapper-test-result {
+
+
+        .test-result-inner {
+          width: 75% !important;
+
+          .wrapper-questions {
+            height: 250px;
+            overflow: auto;
+          }
+        }
+      }
+
+    }
+  }
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767px) {
+    .wrap-video-player {
+      width: calc(100% - 80px) !important;
+      margin: auto !important;
+      top: 50% !important;
+      margin-top: -90px !important;
+    }
+
+    .wrapper-multi-option {
+      .wrap-inner-multi-option {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+    .wrapper-choose-single-option {
+      .wrap-inner-choice {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+  }
+
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .wrap-video-player {
+      width: calc(100% - 80px) !important;
+      margin: auto !important;
+      top: 50% !important;
+      margin-top: -170px !important;
+    }
+
+    .wrapper-multi-option {
+      .wrap-inner-multi-option {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+
+    .wrapper-choose-single-option {
+      .wrap-inner-choice {
+        width: 60%;
+        margin: auto;
+        margin-top: 80px;
+        height: 480px !important;
+        overflow: auto !important;
+
+        .choice-items {
+          padding-right: 35px !important;
+        }
+      }
+    }
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1499px) {
+
+    .wrap-sliding-text {
+      height: 190px;
+    }
+  }
+
+
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1500px) and (max-width: 3000px) {
+    .wrap-sliding-text {
+      height: 250px;
+    }
+  }
+
+  /* ================= MEDIA QUERY END ================= */
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+
+pre.question{
+  overflow: hidden;
+}

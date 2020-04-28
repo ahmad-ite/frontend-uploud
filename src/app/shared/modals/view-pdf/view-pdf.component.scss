@@ -1,0 +1,9 @@
+.view-pdf{
+  overflow-y: auto !important;
+  z-index: 999999999999 !important;
+  .modal-dialog{
+    max-width: 800px !important;
+    width: 800px !important;
+
+  }
+}

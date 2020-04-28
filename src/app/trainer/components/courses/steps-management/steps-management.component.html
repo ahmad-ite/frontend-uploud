@@ -1,0 +1,1118 @@
+<div [ngClass]="langStyle">
+  <div class="wrapper-steps-main">
+    <div class="row row-controls">
+      <div class="col-12">
+        <div class="wrap-steps-controls">
+          <ngb-tabset type="pills" [destroyOnHide]="false" (tabChange)="onTabChange($event)" [activeId]="activeTab"
+            id="steps-controls">
+            <ngb-tab [id]="stepCateogry.id" *ngFor="let stepCateogry of stepCatogories">
+              <ng-template ngbTabTitle><b><i [class]="stepCateogry.icon"></i> {{stepCateogry.name | translate}}</b>
+              </ng-template>
+              <ng-template ngbTabContent>
+                <div class="wrap-options-tool-content wrap-content-genrl">
+                  <ul class="tools-list-genrl" *ngFor="let step of stepCateogry.steps">
+                    <li (click)="insertStep(step.type)"><i [class]="step.icon"></i> {{step.name| translate}}</li>
+                  </ul>
+                </div>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 p-0">
+        <div class="wrap-steps-sidebar">
+          <!-- <div class="wrap-thumbnail" *ngFor="let thumb of thumbnails"> {{thumb.name}} </div> -->
+          <div cdkDropListGroup>
+            <div cdkDropList [cdkDropListData]="thumbnails" (cdkDropListDropped)="drop($event)">
+              <div class="wrap-thumbnail thumbnail-box" *ngFor="let thumb of thumbnails" cdkDrag>
+                <div class="row">
+                  <div class="col-6 p-0 col-step-no">
+                    <span class="step-no">{{thumb.no}}</span>
+                  </div>
+                  <div class="col-6 p-0 col-step-type">
+                    <span class="step-type">{{'Record Sound' | translate}}</span>
+                  </div>
+                </div>
+                <div class="row text-center justify-content-center">
+                  <div class="col-md-12">
+                    <div class="wrap-icon-and-question">
+                      <i class="far fa-headphones-alt"></i>
+                      <p class="thumb-question">عند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrap-time-and-marks">
+                  <div class="row text-center">
+                    <div class="col-6 text-center">
+                      <div class="wrap-marks">
+                        <span class="marks">{{'Mark' | translate}}: 10</span>
+                      </div>
+                    </div>
+                    <div class="col-6 text-center">
+                      <div class="wrap-time">
+                        <span class="time">{{'Time' | translate}}: 1 min</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9 p-0">
+        <div class="wrap-steps-content">
+          <!-- **************************************** INSERT TEXT TOOL START **************************************** -->
+          <section class="wrapper-insert-text" *ngIf="step.type=='textbox'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Text insert' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" [(ngModel)]="step.title" required
+                          name="stepTitle" placeholder="{{'Step title' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" [(ngModel)]="step.question" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}" [(ngModel)]="step.instructions"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                      placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn class="" type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** INSERT TEXT TOOL END **************************************** -->
+          <!-- **************************************** PLAY TOOL START **************************************** -->
+          <section class="wrapper-play" *ngIf="step.type=='play'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'play' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="stepTitle"
+                          placeholder="{{'Step Title' | translate }}"
+                          value="{{ 'تدريب الإجابة على السؤال' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                        <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl input-time-in-seconds col-4" type="number"
+                          required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                        <span class="time-in-minutes">01:00</span>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                        <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <!-- Default switch -->
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" name="skip" id="customSwitches"
+                            [(ngModel)]="step.skip">
+                          <label class="custom-control-label" for="customSwitches"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn class="" type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** PLAY TOOL END **************************************** -->
+          <!-- **************************************** CHOICE TOOL START **************************************** -->
+          <section class="wrapper-choice" *ngIf="step.type=='choice'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Choice' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="stepTitle"
+                          placeholder="{{'Step Title' | translate }}"
+                          value="{{ 'تدريب الإجابة على السؤال' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" value="{{ 'هذا هو السؤال وهمية' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}"
+                          value="{{ 'في هذا الإختبار، عليك على السؤال التالي، اضغط على زر “متابعة” عند الإنتهاء من الإجابة ولمتابعة التدريب' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                  placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Options' | translate }}</label>
+                        <div class="error-message"> {{ 'Options' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="choice-option-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-12">
+                                <div class="wrap-option-input">
+                                  <input class="form-control form-control-genrl" type="text" required
+                                    name="choice-option" placeholder="{{'Enter Option' | translate }}"
+                                    [attr.value]="option" />
+                                  <div class="wrap-option-del">
+                                    <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- <div class="col-1">
+                                <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                              </div> -->
+                            </div>
+                          </li>
+                        </ul>
+                        <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
+                            class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Correct answer' | translate }}</label>
+                        <div class="error-message"> {{ 'Correct answer' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="choice-option-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-12">
+                                <div class="wrap-answers">
+                                  <input class="form-control form-control-genrl" type="text" required
+                                    name="choice-option" placeholder="{{'Enter Option' | translate }}"
+                                    [attr.value]="option" />
+                                  <div class="wrap-radio-buttons">
+                                    <div class="form-check">
+                                      <input type="radio" class="form-check-input option-input radio"
+                                        name="materialExampleRadios">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** CHOICE TOOL END **************************************** -->
+          <!-- **************************************** CORRECT TOOL START **************************************** -->
+          <section class="wrapper-correct" *ngIf="step.type=='correct'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Correct' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="stepTitle"
+                          placeholder="{{'Step Title' | translate }}"
+                          value="{{ 'تدريب الإجابة على السؤال' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" value="{{ 'هذا هو السؤال وهمية' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}"
+                          value="{{ 'في هذا الإختبار، عليك على السؤال التالي، اضغط على زر “متابعة” عند الإنتهاء من الإجابة ولمتابعة التدريب' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                  placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Options' | translate }}</label>
+                        <div class="error-message"> {{ 'Options' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="correct-options-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-12">
+                                <div class="wrap-option-input">
+                                  <input class="form-control form-control-genrl" type="text" required
+                                    name="choice-option" placeholder="{{'Enter Option' | translate }}"
+                                    [attr.value]="option" />
+                                  <div class="wrap-option-del">
+                                    <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
+                            class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Correct answer' | translate }}</label>
+                        <div class="error-message"> {{ 'Correct answer' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="correct-options-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-12">
+                                <div class="wrap-answers">
+                                  <input class="form-control form-control-genrl" type="text" required
+                                    name="correct-option" placeholder="{{'Enter Option' | translate }}"
+                                    [attr.value]="option" />
+                                  <div class="wrap-checkbox-buttons">
+                                    <!-- <div class="form-check">
+                                      <input type="radio" class="form-check-input option-input radio"
+                                        name="materialExampleRadios">
+                                    </div> -->
+                                    <mdb-checkbox class="input-check-custom"></mdb-checkbox>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** CORRECT TOOL END **************************************** -->
+          <!-- **************************************** ARRANGE TOOL START **************************************** -->
+          <section class="wrapper-arrange" *ngIf="step.type=='arrange'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Arrange' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="stepTitle"
+                          placeholder="{{'Step Title' | translate }}"
+                          value="{{ 'تدريب الإجابة على السؤال' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" value="{{ 'هذا هو السؤال وهمية' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}"
+                          value="{{ 'في هذا الإختبار، عليك على السؤال التالي، اضغط على زر “متابعة” عند الإنتهاء من الإجابة ولمتابعة التدريب' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                    placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Options' | translate }}</label>
+                        <div class="error-message"> {{ 'Options' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="arrange-options-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-12">
+                                <div class="wrap-option-input">
+                                  <input class="form-control form-control-genrl" type="text" required
+                                    name="choice-option" placeholder="{{'Enter Option' | translate }}"
+                                    [attr.value]="option" />
+                                  <div class="wrap-option-del">
+                                    <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
+                            class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Correct answer' | translate }}</label>
+                        <div class="error-message"> {{ 'Correct answer' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="arrange-options-ul" cdkDropList [cdkDropListData]="choiceOptions"
+                          (cdkDropListDropped)="drop($event)">
+                          <li *ngFor="let option of choiceOptions; let i = index"
+                            class="optoins-li arrange-options-li arrange-options-box" cdkDrag>
+                            <div class="row align-items-center">
+                              <div class="col-11">
+                                <div class="wrap-option-arrange">
+                                  <p class="arrange-options">{{option}}</p>
+                                </div>
+                              </div>
+                              <div class="col-1 col-arrange-number">
+                                <div class="wrap-arrange-priority">{{i+1}}</div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                            <div class="example-box" *ngFor="let option of choiceOptions; let i = index" cdkDrag>
+                              <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                              {{option}}
+                            </div>
+                          </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** ARRANGE TOOL END **************************************** -->
+          <!-- **************************************** MATCH TOOL START **************************************** -->
+          <section class="wrapper-match" *ngIf="step.type=='match'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Match' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="stepTitle"
+                          placeholder="{{'Step Title' | translate }}"
+                          value="{{ 'تدريب الإجابة على السؤال' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" value="{{ 'هذا هو السؤال وهمية' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}"
+                          value="{{ 'في هذا الإختبار، عليك على السؤال التالي، اضغط على زر “متابعة” عند الإنتهاء من الإجابة ولمتابعة التدريب' | translate }}"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                      placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Options' | translate }}</label>
+                        <div class="error-message"> {{ 'Options' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="match-options-ul">
+                          <!-- <li>{{item}}</li> -->
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li match-options-li">
+                            <div class="row align-items-center">
+                              <!-- <div class="col-12">
+                                  <div class="wrap-option-input">
+                                    <input class="form-control form-control-genrl" type="text" required
+                                      name="choice-option" placeholder="{{'Enter Option' | translate }}"
+                                      [attr.value]="option" />
+                                    <div class="wrap-option-del">
+                                      <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                                    </div>
+                                  </div>
+                                </div> -->
+                              <div class="col">
+                                <input class="form-control form-control-genrl" type="text" required name="choice-option"
+                                  placeholder="{{'Enter Option' | translate }}" [attr.value]="option" />
+                              </div>
+                              <div class="col">
+                                <input class="form-control form-control-genrl" type="text" required name="choice-option"
+                                  placeholder="{{'Enter Option' | translate }}" [attr.value]="option" />
+                              </div>
+                              <div class="col-1">
+                                <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                              </div>
+                            </div>
+                            <!-- <div class="wrap-option-match-del">
+                              <i class="far fa-trash-alt option-del-icon" (click)="removeOption(i)"></i>
+                            </div> -->
+                          </li>
+                        </ul>
+                        <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
+                            class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Correct answer' | translate }}</label>
+                        <div class="error-message"> {{ 'Correct answer' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <ul class="match-options-ul">
+                          <li *ngFor="let option of choiceOptions; let i = index" class="optoins-li">
+                            <div class="row align-items-center">
+                              <div class="col-6">
+                                <div class="wrap-option-match">
+                                  <p class="match-options">{{option}}</p>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="wrap-option-match" cdkDropList [cdkDropListData]="choiceOptions"
+                                  (cdkDropListDropped)="drop($event)">
+                                  <p class="match-options match-options-box" cdkDrag>{{option}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let option of choiceOptions; let i = index" cdkDrag>
+                                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                                {{option}}
+                              </div>
+                            </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** MATCH TOOL END **************************************** -->
+          <!-- **************************************** UPLOAD VIDEO TOOL START **************************************** -->
+          <section class="wrapper-upload-video" *ngIf="step.type=='upload-video'">
+            <mdb-card>
+              <div class="card-header-custom">
+                <h3>{{'Add Step'| translate}}: <span>{{ 'Text insert' | translate }}</span></h3>
+              </div>
+              <mdb-card-body>
+                <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
+                <form class="p-2 form-genrl">
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Step title' | translate }}</label>
+                        <div class="error-message"> {{ 'Step title' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" [(ngModel)]="step.title" required
+                          name="stepTitle" placeholder="{{'Step title' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Question' | translate }}</label>
+                        <div class="error-message"> {{ 'Question' | translate }} {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="question" class="form-control form-control-genrl" rows="2"
+                          placeholder="{{'Question' | translate }}" [(ngModel)]="step.question" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Instructions' | translate }}</label>
+                        <div class="error-message"> {{ 'Instructions' | translate }} {{ 'is required' | translate }}
+                        </div>
+                      </div>
+                      <div class="input-field-div">
+                        <textarea name="instructions" class="form-control form-control-genrl" rows="4"
+                          placeholder="{{'Instructions' | translate }}" [(ngModel)]="step.instructions"
+                          required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Mark' | translate }}</label>
+                            <div class="error-message"> {{ 'Mark' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div input-field-div-mark">
+                            <!-- <input class="form-control form-control-genrl col-4" type="number" required name="mark"
+                                      placeholder="{{'Mark' | translate }}" value="0" /> -->
+                            <div class="wrapper-mark">
+                              <span class="min-val">{{min}}</span>
+                              <mdb-range-input id="range" [min]="min" value="50" [max]="max" class="mark-input">
+                              </mdb-range-input>
+                              <span class="max-val">{{max}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-time">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Time' | translate }}</label>
+                            <div class="error-message"> {{ 'Time' | translate }} {{ 'is required' | translate }}</div>
+                          </div>
+                          <div class="input-field-div-time">
+                            <input class="form-control form-control-genrl input-time-in-seconds col-7" type="number"
+                              required name="time" placeholder="{{'Time' | translate }}" value="60" />
+                            <span class="time-in-minutes">01:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group form-group-genrl">
+                        <div class="row">
+                          <div class="label-div-switch-skip">
+                            <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Skip Enable' | translate }}</label>
+                            <div class="error-message"> {{ 'Skip Enable' | translate }} {{ 'is required' | translate }}
+                            </div>
+                          </div>
+                          <div class="input-field-div-switch-skip">
+                            <!-- Default switch -->
+                            <div class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="customSwitches">
+                              <label class="custom-control-label" for="customSwitches"></label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Attach File' | translate }}</label>
+                      </div>
+                      <div class="input-field-div">
+                        <!-- <textarea name="question" class="form-control form-control-genrl" rows="2"
+                            placeholder="{{'Question' | translate }}" [(ngModel)]="step.question" required></textarea> -->
+                        <input type="file" class="form-control form-control-genrl">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Select Extension' | translate }}</label>
+                      </div>
+                      <div class="input-field-div">
+                        <!-- <textarea name="question" class="form-control form-control-genrl" rows="2"
+                            placeholder="{{'Question' | translate }}" [(ngModel)]="step.question" required></textarea> -->
+                        list of extensions with checkboxes </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-genrl">
+                    <div class="row">
+                      <div class="label-div">
+                        <label for=""
+                          class="mb-2 lbl-genrl lbl-required">{{ 'Upload File Message' | translate }}</label>
+                        <div class="error-message"> {{ 'Upload File Message' | translate }}
+                          {{ 'is required' | translate }}</div>
+                      </div>
+                      <div class="input-field-div">
+                        <input class="form-control form-control-genrl" type="text" required name="uploadMessage"
+                          placeholder="{{'Upload File Message' | translate }}" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-custom-footer">
+                    <button rounded="true" mdbBtn class="" type="submit" class="btn-save"><i class="far fa-save"></i>
+                      {{'Save'| translate}}</button>
+                    <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
+                  </div>
+                </form>
+              </mdb-card-body>
+            </mdb-card>
+          </section>
+          <!-- **************************************** UPLOAD VIDEO TOOL END **************************************** -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

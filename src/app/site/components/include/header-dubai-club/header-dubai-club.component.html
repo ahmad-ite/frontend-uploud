@@ -1,0 +1,113 @@
+<!-- <app-header></app-header> -->
+<div [ngClass]="langStyle">
+  <section class="header-dubai-club">
+    <div class="container container-width">
+      <div class="row align-items-center">
+        <div class="col-6 col-lg-8 col-kun-logo">
+          <img src="../../assets/images/Logo.png" alt="" class="img-fluid img-kun-logo" routerLink="/">
+          <div class="wrapper-links-header-desktop">
+            <button *ngIf="!app_ser.getCurrentUser()" class="btn-mobile-signin">
+              <a *ngIf="!app_ser.getCurrentUser()" class="nav-link link-signin" (click)="showLogin()"><i
+                  class="fal fa-sign-in"></i> {{ 'signIn' | translate }}</a>
+            </button>
+            <button *ngIf="!app_ser.getCurrentUser()" class="btn-mobile-signup">
+              <a class="nav-link link-signup" (click)="showSignUpType()"><i class="fal fa-sign-out"></i>
+                {{ 'register' | translate }}</a>
+            </button>
+            <button *ngIf="app_ser.isStudent()" class="btn-my-courses">
+              <a (click)="myLibrary()" class="nav-link"><i class="far fa-book-user"></i>
+                <span class="txt-my-courses"> {{ 'myCourses' | translate }}</span></a>
+            </button>
+            <button class="dropdown dropbottom btn-go-profile-popup" *ngIf="app_ser.getCurrentUser()">
+              <a class="nav-link dropdown-toggle nav-link-user" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img [src]="usrImg()" alt="" class="img-user"> {{app_ser.getCurrentUser().name}} </a>
+              <div class="dropdown-menu custom-dropdown-menu">
+                <mdb-card class="testimonial-card">
+                  <div class="card-up indigo lighten-1">
+                  </div>
+                  <div class="avatar mx-auto">
+                    <img [src]="usrImg()" class="rounded-circle">
+                  </div>
+                  <mdb-card-body>
+                    <mdb-card-title>
+                      <h4 class="text-center">{{app_ser.getCurrentUser().name}}</h4>
+                    </mdb-card-title>
+                    <hr>
+                    <!-- <a  (click)="viewProfile()" class="user-items-dd"><i class="fal fa-user-cog"></i>
+                                              {{ 'myProfile' | translate }}</a> -->
+                    <a *ngIf="!app_ser.isTrainer()" (click)="viewProfile()" class="user-items-dd"><i
+                        class="fal fa-user-cog"></i> {{ 'myProfile' | translate }}</a>
+                    <a *ngIf="app_ser.isTrainer()" (click)="viewProfile()" class="user-items-dd"><i
+                        class="fal fa-user-cog"></i> {{ 'Dashboard' | translate }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" class="user-items-dd" (click)="logout()"><i class="fal fa-sign-in"></i>
+                      {{ 'signOut' | translate }}</a>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
+            </button>
+            <!-- <button class="btn-mobile-search">
+            <a data-target="#basicExample" (click)="frame.show()" mdbWavesEffect class="btn-search"><i
+                class="far fa-search" aria-hidden="true"></i></a>
+          </button> -->
+          </div>
+        </div>
+        <div class="col-6 col-lg-4 col-dubai-club-logo">
+          <img src="../../assets/images/LogoDubaiClub.png" alt="" class="img-fluid img-dubai-club-logo">
+        </div>
+      </div>
+      <div class="row justify-content-center d-md-block d-lg-none">
+        <div class="col-12" style="text-align: center;border-top: 1px solid #264a5a;margin-top: 20px;">
+          <div class="wrapper-links-header-mobile">
+            <button *ngIf="!app_ser.getCurrentUser()" class="btn-mobile-signin">
+              <a *ngIf="!app_ser.getCurrentUser()" class="nav-link link-signin" (click)="showLogin()"><i
+                  class="fal fa-sign-in"></i> {{ 'signIn' | translate }}</a>
+            </button>
+            <button *ngIf="!app_ser.getCurrentUser()" class="btn-mobile-signup">
+              <a class="nav-link link-signup" (click)="showSignUpType()"><i class="fal fa-sign-out"></i>
+                {{ 'register' | translate }}</a>
+            </button>
+            <button *ngIf="app_ser.isStudent()" class="btn-my-courses">
+              <a (click)="myLibrary()" class="nav-link"><i class="far fa-book-user"></i>
+                <span class="txt-my-courses"> {{ 'myCourses' | translate }}</span></a>
+            </button>
+            <button class="dropdown dropbottom btn-go-profile-popup" *ngIf="app_ser.getCurrentUser()">
+              <a class="nav-link dropdown-toggle nav-link-user" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img [src]="usrImg()" alt="" class="img-user"> {{app_ser.getCurrentUser().name}} </a>
+              <div class="dropdown-menu custom-dropdown-menu">
+                <mdb-card class="testimonial-card">
+                  <div class="card-up indigo lighten-1">
+                  </div>
+                  <div class="avatar mx-auto">
+                    <img [src]="usrImg()" class="rounded-circle">
+                  </div>
+                  <mdb-card-body>
+                    <mdb-card-title>
+                      <h4 class="text-center">{{app_ser.getCurrentUser().name}}</h4>
+                    </mdb-card-title>
+                    <hr>
+                    <!-- <a  (click)="viewProfile()" class="user-items-dd"><i class="fal fa-user-cog"></i>
+                                                      {{ 'myProfile' | translate }}</a> -->
+                    <a *ngIf="!app_ser.isTrainer()" (click)="viewProfile()" class="user-items-dd"><i
+                        class="fal fa-user-cog"></i> {{ 'myProfile' | translate }}</a>
+                    <a *ngIf="app_ser.isTrainer()" (click)="viewProfile()" class="user-items-dd"><i
+                        class="fal fa-user-cog"></i> {{ 'Dashboard' | translate }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" class="user-items-dd" (click)="logout()"><i class="fal fa-sign-in"></i>
+                      {{ 'signOut' | translate }}</a>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
+            </button>
+            <!-- <button class="btn-mobile-search">
+                    <a data-target="#basicExample" (click)="frame.show()" mdbWavesEffect class="btn-search"><i
+                        class="far fa-search" aria-hidden="true"></i></a>
+                  </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
