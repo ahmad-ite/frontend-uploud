@@ -1,29 +1,23 @@
 <div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
   <div class="container">
     <div class="wrapper-blog-img">
       <img src="../../../../../assets/images/blog-03.png" alt="" class="img-fluid">
       <div class="overlay-gradient-bg"></div>
       <div class="wrap-blog-summary">
-        <h1 class="blog-title">ماستر كلاس كتابة البرامج الساخرة</h1>
+        <h1 class="blog-title">{{blog.title}}</h1>
         <span class="blogDate-postedBy">
           <span class="txt-by">{{'By' | translate}}</span>
-          <span class="name">عبد الرحمن</span>
+          <span class="name">{{blog.writer}}</span>
           <span class="divider">|</span>
-          <span class="date"> 26 ديسمبر 2020</span>
+          <span class="date"> {{blog.create_date.substring(0,10)}}</span>
         </span>
       </div>
     </div>
-    <div class="blog-description">
-      <p> في دورة محركات البحث التي تقدمها منصة كن المنصة الأولى في الشرق الأوسط في تقديم الدورات أون لاين ستتمكن من
-        معرفة￼ الطرق والخطوات التي تتيح لك تصميم موقع أوإعداد مقالة تكون مثالية على محركات البحث وتحظى بانتشار واسع
-        ومشاهدات كثيرة.كما ستمكنك من استخدام الكلمات المفتاحية المناسبة وستتعرف على مختلف الأدوات التي تحسن مقالاتك أو
-        موقعك حتى تحظى بالتصنيف المناسب <br> في دورة محركات البحث التي تقدمها منصة كن المنصة الأولى في الشرق الأوسط في
-        تقديم الدورات أون لاين ستتمكن من معرفة￼ الطرق والخطوات التي تتيح لك تصميم موقع أوإعداد مقالة تكون مثالية على
-        محركات البحث وتحظى بانتشار واسع ومشاهدات كثيرة.كما ستمكنك من استخدام الكلمات المفتاحية المناسبة وستتعرف على
-        مختلف الأدوات التي تحسن مقالاتك أو موقعك حتى تحظى بالتصنيف المناسب <br> في دورة محركات البحث التي تقدمها منصة
-        كن المنصة الأولى في الشرق الأوسط في تقديم الدورات أون لاين ستتمكن من معرفة￼ الطرق والخطوات التي تتيح لك تصميم
-        موقع أوإعداد مقالة تكون مثالية على محركات البحث وتحظى بانتشار واسع ومشاهدات كثيرة.كما ستمكنك من استخدام
-        الكلمات المفتاحية المناسبة وستتعرف على مختلف الأدوات التي تحسن مقالاتك أو موقعك حتى تحظى بالتصنيف المناسب </p>
+    <div class="blog-description" [innerHTML]="blog.description">
     </div>
   </div>
 </div>

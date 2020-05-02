@@ -647,7 +647,27 @@ export class activeStep {
   }
 
 }
+export class Blog {
+  id: number = 0;
+  title: string;
 
+  create_date: string;
+
+  status: number;
+
+
+
+
+
+  image: string;
+  lang: string;
+  repeat_count: number;
+  short: string;
+  seo: any;
+  description: string;
+
+
+}
 export class Answer {
 
   data: any;
