@@ -27,6 +27,9 @@ import { FailureComponent } from './components/mobile_payment/failure/failure.co
 import { MobilePaymentComponent } from './components/mobile_payment/mobile-payment/mobile-payment.component';
 import { RedirectComponent } from './components/test/redirect/redirect.component';
 import { RedirectPageComponent } from './components/mobile_payment/redirect-page/redirect-page.component';
+import { BlogsListComponent } from './components/blog/blogs-list/blogs-list.component';
+import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
+
 
 
 
@@ -74,6 +77,14 @@ const routes: Routes = [
       {
         path: 'terms',
         component: TermsAndConditionsComponent
+      },
+      {
+        path: 'blogs-list',
+        component: BlogsListComponent
+      },
+      {
+        path: 'blog-detail',
+        component: BlogDetailComponent
       },
       {
         path: 'course-category/:catId/:catName',
