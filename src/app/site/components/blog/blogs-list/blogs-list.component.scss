@@ -1,0 +1,223 @@
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-blog-list-lang-ar {
+  direction: rtl;
+  text-align: right;
+
+  .ttm-page-title-row {
+    display: block;
+    padding-top: 45px;
+    padding-bottom: 135px;
+    z-index: 11;
+    position: relative;
+    background-image: url(../../../../../assets/images/blog-03.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 350px;
+
+    .ttm-bg-layer {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 180, 169, 0.2);
+    }
+
+    .title-box .page-title-heading h1 {
+
+      font-weight: 600;
+      font-size: 73px;
+      line-height: 50px;
+      color: #fff;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      margin-top: 100px;
+      text-shadow: 3px 3px 5px black;
+    }
+  }
+
+  .row-blog-list {
+    margin: 50px 0;
+
+    .wrap-blog-list-inner {
+      .img-blog-item {
+        border: 3px solid #00b5a9;
+        border-radius: 10px;
+      }
+
+      .blog-title {
+        color: black;
+
+        h1 {
+          font-size: 24px;
+          line-height: 1;
+          margin: 15px 0;
+        }
+
+      }
+
+      .blogDate-postedBy {
+        .txt-by {
+          font-weight: bold;
+          color: black;
+          font-size: 10px;
+          margin: 0 5px;
+          font-family: sans-serif;
+        }
+
+        .name {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+        }
+
+        .divider {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+          margin: 0 10px;
+        }
+
+        .date {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+        }
+      }
+
+      .blog-description {
+        color: black;
+        margin-top: 10px;
+      }
+    }
+  }
+
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-blog-list-lang-en {
+  direction: ltr;
+  text-align: left;
+
+  .ttm-page-title-row {
+    display: block;
+    padding-top: 45px;
+    padding-bottom: 135px;
+    z-index: 11;
+    position: relative;
+    background-image: url(../../../../../assets/images/blog-03.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 350px;
+
+    .ttm-bg-layer {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 180, 169, 0.2);
+    }
+
+    .title-box .page-title-heading h1 {
+
+      font-weight: 600;
+      font-size: 73px;
+      line-height: 50px;
+      color: #fff;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      text-align: center;
+      margin-top: 100px;
+      text-shadow: 3px 3px 5px black;
+    }
+  }
+
+  .row-blog-list {
+    margin: 50px 0;
+
+    .wrap-blog-list-inner {
+      .img-blog-item {
+        border: 3px solid #00b5a9;
+        border-radius: 10px;
+      }
+
+      .blog-title {
+        color: black;
+
+        h1 {
+          font-size: 24px;
+          line-height: 1;
+          margin: 15px 0;
+        }
+
+      }
+
+      .blogDate-postedBy {
+        .txt-by {
+          font-weight: bold;
+          color: black;
+          font-size: 10px;
+          margin: 0 5px;
+          font-family: sans-serif;
+        }
+
+        .name {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+        }
+
+        .divider {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+          margin: 0 10px;
+        }
+
+        .date {
+          font-size: 12px;
+          font-weight: bold;
+          color: gray;
+        }
+      }
+
+      .blog-description {
+        color: black;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
