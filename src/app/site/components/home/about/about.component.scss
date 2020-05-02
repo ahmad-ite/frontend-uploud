@@ -167,7 +167,7 @@ ARABIC STYLE START
     width: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 180, 169, 0.2);
+    background: #00b4a933;
   }
 
   .title-box .page-title-heading h1 {
@@ -212,5 +212,50 @@ ARABIC STYLE START
     p {
       font-size: 20px;
     }
+  }
+}
+
+
+@media (max-width: 575px) {
+  .container-about-us {
+    max-width: 100%;
+  }
+
+  .img-about-us {
+    border-radius: 10px !important;
+  }
+
+  .ttm-page-title-row .title-box .page-title-heading h1 {
+    font-size: 50px !important;
+  }
+
+  .container-about-us-features .wrap-about-boxes {
+    border-radius: 10px !important;
+    min-height: 350px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container-about-us {
+    max-width: calc(100% - 50px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container-about-us {
+    max-width: calc(100% - 80px);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container-about-us {
+    max-width: calc(100% - 150px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-about-us {
+    max-width: calc(100% - 200px);
   }
 }
