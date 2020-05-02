@@ -75,6 +75,8 @@ import { DownloadAppPopupComponent } from './components/home/download-app-popup/
 import { RedirectComponent } from './components/test/redirect/redirect.component';
 import { RedirectPageComponent } from './components/mobile_payment/redirect-page/redirect-page.component';
 import { OffersComponent } from './components/include/offers/offers.component';
+import { BlogsListComponent } from './components/blog/blogs-list/blogs-list.component';
+import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
 
 
 
@@ -147,6 +149,10 @@ import { OffersComponent } from './components/include/offers/offers.component';
     RedirectPageComponent,
 
     OffersComponent,
+
+    BlogsListComponent,
+
+    BlogDetailComponent,
 
 
 
