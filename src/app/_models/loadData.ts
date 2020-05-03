@@ -654,14 +654,14 @@ export class Blog {
   create_date: string;
 
   status: number;
-
+  writer: string;
 
 
 
 
   image: string;
   lang: string;
-  repeat_count: number;
+
   short: string;
   seo: any;
   description: string;

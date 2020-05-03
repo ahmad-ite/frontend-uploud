@@ -13,7 +13,7 @@
           <span class="txt-by">{{'By' | translate}}</span>
           <span class="name">{{blog.writer}}</span>
           <span class="divider">|</span>
-          <span class="date"> {{blog.create_date.substring(0,10)}}</span>
+          <span *ngIf="blog.create_date" class="date"> {{blog.create_date.substring(0,10)}}</span>
         </span>
       </div>
     </div>

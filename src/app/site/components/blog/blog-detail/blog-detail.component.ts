@@ -4,6 +4,7 @@ import { AppService } from '../../../../services/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Blog } from 'src/app/_models/loadData';
+import { MetafrenzyService } from 'ngx-metafrenzy';
 
 
 
@@ -24,6 +25,7 @@ export class BlogDetailComponent implements OnInit {
     public app_ser: AppService,
     public route: ActivatedRoute,
     public router: Router,
+    private readonly metafrenzyService: MetafrenzyService,
     private modalService: NgbModal,
   ) {
     this.langStyle = "wrapper-blog-detail-lang-" + this.app_ser.app_lang();
@@ -38,6 +40,14 @@ export class BlogDetailComponent implements OnInit {
       data => {
         this.loadGifLoader = false;
         this.blog = data.row;
+        if (this.blog.seo) {
+          var seo = JSON.parse(this.blog.seo);
+          this.metafrenzyService.setTags({
+            title: seo.title,
+            description: seo.description,
+
+          });
+        }
 
 
 
