@@ -10,13 +10,86 @@ ARABIC STYLE START
 
   .wrapper-trainer-header {
     background: #f1f1f1;
-    padding: 30px 20px;
+    padding: 15px 20px;
     position: fixed;
     width: 100%;
     box-shadow: 0px 5px 5px lightgrey;
     z-index: 99;
     font-weight: bold;
+    width: calc(100% - 300px);
   }
+
+  .col-help {
+    text-align: right;
+
+    .text-need-help {
+      font-size: 26px;
+      color: #05b4a8;
+    }
+
+    .email {
+      font-size: 14px;
+    }
+
+    .divider {
+      margin: 0 15px;
+    }
+
+    .phone {
+      font-size: 14px;
+    }
+  }
+
+  .col-trainer-pic {
+    text-align: left;
+
+    .nav-link-user {
+      font-weight: bold;
+
+      .img-user {
+        width: 50px;
+        height: 50px;
+        border: 1px solid lightgray;
+      }
+    }
+
+    .nav-link-user::after {
+      display: none !important;
+    }
+
+    .btn-go-profile-popup {
+      outline: 0;
+      box-shadow: 0 0 0 0;
+      background: transparent;
+      border: 0;
+
+      .custom-dropdown-menu {
+        background: transparent;
+        border: 0;
+        width: 200px;
+
+        .testimonial-card {
+          .card-up {
+            height: 80px !important;
+            background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+          }
+        }
+      }
+
+      .avatar {
+        img {
+          border: 1px solid lightgray;
+        }
+      }
+    }
+  }
+
+
+
+
+
 }
 
 /* ======================================================================================
@@ -37,11 +110,79 @@ ENGLISH STYLE START
 .wrapper-trainer-header-en {
   .wrapper-trainer-header {
     background: #f1f1f1;
-    padding: 30px 20px;
+    padding: 15px 20px;
     position: fixed;
     width: 100%;
     box-shadow: 0px 5px 5px lightgrey;
     z-index: 99;
+    width: calc(100% - 300px);
+  }
+
+  .col-help {
+    text-align: left;
+
+    .text-need-help {
+      font-size: 26px;
+      color: #05b4a8;
+    }
+
+    .email {
+      font-size: 14px;
+    }
+
+    .divider {
+      margin: 0 15px;
+    }
+
+    .phone {
+      font-size: 14px;
+    }
+  }
+
+  .col-trainer-pic {
+    text-align: right;
+
+    .nav-link-user {
+      font-weight: bold;
+
+      .img-user {
+        width: 50px;
+        height: 50px;
+        border: 1px solid lightgray;
+      }
+    }
+
+    .nav-link-user::after {
+      display: none !important;
+    }
+
+    .btn-go-profile-popup {
+      outline: 0;
+      box-shadow: 0 0 0 0;
+      background: transparent;
+      border: 0;
+
+      .custom-dropdown-menu {
+        background: transparent;
+        border: 0;
+        width: 200px;
+
+        .testimonial-card {
+          .card-up {
+            height: 80px !important;
+            background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+          }
+        }
+      }
+
+      .avatar {
+        img {
+          border: 1px solid lightgray;
+        }
+      }
+    }
   }
 }
 
