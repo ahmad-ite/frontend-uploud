@@ -5,7 +5,7 @@
       <!-- Logo -->
       <li>
         <div class="logo-wrapper waves-light">
-          <a href="#">
+          <a routerLink="/trainer/">
             <img src="../../../../../assets/images/Logo-white.png" class="img-fluid flex-center">
           </a>
         </div>
@@ -50,7 +50,7 @@
       <!--/.Search Form-->
       <!-- Side navigation links -->
       <li>
-        <ul class="collapsible collapsible-accordion ul-sidebar-lins">
+        <ul class="collapsible collapsible-accordion ul-sidebar-links">
           <mdb-squeezebox [multiple]="false" aria-multiselectable="false">
             <!-- <mdb-item>
               <mdb-item-head mdbWavesEffect>
@@ -370,10 +370,29 @@
                 <a class="waves-effect" mdbWavesEffect>
                   <i class="fal fa-user icon-genrl-style"></i> {{'Profile' | translate}} </a></mdb-item-head>
             </mdb-item>
+            <mdb-item>
+              <mdb-item-head mdbWavesEffect>
+                <a>
+                  <i class="fal fa-file-chart-line icon-genrl-style"></i> {{'Financial Reports' | translate}} </a>
+              </mdb-item-head>
+              <mdb-item-body>
+                <ul class="ul-reports">
+                  <li>
+                    <a routerLink="/trainer/currentYearReport" class="waves-effect" mdbWavesEffect> <i
+                        class="fal fa-file-chart-line icon-genrl-style"></i> {{'Current Year Report' | translate}}</a>
+                  </li>
+                  <li>
+                    <a routerLink="/trainer/quarter-report" class="waves-effect" mdbWavesEffect> <i
+                        class="fal fa-file-chart-line icon-genrl-style"></i> {{'Quarter Report' | translate}}</a>
+                  </li>
+                </ul>
+              </mdb-item-body>
+            </mdb-item>
             <mdb-item class="no-collase">
               <mdb-item-head mdbWavesEffect>
                 <a class="waves-effect" mdbWavesEffect>
-                  <i class="fal fa-sign-out-alt icon-genrl-style"></i> {{'Logout' | translate}} </a></mdb-item-head>
+                  <i class="fal fa-sign-out-alt icon-genrl-style"></i> {{'Logout' | translate}} </a>
+              </mdb-item-head>
             </mdb-item>
           </mdb-squeezebox>
         </ul>

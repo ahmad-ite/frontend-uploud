@@ -39,7 +39,7 @@ ARABIC STYLE START
 
       links {
         li {
-          .ul-sidebar-lins {
+          .ul-sidebar-links {
             padding: 0 20px !important;
 
             mdb-squeezebox mdb-item mdb-item-head a {
@@ -73,6 +73,30 @@ ARABIC STYLE START
         .add-course-btn:hover {
           text-decoration: none;
         }
+
+        .mdb-accordion-indicator {
+          right: calc(100% - 30px) !important;
+        }
+
+        .ul-reports {
+          li a {
+            padding: 0 15px;
+            height: 45px;
+            font-size: 15px;
+            line-height: 45px;
+            border-bottom: 1px solid #00b9b5;
+          }
+
+          li:last-child a {
+            border: 0;
+          }
+        }
+
+        .ng-trigger-expandBody {
+          border-radius: 4px !important;
+        }
+
+
       }
     }
 
@@ -126,7 +150,7 @@ ENGLISH STYLE START
 
       links {
         li {
-          .ul-sidebar-lins {
+          .ul-sidebar-links {
             padding: 0 20px !important;
 
             mdb-squeezebox mdb-item mdb-item-head a {
@@ -140,6 +164,27 @@ ENGLISH STYLE START
 
         .icon-genrl-style {
           width: 20px;
+        }
+
+        // .mdb-accordion-indicator {
+        //   right: calc(100% - 30px) !important;
+        // }
+        .ul-reports {
+          li a {
+            padding: 0 15px;
+            height: 45px;
+            font-size: 15px;
+            line-height: 45px;
+            border-bottom: 1px solid #00b9b5;
+          }
+
+          li:last-child a {
+            border: 0;
+          }
+        }
+
+        .ng-trigger-expandBody {
+          border-radius: 4px !important;
         }
       }
     }

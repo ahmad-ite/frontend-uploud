@@ -16,6 +16,8 @@ import { CourseCorrectionsStudentsComponent } from './components/corrections/cou
 import { StudentCorrectionsComponent } from './components/corrections/student-corrections/student-corrections.component';
 import { AddCourseMainComponent } from './components/courses/add-course-main/add-course-main.component';
 import { DashboardComponent } from './components/main/dashboard/dashboard.component';
+import { ReportComponent } from './components/reports/report/report.component';
+import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
 
 const routes: Routes = [
   {
@@ -129,7 +131,22 @@ const routes: Routes = [
       {
         path: 'courses/steps',
         component: StepsManagementComponent
-      }
+      },
+      {
+        path: 'currentYearReport',
+        component: ReportComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'currentYearReport/:from/:to',
+        component: ReportComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'quarter-report',
+        component: QuarterReportComponent
+        
+      },
 
 
 
