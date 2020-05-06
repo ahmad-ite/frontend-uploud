@@ -74,7 +74,7 @@
                     <i class="fal fa-arrow-circle-down arrange-icons-genrl"></i>
                   </td>
                   <td>{{item.type|translate}}</td>
-                  <td class="item-name">{{item.name}}</td>
+                  <td class="item-name" routerLink="/trainer/courses/{{item.id}}/edit">{{item.name}}</td>
                   <td>{{item.steps}}</td>
                   <td>{{item.marks}}</td>
                   <td>{{item.pass_mark}} %</td>

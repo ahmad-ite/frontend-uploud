@@ -5,21 +5,21 @@
       <p class="text-center txt-complete-course-steps">{{'Create your course in three steps' | translate }}</p>
     </div>
     <div class="col-md-12">
-      <mdb-stepper #stepper [linear]="true" class="stepper-add-course">
+      <mdb-stepper #stepper [linear]="true" (stepChange)="onStepChange($event)" class="stepper-add-course">
         <!-- =============================== STEP 1 - STEP BASIC INFO START =============================== -->
-        <mdb-step name="1- {{ 'Add Course' | translate }}" class="step1">
+        <mdb-step name="1- {{ 'Course' | translate }}" class="step1">
           <!-- <app-trainer-courses></app-trainer-courses> -->
           <app-add-course></app-add-course>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
-              class="btn-genrl btn-continue">{{ 'Save'| translate }} <i class="far fa-long-arrow-right"></i></button>
+              class="btn-genrl btn-continue">{{ 'next'| translate }} <i class="far fa-long-arrow-right"></i></button>
           </div>
           <!-- BUTTONS CONTINUE AND BACK END -->
         </mdb-step>
         <!-- =============================== STEP 1 - STEP BASIC INFO END =============================== -->
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS START =============================== -->
-        <mdb-step name="2- {{ 'Add Item' | translate }}" class="step2">
+        <mdb-step name="2- {{ 'Course-Items' | translate }}" class="step2">
           <!-- <app-course-summary></app-course-summary> -->
           <app-add-items></app-add-items>
           <!-- BUTTONS CONTINUE AND BACK START -->
@@ -27,20 +27,20 @@
             <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()" class="btn-genrl btn-back"><i
                 class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
             <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
-              class="btn-genrl btn-continue">{{ 'Save'| translate }} <i class="far fa-long-arrow-right"></i></button>
+              class="btn-genrl btn-continue">{{ 'next'| translate }} <i class="far fa-long-arrow-right"></i></button>
           </div>
           <!-- BUTTONS CONTINUE AND BACK END -->
         </mdb-step>
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS END =============================== -->
         <!-- =============================== STEP 3 - STEP BANK DETAILS START =============================== -->
-        <mdb-step name="3- {{ 'Add Step'| translate }}" class="step3">
+        <mdb-step name="3- {{ 'Item-Steps'| translate }}" class="step3">
           <app-steps-management></app-steps-management>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="secondary" class="btn-genrl btn-back" (click)="stepper.previous()"><i
                 class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
             <button mdbBtn size="sm" color="primary" class="btn-genrl btn-continue"
-              (click)="stepper.next(); updateTrainerProfile('bank')">{{ 'Save' | translate }} <i
+              (click)="stepper.next(); updateTrainerProfile('bank')">{{ 'next' | translate }} <i
                 class="far fa-long-arrow-right"></i></button>
           </div>
           <!-- BUTTONS CONTINUE AND BACK END -->

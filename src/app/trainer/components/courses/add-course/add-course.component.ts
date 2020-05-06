@@ -45,7 +45,13 @@ export class AddCourseComponent implements OnInit {
     //   },
     //   error => {
     //   });
-    this.templates = this.globals.templates;
+    if(this.globals.templates) {
+      this.templates = this.globals.templates;
+    }
+
+    this.course.template_id = 0;
+    this.course.course_category = 0;
+
     if (this.courseId) {
       this.title = "Edit Course";
       this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
@@ -57,10 +63,6 @@ export class AddCourseComponent implements OnInit {
         });
     }
 
-
-
-    this.course.template_id = 0;
-    this.course.course_category = 0;
     this.langStyle = "wrapper-add-course-" + this.app_ser.app_lang();
 
   }
@@ -69,7 +71,7 @@ export class AddCourseComponent implements OnInit {
       data => {
         // this.router.navigate(["/trainer/courses/list"]);
         // this.stepper.next();
-        this.router.navigate(["/trainer/addCourseLayout"]);
+        this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
 
       });
 
