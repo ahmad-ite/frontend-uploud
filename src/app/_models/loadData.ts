@@ -781,6 +781,12 @@ export class Socialusers {
   token?: string;
   idToken?: string;
 }
+export class InternalPayment {
+  from: any;
+  to: any;
+  detailsAr: any;
+  detailEn: any;
+}
 
 
 export class KEY_CODE {

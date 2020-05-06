@@ -36,6 +36,8 @@ import { StudentCorrectionsComponent } from './components/corrections/student-co
 import { CorrectionPopupComponent } from './components/corrections/correction-popup/correction-popup.component';
 import { AddCourseMainComponent } from './components/courses/add-course-main/add-course-main.component';
 import { DashboardComponent } from './components/main/dashboard/dashboard.component';
+import { ReportComponent } from './components/reports/report/report.component';
+import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
 // import { CourseLoaderComponent } from '../components/utils/course-loader/course-loader.component';
 
 
@@ -73,7 +75,9 @@ import { DashboardComponent } from './components/main/dashboard/dashboard.compon
     StudentCorrectionsComponent,
     CorrectionPopupComponent,
     AddCourseMainComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReportComponent,
+    QuarterReportComponent
 
 
   ],

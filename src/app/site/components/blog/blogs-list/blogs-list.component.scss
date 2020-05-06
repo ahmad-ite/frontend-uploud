@@ -67,35 +67,39 @@ ARABIC STYLE START
       .blogDate-postedBy {
         .txt-by {
           font-weight: bold;
-          color: black;
-          font-size: 10px;
+          color: #00b5a9;
+          font-size: 12px;
           margin: 0 5px;
-          font-family: sans-serif;
         }
 
         .name {
-          font-size: 12px;
+          font-size: 14px;
           font-weight: bold;
           color: gray;
         }
 
         .divider {
-          font-size: 12px;
+          font-size: 13px;
           font-weight: bold;
           color: gray;
           margin: 0 10px;
         }
 
         .date {
-          font-size: 12px;
+          font-size: 11px;
           font-weight: bold;
-          color: gray;
+          color: #00b5a9;
+          border: 1px solid #00b5a9;
+          padding: 0 10px;
+          border-radius: 100px;
+          margin: 0 10px;
         }
       }
 
       .blog-description {
         color: black;
         margin-top: 10px;
+        font-size: 15px;
       }
     }
   }
@@ -180,35 +184,40 @@ ENGLISH STYLE START
       .blogDate-postedBy {
         .txt-by {
           font-weight: bold;
-          color: black;
-          font-size: 10px;
+          color: #00b5a9;
+          font-size: 12px;
           margin: 0 5px;
-          font-family: sans-serif;
+
         }
 
         .name {
-          font-size: 12px;
+          font-size: 14px;
           font-weight: bold;
           color: gray;
         }
 
         .divider {
-          font-size: 12px;
+          font-size: 13px;
           font-weight: bold;
           color: gray;
           margin: 0 10px;
         }
 
         .date {
-          font-size: 12px;
+          font-size: 11px;
           font-weight: bold;
-          color: gray;
+          color: #00b5a9;
+          border: 1px solid #00b5a9;
+          padding: 0 10px;
+          border-radius: 100px;
+          margin: 0 10px;
         }
       }
 
       .blog-description {
         color: black;
         margin-top: 10px;
+        font-size: 15px;
       }
     }
   }
@@ -221,7 +230,7 @@ ENGLISH STYLE END
 =========================================================================================
 *****************************************************************************************
 ====================================================================================== */
- .wrap-no-course-found {
-      margin-top: 290px !important;
-       margin-bottom: 290px !important;
-    }
+.wrap-no-course-found {
+  margin-top: 100px !important;
+  margin-bottom: 150px !important;
+}

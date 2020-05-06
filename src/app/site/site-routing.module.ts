@@ -29,7 +29,12 @@ import { RedirectComponent } from './components/test/redirect/redirect.component
 import { RedirectPageComponent } from './components/mobile_payment/redirect-page/redirect-page.component';
 import { BlogsListComponent } from './components/blog/blogs-list/blogs-list.component';
 import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
+
+import { JobsComponent } from './components/home/jobs/jobs.component';
+import { KunCertificatesComponent } from './components/home/kun-certificates/kun-certificates.component';
+
 import { TestComponent } from './components/test/test/test.component';
+
 
 
 
@@ -77,7 +82,6 @@ const routes: Routes = [
         component: AboutComponent
 
       },
-
       {
         path: 'template/:tempId/:name',
         component: CategoryCoursesComponent
@@ -176,6 +180,17 @@ const routes: Routes = [
         component: TrainerProfileComponent
         // , canActivate: [AuthTrainer]
       },
+      {
+        path: 'jobs',
+        component: JobsComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'certificates',
+        component: KunCertificatesComponent
+        // , canActivate: [AuthTrainer]
+      }
+      
 
     ]
   }

@@ -24,6 +24,16 @@ ARABIC STYLE START
     margin-bottom: 10px;
   }
 
+  .link-view-more {
+    color: #00b5a9;
+    margin: 0 5px;
+  }
+
+  .link-view-more:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   .wrap-download-mobile-app-icons {
     margin-bottom: 20px;
 
