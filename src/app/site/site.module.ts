@@ -77,8 +77,11 @@ import { RedirectPageComponent } from './components/mobile_payment/redirect-page
 import { OffersComponent } from './components/include/offers/offers.component';
 import { BlogsListComponent } from './components/blog/blogs-list/blogs-list.component';
 import { BlogDetailComponent } from './components/blog/blog-detail/blog-detail.component';
+
 import { JobsComponent } from './components/home/jobs/jobs.component';
 import { KunCertificatesComponent } from './components/home/kun-certificates/kun-certificates.component';
+
+import { TestComponent } from './components/test/test/test.component';
 
 
 
@@ -152,8 +155,12 @@ import { KunCertificatesComponent } from './components/home/kun-certificates/kun
 
     OffersComponent,
     BlogsListComponent,
+
     JobsComponent,
     KunCertificatesComponent,
+
+    TestComponent,
+
 
 
 

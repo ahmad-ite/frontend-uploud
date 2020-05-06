@@ -355,7 +355,7 @@ export class CourseView {
   last_approved: string;
   course_category: number;
   price: any;
-  coverImage: string;
+  cover_image: string;
   hours: number;
   trainer: string;
   repeat_count: number;
@@ -388,6 +388,7 @@ export class CourseView {
   duration: string;
   text_price: any;
   old_price: any;
+  seo: any;
   summary_video_derivation: VideoDerivation
 }
 
