@@ -23,5 +23,15 @@ export class TrainerHeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  usrImg() {
+    let user = this.app_ser.getCurrentUser();
+    if (user.image) {
+      return this.app_ser.img_url(user.image, 'user')
+    }
+    if (user.image_url) {
+      return user.image_url;
+    }
+    return this.app_ser.img_url(user.image, 'user')
 
+  }
 }
