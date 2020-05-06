@@ -9,6 +9,7 @@ import { TermsAndConditionsComponent } from '../../modals/terms-and-conditions/t
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Globals } from 'src/app/globals';
 import { MetafrenzyService } from 'ngx-metafrenzy';
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
@@ -56,18 +57,63 @@ export class CourseDetailComponent implements OnInit {
     public app_ser: AppService,
     public route: ActivatedRoute,
     public router: Router,
+
+    private metaService: Meta,
+    private titleService: Title,
     private ngxService: NgxUiLoaderService,
     private readonly metafrenzyService: MetafrenzyService,
     private modalService: NgbModal
   ) {
+
     this.langStyle = "wrapper-courseDetail-lang-" + this.app_ser.app_lang();
     this.courseDetail = new CourseView();
     this.toggleIcons = [];
     this.code = this.route.snapshot.params['code'];
+
     this.initData();
 
   }
+  addTags() {
 
+    // this.metafrenzyService.setTags({
+    // title: this.courseDetail.name,
+    // });
+
+    var seo = {
+      title: this.courseDetail.name,
+      description: this.courseDetail.description
+    };
+    if (this.courseDetail.seo) {
+      seo = JSON.parse(this.courseDetail.seo);
+      this.metafrenzyService.setTags({
+        title: seo.title,
+        description: seo.description,
+
+      });
+    }
+    // this.metafrenzyService.setMetaTag('og:type', "دورة");
+    // this.metafrenzyService.setMetaTag('og:url', "https://kun.academy/#/course-view/" + this.courseDetail.code + "/" + this.app_ser.urlString(this.courseDetail.name));
+    this.metafrenzyService.setOpenGraph({
+      title: seo.title,
+      description: seo.description,
+      type: "course",
+      url: "https://kun.academy/#/course-view/" + this.courseDetail.code + "/" + this.app_ser.urlString(this.courseDetail.name),
+      image: this.app_ser.img_url(this.courseDetail.cover_image, 'course'),
+
+      site_name: 'أكاديمية كٌن'
+    });
+    this.metafrenzyService.setCanonical("https://kun.academy/#/course-view/" + this.courseDetail.code + "/" + this.app_ser.urlString(this.courseDetail.name));
+
+
+
+    // this.metaService.addTag({ property: 'og:title', content: seo.title });
+    // this.metaService.addTag({ name: 'og:description', content: seo.description });
+    // this.metaService.addTag({ name: 'robots', content: 'index,follow' });
+    // this.metaService.addTag({ property: 'og:image', content: this.app_ser.img_url(this.courseDetail.cover_image, 'course') });
+    // this.metaService.addTag({ name: 'og:url', content: "https://kun.academy/#/course-view/" + this.courseDetail.code + "/" + this.app_ser.urlString(this.courseDetail.name) });
+    // this.metaService.addTag({ name: 'og:type', content: 'course' });
+
+  }
 
   initData() {
     this.ngxService.start();
@@ -75,12 +121,24 @@ export class CourseDetailComponent implements OnInit {
       data => {
 
         this.ngxService.stop();
-        this.metafrenzyService.setTitle(data.name);
-        this.metafrenzyService.setMetaTag('og:title', data.name);
-        this.metafrenzyService.setTags({
-          title: data.name,
-        });
+        // this.metafrenzyService.setTitle(data.name);
+        // this.metafrenzyService.setMetaTag('og:title', data.name);
+        // <meta property="og:type" content = "Online Courses" />
+
+
+        //   <meta property="og:url" content = "https://kun.academy/" />
+        //     <meta property="og:image" content = "https://kun.academy/assets/images/Logo.png" />
+        //       <meta property="og:image:alt" content = "Kun Academy logo" >
+        //         <meta property="og:site_name" content = "Kun Academy" />
+
+        // this.metafrenzyService.setTags({
+        //   title: "ahmad Alhourani",
+        //   description: "big programmer",
+
+        // });
         this.courseDetail = data;
+        this.addTags();
+
         this.rating_arr = this.app_ser.initStarRating(this.courseDetail.average_rate);
         this.video = this.courseDetail.video;
         this.video_derivation = this.courseDetail.video_derivation;
@@ -149,7 +207,15 @@ export class CourseDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.metafrenzyService.setOpenGraph({
+      title: "3 اعداد ممثل",
+      description: "اختبار ",
+      type: "course",
+      // url: "https://kun.academy/#/course-view/" + this.courseDetail.code + "/" + this.app_ser.urlString(this.courseDetail.name),
+      image: this.app_ser.img_url("646ACE6A-08E7-4D4D-9CBA-531816AFCF1D.jpg", 'course'),
 
+      site_name: 'أكاديمية كٌن'
+    });
   }
   ChangetoggleIcon(id: any) {
     this.toggleIcons[id] = !this.toggleIcons[id];
