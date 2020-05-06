@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { AppService } from 'src/app/services/app.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Step } from 'src/app/_models/loadData';
 import { Textbox, Choice, StepCategory, Arrange, Match, Correct, Play, SoundRecording, VideoRecording, Autocue, AutocueVoice, UploadVideo, UploadSound, UploadDocument, UploadImage, SelectCourse } from 'src/app/trainer/models/stepModel';
 import { ToolsService } from 'src/app/trainer/services/tools.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-steps-management',
@@ -30,63 +31,22 @@ export class StepsManagementComponent implements OnInit {
     'Fall asleep'
   ];
   activeTab: any = "";
-  step: Step;
   stepCatogories: StepCategory[];
-  onTabChange(tab) {
 
-  }
-  steps = [
-    {
-      question: 'هذا هو السؤال وهمية'
-    }
-  ]
-  thumbnails = [
-    {
-      no: 1,
-      name: "thumbnail"
-    },
-    {
-      no: 2,
-      name: "thumbnail"
-    },
-    {
-      no: 3,
-      name: "thumbnail"
-    },
-    {
-      no: 4,
-      name: "thumbnail"
-    },
-    {
-      no: 5,
-      name: "thumbnail"
-    },
-    {
-      no: 6,
-      name: "thumbnail"
-    },
-    {
-      no: 7,
-      name: "thumbnail"
-    },
-    {
-      no: 8,
-      name: "thumbnail"
-    },
-    {
-      no: 9,
-      name: "thumbnail"
-    },
-    {
-      no: 10,
-      name: "thumbnail"
-    }
-
-
-  ];
+  thumbnails = [];
   choiceOptions = ["الاختيار الأول", "الاختيار الثاني", "الاختيار الثالث", "الاختيار الرابع"];
   newOption: any = [];
   langStyle: any;
+  step: Step;
+
+  itemId: number;
+  stepId: number;
+  itemStep: Step;
+  itemSteps: any[];
+  title: string;
+  onTabChange(tab) {
+
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -103,16 +63,19 @@ export class StepsManagementComponent implements OnInit {
     public tool_ser: ToolsService,
     private toastr: ToastrService,
     private translate: TranslateService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.langStyle = "wrapper-steps-management-" + this.app_ser.app_lang();
     this.stepCatogories = this.tool_ser.initTools();
     this.step=new Step();
     this.initStep('textbox');
 
-
+    this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
+    this.reloadSteps();
     // this.step.question = 'Hi this is tesigng';
-
   }
+
   insertStep(type){
     this.step=new Step();
     this.initStep(type);
@@ -192,6 +155,38 @@ export class StepsManagementComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("iniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiit");
+  }
+
+  public reloadSteps() {
+    console.log(this.itemId);
+    if (!! this.itemId && this.itemId != 0) {
+      this.app_ser.post("site_feed/TrainerStep/steps/" + this.itemId, {}).subscribe(
+        data => {
+          this.itemSteps = data.rows;
+          this.onChangeStep();
+        },
+        error => {
+        });
+    }else {
+      this.itemSteps= [];
+    }
+  }
+
+  public onChangeStep() {
+    if (!!this.stepId && this.stepId != 0) {
+      this.title = "Edit Step";
+      this.app_ser.post("site_feed/TrainerStep/row/" + this.stepId, {}).subscribe(
+        data => {
+          this.itemStep = data;
+        },
+        error => {
+        });
+    }else {
+      this.itemStep= new Step();
+      this.itemStep.course_item = this.itemId;
+      this.stepId = 0;
+    }
   }
 
   addOption() {

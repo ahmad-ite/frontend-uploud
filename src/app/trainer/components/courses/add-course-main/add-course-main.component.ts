@@ -16,6 +16,7 @@ import { User, Trainer, InputTrainer, TrainerDoc, Details } from '../../../../_m
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 import { VgAPI } from 'videogular2/compiled/core';
+import { StepChangeEvent } from 'ng-uikit-pro-standard/lib/pro/stepper/stepper.component';
 
 
 
@@ -415,6 +416,10 @@ export class AddCourseMainComponent implements OnInit {
 
   public fileLeave(event) {
     
+  }
+
+  onStepChange(event: StepChangeEvent) {
+    console.log(event);
   }
   // showPdf(path) {
   //   var pdfModal = this.modalService.open(ViewPdfComponent, { windowClass: 'view-pdf', size: 'lg', centered: true });

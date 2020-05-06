@@ -25,11 +25,11 @@
         <div class="wrap-steps-sidebar">
           <!-- <div class="wrap-thumbnail" *ngFor="let thumb of thumbnails"> {{thumb.name}} </div> -->
           <div cdkDropListGroup>
-            <div cdkDropList [cdkDropListData]="thumbnails" (cdkDropListDropped)="drop($event)">
-              <div class="wrap-thumbnail thumbnail-box" *ngFor="let thumb of thumbnails" cdkDrag>
+            <div cdkDropList [cdkDropListData]="itemSteps" (cdkDropListDropped)="drop($event)">
+              <div class="wrap-thumbnail thumbnail-box" *ngFor="let item of itemSteps" cdkDrag>
                 <div class="row">
                   <div class="col-6 p-0 col-step-no">
-                    <span class="step-no">{{thumb.no}}</span>
+                    <span class="step-no">{{item.no}}</span>
                   </div>
                   <div class="col-6 p-0 col-step-type">
                     <span class="step-type">{{'Record Sound' | translate}}</span>

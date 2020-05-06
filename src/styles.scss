@@ -647,3 +647,9 @@ vg-controls {
     overflow: hidden;
   }
 }
+
+// Start by Fadi
+.form-control.ng-touched:invalid {
+  border-color: #dc3545;
+}
+// End by Fadi

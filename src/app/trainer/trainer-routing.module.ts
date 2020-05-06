@@ -19,7 +19,7 @@ import { DashboardComponent } from './components/main/dashboard/dashboard.compon
 import { ReportComponent } from './components/reports/report/report.component';
 import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
 
-const routes: Routes = [
+const routesold: Routes = [
   {
     path: '',
     component: TrainerComponent,
@@ -156,7 +156,40 @@ const routes: Routes = [
 
   }];
 
-
+  const routes: Routes = [
+    {
+      path: '',
+      component: TrainerComponent,
+      children: [
+        {
+          path: '',
+          component: DashboardComponent
+  
+        },
+        {
+          path: 'courses',
+          component: TrainerCoursesComponent
+        },
+        {
+          path: 'courses/new',
+          component: AddCourseMainComponent
+        },
+        {
+          path: 'courses/:courseId/items/:itemId/edit',
+          component: AddCourseMainComponent
+        },
+        {
+          path: 'courses/:courseId/edit',
+          component: AddCourseMainComponent
+        },
+        {
+          path: 'courses/:courseId',
+          component: CourseSummaryComponent
+        }
+      ]
+    }
+    
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

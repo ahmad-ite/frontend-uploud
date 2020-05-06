@@ -15,7 +15,7 @@
         <div class="wrapper-top-area">
           <div class="row m-0">
             <div class="col-md-12">
-              <a routerLink="/trainer/courses/edit/0" class="test">
+              <a routerLink="/trainer/courses/0/edit" class="test">
                 <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
                     class="far fa-plus-circle"></i> {{'Add Course' | translate}}</button>
               </a>
@@ -82,7 +82,7 @@
               <tbody>
                 <tr *ngFor="let trainerCourse of mycourses ;let i =index">
                   <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
-                  <td class="tr-hover" routerLink="/trainer/courses/view/{{trainerCourse.id}}">{{trainerCourse.name}}
+                  <td class="tr-hover" routerLink="/trainer/courses/{{trainerCourse.id}}">{{trainerCourse.name}}
                   </td>
                   <td>{{trainerCourse.code}}</td>
                   <!-- <td>{{trainerCourse.template}}</td> -->
@@ -97,7 +97,7 @@
                   <td>{{trainerCourse.average_rate}}</td>
                   <td>{{trainerCourse.items_count}}</td>
                   <td>{{trainerCourse.items_waiting_count}}</td>
-                  <td routerLink="/trainer/courses/edit/{{trainerCourse.id}}" class="actions-td"><button mdbBtn
+                  <td routerLink="/trainer/courses/{{trainerCourse.id}}/edit" class="actions-td"><button mdbBtn
                       rounded="true" class="waves-light btn-edit" mdbWavesEffect><i class="fal fa-edit"></i>
                       {{'edit' | translate}}</button>
                     <!-- <button (click)=delete(trainerCourse.id) mdbBtn rounded="true" class="waves-light btn-delete"
@@ -106,7 +106,7 @@
                     <!-- <button routerLink="/trainer/courses/view/{{trainerCourse.id}}" mdbBtn rounded="true"
                       class="waves-light btn-steps" mdbWavesEffect><i class="fal fa-layer-group"></i>
                       {{'View Items' | translate}}</button> -->
-                    <button routerLink="/trainer/courses/view/{{trainerCourse.id}}" mdbBtn rounded="true"
+                    <button routerLink="/trainer/courses/{{trainerCourse.id}}" mdbBtn rounded="true"
                       class="waves-light btn-steps" mdbWavesEffect><i class="fal fa-layer-group"></i>
                       {{'View Items' | translate}}</button>
                   </td>

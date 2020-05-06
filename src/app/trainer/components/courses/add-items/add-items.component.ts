@@ -10,7 +10,7 @@ import { DialogService } from '../../../../services/dialog.service';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
-import { VideoDerivation } from 'src/app/_models/loadData';
+import { VideoDerivation, Item } from 'src/app/_models/loadData';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 
@@ -23,8 +23,12 @@ import { Location } from '@angular/common';
 })
 export class AddItemsComponent implements OnInit {
   langStyle: any;
-
+  courseId: number;
+  itemId: number;
+  item: Item;
+  items: any[];
   shadows: boolean = true;
+  title: string;
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
@@ -37,7 +41,11 @@ export class AddItemsComponent implements OnInit {
     public activeModal: NgbActiveModal,
     private location: Location,
   ) {
+    this.title = "Add Item";
     this.langStyle = "wrapper-add-item-" + this.app_ser.app_lang();
+    this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
+    this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
+    this.reloadItems();
   }
 
   ngOnInit() {
@@ -88,4 +96,48 @@ export class AddItemsComponent implements OnInit {
 
   public fileLeave(event) {
   }
+
+  public reloadItems() {
+    if (this.courseId) {
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
+        data => {
+          this.items = data.items;
+          this.onChangeItem();
+        },
+        error => {
+        });
+    }
+  }
+
+  public onChangeItem() {
+    if (!!this.itemId && this.itemId != 0) {
+      this.title = "Edit Item";
+      this.app_ser.post("site_feed/TrainerCourse/item_row/" + this.itemId, {}).subscribe(
+        data => {
+          this.item = data.row;
+          //this.router.navigate(["/trainer/courses/"+ this.courseId + "/items/"+ this.itemId, "/edit"]);
+          window.history.replaceState({}, null, "/trainer/courses/"+ this.courseId + "/items/"+ this.itemId+ "/edit");
+        },
+        error => {
+        });
+    }else {
+      this.item= new Item();
+      this.item.course = this.courseId;
+      this.itemId = 0;
+      window.history.replaceState({}, null, "/trainer/courses/"+ this.courseId + "/edit");
+    }
+  }
+
+  save() {
+    this.app_ser.post("site_feed/TrainerCourse/save_item/" + this.itemId, { data: this.item }).subscribe(
+      data => {
+        // this.router.navigate(["/trainer/courses/list"]);
+        // this.stepper.next();
+       // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+       this.toastr.success("Item: "+ this.item.name + ", added succesfully", "Cool!");
+       this.reloadItems();
+      });
+
+  }
+  
 }
