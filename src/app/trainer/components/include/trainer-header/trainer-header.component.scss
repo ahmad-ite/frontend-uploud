@@ -9,7 +9,8 @@ ARABIC STYLE START
   direction: rtl;
 
   .wrapper-trainer-header {
-    background: #f1f1f1;
+    // background: #f1f1f1;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
     padding: 15px 20px;
     position: fixed;
     width: 100%;
@@ -109,7 +110,8 @@ ENGLISH STYLE START
 ====================================================================================== */
 .wrapper-trainer-header-en {
   .wrapper-trainer-header {
-    background: #f1f1f1;
+    // background: #f1f1f1;
+    background-image: linear-gradient(to right, #00b5a9, #01637f) !important;
     padding: 15px 20px;
     position: fixed;
     width: 100%;
