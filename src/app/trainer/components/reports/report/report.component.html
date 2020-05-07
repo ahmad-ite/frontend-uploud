@@ -14,10 +14,10 @@
       <div class="col-md-3 align-items-left">
         <form class="p-2 form-genrl" novalidate #selectYear="ngForm">
           <div class="form-group m-0">
-            <select class="mdb-select md-form form-control form-control-genral dd-genrl" [(ngModel)]="reportYear.year"
-              #category="ngModel" name="category" style="height: 50px;">
-              <option [ngValue]="0">{{ 'Select' | translate }} {{'Year'| translate}}</option>
-              <option [value]="category.id" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
+            <select class="mdb-select md-form form-control form-control-genral dd-genrl" (change)="yearChange()" [(ngModel)]="selectedYear"
+              #year="ngModel" name="year" style="height: 50px;">
+              <option [ngValue]="2020">{{ 'Select' | translate }} {{'Year'| translate}}</option>
+              <option [value]="rptyr.year" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
             </select>
           </div>
           <!-- <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"
@@ -75,17 +75,17 @@
                 <!-- <tr *ngFor="let trainerCourse of mycourses;let i =index" class="tr-hover"
                   (click)="students(trainerCourse.id)"> -->
                 <tr class="tr-hover" *ngFor="let report of reportData; let i=index">
-                  <td>{{i+1}}</td>
-                  <td> {{report.studentName}}</td>
-                  <td>{{report.courseName}}</td>
+                  <td>{{ i+1+((pager.currentPage -1) * pager.pageSize)}}</td>
+                  <td> {{report.student_name}}</td>
+                  <td>{{report.course_name}}</td>
                   <!-- <td>{{trainerCourse.template}}</td>
                     <td>{{trainerCourse.course_category}}</td> -->
-                  <td> {{report.coursePrice}} </td>
+                  <td> {{report.course_price}} </td>
                   <td> {{report.discountPrice}} </td>
                   <!-- <td>{{trainerCourse.students_count}}</td> -->
-                  <td>{{report.paymentMethod}}</td>
-                  <td>{{report.trainerNetPrice}}</td>
-                  <td>{{report.date}}</td>
+                  <td>{{report.payment_type}}</td>
+                  <td>{{report.trainer_amount}}</td>
+                  <td>{{report.register_date}}</td>
                 </tr>
               </tbody>
               <!--Table body-->
@@ -94,9 +94,9 @@
           </div>
           <hr class="my-0" />
           <!-- Pagination Start -->
-          <!-- <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+          <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
             <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
-          </div> -->
+          </div>
           <!-- Pagination End -->
         </div>
       </mdb-card>
