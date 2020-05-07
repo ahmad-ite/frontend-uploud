@@ -17,51 +17,16 @@ export class TrainerCoursesComponent implements OnInit {
   langStyle: any;
   @Input() shadows = true;
   mycourses: Course[];
-  tableData: object[] = [
-    { first: 'Mark', last: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco' },
-    { first: 'Jacob', last: 'Thornton', username: '@fat', email: 'jacobt@gmail.com', country: 'France', city: 'Paris' },
-    { first: 'Larry', last: 'the Bird', username: '@twitter', email: 'larrybird@gmail.com', country: 'Germany', city: 'Berlin' },
-    { first: 'Paul', last: 'Topolski', username: '@P_Topolski', email: 'ptopolski@gmail.com', country: 'Poland', city: 'Warsaw' },
-    { first: 'Anna', last: 'Doe', username: '@andy', email: 'annadoe@gmail.com', country: 'Spain', city: 'Madrid' }
-  ];
 
-  dateOptionsSelect: object[] = [
-    { value: '1', label: 'Today' },
-    { value: '2', label: 'Yesterday' },
-    { value: '3', label: 'Last 7 days' },
-    { value: '4', label: 'Last 30 days' },
-    { value: '5', label: 'Last week' },
-    { value: '6', label: 'Last month' }
-  ];
 
-  templateList: object[] = [
-    { value: '1', label: 'Master Class' },
-    { value: '2', label: 'Interactive' },
-    { value: '3', label: 'Audio Courses' }
-  ];
-  categoriesList: object[] = [
-    { value: '1', label: 'تصميم' },
-    { value: '2', label: 'تدريب' },
-    { value: '3', label: 'إعلام' }
-  ];
 
-  showOnlyOptionsSelect: object[] = [
-    { value: '1', label: 'All (2000)' },
-    { value: '2', label: 'Never opened (200)' },
-    { value: '3', label: 'Opened but unanswered (1800)' },
-    { value: '4', label: 'Answered (200)' },
-    { value: '5', label: 'Unsunscribed (50)' }
-  ];
 
-  filterOptionsSelect: object[] = [
-    { value: '1', label: 'Contacts in no segments (100)' },
-    { value: '2', label: 'Segment 1  (2000)' },
-    { value: '3', label: 'Segment 2  (1000)' },
-    { value: '4', label: 'Segment 3  (4000)' }
-  ];
+
 
   private sorted = false;
   pager: Pager;
+  noData: boolean;
+  loadGifLoader: boolean;
   constructor(
     public globals: Globals,
     public app_ser: AppService,
@@ -71,8 +36,9 @@ export class TrainerCoursesComponent implements OnInit {
   ) {
     this.mycourses = [];
     this.pager = new Pager();
-    this.loadPage();
+    this.loadPage(1);
     this.langStyle = "wrapper-trainer-courses-" + this.app_ser.app_lang();
+    // console.log("temp ", this.globals.subCategoriesDic, this.globals.templatesDic)
 
     // app_ser.stringLang(template.name, template.en_name)
   }
@@ -97,27 +63,28 @@ export class TrainerCoursesComponent implements OnInit {
     this.sorted = !this.sorted;
   }
 
-
-  loadPage(page = null) {
-
-    // this.ngxService.start();
-    // this.ngxService.startLoader('loader-01')
-    // var data1 = { page: page - 1, size: 12 }
-
-    var data1 = { page: this.pager.currentPage, size: this.pager.pageSize, }
-
+  loadPage(page) {
+    this.mycourses = [];
+    var data1 = { page: page - 1, size: 10 }
+    this.noData = false;
+    this.loadGifLoader = true;
+    this.pager = new Pager();
     this.app_ser.post("site_feed/TrainerCourse/index", { data: data1 }).subscribe(
       data => {
-        // this.ngxService.stopLoader('loader-01')
+        this.loadGifLoader = false;
         this.pager = this.app_ser.paginate(data.total, data.page + 1, data.size);
-
+        this.noData = true;
         this.mycourses = data.rows;
       },
+
       error => {
+        this.loadGifLoader = false;
+
+
       });
   }
+
   onChangePage(page) {
-    this.mycourses = [];
     this.loadPage(page);
   }
 

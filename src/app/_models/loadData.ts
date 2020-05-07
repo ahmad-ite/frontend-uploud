@@ -23,7 +23,14 @@ export class Media {
   }
 }
 
-
+export class DashboardInfo {
+  students_count: number;
+  students_finished_count: number;
+  students_unfinished_count: number;
+  courses_count: number;
+  courses_correction_count: number;
+  certificates_count: number;
+}
 
 export class SubCategory {
   id: number;
@@ -287,6 +294,8 @@ export class Course {
   items_count: number;
   volume: number = 1;
   certificate: string;
+  template_name: string;
+  category_name: string;
 }
 export class SearchResult {
   count: number;

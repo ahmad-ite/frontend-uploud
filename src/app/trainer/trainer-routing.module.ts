@@ -18,74 +18,15 @@ import { AddCourseMainComponent } from './components/courses/add-course-main/add
 import { DashboardComponent } from './components/main/dashboard/dashboard.component';
 import { ReportComponent } from './components/reports/report/report.component';
 import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
+import { TrainerProfileSetupComponent } from '../shared/components/trainer/trainer-profile-setup/trainer-profile-setup.component';
+import { TrainerProfileComponent } from '../shared/components/trainer/trainer-profile/trainer-profile.component';
 
 const routesold: Routes = [
   {
     path: '',
     component: TrainerComponent,
     children: [
-      {
-        path: '',
-        component: DashboardComponent
 
-      },
-      {
-        path: 'courses',
-        component: TrainerCoursesComponent
-
-      },
-
-      {
-        path: 'addCourseLayout',
-        component: AddCourseMainComponent,
-        children: [{
-          path: 'courses/view/:courseId',
-          component: AddCourseMainComponent
-        }
-      ]
-    
-
-      },
-
-      //     {
-      //       path: 'corrections/students',
-      // },
-
-      {
-        path: 'corrections/:courseId/students',
-        component: CourseCorrectionsStudentsComponent
-      },
-
-      {
-        path: 'corrections/:courseId/student/:studentId/answers',
-        component: StudentCorrectionsComponent
-      },
-
-      {
-        path: 'corrections',
-        component: CorrectionIndexComponent,
-        children: [
-        {
-          path: 'list',
-          component: CorrectionIndexComponent
-        },
-
-        {
-          path: 'students1/:courseId',
-          component: CourseCorrectionsStudentsComponent
-        },
-
-
-
-
-
-          // {
-          //   path: 'update/:id',
-          //   component: TrainerCoursesComponent
-          // }
-
-        ]
-      },
 
       {
         path: 'courses',
@@ -145,7 +86,7 @@ const routesold: Routes = [
       {
         path: 'quarter-report',
         component: QuarterReportComponent
-        
+
       },
 
 
@@ -156,58 +97,126 @@ const routesold: Routes = [
 
   }];
 
-  const routes: Routes = [
-    {
-      path: '',
-      component: TrainerComponent,
-      children: [
-        {
-          path: '',
-          component: DashboardComponent
-  
-        },
-        {
-          path: 'courses',
-          component: TrainerCoursesComponent
-        },
-        {
-          path: 'courses/new',
+const routes: Routes = [
+  {
+    path: '',
+    component: TrainerComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+
+      },
+
+
+      ///
+
+      {
+        path: 'courses',
+        component: TrainerCoursesComponent
+
+      },
+
+      {
+        path: 'addCourseLayout',
+        component: AddCourseMainComponent,
+        children: [{
+          path: 'courses/view/:courseId',
           component: AddCourseMainComponent
-        },
-        {
-          path: 'courses/:courseId/items/:itemId/edit',
-          component: AddCourseMainComponent
-        },
-        {
-          path: 'courses/:courseId/edit',
-          component: AddCourseMainComponent
-        },
-        {
-          path: 'courses/:courseId',
-          component: CourseSummaryComponent
-        },
-        {
-          path: 'corrections',
-          component: CorrectionIndexComponent
-        },
-        {
-          path: 'currentYearReport',
-          component: ReportComponent
-          // , canActivate: [AuthTrainer]
-        },
-        {
-          path: 'currentYearReport/:from/:to',
-          component: ReportComponent
-          // , canActivate: [AuthTrainer]
-        },
-        {
-          path: 'quarter-report',
-          component: QuarterReportComponent          
         }
-      ]
-    }
-    
-  ];
+        ]
+
+
+      },
+
+      {
+        path: 'corrections/:courseId/students',
+        component: CourseCorrectionsStudentsComponent
+      },
+
+      {
+        path: 'corrections/:courseId/student/:studentId/answers',
+        component: StudentCorrectionsComponent
+      },
+
+      {
+        path: 'corrections',
+        component: CorrectionIndexComponent,
+        children: [
+          {
+            path: 'list',
+            component: CorrectionIndexComponent
+          },
+
+          {
+            path: 'students1/:courseId',
+            component: CourseCorrectionsStudentsComponent
+          },
+
+
+
+        ]
+      },
+
+      {
+        path: 'update-profile/:id/:name',
+        component: TrainerProfileSetupComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'profile/:id',
+        component: TrainerProfileComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'upload',
+        component: UploadComponent
+        // , canActivate: [AuthTrainer]
+      },
+
+      ///
+      {
+        path: 'courses',
+        component: TrainerCoursesComponent
+      },
+      {
+        path: 'courses/new',
+        component: AddCourseMainComponent
+      },
+      {
+        path: 'courses/:courseId/items/:itemId/edit',
+        component: AddCourseMainComponent
+      },
+      {
+        path: 'courses/:courseId/edit',
+        component: AddCourseMainComponent
+      },
+      {
+        path: 'courses/:courseId',
+        component: CourseSummaryComponent
+      },
+      {
+        path: 'corrections',
+        component: CorrectionIndexComponent
+      },
+      {
+        path: 'currentYearReport',
+        component: ReportComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'currentYearReport/:from/:to',
+        component: ReportComponent
+        // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'quarter-report',
+        component: QuarterReportComponent
+      }
+    ]
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

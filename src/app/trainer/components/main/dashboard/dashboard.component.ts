@@ -3,7 +3,7 @@ import { AppService } from '../../../../services/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { Student } from '../../../../_models/loadData';
+import { Student, DashboardInfo, Course } from '../../../../_models/loadData';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -17,28 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class DashboardComponent implements OnInit {
 
   langStyle: any;
-  public coursesSummary: Array<any> = [
-    {
-      'srNo': '1',
-      'courseName': 'الإلقاء الصوتي',
-      'noOfStudents': '120'
-    },
-    {
-      'srNo': '2',
-      'courseName': 'التصوير الفوتوغرافي المستوى الثاني',
-      'noOfStudents': '50'
-    },
-    {
-      'srNo': '3',
-      'courseName': 'القيادة المؤسسية',
-      'noOfStudents': '70'
-    },
-    {
-      'srNo': '4',
-      'courseName': 'التصوير الفوتوغرافي المستوى الأول',
-      'noOfStudents': '20'
-    },
-  ];
+  public coursesSummary: Course[];
 
   // CORRECTIONS DATA START
   public chartTypeCorrections: string = 'line';
@@ -77,10 +56,10 @@ export class DashboardComponent implements OnInit {
   public chartTypePassingRatio: string = 'pie';
 
   public chartDatasetsPassingRatio: Array<any> = [
-    { data: [50, 200, 120], label: 'Students Data' }
+    { data: [0, 0], label: 'Students Data' }
   ];
 
-  public chartLabelsPassingRatio: Array<any> = ['الطلاب الفاشلون', 'الطلاب الناجحون', 'النتائج تنتظر'];
+  public chartLabelsPassingRatio: Array<any> = ['الطلاب الذين لم ينتهوا من الدورات', 'الطلاب الذين أنهوا الدورات',];
 
   public chartColorsPassingRatio: Array<any> = [
     {
@@ -144,6 +123,7 @@ export class DashboardComponent implements OnInit {
   public chartOptionsEarnings: any = {
     responsive: true
   };
+  DashboardInfo: DashboardInfo;
   // EARNINGS DATA END
   public chartClicked(e: any): void {
 
@@ -162,12 +142,87 @@ export class DashboardComponent implements OnInit {
     private translate: TranslateService,
     private toastr: ToastrService,
   ) {
+    this.coursesSummary = [];
 
+    this.DashboardInfo = new DashboardInfo();
     this.langStyle = "wrapper-dashboard-" + this.app_ser.app_lang();
+    this.initData();
 
   }
 
   ngOnInit() {
+  }
+
+  initData() {
+    this.app_ser.post("site_feed/TrainerReport/dashboard", {}).subscribe(
+      data => {
+        console.log("data", data)
+        this.DashboardInfo = data;
+        this.chartDatasetsPassingRatio = [
+          { data: [this.DashboardInfo.students_unfinished_count, this.DashboardInfo.students_finished_count], label: 'Students Data' }
+        ];
+      },
+      error => {
+      });
+
+
+    this.app_ser.post("site_feed/TrainerReport/trainer_money_yearly", {}).subscribe(
+      data => {
+        console.log("data", data)
+        var m = []
+        for (const [key, value] of Object.entries(data)) {
+          m.push(value);
+        }
+        this.chartDatasetsEarnings = [
+          { data: m, label: 'مال مكستب' }
+        ];
+
+      },
+      error => {
+      });
+
+
+    this.app_ser.post("site_feed/TrainerReport/correction_yearly", {}).subscribe(
+      data => {
+        console.log("data", data)
+        var pending = []
+        var done = []
+        for (const [key, value] of Object.entries(data)) {
+          pending.push(value["pending"]);
+          done.push(value["done"]);
+        }
+
+        this.chartDatasetsCorrections = [
+          { data: pending, label: 'لم يتم التحقق من التصحيحات' },
+          { data: done, label: 'فحص التصحيحات' }
+
+        ];
+
+      },
+      error => {
+      });
+
+
+    this.myCourses();
+
+  }
+
+  myCourses() {
+    var data1 = { page: 0, size: 5 }
+
+
+    this.app_ser.post("site_feed/TrainerCourse/index", { data: data1 }).subscribe(
+      data => {
+
+        this.coursesSummary = data.rows;
+        console.log("coursesSummary", this.coursesSummary)
+      },
+
+      error => {
+
+
+
+      });
   }
 
 }

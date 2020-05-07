@@ -1,5 +1,10 @@
 <div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
   <section id="trainerCourses">
+
     <!-- Breadcrumbs start  -->
     <!-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
@@ -27,6 +32,7 @@
           </div>
         </div>
         <!-- Top Area End -->
+
         <div class="px-4">
           <div class="table-wrapper">
             <!--Table-->
@@ -58,20 +64,20 @@
                         class="far fa-sort-circle"></i>
                     </a>
                   </th>
-                  <th class="th-lg">
+                  <!-- <th class="th-lg">
                     <a (click)="sortBy('average_rate')">{{'Average Rate' | translate}} <i
                         class="far fa-sort-circle"></i>
                     </a>
-                  </th>
+                  </th> -->
                   <th class="th-lg">
                     <a (click)="sortBy('items_count')"> {{'No of Items'|translate}} <i class="far fa-sort-circle"></i>
                     </a>
                   </th>
-                  <th class="th-lg">
+                  <!-- <th class="th-lg">
                     <a (click)="sortBy('items_waiting_count')"> {{'Waiting Items'|translate}} <i
                         class="far fa-sort-circle"></i>
                     </a>
-                  </th>
+                  </th> -->
                   <th class="th-lg actions-th">
                     <a>{{'Actions'|translate}} </a>
                   </th>
@@ -87,28 +93,25 @@
                   <td>{{trainerCourse.code}}</td>
                   <!-- <td>{{trainerCourse.template}}</td> -->
                   <td>
-                    {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}}
+                    {{trainerCourse.template_name}}
+                    <!-- {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}} -->
                   </td>
                   <td>
-                    {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}}
+                    {{trainerCourse.category_name}}
+                    <!-- {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}} -->
                   </td>
                   <!-- <td>{{trainerCourse.course_category}}</td> -->
                   <td>{{trainerCourse.students_count}}</td>
-                  <td>{{trainerCourse.average_rate}}</td>
+                  <!-- <td>{{trainerCourse.average_rate}}</td> -->
                   <td>{{trainerCourse.items_count}}</td>
-                  <td>{{trainerCourse.items_waiting_count}}</td>
+                  <!-- <td>{{trainerCourse.items_waiting_count}}</td> -->
                   <td routerLink="/trainer/courses/{{trainerCourse.id}}/edit" class="actions-td"><button mdbBtn
                       rounded="true" class="waves-light btn-edit" mdbWavesEffect><i class="fal fa-edit"></i>
                       {{'edit' | translate}}</button>
-                    <!-- <button (click)=delete(trainerCourse.id) mdbBtn rounded="true" class="waves-light btn-delete"
-                      mdbWavesEffect><i class="fal fa-trash-alt"></i> Delete
-                      Course</button> -->
-                    <!-- <button routerLink="/trainer/courses/view/{{trainerCourse.id}}" mdbBtn rounded="true"
+
+                    <!-- <button routerLink="/trainer/courses/{{trainerCourse.id}}" mdbBtn rounded="true"
                       class="waves-light btn-steps" mdbWavesEffect><i class="fal fa-layer-group"></i>
                       {{'View Items' | translate}}</button> -->
-                    <button routerLink="/trainer/courses/{{trainerCourse.id}}" mdbBtn rounded="true"
-                      class="waves-light btn-steps" mdbWavesEffect><i class="fal fa-layer-group"></i>
-                      {{'View Items' | translate}}</button>
                   </td>
                 </tr>
               </tbody>
@@ -123,8 +126,17 @@
       </mdb-card>
     </div>
     <!-- Course Grid End -->
-    <div class="d-flex justify-content-between wrapper-pagination">
+    <!-- <div class="d-flex justify-content-between wrapper-pagination">
       <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+    </div> -->
+
+    <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
+      <div class="alert alert-danger mb-0" role="alert">
+        <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
     </div>
   </section>
+  <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+
 </div>

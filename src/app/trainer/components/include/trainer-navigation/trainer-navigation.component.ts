@@ -13,9 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 export class TrainerNavigationComponent implements OnInit {
   langStyle: any;
 
+
   constructor(
     public app_ser: AppService,
     private toastr: ToastrService,
+    public route: ActivatedRoute,
+    public router: Router,
     private translate: TranslateService
   ) {
     this.langStyle = "wrapper-trainer-sidebar-" + this.app_ser.app_lang();
@@ -23,6 +26,11 @@ export class TrainerNavigationComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  logout() {
+    // alert("11");
+    this.app_ser.logout();
+    this.router.navigate(["/"]);
   }
 
 

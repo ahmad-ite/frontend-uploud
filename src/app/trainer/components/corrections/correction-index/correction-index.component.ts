@@ -63,6 +63,8 @@ export class CorrectionIndexComponent implements OnInit {
   private sorted = false;
   pager: Pager;
   options: ListOption;
+  noData: boolean;
+  loadGifLoader: boolean;
   constructor(
     public globals: Globals,
     public app_ser: AppService,
@@ -75,7 +77,7 @@ export class CorrectionIndexComponent implements OnInit {
     this.mycourses = [];
     this.pager = new Pager();
     this.options.page = 0;
-    this.loadPage();
+    this.loadPage(1);
 
     this.langStyle = "wrapper-trainer-courses-" + this.app_ser.app_lang();
 
@@ -101,7 +103,27 @@ export class CorrectionIndexComponent implements OnInit {
 
     this.sorted = !this.sorted;
   }
-  loadPage(page = null) {
+  loadPage(page) {
+    this.mycourses = [];
+    var data1 = { page: page - 1, size: 10 }
+    this.noData = false;
+    this.loadGifLoader = true;
+    this.pager = new Pager();
+    this.app_ser.post("site_feed/TrainerCourse/courses_corrections", { data: data1 }).subscribe(
+      data => {
+        this.loadGifLoader = false;
+        this.pager = this.app_ser.paginate(data.total, data.page + 1, data.size);
+        this.noData = true;
+        this.mycourses = data.rows;
+      },
+
+      error => {
+        this.loadGifLoader = false;
+
+
+      });
+  }
+  loadPage1(page = null) {
 
     // this.ngxService.start();
     // this.ngxService.startLoader('loader-01')
@@ -110,7 +132,7 @@ export class CorrectionIndexComponent implements OnInit {
 
     this.app_ser.post("site_feed/TrainerCourse/courses_corrections", { data: data1 }).subscribe(
       data => {
-       
+
         // this.ngxService.stopLoader('loader-01')
         this.pager = this.app_ser.paginate(data.total, data.page + 1, data.size);
         this.mycourses = data.rows;
@@ -119,8 +141,7 @@ export class CorrectionIndexComponent implements OnInit {
       });
   }
   onChangePage(page) {
-    this.pager.currentPage = page - 1;
-    this.loadPage();
+    this.loadPage(page);
   }
 
   students(courseId) {

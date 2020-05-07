@@ -1,4 +1,8 @@
 <div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
   <section style="margin-top:80px">
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
@@ -14,8 +18,8 @@
       <div class="col-md-3 align-items-left">
         <form class="p-2 form-genrl" novalidate #selectYear="ngForm">
           <div class="form-group m-0">
-            <select class="mdb-select md-form form-control form-control-genral dd-genrl" (change)="yearChange()" [(ngModel)]="selectedYear"
-              #year="ngModel" name="year" style="height: 50px;">
+            <select class="mdb-select md-form form-control form-control-genral dd-genrl" (change)="yearChange()"
+              [(ngModel)]="selectedYear" #year="ngModel" name="year" style="height: 50px;">
               <option [ngValue]="2020">{{ 'Select' | translate }} {{'Year'| translate}}</option>
               <option [value]="rptyr.year" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
             </select>
@@ -81,9 +85,10 @@
                   <!-- <td>{{trainerCourse.template}}</td>
                     <td>{{trainerCourse.course_category}}</td> -->
                   <td> {{report.course_price}} </td>
-                  <td> {{report.discountPrice}} </td>
+                  <!-- <td> {{report.payment_actual_amount}} </td> -->
+                  <td>{{report.payment_actual_amount!=null?report.payment_actual_amount:" لا يوجد خصم"|translate}}</td>
                   <!-- <td>{{trainerCourse.students_count}}</td> -->
-                  <td>{{report.payment_type}}</td>
+                  <td>{{report.payment_type?report.payment_type:"لا يوجد"|translate}}</td>
                   <td>{{report.trainer_amount}}</td>
                   <td>{{report.register_date}}</td>
                 </tr>
@@ -93,14 +98,21 @@
             <!--Table-->
           </div>
           <hr class="my-0" />
-          <!-- Pagination Start -->
-          <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-            <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
-          </div>
-          <!-- Pagination End -->
+
         </div>
       </mdb-card>
+
     </div>
     <!-- Course Grid End -->
   </section>
+  <!-- Pagination Start -->
+  <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+  <!-- Pagination End -->
+
+  <div class="wrap-no-course-found" *ngIf="!reportData.length " style="width:100%;margin-top: 290px;">
+    <div class="alert alert-danger mb-0" role="alert">
+      <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+  </div>
 </div>

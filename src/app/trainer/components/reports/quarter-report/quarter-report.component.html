@@ -14,11 +14,17 @@
       <div class="col-md-3 align-items-left">
         <form class="p-2 form-genrl" novalidate #selectYear="ngForm">
           <div class="form-group m-0">
-            <select class="mdb-select md-form form-control form-control-genral dd-genrl" [(ngModel)]="reportYear.year"
+            <!-- <select class="mdb-select md-form form-control form-control-genral dd-genrl" [(ngModel)]="reportYear.year"
               #category="ngModel" name="category" style="height: 50px;">
               <option [ngValue]="0">{{ 'Select' | translate }} {{'Year'| translate}}</option>
               <option [value]="category.id" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
+            </select> -->
+            <select class="mdb-select md-form form-control form-control-genral dd-genrl" (change)="yearChange()"
+              [(ngModel)]="activeYear" #year="ngModel" name="year" style="height: 50px;">
+              <option [ngValue]="2020">{{ 'Select' | translate }} {{'Year'| translate}}</option>
+              <option [value]="rptyr.year" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
             </select>
+
           </div>
           <!-- <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"
                       rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course"> {{'Add
@@ -97,4 +103,8 @@
     </div>
     <!-- Course Grid End -->
   </section>
+  <div class="wrap-no-course-found" *ngIf="!quarterReport.length " style="width:100%;margin-top: 290px;">
+    <div class="alert alert-danger mb-0" role="alert">
+      <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+  </div>
 </div>

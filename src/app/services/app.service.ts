@@ -669,6 +669,9 @@ export class AppService {
       }, this)
     );
   }
+  logout() {
+    return this.authenticationService.logout();
+  }
 
   video_url(video, derivations = null, quality = "default") {
 

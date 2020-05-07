@@ -1,4 +1,8 @@
 <div [ngClass]="langStyle">
+  <div class="loader" *ngIf="loadGifLoader">
+    <img src="../../../../assets/images/spiner.gif" alt=""
+      style="width: 100px;height: auto;display: block;margin: 100px auto;">
+  </div>
   <section id="trainerCourses" style="margin-top:80px">
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
@@ -63,10 +67,12 @@
                   <!-- <td>{{trainerCourse.template}}</td>
                   <td>{{trainerCourse.course_category}}</td> -->
                   <td>
-                    {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}}
+                    {{trainerCourse.template_name}}
+                    <!-- {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}} -->
                   </td>
                   <td>
-                    {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}}
+                    {{trainerCourse.category_name}}
+                    <!-- {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}} -->
                   </td>
                   <!-- <td>{{trainerCourse.students_count}}</td> -->
 
@@ -81,13 +87,22 @@
           </div>
           <hr class="my-0" />
           <!-- Pagination Start -->
-          <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+          <!-- <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
             <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
-          </div>
+          </div> -->
           <!-- Pagination End -->
         </div>
       </mdb-card>
     </div>
     <!-- Course Grid End -->
+
+    <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
+      <div class="alert alert-danger mb-0" role="alert">
+        <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+    </div>
   </section>
+
+  <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
 </div>
