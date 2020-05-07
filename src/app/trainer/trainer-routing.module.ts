@@ -185,6 +185,24 @@ const routesold: Routes = [
         {
           path: 'courses/:courseId',
           component: CourseSummaryComponent
+        },
+        {
+          path: 'corrections',
+          component: CorrectionIndexComponent
+        },
+        {
+          path: 'currentYearReport',
+          component: ReportComponent
+          // , canActivate: [AuthTrainer]
+        },
+        {
+          path: 'currentYearReport/:from/:to',
+          component: ReportComponent
+          // , canActivate: [AuthTrainer]
+        },
+        {
+          path: 'quarter-report',
+          component: QuarterReportComponent          
         }
       ]
     }
