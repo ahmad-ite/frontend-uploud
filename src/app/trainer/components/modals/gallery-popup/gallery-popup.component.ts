@@ -23,12 +23,13 @@ export class GalleryPopupComponent implements OnInit {
 
   pager: { totalItems: number; currentPage: number; pageSize: number; totalPages: number; startPage: number; endPage: number; startIndex: number; endIndex: number; pages: number[]; show: boolean; };
   trainerContent: VideoDerivation[];
-  activeTab: string = 'image';
-  currentCourse: number = 0;
+  /* activeTab: string;
+  currentCourse: number = 0; */
   loadGifLoader: any = true;
   activeSecondryTab: string = 'ar';
   langStyle: any;
-
+  @Input() currentCourse: number = 0;
+  @Input() activeTab: string = 'image';
 
   constructor(
     public app_ser: AppService,
