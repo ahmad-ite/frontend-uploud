@@ -111,7 +111,8 @@ import { QuarterReportComponent } from './components/reports/quarter-report/quar
   ]
   ,
   entryComponents: [
-    CorrectionPopupComponent
+    CorrectionPopupComponent,
+    AddItemsComponent
 
   ],
   providers: [

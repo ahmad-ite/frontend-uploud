@@ -1,10 +1,13 @@
 
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Course, Pager, CourseView } from 'src/app/_models/loadData';
+import { Course, Pager, CourseView, Item } from 'src/app/_models/loadData';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AddItemsComponent } from '../add-items/add-items.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationDialogService } from 'src/app/shared/modals/confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-course-summary',
@@ -17,39 +20,125 @@ export class CourseSummaryComponent implements OnInit {
 
   courseItems: any[];
   courseInfo: CourseView;
-
+  // @Input() stepperRef: any;
+  //@Input() itemId: number;
+  @Output() onItemSteps = new EventEmitter<any>();
   constructor(
     public app_ser: AppService,
     private toastr: ToastrService,
     private translate: TranslateService,
     public route: ActivatedRoute,
     public router: Router,
+    private confirmationDialogService: ConfirmationDialogService,
+    private modalService: NgbModal
   ) {
-    this.courseInfo = new CourseView();
-    this.courseItems = [];
+    /* this.courseInfo = new CourseView();
+    this.courseItems = []; */
     this.langStyle = "wrapper-trainer-course-summary-" + this.app_ser.app_lang();
     this.id = this.route.snapshot.params['courseId'];
-    this.initData();
+    
   }
   shadows: boolean = true;
 
   initData() {
-
-    this.app_ser.post("site_feed/TrainerCourse/view/" + this.id, {}).subscribe(
-      data => {
-        this.courseInfo = data.row;
-        this.courseItems = data.items;
-
-      },
-      error => {
-      });
+    this.courseInfo = new CourseView();
+    this.courseItems = [];
+    if(!! this.id) {
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.id, {}).subscribe(
+        data => {
+          this.courseInfo = data.row;
+          this.courseItems = data.items;
+  
+        },
+        error => {
+        });
+    }
+    
   }
 
   ngOnInit() {
+    //this.initData();
   }
 
   sortBy(m = "") {
 
   }
+
+  async openItemDialog(title, item){
+    console.log(item);
+
+    var itemModal = this.modalService.open(AddItemsComponent, { windowClass: 'itemPopupModal', size: 'lg', centered: true, backdrop: true });
+    if(!item) {
+      item = new Item();
+      item.course = this.id;
+    }
+    itemModal.componentInstance.item = item;
+    itemModal.componentInstance.title = title;
+
+    return await itemModal.result.then((result) => {
+     console.log(result);
+    
+     this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
+      data => {
+        // this.router.navigate(["/trainer/courses/list"]);
+        // this.stepper.next();
+       // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+       this.toastr.success("Item: "+ result.name + ", added succesfully", "Cool!");
+       this.initData();
+      });
+
+
+      return result;
+    }, (reason) => {
+      return false;
+    });
+
+  }
+
+  
+  openItemSteps(item){
+    //this.router.navigate(["/trainer/courses/" + this.id + "/items/" + item.id + "/edit"]);
+    //this.itemId= item.id;
+    this.onItemSteps.emit(item.id);
+    //this.stepperRef.next();
+  }
+
+  deleteItem(itemId) {
+    this.confirmationDialogService.confirm(this.translate.instant('Delete Item'), 'Do you want to delete this Item?')
+      .then((confirmed) => {
+
+        if (confirmed) {
+          this.app_ser.post("site_feed/TrainerCourse/delete_item/" + itemId, {}).subscribe(
+            data => {
+              // this.router.navigate(["/trainer/courses/list"]);
+              // this.stepper.next();
+             // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+             this.toastr.success("Item: deleted succesfully", "Cool!");
+             this.initData();
+            });
+        }
+      })
+      .catch(() => {
+
+      });
+  }
+
+  reArrangeItem(item, newArrange){
+    console.log(item, newArrange);
+    if (newArrange>0 && newArrange<=this.courseItems.length) {
+      this.app_ser.post("site_feed/TrainerCourse/re_arrange_item/" + item.id+ "/" + newArrange, {}).subscribe(
+        data => {
+          // this.router.navigate(["/trainer/courses/list"]);
+          // this.stepper.next();
+         // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+         //this.toastr.success("Item: deleted succesfully", "Cool!");
+         item.arrange = newArrange;
+         //this.initData();
+        });
+    }
+
+    
+  }
+
 
 }
