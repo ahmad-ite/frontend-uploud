@@ -34,6 +34,7 @@ import { JobsComponent } from './components/home/jobs/jobs.component';
 import { KunCertificatesComponent } from './components/home/kun-certificates/kun-certificates.component';
 
 import { TestComponent } from './components/test/test/test.component';
+import { TestStreamComponent } from './components/student/stream/test-stream/test-stream.component';
 
 
 
@@ -175,6 +176,12 @@ const routes: Routes = [
         component: TrainerProfileSetupComponent
         // , canActivate: [AuthTrainer]
       },
+
+      {
+        path: 'live',
+        component: TestStreamComponent
+        // , canActivate: [AuthTrainer]
+      },
       {
         path: 'profile/:id/:name',
         component: TrainerProfileComponent
@@ -190,7 +197,7 @@ const routes: Routes = [
         component: KunCertificatesComponent
         // , canActivate: [AuthTrainer]
       }
-      
+
 
     ]
   }

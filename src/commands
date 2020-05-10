@@ -7,3 +7,8 @@ ng build  --base-href /kun/ang8/Web/
 ng g component <name>
 ng g component site/components/test/test
 
+ng generate service  services/Opentok/Opentok
+
+publisher
+
+
