@@ -25,6 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.2.1",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@opentok/client": "^2.17.2",
     "@types/es6-shim": "^0.31.39",
     "@types/jquery": "^2.0.47",
     "@types/video.js": "^7.3.3",

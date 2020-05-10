@@ -17,12 +17,12 @@ import { VgAPI } from 'videogular2/compiled/core';
 export class StepsManagementComponent implements OnInit {
 
   range: any = 0;
-    min = 0;
-    max = 100;
-    onRangeValueChange(event: any) {
-        const value = event.value;
-        this.range = value;
-    }
+  min = 0;
+  max = 100;
+  onRangeValueChange(event: any) {
+    const value = event.value;
+    this.range = value;
+  }
 
   todo = [
     'Get to work',
@@ -41,12 +41,12 @@ export class StepsManagementComponent implements OnInit {
   //@Input() itemId: number;
   // stepId: number;
   // itemStep: Step;
-  itemSteps =[];
+  itemSteps = [];
   itemId: number;
   @Input() courseId: number;
   title: string;
   correctAnswers: number[];
-  stepIcons= {
+  stepIcons = {
     'textbox': 'fa-text-size',
     'play': 'fa-tv',
     'choice': 'fa-list-alt',
@@ -55,7 +55,7 @@ export class StepsManagementComponent implements OnInit {
     'match': 'fa-clone',
     'upload-video': 'fa-file-video'
   };
-  stepWrapperClasses= {
+  stepWrapperClasses = {
     'textbox': 'wrapper-insert-text',
     'play': 'wrapper-play',
     'choice': 'wrapper-choice',
@@ -88,134 +88,134 @@ export class StepsManagementComponent implements OnInit {
   ) {
     this.langStyle = "wrapper-steps-management-" + this.app_ser.app_lang();
     this.stepCatogories = this.tool_ser.initTools();
-    this.step=new Step();
-    
+    this.step = new Step();
+
 
     //this.itemId = this.itemId ? this.itemId : 0;
     //this.reloadSteps();
     // this.step.question = 'Hi this is tesigng';
   }
 
-  insertStep(type){
-    this.step=new Step();
+  insertStep(type) {
+    this.step = new Step();
     this.initStep(type);
   }
-  editStep(step){
+  editStep(step) {
     console.log(step);
-    this.step=new Step();
-    this.correctAnswers=[];
+    this.step = new Step();
+    this.correctAnswers = [];
 
-    if(!!step.options){
-      step.options= JSON.parse(step.options);
-      let correct= JSON.parse(step.correct);
-      correct.forEach((c,i) => {
-        if(!!c.correct){
+    if (!!step.options) {
+      step.options = JSON.parse(step.options);
+      let correct = JSON.parse(step.correct);
+      correct.forEach((c, i) => {
+        if (!!c.correct) {
           this.correctAnswers.push(i);
-        }     
+        }
       });
     }
 
-    Object.assign(this.step,step);
+    Object.assign(this.step, step);
     console.log(this.step);
   }
-  initStep(type=null){
-    this.correctAnswers=[];
+  initStep(type = null) {
+    this.correctAnswers = [];
     let tempStep: any;
     switch (type) {
       case "textbox":
-       tempStep=new Textbox();
-       break;
+        tempStep = new Textbox();
+        break;
       case "choice":
-          tempStep=new Choice();
+        tempStep = new Choice();
         break;
       case "correct":
-        tempStep=new Correct();
-      break;
+        tempStep = new Correct();
+        break;
       case "arrange":
-          tempStep=new Arrange();
+        tempStep = new Arrange();
 
         break;
 
 
       case "match":
-          tempStep=new Match();
-        break;
-
-      
-
-        case "play":
-          tempStep=new Play();
+        tempStep = new Match();
         break;
 
 
-        case "sound":
-          tempStep=new SoundRecording();
+
+      case "play":
+        tempStep = new Play();
         break;
 
 
-        case "video":
-          tempStep=new VideoRecording();
+      case "sound":
+        tempStep = new SoundRecording();
         break;
 
 
-        case "autocue":
-          tempStep=new Autocue();
+      case "video":
+        tempStep = new VideoRecording();
         break;
 
-        case "autocue-voice":
-          tempStep=new AutocueVoice();
+
+      case "autocue":
+        tempStep = new Autocue();
         break;
 
-        case "upload-video":
-          tempStep=new UploadVideo();
+      case "autocue-voice":
+        tempStep = new AutocueVoice();
         break;
 
-        
-        
+      case "upload-video":
+        tempStep = new UploadVideo();
+        break;
 
-        case "upload-sound":
-            tempStep=new UploadSound();
-          break;
-          case "upload-document":
-              tempStep=new UploadDocument();
-            break;
-            case "upload-image":
-                tempStep=new UploadImage();
-              break;
 
-              case "select-course":
-                  tempStep=new SelectCourse();
-                break;
-              
+
+
+      case "upload-sound":
+        tempStep = new UploadSound();
+        break;
+      case "upload-document":
+        tempStep = new UploadDocument();
+        break;
+      case "upload-image":
+        tempStep = new UploadImage();
+        break;
+
+      case "select-course":
+        tempStep = new SelectCourse();
+        break;
+
 
     }
-    Object.assign(this.step,tempStep);
-    this.step.course_item= this.itemId;
-    this.step.arrange= this.itemSteps.length + 1;
+    Object.assign(this.step, tempStep);
+    this.step.course_item = this.itemId;
+    this.step.arrange = this.itemSteps.length + 1;
   }
 
   ngOnInit() {
-    
+
   }
   onPlayerReady(api: VgAPI) { }
   public reloadSteps(itemId) {
     console.log(itemId);
-    if (!! itemId && itemId != 0) {
-      this.itemId= itemId;
+    if (!!itemId && itemId != 0) {
+      this.itemId = itemId;
       this.app_ser.post("site_feed/TrainerStep/steps/" + itemId, {}).subscribe(
         data => {
           /* if(data.rows.length){
           data.rows.sort(function(a, b) {
             return a.arrange - b.arrange;
           });
-        } */          
-          this.itemSteps = data.rows;          
+        } */
+          this.itemSteps = data.rows;
           //this.onChangeStep();
         },
         error => {
         });
-    }else {
-      this.itemSteps= [];
+    } else {
+      this.itemSteps = [];
     }
     this.initStep('textbox');
   }
@@ -237,43 +237,43 @@ export class StepsManagementComponent implements OnInit {
   } */
 
   addOption() {
-    this.step.options.push({"t":"اختيار جديد"});
+    this.step.options.push({ "t": "اختيار جديد" });
   }
   removeOption(opt) {
     this.step.options.splice(opt, 1);
   }
   formatTimeInMinutes(value) {
     const sec = parseInt(value, 10); // convert value to number if it's string
-    let hours:any = Math.floor(sec / 3600); // get hours
-    let minutes:any = Math.floor((sec - (hours * 3600)) / 60); // get minutes
-    let seconds:any = sec - (hours * 3600) - (minutes * 60); //  get seconds
+    let hours: any = Math.floor(sec / 3600); // get hours
+    let minutes: any = Math.floor((sec - (hours * 3600)) / 60); // get minutes
+    let seconds: any = sec - (hours * 3600) - (minutes * 60); //  get seconds
     // add 0 if value < 10
-    if (hours   < 10) {hours   = "0"+hours;}
-    if (minutes < 10) {minutes = "0"+minutes;}
-    if (seconds < 10) {seconds = "0"+seconds;}
-    return hours+':'+minutes+':'+seconds; // Return is HH : MM : SS
+    if (hours < 10) { hours = "0" + hours; }
+    if (minutes < 10) { minutes = "0" + minutes; }
+    if (seconds < 10) { seconds = "0" + seconds; }
+    return hours + ':' + minutes + ':' + seconds; // Return is HH : MM : SS
   }
 
   save() {
-    var copyStep = Object.assign({}, this.step)
-    if(!!copyStep.options) {
-      let corr = copyStep.options.map((v,i) => {
-        return {"correct": (this.correctAnswers.includes(i))};
+    var copyStep: any = Object.assign({}, this.step)
+    if (!!copyStep.options) {
+      let corr = copyStep.options.map((v, i) => {
+        return { "correct": (this.correctAnswers.includes(i)) };
       });
-      copyStep.correct =JSON.stringify(corr);
-      copyStep.options =JSON.stringify(copyStep.options);
+      copyStep.correct = JSON.stringify(corr);
+      copyStep.options = JSON.stringify(copyStep.options);
     }
     console.log(copyStep);
     this.app_ser.post("site_feed/TrainerStep/save/" + (this.step.id ? this.step.id : 0), { data: copyStep }).subscribe(
       data => {
         // this.router.navigate(["/trainer/courses/list"]);
         // this.stepper.next();
-       // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-       this.toastr.success("Step: "+ this.step.title + ", added succesfully", "Cool!");
-       this.reloadSteps(this.step.course_item);
+        // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+        this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
+        this.reloadSteps(this.step.course_item);
       });
 
   }
-  
-  
+
+
 }
