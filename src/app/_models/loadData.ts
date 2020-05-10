@@ -796,7 +796,12 @@ export class InternalPayment {
   detailsAr: any;
   detailEn: any;
 }
-
+export class StreamConfig {
+  API_KEY: any = "46715742";
+  SESSION_ID: any;
+  TOKEN: any;
+  SAMPLE_SERVER_BASE_URL: 'http://kun.academy';
+}
 
 export class KEY_CODE {
   RIGHT_ARROW: number = 39;
