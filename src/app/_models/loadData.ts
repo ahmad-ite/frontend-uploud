@@ -796,7 +796,6 @@ export class InternalPayment {
   detailsAr: any;
   detailEn: any;
 }
-
 export class StreamConfig {
   API_KEY: any = "46715742";
   SESSION_ID: any;
