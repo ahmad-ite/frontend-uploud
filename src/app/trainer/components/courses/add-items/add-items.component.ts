@@ -29,6 +29,26 @@ export class AddItemsComponent implements OnInit {
   //items: any[];
   shadows: boolean = true;
   @Input() title: string;
+  settingsKeys={
+    'Exam': {
+      'save_answers_on_move': 'save_answers_on_move',
+      'custom_navigating': 'exam_custom_navigating',
+      'no_back': 'exam_no_back',
+      'no_mark': 'exam_no_mark',
+      'show_correct': 'exam_show_correct',
+      'show_result': 'exam_show_result',
+      'input_repeat': 'input_repeat_exams'
+    },
+    'Lesson': {
+      'save_answers_on_move': 'save_answers_on_move',
+      'custom_navigating': 'lesson_custom_navigating',
+      'no_back': 'lesson_no_back',
+      'no_mark': 'lesson_no_mark',
+      'show_correct': 'lesson_show_correct',
+      'show_result': 'lesson_show_result',
+      'input_repeat': 'input_repeat_lesson'
+    }
+  };
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
