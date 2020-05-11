@@ -1,4 +1,4 @@
-<div [ngClass]="langStyle" style="margin-top: 140px;">
+<div [ngClass]="langStyle">
   <div class="row">
     <div class="col-md-3">
       <a class="link-card">
@@ -31,8 +31,7 @@
             <div class="col-7">
               <div class="wrap-card-content">
                 <h5 class="title-card">{{'No of Courses' | translate}}</h5>
-                <h1 class="no-of-results">{{DashboardInfo.courses_count}}
-                </h1>
+                <h1 class="no-of-results">{{DashboardInfo.courses_count}} </h1>
               </div>
             </div>
           </div>
@@ -147,7 +146,6 @@
               </div>
             </div>
           </mdb-carousel-item>
-
         </mdb-carousel>
       </div>
     </div>

@@ -4,7 +4,6 @@
       style="width: 100px;height: auto;display: block;margin: 100px auto;">
   </div>
   <section id="trainerCourses">
-
     <!-- Breadcrumbs start  -->
     <!-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
@@ -32,7 +31,6 @@
           </div>
         </div>
         <!-- Top Area End -->
-
         <div class="px-4">
           <div class="table-wrapper">
             <!--Table-->
@@ -88,16 +86,15 @@
               <tbody>
                 <tr *ngFor="let trainerCourse of mycourses ;let i =index">
                   <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
-                  <td class="tr-hover" routerLink="/trainer/courses/{{trainerCourse.id}}">{{trainerCourse.name}}
-                  </td>
+                  <td routerLink="/trainer/courses/{{trainerCourse.id}}"
+                    style="color: #00b5a9;cursor:pointer;text-decoration: underline;font-weight: bold;outline: 0;">
+                    {{trainerCourse.name}} </td>
                   <td>{{trainerCourse.code}}</td>
                   <!-- <td>{{trainerCourse.template}}</td> -->
-                  <td>
-                    {{trainerCourse.template_name}}
+                  <td> {{trainerCourse.template_name}}
                     <!-- {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}} -->
                   </td>
-                  <td>
-                    {{trainerCourse.category_name}}
+                  <td> {{trainerCourse.category_name}}
                     <!-- {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}} -->
                   </td>
                   <!-- <td>{{trainerCourse.course_category}}</td> -->
@@ -108,7 +105,6 @@
                   <td routerLink="/trainer/courses/{{trainerCourse.id}}/edit" class="actions-td"><button mdbBtn
                       rounded="true" class="waves-light btn-edit" mdbWavesEffect><i class="fal fa-edit"></i>
                       {{'edit' | translate}}</button>
-
                     <!-- <button routerLink="/trainer/courses/{{trainerCourse.id}}" mdbBtn rounded="true"
                       class="waves-light btn-steps" mdbWavesEffect><i class="fal fa-layer-group"></i>
                       {{'View Items' | translate}}</button> -->
@@ -129,14 +125,13 @@
     <!-- <div class="d-flex justify-content-between wrapper-pagination">
       <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
     </div> -->
-
     <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
       <div class="alert alert-danger mb-0" role="alert">
         <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
     </div>
   </section>
   <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block;margin: 25px auto;">
+    </jw-pagination>
   </div>
-
 </div>

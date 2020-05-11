@@ -1,5 +1,5 @@
 <div [ngClass]="langStyle">
-  <section style="margin-top:80px">
+  <section>
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
@@ -24,7 +24,6 @@
               <option [ngValue]="2020">{{ 'Select' | translate }} {{'Year'| translate}}</option>
               <option [value]="rptyr.year" *ngFor="let rptyr of reportYear"> {{rptyr.year}}</option>
             </select>
-
           </div>
           <!-- <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"
                       rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course"> {{'Add
@@ -73,6 +72,14 @@
               <!--Table head-->
               <!--Table body-->
               <tbody>
+                <tr *ngIf="!quarterReport.length">
+                  <td colspan="7">
+                    <div class="wrap-no-course-found" style="width:100%;margin: 50px 0;">
+                      <div class="alert alert-danger mb-0" role="alert">
+                        <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+                    </div>
+                  </td>
+                </tr>
                 <!-- <tr *ngFor="let trainerCourse of mycourses;let i =index" class="tr-hover"
                         (click)="students(trainerCourse.id)"> -->
                 <tr class="tr-hover" *ngFor="let qr of quarterReport; let i=index">
@@ -95,7 +102,7 @@
           <hr class="my-0" />
           <!-- Pagination Start -->
           <!-- <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-                  <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+                  <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block; margin: 25px auto"></jw-pagination>
                 </div> -->
           <!-- Pagination End -->
         </div>
@@ -103,8 +110,4 @@
     </div>
     <!-- Course Grid End -->
   </section>
-  <div class="wrap-no-course-found" *ngIf="!quarterReport.length " style="width:100%;margin-top: 290px;">
-    <div class="alert alert-danger mb-0" role="alert">
-      <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
-  </div>
 </div>

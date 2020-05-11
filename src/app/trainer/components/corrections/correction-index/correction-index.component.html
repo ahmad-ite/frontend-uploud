@@ -3,12 +3,13 @@
     <img src="../../../../assets/images/spiner.gif" alt=""
       style="width: 100px;height: auto;display: block;margin: 100px auto;">
   </div>
-  <section id="trainerCourses" style="margin-top:80px">
+  <section id="trainerCourses">
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> Home</a></li>
-        <li class="breadcrumb-item active">Courses</li>
+        <li class="breadcrumb-item"><a routerLink="/trainer"><i class="fal fa-home-lg-alt"></i>
+            {{'Home' | translate}}</a></li>
+        <li class="breadcrumb-item active">{{'Corrections' | translate}}</li>
       </ol>
     </nav>
     <!-- Breadcrumbs End  -->
@@ -23,8 +24,7 @@
               <thead>
                 <tr>
                   <th class="th-lg">
-                    <a>#
-                    </a>
+                    <a># </a>
                   </th>
                   <th class="th-lg">
                     <a (click)="sortBy('name')">{{'Name'|translate}} <i class="far fa-sort-circle"></i>
@@ -35,25 +35,22 @@
                     </a>
                   </th>
                   <th class="th-lg">
-                    <a (click)="sortBy('template')"> {{'Template'|translate}}<i class="far fa-sort-circle"></i>
+                    <a (click)="sortBy('template')"> {{'Template'|translate}} <i class="far fa-sort-circle"></i>
                     </a>
                   </th>
                   <th class="th-lg">
-                    <a (click)="sortBy('course_category')"> {{'Category'|translate}}<i class="far fa-sort-circle"></i>
-                    </a>
-                  </th>
-
-
-                  <th class="th-lg">
-                    <a (click)="sortBy('items_count')"> {{'No of Items'|translate}}<i class="far fa-sort-circle"></i>
+                    <a (click)="sortBy('course_category')"> {{'Category'|translate}} <i class="far fa-sort-circle"></i>
                     </a>
                   </th>
                   <th class="th-lg">
-                    <a (click)="sortBy('items_waiting_count')"> {{'Waiting Items'|translate}}<i
+                    <a (click)="sortBy('items_count')"> {{'No of Items'|translate}} <i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
+                    <a (click)="sortBy('items_waiting_count')"> {{'Waiting Items'|translate}} <i
                         class="far fa-sort-circle"></i>
                     </a>
                   </th>
-
                 </tr>
               </thead>
               <!--Table head-->
@@ -62,23 +59,19 @@
                 <tr *ngFor="let trainerCourse of mycourses;let i =index" class="tr-hover"
                   (click)="students(trainerCourse.id)">
                   <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
-                  <td> {{trainerCourse.name}}</td>
+                  <td style="color: #00b5a9;font-weight:bold;text-decoration:underline"> {{trainerCourse.name}}</td>
                   <td>{{trainerCourse.code}}</td>
                   <!-- <td>{{trainerCourse.template}}</td>
                   <td>{{trainerCourse.course_category}}</td> -->
-                  <td>
-                    {{trainerCourse.template_name}}
+                  <td> {{trainerCourse.template_name}}
                     <!-- {{app_ser.stringLang(this.globals.templatesDic[trainerCourse.template_id].name, this.globals.templatesDic[trainerCourse.template_id].name_en)}} -->
                   </td>
-                  <td>
-                    {{trainerCourse.category_name}}
+                  <td> {{trainerCourse.category_name}}
                     <!-- {{app_ser.stringLang(this.globals.subCategoriesDic[trainerCourse.course_category].name, this.globals.subCategoriesDic[trainerCourse.course_category].name_en)}} -->
                   </td>
                   <!-- <td>{{trainerCourse.students_count}}</td> -->
-
                   <td>{{trainerCourse.items_count}}</td>
                   <td>{{trainerCourse.items_waiting_count}}</td>
-
                 </tr>
               </tbody>
               <!--Table body-->
@@ -95,14 +88,13 @@
       </mdb-card>
     </div>
     <!-- Course Grid End -->
-
     <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
       <div class="alert alert-danger mb-0" role="alert">
         <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
     </div>
   </section>
-
   <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block;margin: 25px auto;">
+    </jw-pagination>
   </div>
 </div>

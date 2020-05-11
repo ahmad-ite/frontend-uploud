@@ -38,6 +38,7 @@ import { AddCourseMainComponent } from './components/courses/add-course-main/add
 import { DashboardComponent } from './components/main/dashboard/dashboard.component';
 import { ReportComponent } from './components/reports/report/report.component';
 import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
+import { UploadMediaComponent } from './components/courses/upload-media/upload-media.component';
 // import { CourseLoaderComponent } from '../components/utils/course-loader/course-loader.component';
 
 
@@ -77,7 +78,8 @@ import { QuarterReportComponent } from './components/reports/quarter-report/quar
     AddCourseMainComponent,
     DashboardComponent,
     ReportComponent,
-    QuarterReportComponent
+    QuarterReportComponent,
+    UploadMediaComponent
 
 
   ],
