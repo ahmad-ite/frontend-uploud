@@ -82,6 +82,9 @@ import { JobsComponent } from './components/home/jobs/jobs.component';
 import { KunCertificatesComponent } from './components/home/kun-certificates/kun-certificates.component';
 
 import { TestComponent } from './components/test/test/test.component';
+import { PublisherComponent } from './components/student/stream/publisher/publisher.component';
+import { SubscriberComponent } from './components/student/stream/subscriber/subscriber.component';
+import { TestStreamComponent } from './components/student/stream/test-stream/test-stream.component';
 
 
 
@@ -160,6 +163,12 @@ import { TestComponent } from './components/test/test/test.component';
     KunCertificatesComponent,
 
     TestComponent,
+
+    PublisherComponent,
+
+    SubscriberComponent,
+
+    TestStreamComponent,
 
 
 
