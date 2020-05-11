@@ -441,10 +441,15 @@ export class AppService {
     });
 
   }
-  async openGalleryPopup() {
+  async openGalleryPopup(course = 0, type = 'video') {
+    console.log(course, type);
     var galleryModal = this.modalService.open(GalleryPopupComponent, { windowClass: 'galleryPopupModal', size: 'lg', centered: true, backdrop: false });
     // videoModal.componentInstance.video = video;
     // videoModal.componentInstance.details = details;
+
+    galleryModal.componentInstance.currentCourse = course;
+    galleryModal.componentInstance.activeTab = type;
+
     return await galleryModal.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == 'false')

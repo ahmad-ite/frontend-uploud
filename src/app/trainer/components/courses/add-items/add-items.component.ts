@@ -23,12 +23,32 @@ import { Location } from '@angular/common';
 })
 export class AddItemsComponent implements OnInit {
   langStyle: any;
-  courseId: number;
-  itemId: number;
-  item: Item;
-  items: any[];
+  //courseId: number;
+  //itemId: number;
+  @Input() item: Item;
+  //items: any[];
   shadows: boolean = true;
-  title: string;
+  @Input() title: string;
+  settingsKeys={
+    'Exam': {
+      'save_answers_on_move': 'save_answers_on_move',
+      'custom_navigating': 'exam_custom_navigating',
+      'no_back': 'exam_no_back',
+      'no_mark': 'exam_no_mark',
+      'show_correct': 'exam_show_correct',
+      'show_result': 'exam_show_result',
+      'input_repeat': 'input_repeat_exams'
+    },
+    'Lesson': {
+      'save_answers_on_move': 'save_answers_on_move',
+      'custom_navigating': 'lesson_custom_navigating',
+      'no_back': 'lesson_no_back',
+      'no_mark': 'lesson_no_mark',
+      'show_correct': 'lesson_show_correct',
+      'show_result': 'lesson_show_result',
+      'input_repeat': 'input_repeat_lesson'
+    }
+  };
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
@@ -41,14 +61,20 @@ export class AddItemsComponent implements OnInit {
     public activeModal: NgbActiveModal,
     private location: Location,
   ) {
-    this.title = "Add Item";
     this.langStyle = "wrapper-add-item-" + this.app_ser.app_lang();
-    this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
-    this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
-    this.reloadItems();
+    //this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
+    //this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
+    /* if(!this.item){
+      this.item = new Item();
+    } */
+
+    
   }
 
   ngOnInit() {
+    // this.item = new Item();
+    //this.reloadItems();
+    console.log(this.item);
   }
 
   sortBy(m = "") {
@@ -97,19 +123,19 @@ export class AddItemsComponent implements OnInit {
   public fileLeave(event) {
   }
 
-  public reloadItems() {
+  /* public reloadItems() {
     if (this.courseId) {
       this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
         data => {
           this.items = data.items;
-          this.onChangeItem();
+          //this.onChangeItem();
         },
         error => {
         });
     }
-  }
+  } */
 
-  public onChangeItem() {
+  /* public onChangeItem() {
     if (!!this.itemId && this.itemId != 0) {
       this.title = "Edit Item";
       this.app_ser.post("site_feed/TrainerCourse/item_row/" + this.itemId, {}).subscribe(
@@ -126,18 +152,10 @@ export class AddItemsComponent implements OnInit {
       this.itemId = 0;
       window.history.replaceState({}, null, "/trainer/courses/"+ this.courseId + "/edit");
     }
-  }
+  } */
 
-  save() {
-    this.app_ser.post("site_feed/TrainerCourse/save_item/" + this.itemId, { data: this.item }).subscribe(
-      data => {
-        // this.router.navigate(["/trainer/courses/list"]);
-        // this.stepper.next();
-       // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-       this.toastr.success("Item: "+ this.item.name + ", added succesfully", "Cool!");
-       this.reloadItems();
-      });
-
+  save() {    
+      this.activeModal.close(this.item);
   }
   
 }

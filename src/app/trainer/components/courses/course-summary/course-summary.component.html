@@ -20,10 +20,9 @@
         <div class="wrapper-top-area">
           <div class="row m-0">
             <div class="col-md-12">
-              <a routerLink="/trainer/courses/add-item" class="test">
-                <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
+                <button mdbBtn rounded="true" class="waves-light gradient-btn" (click)="openItemDialog('Add Item')" mdbWavesEffect><i
                     class="far fa-plus-circle"></i> {{'Add Item' | translate}}</button>
-              </a>
+
               <!-- <a routerLink="/trainer/courses/media-gallery">
                     <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
                         class="far fa-photo-video"></i> {{'Gallery' | translate}}</button>
@@ -67,22 +66,22 @@
               <!--Table head-->
               <!--Table body-->
               <tbody>
-                <tr *ngFor="let item of courseItems,let i =index">
+                <tr *ngFor="let item of courseItems | orderBy:'arrange',let i =index">
                   <td>{{i+1}}</td>
                   <td>
-                    <i class="fal fa-arrow-circle-up arrange-icons-genrl"></i>
-                    <i class="fal fa-arrow-circle-down arrange-icons-genrl"></i>
+                    <i class="fal fa-arrow-circle-up arrange-icons-genrl" (click)="reArrangeItem(item, item.arrange-1)"></i>
+                    <i class="fal fa-arrow-circle-down arrange-icons-genrl" (click)="reArrangeItem(item, item.arrange+1)"></i>
                   </td>
                   <td>{{item.type|translate}}</td>
                   <td class="item-name" routerLink="/trainer/courses/{{item.id}}/edit">{{item.name}}</td>
                   <td>{{item.steps}}</td>
                   <td>{{item.marks}}</td>
                   <td>{{item.pass_mark}} %</td>
-                  <td class="actions-td"><button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect><i
+                  <td class="actions-td"><button mdbBtn rounded="true" class="waves-light btn-edit" (click)="openItemDialog('Edit Item', item)" mdbWavesEffect><i
                         class="fal fa-edit"></i> {{'Edit Item' | translate }}</button>
-                    <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect><i
+                    <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect (click)="deleteItem(item.id);"><i
                         class="fal fa-trash-alt"></i> {{'Delete Item' | translate}}</button>
-                    <button mdbBtn rounded="true" class="waves-light btn-steps" mdbWavesEffect><i
+                    <button mdbBtn rounded="true" class="waves-light btn-steps" (click)="openItemSteps(item)" mdbWavesEffect><i
                         class="fal fa-layer-group"></i> {{'Steps' | translate}}</button></td>
                 </tr>
               </tbody>
@@ -102,3 +101,4 @@
     <!-- Course Grid End -->
   </section>
 </div>
+

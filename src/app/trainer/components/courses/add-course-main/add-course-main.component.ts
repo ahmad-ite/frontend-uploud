@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../../../_services/authentication.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -17,6 +17,8 @@ import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 import { VgAPI } from 'videogular2/compiled/core';
 import { StepChangeEvent } from 'ng-uikit-pro-standard/lib/pro/stepper/stepper.component';
+import { StepsManagementComponent } from '../steps-management/steps-management.component';
+import { CourseSummaryComponent } from '../course-summary/course-summary.component';
 
 
 
@@ -26,7 +28,7 @@ import { StepChangeEvent } from 'ng-uikit-pro-standard/lib/pro/stepper/stepper.c
   styleUrls: ['./add-course-main.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddCourseMainComponent implements OnInit {
+export class AddCourseMainComponent implements OnInit, AfterViewInit {
 
   langStyle: any;
   // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
@@ -37,7 +39,10 @@ export class AddCourseMainComponent implements OnInit {
   trainer: Trainer;
   inputTrainer: InputTrainer;
   id: any;
-
+  itemId: number;
+/*   mode: string = 'add';
+  courseId: number;
+  itemId: number; */
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
@@ -55,8 +60,23 @@ export class AddCourseMainComponent implements OnInit {
     this.langStyle = "wrapper-lang-add-course-main-" + this.app_ser.app_lang();
     this.trainer = new Trainer();
     this.inputTrainer = new InputTrainer();
+
+    /* this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
+    this.itemId = 0;
+    if(this.courseId && this.courseId !=0){
+      this.mode= 'edit';
+    } */
     this.initTrainer();
   }
+  ngAfterViewInit(): void {
+    
+  }
+
+  @ViewChild(CourseSummaryComponent, {static: false})
+  private ItemsComponent: CourseSummaryComponent;
+
+  @ViewChild(StepsManagementComponent, {static: false})
+  private StepsComponent: StepsManagementComponent;
 
   ngOnInit() {
 
@@ -420,7 +440,17 @@ export class AddCourseMainComponent implements OnInit {
 
   onStepChange(event: StepChangeEvent) {
     console.log(event);
+    if(event.activeStepIndex == 1){
+      this.ItemsComponent.initData();
+    } else if(event.activeStepIndex == 2){
+      this.StepsComponent.reloadSteps(this.itemId);
+    }
   }
+
+  /* onItemSelected(itemId){
+
+    this.itemId= itemId;
+  } */
   // showPdf(path) {
   //   var pdfModal = this.modalService.open(ViewPdfComponent, { windowClass: 'view-pdf', size: 'lg', centered: true });
   //   pdfModal.componentInstance.path = path;

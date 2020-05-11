@@ -52,16 +52,7 @@ export class AddCourseComponent implements OnInit {
     this.course.template_id = 0;
     this.course.course_category = 0;
 
-    if (this.courseId) {
-      this.title = "Edit Course";
-      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
-        data => {
-          this.course = data.row;
-          this.onChangeTemplate();
-        },
-        error => {
-        });
-    }
+    
 
     this.langStyle = "wrapper-add-course-" + this.app_ser.app_lang();
 
@@ -92,6 +83,16 @@ export class AddCourseComponent implements OnInit {
     this.categories = [];
   }
   ngOnInit() {
+    if (!!this.courseId) {
+      this.title = "Edit Course";
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
+        data => {
+          this.course = data.row;
+          this.onChangeTemplate();
+        },
+        error => {
+        });
+    }
   }
 
 }

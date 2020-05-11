@@ -1,5 +1,5 @@
 <div [ngClass]="langStyle">
-  <section id="trainerAddItem">
+  <section id="trainerAddItem" *ngIf="!!item">
     <!-- Breadcrumbs start  -->
     <!-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
@@ -10,19 +10,26 @@
       </ol>
     </nav> -->
     <!-- Breadcrumbs End  -->
-    <select class="custom-select" [(ngModel)]="itemId" (change)="onChangeItem()">
+    <!-- <select class="custom-select" [(ngModel)]="itemId" (change)="onChangeItem()">
       <option selected value="0">{{'Add Item' | translate}}</option>
       <option [value]="item.id" *ngFor="let item of items">
         {{ item.name}}
       </option>
-    </select>
+    </select> -->
 
-    <mdb-card>
-      <mdb-card-body>
+    <!-- <mdb-card>
+      <mdb-card-body> -->
         <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
-        <form class="p-2 pb-4 form-genrl" novalidate #addItemForm="ngForm">
-          <h3 class="mb-3">{{ title | translate}}</h3>
-          <div class="form-group">
+          <form class="p-2 pb-4 form-genrl" novalidate #addItemForm="ngForm">
+          <!-- Nav Tabs -->
+<mdb-tabset #staticTabs [buttonClass]="'md-tabs tabs-3'" [contentClass]="'card'">
+  <h3 class="mb-3">{{ title | translate}}</h3>
+  <!--Panel 1-->
+  <mdb-tab heading="Item">
+    <div class="row">
+      <div class="col-12">
+        
+          <div class="form-group" >
             <div class="row">
               <div class="col-md-6 label-div">
                 <label for="" class="mb-2 lbl-genrl lbl-required">{{'Item Type'| translate}}</label>
@@ -33,8 +40,8 @@
             </div>
             <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" name="type" #type="ngModel" [(ngModel)]="item.type"
               style="height: 50px;"  required>
-              <option [value]="'Exam'"> {{'Lesson' | translate}}</option>
-              <option [value]="'Lesson'"> {{'Exam' | translate}}</option>
+              <option [value]="'Lesson'"> {{'Lesson' | translate}}</option>
+              <option [value]="'Exam'"> {{'Exam' | translate}}</option>
             </select>
           </div>
           <div class="form-group">
@@ -63,7 +70,7 @@
                 media gallery' | translate}}</span></a>
           </div>
 
-          <div class="form-group" *ngIf="!!itemId">
+          <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
                 <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
@@ -88,12 +95,62 @@
               </div>
             </div>
           </div>
+      </div>
+    </div>
+  </mdb-tab>
+  <!--Panel 2-->
+  <mdb-tab heading="Settings">
+    <div class="row">
+      <div class="col-12">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="save_answers_on_move" (change)="item.settings[settingsKeys[item.type]['save_answers_on_move']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['save_answers_on_move']]">
+          <label class="custom-control-label" for="save_answers_on_move"> {{ 'save_answers_on_move' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="custom_navigating" (change)="item.settings[settingsKeys[item.type]['custom_navigating']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['custom_navigating']]">
+          <label class="custom-control-label" for="custom_navigating"> {{ 'custom_navigating' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="no_back" (change)="item.settings[settingsKeys[item.type]['no_back']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['no_back']]">
+          <label class="custom-control-label" for="no_back"> {{ 'no_back' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="no_mark" (change)="item.settings[settingsKeys[item.type]['no_mark']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['no_mark']]">
+          <label class="custom-control-label" for="no_mark"> {{ 'no_mark' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="show_correct" (change)="item.settings[settingsKeys[item.type]['show_correct']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['show_correct']]">
+          <label class="custom-control-label" for="show_correct"> {{ 'show_correct' | translate }} </label>
+        </div>
+        
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="show_result" (change)="item.settings[settingsKeys[item.type]['show_result']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['show_result']]">
+          <label class="custom-control-label" for="show_result"> {{ 'show_result' | translate }} </label>
+        </div>
+
+        <div class="md-form">
+          <input type="number" class="form-control" name="input_repeat" mdbInput [(ngModel)]="item.settings[settingsKeys[item.type]['input_repeat']]">
+          <label for="input_repeat">{{ 'input_repeat' | translate }}</label>
+        </div>
+
+      </div>
+    </div>
+  </mdb-tab>
+  <button  rounded="true" mdbBtn color="info" block="true" class="my-4" (click)="save()" type="submit" class="btn-add-course">
+    {{'Save' | translate}}</button>
+
+</mdb-tabset>
 
 
-          <button  rounded="true" mdbBtn color="info" block="true" class="my-4" (click)="save()" type="submit" class="btn-add-course">
-            {{'Save' | translate}}</button>
-        </form>
-      </mdb-card-body>
-    </mdb-card>
+         
+</form>
+      <!-- </mdb-card-body>
+    </mdb-card> -->
   </section>
 </div>
+
+
