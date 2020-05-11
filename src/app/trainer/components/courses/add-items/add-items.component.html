@@ -20,8 +20,15 @@
     <!-- <mdb-card>
       <mdb-card-body> -->
         <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
-        <form class="p-2 pb-4 form-genrl" novalidate #addItemForm="ngForm">
-          <h3 class="mb-3">{{ title | translate}}</h3>
+          <form class="p-2 pb-4 form-genrl" novalidate #addItemForm="ngForm">
+          <!-- Nav Tabs -->
+<mdb-tabset #staticTabs [buttonClass]="'md-tabs tabs-3'" [contentClass]="'card'">
+  <h3 class="mb-3">{{ title | translate}}</h3>
+  <!--Panel 1-->
+  <mdb-tab heading="Item">
+    <div class="row">
+      <div class="col-12">
+        
           <div class="form-group" >
             <div class="row">
               <div class="col-md-6 label-div">
@@ -88,12 +95,62 @@
               </div>
             </div>
           </div>
+      </div>
+    </div>
+  </mdb-tab>
+  <!--Panel 2-->
+  <mdb-tab heading="Settings">
+    <div class="row">
+      <div class="col-12">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="save_answers_on_move" (change)="item.settings[settingsKeys[item.type]['save_answers_on_move']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['save_answers_on_move']]">
+          <label class="custom-control-label" for="save_answers_on_move"> {{ 'save_answers_on_move' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="custom_navigating" (change)="item.settings[settingsKeys[item.type]['custom_navigating']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['custom_navigating']]">
+          <label class="custom-control-label" for="custom_navigating"> {{ 'custom_navigating' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="no_back" (change)="item.settings[settingsKeys[item.type]['no_back']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['no_back']]">
+          <label class="custom-control-label" for="no_back"> {{ 'no_back' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="no_mark" (change)="item.settings[settingsKeys[item.type]['no_mark']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['no_mark']]">
+          <label class="custom-control-label" for="no_mark"> {{ 'no_mark' | translate }} </label>
+        </div>
+
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="show_correct" (change)="item.settings[settingsKeys[item.type]['show_correct']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['show_correct']]">
+          <label class="custom-control-label" for="show_correct"> {{ 'show_correct' | translate }} </label>
+        </div>
+        
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" name="show_result" (change)="item.settings[settingsKeys[item.type]['show_result']] = $event ? 1 : 0" [(ngModel)]="item.settings[settingsKeys[item.type]['show_result']]">
+          <label class="custom-control-label" for="show_result"> {{ 'show_result' | translate }} </label>
+        </div>
+
+        <div class="md-form">
+          <input type="number" class="form-control" name="input_repeat" mdbInput [(ngModel)]="item.settings[settingsKeys[item.type]['input_repeat']]">
+          <label for="input_repeat">{{ 'input_repeat' | translate }}</label>
+        </div>
+
+      </div>
+    </div>
+  </mdb-tab>
+  <button  rounded="true" mdbBtn color="info" block="true" class="my-4" (click)="save()" type="submit" class="btn-add-course">
+    {{'Save' | translate}}</button>
+
+</mdb-tabset>
 
 
-         <button  rounded="true" mdbBtn color="info" block="true" class="my-4" (click)="save()" type="submit" class="btn-add-course">
-            {{'Save' | translate}}</button>
-        </form>
+         
+</form>
       <!-- </mdb-card-body>
     </mdb-card> -->
   </section>
 </div>
+
+

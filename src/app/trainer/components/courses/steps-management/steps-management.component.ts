@@ -255,7 +255,8 @@ export class StepsManagementComponent implements OnInit {
   }
 
   save() {
-    var copyStep = Object.assign({}, this.step)
+    var copyStep: any = {};
+    Object.assign(copyStep, this.step)
     if(!!copyStep.options) {
       let corr = copyStep.options.map((v,i) => {
         return {"correct": (this.correctAnswers.includes(i))};
