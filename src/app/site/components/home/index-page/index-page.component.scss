@@ -9,14 +9,16 @@ ARABIC STYLE START
   .container-custom-width {
     max-width: calc(100% - 150px) !important;
   }
-  .wrap-app-video-background{
-    img{
+
+  .wrap-app-video-background {
+    img {
       height: 900px;
-        object-fit: cover;
-        object-position: center;
+      object-fit: cover;
+      object-position: center;
 
     }
   }
+
   /* ================================== STYLES APP VIDEO START ================================== */
   .wrapper-app-video {
     position: relative;
@@ -61,6 +63,24 @@ ARABIC STYLE START
           outline: 0;
         }
       }
+    }
+  }
+
+  .wrap-kun-text {
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+
+    h1 {
+      text-shadow: 0px 2px 1px #252525;
+    }
+
+    h5 {
+      text-shadow: 0px 2px 1px #252525;
     }
   }
 
@@ -818,14 +838,15 @@ ARABIC STYLE START
     //   }
 
     // }
-    .wrap-app-video-background{
-      img{
+    .wrap-app-video-background {
+      img {
         height: 550px;
-          object-fit: cover;
-          object-position: center;
-  
+        object-fit: cover;
+        object-position: center;
+
       }
     }
+
     .wrapper-app-video {
       vg-player {
         video {
@@ -923,6 +944,26 @@ ARABIC STYLE START
           padding: 20px !important;
         }
 
+      }
+    }
+
+    .wrap-kun-text {
+      position: absolute;
+      top: 345px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      color: white;
+      text-align: center;
+
+      h1 {
+        text-shadow: 0px 2px 1px #252525;
+        font-size: 30px
+      }
+
+      h5 {
+        text-shadow: 0px 2px 1px #252525;
+        font-size: 16px;
       }
     }
 
@@ -1075,18 +1116,29 @@ ARABIC STYLE START
 
   /* Large devices (desktops, 992px and up) */
   @media (min-width: 992px) and (max-width: 1499px) {
+    .wrapper-app-video {
+      vg-player {
+        vg-overlay-play.video-big-play-icon {
+          .vg-icon-play_arrow:before {
+            margin-top: 150px;
+          }
+        }
+      }
+    }
 
     .container-custom-width-video {
       max-width: 800px !important;
     }
-    .wrap-app-video-background{
-      img{
+
+    .wrap-app-video-background {
+      img {
         height: 750px;
-          object-fit: cover;
-          object-position: center;
-  
+        object-fit: cover;
+        object-position: center;
+
       }
     }
+
     .wrapper-app-video {
       vg-player {
         video {
@@ -1265,14 +1317,15 @@ ARABIC STYLE START
   }
 
   /* ================================== STYLES APP VIDEO START ================================== */
-  .wrap-app-video-background{
-    img{
+  .wrap-app-video-background {
+    img {
       height: 900px;
-        object-fit: cover;
-        object-position: center;
+      object-fit: cover;
+      object-position: center;
 
     }
   }
+
   .wrapper-app-video {
     position: relative;
     background: #0c1c23;
@@ -1300,7 +1353,7 @@ ARABIC STYLE START
           cursor: pointer;
         }
       }
-      
+
       video {
         height: 900px;
         object-fit: cover;
@@ -1315,6 +1368,24 @@ ARABIC STYLE START
           outline: 0;
         }
       }
+    }
+  }
+
+  .wrap-kun-text {
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+
+    h1 {
+      text-shadow: 0px 2px 1px #252525;
+    }
+
+    h5 {
+      text-shadow: 0px 2px 1px #252525;
     }
   }
 
@@ -2182,6 +2253,26 @@ ARABIC STYLE START
       }
     }
 
+    .wrap-kun-text {
+      position: absolute;
+      top: 345px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      color: white;
+      text-align: center;
+
+      h1 {
+        text-shadow: 0px 2px 1px #252525;
+        font-size: 30px;
+      }
+
+      h5 {
+        text-shadow: 0px 2px 1px #252525;
+        font-size: 16px;
+      }
+    }
+
   }
 
   /* Small devices (landscape phones, 576px and up) */
@@ -2228,18 +2319,29 @@ ARABIC STYLE START
 
   /* Large devices (desktops, 992px and up) */
   @media (min-width: 992px) and (max-width: 1499px) {
+    .wrapper-app-video {
+      vg-player {
+        vg-overlay-play.video-big-play-icon {
+          .vg-icon-play_arrow:before {
+            margin-top: 150px;
+          }
+        }
+      }
+    }
 
     .container-custom-width-video {
       max-width: 800px !important;
     }
-    .wrap-app-video-background{
-      img{
+
+    .wrap-app-video-background {
+      img {
         height: 750px;
-          object-fit: cover;
-          object-position: center;
-  
+        object-fit: cover;
+        object-position: center;
+
       }
     }
+
     .wrapper-app-video {
       vg-player {
         video {

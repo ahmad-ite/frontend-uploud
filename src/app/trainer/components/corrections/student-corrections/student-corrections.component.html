@@ -1,10 +1,11 @@
 <div [ngClass]="langStyle">
-  <section id="trainerCourses" style="margin-top:80px">
+  <section id="trainerCourses">
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> Home</a></li>
-        <li class="breadcrumb-item active">Courses</li>
+        <li class="breadcrumb-item"><a routerLink="/trainer"><i class="fal fa-home-lg-alt"></i>
+            {{'Home' | translate}}</a></li>
+        <li class="breadcrumb-item active">{{'Corrections' | translate}}</li>
       </ol>
     </nav>
     <!-- Breadcrumbs End  -->
@@ -23,8 +24,7 @@
               <thead>
                 <tr>
                   <th class="th-lg">
-                    <a>#
-                    </a>
+                    <a># </a>
                   </th>
                   <th class="th-lg">
                     <a (click)="sortBy('type')"> {{'Type'|translate}} <i class="far fa-sort-circle"></i>
@@ -35,11 +35,11 @@
                     </a>
                   </th>
                   <th class="th-lg">
-                    <a (click)="sortBy('question')"> {{'Question'|translate}}<i class="far fa-sort-circle"></i>
+                    <a (click)="sortBy('question')"> {{'Question'|translate}} <i class="far fa-sort-circle"></i>
                     </a>
                   </th>
                   <th class="th-lg">
-                    <a (click)="sortBy('mark')"> {{'Mark'|translate}}<i class="far fa-sort-circle"></i>
+                    <a (click)="sortBy('mark')"> {{'Mark'|translate}} <i class="far fa-sort-circle"></i>
                     </a>
                   </th>
                 </tr>
@@ -63,7 +63,8 @@
           <hr class="my-0" />
           <!-- Pagination Start -->
           <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-            <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+            <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"
+              style="display: block;margin: 25px auto;"></jw-pagination>
           </div>
           <!-- Pagination End -->
         </div>

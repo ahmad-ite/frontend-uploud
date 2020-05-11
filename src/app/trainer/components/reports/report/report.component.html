@@ -1,9 +1,5 @@
 <div [ngClass]="langStyle">
-  <div class="loader" *ngIf="loadGifLoader">
-    <img src="../../../../assets/images/spiner.gif" alt=""
-      style="width: 100px;height: auto;display: block;margin: 100px auto;">
-  </div>
-  <section style="margin-top:80px">
+  <section>
     <!-- Breadcrumbs start  -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb custom-breadcrumb">
@@ -76,6 +72,18 @@
               <!--Table head-->
               <!--Table body-->
               <tbody>
+                <tr *ngIf="!reportData.length">
+                  <td colspan="8">
+                    <div class="loader" *ngIf="loadGifLoader">
+                      <img src="../../../../assets/images/spiner.gif" alt=""
+                        style="width: 100px;height: auto;display: block;margin: 100px auto;">
+                    </div>
+                    <div class="wrap-no-course-found" style="width:100%;margin: 50px 0;">
+                      <div class="alert alert-danger mb-0" role="alert">
+                        <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+                    </div>
+                  </td>
+                </tr>
                 <!-- <tr *ngFor="let trainerCourse of mycourses;let i =index" class="tr-hover"
                   (click)="students(trainerCourse.id)"> -->
                 <tr class="tr-hover" *ngFor="let report of reportData; let i=index">
@@ -98,21 +106,15 @@
             <!--Table-->
           </div>
           <hr class="my-0" />
-
         </div>
       </mdb-card>
-
     </div>
     <!-- Course Grid End -->
   </section>
   <!-- Pagination Start -->
   <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
-    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
+    <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block; margin: 25px auto">
+    </jw-pagination>
   </div>
   <!-- Pagination End -->
-
-  <div class="wrap-no-course-found" *ngIf="!reportData.length " style="width:100%;margin-top: 290px;">
-    <div class="alert alert-danger mb-0" role="alert">
-      <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
-  </div>
 </div>
