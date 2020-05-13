@@ -1,8 +1,8 @@
 <div [ngClass]="langStyle">
-  <div class="loader" *ngIf="loadGifLoader">
+  <!-- <div class="loader" *ngIf="loadGifLoader">
     <img src="../../../../assets/images/spiner.gif" alt=""
       style="width: 100px;height: auto;display: block;margin: 100px auto;">
-  </div>
+  </div> -->
   <section id="trainerCourses">
     <!-- Breadcrumbs start  -->
     <!-- <nav aria-label="breadcrumb">
@@ -84,6 +84,18 @@
               <!--Table head-->
               <!--Table body-->
               <tbody>
+                <tr *ngIf="!mycourses.length">
+                  <td colspan="8">
+                    <div class="loader" *ngIf="loadGifLoader">
+                      <img src="../../../../../assets/images/spiner.gif" alt=""
+                        style="width: 100px;height: auto;display: block;margin: 100px auto;">
+                    </div>
+                    <div *ngIf="!noData" class="wrap-no-course-found" style="width:100%;margin: 50px;">
+                      <div class="alert alert-danger mb-0" role="alert">
+                        <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
+                    </div>
+                  </td>
+                </tr>
                 <tr *ngFor="let trainerCourse of mycourses ;let i =index">
                   <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
                   <!-- routerLink="/trainer/courses/{{trainerCourse.id}}" -->
@@ -126,10 +138,10 @@
     <!-- <div class="d-flex justify-content-between wrapper-pagination">
       <jw-pagination [pager]="pager" (changePage)="onChangePage($event)"></jw-pagination>
     </div> -->
-    <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
+    <!-- <div class="wrap-no-course-found" *ngIf="!mycourses.length && noData" style="width:100%;margin-top: 290px;">
       <div class="alert alert-danger mb-0" role="alert">
         <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
-    </div>
+    </div> -->
   </section>
   <div *ngIf="pager.show" class="d-flex justify-content-between wrapper-pagination">
     <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block;margin: 25px auto;">

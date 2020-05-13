@@ -39,9 +39,10 @@ import { DashboardComponent } from './components/main/dashboard/dashboard.compon
 import { ReportComponent } from './components/reports/report/report.component';
 import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
 
-import { UploadMediaComponent } from './components/courses/upload-media/upload-media.component';
+import { UploadMediaComponent } from './components/media/upload-media/upload-media.component';
 
 import { OrderByPipe } from '../_pipes/order-by.pipe';
+import { ShowGalleryComponent } from './components/media/show-gallery/show-gallery.component';
 
 // import { CourseLoaderComponent } from '../components/utils/course-loader/course-loader.component';
 
@@ -86,7 +87,9 @@ import { OrderByPipe } from '../_pipes/order-by.pipe';
 
     UploadMediaComponent,
 
-    OrderByPipe
+    OrderByPipe,
+
+    ShowGalleryComponent
 
 
 
