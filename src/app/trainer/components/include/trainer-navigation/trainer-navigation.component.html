@@ -415,6 +415,14 @@
             </mdb-item>
             <mdb-item class="no-collase">
               <mdb-item-head mdbWavesEffect>
+                <!-- <mdb-icon far icon="bell" class="mr-1"></mdb-icon> Courses -->
+                <a routerLink="/trainer/view-gallery" class="waves-effect" mdbWavesEffect>
+                  <i class="fal fa-photo-video icon-genrl-style"></i> {{'View Media Gallery' | translate}} </a>
+              </mdb-item-head>
+              <mdb-item-body></mdb-item-body>
+            </mdb-item>
+            <mdb-item class="no-collase">
+              <mdb-item-head mdbWavesEffect>
                 <a (click)="logout()" class="waves-effect" mdbWavesEffect>
                   <i class="fal fa-sign-out-alt icon-genrl-style"></i> {{'Logout' | translate}} </a>
               </mdb-item-head>

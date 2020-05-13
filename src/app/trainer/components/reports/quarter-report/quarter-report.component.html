@@ -74,7 +74,11 @@
               <tbody>
                 <tr *ngIf="!quarterReport.length">
                   <td colspan="7">
-                    <div class="wrap-no-course-found" style="width:100%;margin: 50px 0;">
+                    <div class="loader" *ngIf="loadGifLoader">
+                      <img src="../../../../assets/images/spiner.gif" alt=""
+                        style="width: 100px;height: auto;display: block;margin: 100px auto;">
+                    </div>
+                    <div *ngIf="!noData" class="wrap-no-course-found" style="width:100%;margin: 50px 0;">
                       <div class="alert alert-danger mb-0" role="alert">
                         <i class="fal fa-exclamation-triangle"></i> {{'dataNotFound' | translate}} </div>
                     </div>

@@ -20,7 +20,8 @@ import { ReportComponent } from './components/reports/report/report.component';
 import { QuarterReportComponent } from './components/reports/quarter-report/quarter-report.component';
 import { TrainerProfileSetupComponent } from '../shared/components/trainer/trainer-profile-setup/trainer-profile-setup.component';
 import { TrainerProfileComponent } from '../shared/components/trainer/trainer-profile/trainer-profile.component';
-import { UploadMediaComponent } from './components/courses/upload-media/upload-media.component';
+import { UploadMediaComponent } from './components/media/upload-media/upload-media.component';
+import { ShowGalleryComponent } from './components/media/show-gallery/show-gallery.component';
 
 const routesold: Routes = [
   {
@@ -60,6 +61,10 @@ const routesold: Routes = [
       {  
         path: 'upload-media',
         component: UploadMediaComponent
+      },
+      {  
+        path: 'view-gallery',
+        component: ShowGalleryComponent
       },
 
       {
@@ -181,6 +186,10 @@ const routes: Routes = [
       {  
         path: 'upload-media',
         component: UploadMediaComponent
+      },
+      {  
+        path: 'view-gallery',
+        component: ShowGalleryComponent
       },
 
       ///
