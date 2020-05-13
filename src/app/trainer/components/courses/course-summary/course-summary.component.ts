@@ -36,24 +36,24 @@ export class CourseSummaryComponent implements OnInit {
     this.courseItems = []; */
     this.langStyle = "wrapper-trainer-course-summary-" + this.app_ser.app_lang();
     this.id = this.route.snapshot.params['courseId'];
-    
+
   }
   shadows: boolean = true;
 
   initData() {
     this.courseInfo = new CourseView();
     this.courseItems = [];
-    if(!! this.id) {
+    if (!!this.id) {
       this.app_ser.post("site_feed/TrainerCourse/view/" + this.id, {}).subscribe(
         data => {
           this.courseInfo = data.row;
           this.courseItems = data.items;
-  
+
         },
         error => {
         });
     }
-    
+
   }
 
   ngOnInit() {
@@ -64,19 +64,19 @@ export class CourseSummaryComponent implements OnInit {
 
   }
 
-  async openItemDialog(title, item){
+  async openItemDialog(title, item = null) {
     console.log(item);
 
     var itemModal = this.modalService.open(AddItemsComponent, { windowClass: 'itemPopupModal', size: 'lg', centered: true, backdrop: true });
     let copyItem = new Item();
-    if(!item) {      
+    if (!item) {
       copyItem.course = this.id;
     } else {
       copyItem = JSON.parse(JSON.stringify(item))
       copyItem.settings = JSON.parse(item.settings)
       for (const key in copyItem.settings) {
         if (copyItem.settings.hasOwnProperty(key)) {
-          copyItem.settings[key] = parseInt(copyItem.settings[key]);        
+          copyItem.settings[key] = parseInt(copyItem.settings[key]);
         }
       };
     }
@@ -84,23 +84,23 @@ export class CourseSummaryComponent implements OnInit {
     itemModal.componentInstance.title = title;
 
     return await itemModal.result.then((result) => {
-     console.log(result);
-     //var copyResult = Object.assign({}, result);
-     //let copyResult = JSON.parse(JSON.stringify(result))
-     for (const key in result.settings) {
-       if (result.settings.hasOwnProperty(key)) {
-        result['settings]['+key] = result.settings[key];
-       }
-     }
-     delete result.settings;
-     this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
-      data => {
-        // this.router.navigate(["/trainer/courses/list"]);
-        // this.stepper.next();
-       // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-       this.toastr.success("Item: "+ result.name + ", added succesfully", "Cool!");
-       this.initData();
-      });
+      console.log(result);
+      //var copyResult = Object.assign({}, result);
+      //let copyResult = JSON.parse(JSON.stringify(result))
+      // for (const key in result.settings) {
+      //   if (result.settings.hasOwnProperty(key)) {
+      //     result['settings][' + key] = result.settings[key];
+      //   }
+      // }
+      delete result.settings;
+      this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
+        data => {
+          // this.router.navigate(["/trainer/courses/list"]);
+          // this.stepper.next();
+          // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+          this.toastr.success("Item: " + result.name + ", added succesfully", "Cool!");
+          this.initData();
+        });
 
       return result;
     }, (reason) => {
@@ -109,8 +109,8 @@ export class CourseSummaryComponent implements OnInit {
 
   }
 
-  
-  openItemSteps(item){
+
+  openItemSteps(item) {
     //this.router.navigate(["/trainer/courses/" + this.id + "/items/" + item.id + "/edit"]);
     //this.itemId= item.id;
     this.onItemSteps.emit(item.id);
@@ -126,9 +126,9 @@ export class CourseSummaryComponent implements OnInit {
             data => {
               // this.router.navigate(["/trainer/courses/list"]);
               // this.stepper.next();
-             // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-             this.toastr.success("Item: deleted succesfully", "Cool!");
-             this.initData();
+              // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+              this.toastr.success("Item: deleted succesfully", "Cool!");
+              this.initData();
             });
         }
       })
@@ -137,21 +137,21 @@ export class CourseSummaryComponent implements OnInit {
       });
   }
 
-  reArrangeItem(item, newArrange){
+  reArrangeItem(item, newArrange) {
     console.log(item, newArrange);
-    if (newArrange>0 && newArrange<=this.courseItems.length) {
-      this.app_ser.post("site_feed/TrainerCourse/re_arrange_item/" + item.id+ "/" + newArrange, {}).subscribe(
+    if (newArrange > 0 && newArrange <= this.courseItems.length) {
+      this.app_ser.post("site_feed/TrainerCourse/re_arrange_item/" + item.id + "/" + newArrange, {}).subscribe(
         data => {
           // this.router.navigate(["/trainer/courses/list"]);
           // this.stepper.next();
-         // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-         //this.toastr.success("Item: deleted succesfully", "Cool!");
-         item.arrange = newArrange;
-         //this.initData();
+          // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+          //this.toastr.success("Item: deleted succesfully", "Cool!");
+          item.arrange = newArrange;
+          //this.initData();
         });
     }
 
-    
+
   }
 
 

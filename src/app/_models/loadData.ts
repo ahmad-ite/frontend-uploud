@@ -415,6 +415,7 @@ export class Item {
   type: string;
   status: number;
   passMark: number;
+  pass_mark: number;
   last_approved: string;
   settings: Settings;
   is_basic: number;
@@ -798,8 +799,8 @@ export class InternalPayment {
 }
 export class StreamConfig {
   API_KEY: any = "46715742";
-  SESSION_ID: any;
-  TOKEN: any;
+  SESSION_ID: any = "1_MX40NjcxNTc0Mn5-MTU4ODY3NDMyODkwMn5tRkFpazBJc2I3ODVsYmc1UkJ6TGZOVkt-QX4";
+  TOKEN: any = "T1==cGFydG5lcl9pZD00NjcxNTc0MiZzaWc9NTUzM2IyMmYwZTBiMjFjMzg3NDNhOTUxODk3M2IwOGUwZjI5ZGNkZTpzZXNzaW9uX2lkPTFfTVg0ME5qY3hOVGMwTW41LU1UVTRPRFkzTkRNeU9Ea3dNbjV0UmtGcGF6QkpjMkkzT0RWc1ltYzFVa0o2VEdaT1ZrdC1RWDQmY3JlYXRlX3RpbWU9MTU4ODY3NDMzMCZyb2xlPW1vZGVyYXRvciZub25jZT0xNTg4Njc0MzMwLjAzMjg4Mjc3NTU2NjMmZXhwaXJlX3RpbWU9MTU4OTI3OTEzMCZjb25uZWN0aW9uX2RhdGE9bmFtZSUzREpvaG5ueSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PWZvY3Vz";
   SAMPLE_SERVER_BASE_URL: 'http://kun.academy';
 
 

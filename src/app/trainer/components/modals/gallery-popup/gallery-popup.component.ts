@@ -29,7 +29,9 @@ export class GalleryPopupComponent implements OnInit {
   activeSecondryTab: string = 'ar';
   langStyle: any;
   @Input() currentCourse: number = 0;
-  @Input() activeTab: string = 'image';
+  @Input() activeTab: string;
+  @Input() mode: string;
+  @Input() lang: string;
 
   constructor(
     public app_ser: AppService,
@@ -44,12 +46,15 @@ export class GalleryPopupComponent implements OnInit {
     private location: Location,
   ) {
     // this.activeTab = "dubbing";
-    this.trainerContent = [];
-    this.loadPage(1);
-    this.langStyle = "wrapper-trainer-gallery-popup-" + this.app_ser.app_lang();
+
   }
 
   ngOnInit() {
+    this.trainerContent = [];
+    if (this.lang)
+      this.activeSecondryTab = this.lang;
+    this.loadPage(1);
+    this.langStyle = "wrapper-trainer-gallery-popup-" + this.app_ser.app_lang();
   }
   public files: NgxFileDropEntry[] = [];
 
@@ -145,4 +150,11 @@ export class GalleryPopupComponent implements OnInit {
     this.loadPage(1);
   }
 
+  view(element) {
+
+  }
+  select(element) {
+    this.activeModal.close(element)
+
+  }
 }

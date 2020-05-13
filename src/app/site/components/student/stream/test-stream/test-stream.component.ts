@@ -48,7 +48,31 @@ export class TestStreamComponent implements OnInit {
     this.sessionID = '2_MX40NjcxNTc0Mn5-MTU4OTA5MjA4MjI5OH50eG16SFdNSW5SYUVXRWxicTFpZTFuazJ-QX4';
     this.streamConfig = new StreamConfig();
 
-    this.streamConfig.SESSION_ID = this.sessionID;
+    // this.streamConfig.SESSION_ID = this.sessionID;
+    // this.streamConfig.TOKEN = ;
+    this.opentokService.initSessionData(this.streamConfig).then((session: OT.Session) => {
+      this.session = session;
+      this.session.on('streamCreated', (event) => {
+        this.streams.push(event.stream);
+        this.changeDetectorRef.detectChanges();
+      });
+      this.session.on('streamDestroyed', (event) => {
+        const idx = this.streams.indexOf(event.stream);
+        if (idx > -1) {
+          this.streams.splice(idx, 1);
+          this.changeDetectorRef.detectChanges();
+        }
+      });
+    })
+      .then(() => this.opentokService.connect())
+      .catch((err) => {
+        console.error(err);
+        alert('Unable to connect. Make sure you have updated the config.ts file with your OpenTok details.');
+      });
+
+    return
+
+
     this.app_ser.post("site_feed/Stream/generate_token/" + this.sessionID, {}).subscribe(
       data => {
 

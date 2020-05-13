@@ -1,4 +1,7 @@
 <div [ngClass]="langStyle">
+  <div class="col-2 wrap-cross-icon">
+    <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+  </div>
   <div id="galleryPopupModal">
     <div class="row">
       <div class="col-md-12">
@@ -41,7 +44,11 @@
                         <!-- <img src="../../../../assets/images/course-default.jpg" alt="" class="img-fluid img-thumbnail"> -->
                         <img [src]="app_ser.img_url(uploadImage.uuid)" alt=""
                           class="img-fluid img-thumbnail img-hover-cursor">
+                        <a class="text-center file-name-image" (click)="view(uploadImage)">{{'View' | translate }}</a>
+                        <a class="text-center file-name-image"
+                          (click)="select(uploadImage)">{{'Select' | translate }}</a>
                         <a class="text-center file-name-image">{{uploadImage.file_name}}</a>
+
                       </div>
                     </div>
                   </div>

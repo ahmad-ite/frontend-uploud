@@ -62,3 +62,11 @@ import 'hammerjs';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// IMPORTANT! These are required for OpenTok to work
+// rtc peer connection patch
+import 'zone.js/dist/webapis-rtc-peer-connection';
+// getUserMedia patch
+import 'zone.js/dist/zone-patch-user-media.js';
+
+(window as any).global = window;
+(window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;

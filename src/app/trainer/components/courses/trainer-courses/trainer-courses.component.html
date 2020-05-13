@@ -86,7 +86,8 @@
               <tbody>
                 <tr *ngFor="let trainerCourse of mycourses ;let i =index">
                   <td>{{(pager.pageSize* (pager.currentPage-1)) +i+1  }}</td>
-                  <td routerLink="/trainer/courses/{{trainerCourse.id}}"
+                  <!-- routerLink="/trainer/courses/{{trainerCourse.id}}" -->
+                  <td routerLink="/trainer/courses/{{trainerCourse.id}}/edit"
                     style="color: #00b5a9;cursor:pointer;text-decoration: underline;font-weight: bold;outline: 0;">
                     {{trainerCourse.name}} </td>
                   <td>{{trainerCourse.code}}</td>

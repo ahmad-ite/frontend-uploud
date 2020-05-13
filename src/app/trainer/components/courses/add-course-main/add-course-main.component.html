@@ -1,4 +1,4 @@
-<div *ngIf="trainer.name" [ngClass]="langStyle" style="margin-top: 60px;">
+<div [ngClass]="langStyle" style="margin-top: 60px;">
   <div class="row mb-4">
     <div class="col-md-12">
       <h3 class="text-center mt-5 hdng-gradient">{{ 'Add new course' | translate }}</h3>
@@ -11,15 +11,15 @@
           <!-- <app-trainer-courses></app-trainer-courses> -->
           <app-add-course #course></app-add-course>
           <!-- BUTTONS CONTINUE AND BACK START -->
-          <div class="wrap-next-and-prev-buttons">
+          <!-- <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
               class="btn-genrl btn-continue">{{ 'next'| translate }} <i class="far fa-long-arrow-right"></i></button>
-          </div>
+          </div> -->
           <!-- BUTTONS CONTINUE AND BACK END -->
         </mdb-step>
         <!-- =============================== STEP 1 - STEP BASIC INFO END =============================== -->
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS START =============================== -->
-        <mdb-step  name="2- {{ 'Course-Items' | translate }}" class="step2">
+        <mdb-step name="2- {{ 'Course-Items' | translate }}" class="step2">
           <!-- <app-course-summary></app-course-summary> -->
           <!-- <app-add-items></app-add-items> -->
           <app-course-summary (onItemSteps)="itemId=$event; stepper.next()"></app-course-summary>
@@ -27,14 +27,14 @@
           <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()" class="btn-genrl btn-back"><i
                 class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
-           <!--  <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
+            <!--  <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
               class="btn-genrl btn-continue">{{ 'next'| translate }} <i class="far fa-long-arrow-right"></i></button> -->
           </div>
           <!-- BUTTONS CONTINUE AND BACK END -->
         </mdb-step>
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS END =============================== -->
         <!-- =============================== STEP 3 - STEP BANK DETAILS START =============================== -->
-        <mdb-step  name="3- {{ 'Item-Steps'| translate }}" class="step3">
+        <mdb-step name="3- {{ 'Item-Steps'| translate }}" class="step3">
           <app-steps-management [courseId]="course.courseId"></app-steps-management>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <div class="wrap-next-and-prev-buttons">

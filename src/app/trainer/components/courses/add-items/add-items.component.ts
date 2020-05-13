@@ -29,7 +29,7 @@ export class AddItemsComponent implements OnInit {
   //items: any[];
   shadows: boolean = true;
   @Input() title: string;
-  settingsKeys={
+  settingsKeys = {
     'Exam': {
       'save_answers_on_move': 'save_answers_on_move',
       'custom_navigating': 'exam_custom_navigating',
@@ -68,7 +68,7 @@ export class AddItemsComponent implements OnInit {
       this.item = new Item();
     } */
 
-    
+
   }
 
   ngOnInit() {
@@ -116,7 +116,15 @@ export class AddItemsComponent implements OnInit {
       }
     }
   }
+  selectImg() {
+    this.app_ser.openGalleryPopup(0, "image", "select").then(res => {
+      if (res) {
 
+        this.item.image = res.uuid;
+      }
+
+    })
+  }
   public fileOver(event) {
   }
 
@@ -154,8 +162,8 @@ export class AddItemsComponent implements OnInit {
     }
   } */
 
-  save() {    
-      this.activeModal.close(this.item);
+  save() {
+    this.activeModal.close(this.item);
   }
-  
+
 }

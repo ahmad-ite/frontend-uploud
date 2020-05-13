@@ -39,20 +39,23 @@ export class AddCourseComponent implements OnInit {
     this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
     this.title = "Add Course";
     this.course = new Course();
-    // this.app_ser.post("site_feed/TrainerCourse/templates_with_all_categories", {}).subscribe(
-    //   data => {
-    //     this.templates = data.rows;
-    //   },
-    //   error => {
-    //   });
-    if(this.globals.templates) {
+
+    if (this.globals.templates) {
       this.templates = this.globals.templates;
+    }
+    else {
+      this.app_ser.post("site_feed/TrainerCourse/templates_with_all_categories", {}).subscribe(
+        data => {
+          this.templates = data.rows;
+        },
+        error => {
+        });
     }
 
     this.course.template_id = 0;
     this.course.course_category = 0;
 
-    
+
 
     this.langStyle = "wrapper-add-course-" + this.app_ser.app_lang();
 
@@ -83,7 +86,10 @@ export class AddCourseComponent implements OnInit {
     this.categories = [];
   }
   ngOnInit() {
-    if (!!this.courseId) {
+    this.initCourse();
+  }
+  initCourse() {
+    if (this.courseId) {
       this.title = "Edit Course";
       this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
         data => {

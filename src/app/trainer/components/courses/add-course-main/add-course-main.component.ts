@@ -31,8 +31,7 @@ import { CourseSummaryComponent } from '../course-summary/course-summary.compone
 export class AddCourseMainComponent implements OnInit, AfterViewInit {
 
   langStyle: any;
-  // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
-  // @ViewChild('recaptcha', { static: true }) recaptchaElement: ElementRef;
+
   user: Trainer;
   signUpForm: FormGroup;
   templateChecked: any;
@@ -40,9 +39,10 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   inputTrainer: InputTrainer;
   id: any;
   itemId: number;
-/*   mode: string = 'add';
-  courseId: number;
-  itemId: number; */
+  courseId: number = 0;
+  /*   mode: string = 'add';
+    courseId: number;
+    itemId: number; */
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
@@ -58,24 +58,20 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
     public activeModal: NgbActiveModal
   ) {
     this.langStyle = "wrapper-lang-add-course-main-" + this.app_ser.app_lang();
-    this.trainer = new Trainer();
-    this.inputTrainer = new InputTrainer();
 
-    /* this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
-    this.itemId = 0;
-    if(this.courseId && this.courseId !=0){
-      this.mode= 'edit';
-    } */
-    this.initTrainer();
+
+    this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
+
+
   }
   ngAfterViewInit(): void {
-    
+
   }
 
-  @ViewChild(CourseSummaryComponent, {static: false})
+  @ViewChild(CourseSummaryComponent, { static: false })
   private ItemsComponent: CourseSummaryComponent;
 
-  @ViewChild(StepsManagementComponent, {static: false})
+  @ViewChild(StepsManagementComponent, { static: false })
   private StepsComponent: StepsManagementComponent;
 
   ngOnInit() {
@@ -87,81 +83,19 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
 
 
   }
-  // init trainer =
 
 
-  initTrainer() {
-
-    this.id = this.route.snapshot.params['id'];
-    this.app_ser.post("site_feed/Account/view/" + this.id, {}).subscribe(
-      data => {
-
-        this.trainer = data.user;
-        if (!this.trainer.lang) {
-          this.trainer.lang = "ar";
-        }
-        if (!this.trainer.residence) {
-          this.trainer.residence = 971;
-        }
-        if (!this.trainer.nationality) {
-          this.trainer.nationality = 971;
-        }
-
-        if (!this.trainer.demonstration_video) {
-          this.trainer.demonstration_video = new TrainerDoc();
-        }
-        if (!this.trainer.training_video) {
-          this.trainer.training_video = new TrainerDoc();
-        }
-        if (!this.trainer.trainer_signature) {
-          this.trainer.trainer_signature = new TrainerDoc();
-        }
-        if (!this.trainer.cv) {
-          this.trainer.cv = new TrainerDoc();
-        }
-        if (!this.trainer.bank_details) {
-          this.trainer.bank_details = new Details();
-        }
-      },
-      error => {
 
 
-      });
-  }
 
-  // addRecaptchaScript() {
-
-  //   window['grecaptchaCallback'] = () => {
-  //     this.renderReCaptcha();
-  //   }
-
-  //   (function (d, s, id, obj) {
-  //     var js, fjs = d.getElementsByTagName(s)[0];
-  //     if (d.getElementById(id)) { obj.renderReCaptcha(); return; }
-  //     js = d.createElement(s); js.id = id;
-  //     js.src = "https://www.google.com/recaptcha/api.js?onload=grecaptchaCallback&amp;render=explicit";
-  //     fjs.parentNode.insertBefore(js, fjs);
-  //   }(document, 'script', 'recaptcha-jssdk', this));
-
-  // }
-  // renderReCaptcha() {
-  //   window['grecaptcha'].render(this.recaptchaElement.nativeElement, {
-  //     'sitekey': '6LfkxsoUAAAAAHozOpy65WelxOmpSwCRG7WWL4ua',
-  //     'callback': (response) => {
-  //       this.trainer.captcha = response;
-  //     }
-  //   });
-  // }
   onPlayerReady(api: VgAPI) {
 
   }
   approve() {
 
+    return
 
-    this.updateTrainerProfile("basic_info");
-    this.updateTrainerProfile("experince");
-    this.updateTrainerProfile("bank");
-    this.app_ser.post("site_feed/account/ask_approve/" + this.trainer.id, {}).subscribe(
+    this.app_ser.post("site_feed/TrainerCourse/ask_approve/" + this.trainer.id, {}).subscribe(
       data => {
 
         this.router.navigate(['/profile/' + this.trainer.id + "/" + this.app_ser.urlString(this.trainer.name)]);
@@ -305,7 +239,7 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
                       break;
                   }
 
-                  
+
 
 
 
@@ -339,110 +273,23 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  updateTrainerProfile(mode = "basic_info") {
-    this.initInputData(mode);
-    this.app_ser.post("site_feed/account/save", { data: this.inputTrainer }).subscribe(
-      data => {
-
-
-      });
-  }
-
-  canSave(mode = "basic_info") {
-    switch (mode) {
-      case "basic_info":
-        return this.trainer.name && this.trainer.phone && this.trainer.nationality && this.trainer.lang && this.trainer.gender
-        break
-
-      case "experince":
-        if (this.trainer.demonstration_video.doc) {
-          this.inputTrainer.demonstration_video = this.trainer.demonstration_video.doc
-        }
-        if (this.trainer.demonstration_video.doc) {
-          this.inputTrainer.demonstration_video = this.trainer.training_video.doc
-        }
-        if (this.trainer.training_video.doc) {
-          this.inputTrainer.training_video = this.trainer.training_video.doc
-        }
-        if (this.trainer.trainer_signature.doc) {
-          this.inputTrainer.trainer_signature = this.trainer.trainer_signature.doc
-        }
-
-        break
-    }
-    return false;
-  }
-
-  initInputData(mode = "basic_info") {
-
-    this.inputTrainer = new InputTrainer();
-    switch (mode) {
-      case "basic_info":
-
-
-        this.inputTrainer.name = this.trainer.name;
-
-        this.inputTrainer.image = this.trainer.image;
-
-        this.inputTrainer.phone = this.trainer.phone;
-        this.inputTrainer.address = this.trainer.address;
-        this.inputTrainer.nationality = this.trainer.nationality;
-        this.inputTrainer.residence = this.trainer.residence;
-        this.inputTrainer.lang = this.trainer.lang;
-        this.inputTrainer.gender = this.trainer.gender;
-
-        break
-
-      case "experince":
-        this.inputTrainer.foundation = this.trainer.foundation;
-        this.inputTrainer.position = this.trainer.position;
-        this.inputTrainer.description = this.trainer.description;
-        this.inputTrainer.experience = this.trainer.experience;
-
-        if (this.trainer.demonstration_video.doc) {
-          this.inputTrainer.demonstration_video = this.trainer.demonstration_video.doc
-        }
-        if (this.trainer.training_video.doc) {
-          this.inputTrainer.training_video = this.trainer.training_video.doc
-        }
-        if (this.trainer.cv.doc) {
-          this.inputTrainer.cv = this.trainer.cv.doc
-        }
-        if (this.trainer.trainer_signature.doc) {
-          this.inputTrainer.trainer_signature = this.trainer.trainer_signature.doc
-        }
-        break
-
-      case "bank":
-        this.inputTrainer.account_number = this.trainer.bank_details.account_number;
-        this.inputTrainer.bank = this.trainer.bank_details.bank;
-        this.inputTrainer.iban = this.trainer.bank_details.iban;
-        this.inputTrainer.swift_code = this.trainer.bank_details.swift_code;
-
-        break
-    }
 
 
 
 
-
-
-
-
-  }
   public fileOver(event) {
-    
+
   }
 
   public fileLeave(event) {
-    
+
   }
 
   onStepChange(event: StepChangeEvent) {
     console.log(event);
-    if(event.activeStepIndex == 1){
+    if (event.activeStepIndex == 1) {
       this.ItemsComponent.initData();
-    } else if(event.activeStepIndex == 2){
+    } else if (event.activeStepIndex == 2) {
       this.StepsComponent.reloadSteps(this.itemId);
     }
   }
