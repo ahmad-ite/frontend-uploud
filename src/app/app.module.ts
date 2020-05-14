@@ -126,6 +126,7 @@ import { EmailAuthenticationComponent } from './site/components/modals/email-aut
 import { UpdateProfileComponent } from './site/components/student/update-profile/update-profile.component';
 import { PaymentGatewayComponent } from './site/components/modals/payment-gateway/payment-gateway.component';
 import { InvoiceComponent } from './site/components/student/invoice/invoice.component';
+import { GalleryItemPreviewComponent } from './trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
 
 // import { SearchComponent } from './site/components/modals/search/search.component';
 // import { CourseLoaderComponent } from './components/utils/course-loader/course-loader.component';
@@ -248,6 +249,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateProfileComponent,
     PaymentGatewayComponent,
     InvoiceComponent,
+    GalleryItemPreviewComponent
 
   ],
   imports: [
@@ -348,7 +350,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     VideoDetailPopupComponent,
     UpdateProfileComponent,
     PaymentGatewayComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    GalleryItemPreviewComponent
 
   ]
   ,

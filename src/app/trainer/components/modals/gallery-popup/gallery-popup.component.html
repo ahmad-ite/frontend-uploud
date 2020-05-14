@@ -1,7 +1,7 @@
 <div [ngClass]="langStyle">
-  <div class="col-2 wrap-cross-icon">
+  <!-- <div class="col-2 wrap-cross-icon">
     <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
-  </div>
+  </div> -->
   <div id="galleryPopupModal">
     <div class="row">
       <div class="col-md-12">
@@ -15,6 +15,13 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-12">
+        <select [(ngModel)]="selectedCourse" (change)="ChangedCourse()" class="course-dd">
+          <option disabled [value]="0">{{'Select Course' | translate}}</option>
+          <!-- <option [value]="0">{{'No course' | translate}}</option> -->
+          <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
+        </select>
       </div>
       <div class="col-md-12">
         <ngb-tabset [destroyOnHide]="false" (tabChange)="onTabChange($event)" [activeId]="activeTab"
@@ -44,12 +51,18 @@
                         <!-- <img src="../../../../assets/images/course-default.jpg" alt="" class="img-fluid img-thumbnail"> -->
                         <img [src]="app_ser.img_url(uploadImage.uuid)" alt=""
                           class="img-fluid img-thumbnail img-hover-cursor">
-                        <a class="text-center file-name-image" (click)="view(uploadImage)">{{'View' | translate }}</a>
-                        <a class="text-center file-name-image"
-                          (click)="select(uploadImage)">{{'Select' | translate }}</a>
-                        <a class="text-center file-name-image">{{uploadImage.file_name}}</a>
-
+                        <div class="dark-background"></div>
+                        <div class="wrap-view-and-select">
+                          <a class="text-center view-file" (click)="app_ser.openImagePreview(uploadImage)"
+                            mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
+                          <!-- <a class="text-center view-file" (click)="view(uploadImage)"
+                            mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
+                          <a class="text-center select-file" (click)="select(uploadImage)"
+                            mdbTooltip="{{'Select' | translate }}" placement="top"><i
+                              class="fal fa-check-circle"></i></a>
+                        </div>
                       </div>
+                      <p class="text-center"><a class="file-name-image">{{uploadImage.file_name}}</a></p>
                     </div>
                   </div>
                 </div>
@@ -86,9 +99,18 @@
                         <img *ngIf="!(trainerVideo.video_derivation && trainerVideo.video_derivation.gif)"
                           (click)="app_ser.openVideoDetailPopup(trainerVideo,true)"
                           [src]="app_ser.img_url(null,'video')" alt="" class="img-fluid img-thumbnail img-hover-cursor">
-                        <a class="text-center file-name-video"
-                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true)">{{trainerVideo.file_name}}</a>
+                        <div class="wrap-view-and-select">
+                          <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                            mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
+                          <!-- <a class="text-center view-file" (click)="view(uploadImage)"
+                                mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
+                          <a class="text-center select-file" (click)="select(trainerVideo)"
+                            mdbTooltip="{{'Select' | translate }}" placement="top"><i
+                              class="fal fa-check-circle"></i></a>
+                        </div>
                       </div>
+                      <a class="text-center file-name-video"
+                        (click)="app_ser.openVideoDetailPopup(trainerVideo,true)">{{trainerVideo.file_name}}</a>
                     </div>
                   </div>
                 </div>
@@ -142,9 +164,18 @@
                                 [src]="app_ser.img_url(null,'video')" alt=""
                                 class="img-fluid img-thumbnail img-hover-cursor"
                                 (click)="app_ser.openVideoDetailPopup(trainerVideo)">
-                              <a class="text-center file-name-dubbing"
-                                (click)="app_ser.openVideoDetailPopup(trainerVideo)">{{trainerVideo.file_name}}</a>
+                              <div class="wrap-view-and-select">
+                                <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                                  mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
+                                <!-- <a class="text-center view-file" (click)="view(uploadImage)"
+                                      mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
+                                <a class="text-center select-file" (click)="select(trainerVideo)"
+                                  mdbTooltip="{{'Select' | translate }}" placement="top"><i
+                                    class="fal fa-check-circle"></i></a>
+                              </div>
                             </div>
+                            <a class="text-center file-name-dubbing"
+                              (click)="app_ser.openVideoDetailPopup(trainerVideo)">{{trainerVideo.file_name}}</a>
                           </div>
                         </div>
                       </div>
@@ -241,9 +272,18 @@
                         <img [src]="app_ser.img_url(null,'audio')" alt=""
                           class="img-fluid img-thumbnail img-hover-cursor"
                           (click)="app_ser.openVideoDetailPopup(trainerVideo,false)">
-                        <a class="text-center file-name-audio"
-                          (click)="app_ser.openVideoDetailPopup(trainerVideo,false)">{{trainerVideo.file_name}}</a>
+                        <div class="wrap-view-and-select">
+                          <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                            mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
+                          <!-- <a class="text-center view-file" (click)="view(uploadImage)"
+                                mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
+                          <a class="text-center select-file" (click)="select(trainerVideo)"
+                            mdbTooltip="{{'Select' | translate }}" placement="top"><i
+                              class="fal fa-check-circle"></i></a>
+                        </div>
                       </div>
+                      <a class="text-center file-name-audio"
+                        (click)="app_ser.openVideoDetailPopup(trainerVideo,false)">{{trainerVideo.file_name}}</a>
                     </div>
                   </div>
                 </div>
