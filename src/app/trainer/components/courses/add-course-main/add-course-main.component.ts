@@ -38,8 +38,9 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   trainer: Trainer;
   inputTrainer: InputTrainer;
   id: any;
-  itemId: number;
+  itemId: number = 0;
   courseId: number = 0;
+  openSteps: boolean = true;
   /*   mode: string = 'add';
     courseId: number;
     itemId: number; */
@@ -286,18 +287,22 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   }
 
   onStepChange(event: StepChangeEvent) {
-    console.log(event);
-    if (event.activeStepIndex == 1) {
+    console.log("event", event);
+    console.log("itemId", this.itemId);
+    this.openSteps = false;
+
+    if (event.activeStepIndex == 1 && this.courseId) {
       this.ItemsComponent.initData();
-    } else if (event.activeStepIndex == 2) {
+    } else if (event.activeStepIndex == 2 && this.itemId) {
       this.StepsComponent.reloadSteps(this.itemId);
     }
   }
 
-  /* onItemSelected(itemId){
+  // onItemSelected(itemId) {
+  //   alert(itemId);
 
-    this.itemId= itemId;
-  } */
+  //   this.itemId = itemId;
+  // }
   // showPdf(path) {
   //   var pdfModal = this.modalService.open(ViewPdfComponent, { windowClass: 'view-pdf', size: 'lg', centered: true });
   //   pdfModal.componentInstance.path = path;

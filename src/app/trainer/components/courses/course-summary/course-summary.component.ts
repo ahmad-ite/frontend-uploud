@@ -127,6 +127,7 @@ export class CourseSummaryComponent implements OnInit {
               // this.router.navigate(["/trainer/courses/list"]);
               // this.stepper.next();
               // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+              console.log("delete", data)
               this.toastr.success("Item: deleted succesfully", "Cool!");
               this.initData();
             });

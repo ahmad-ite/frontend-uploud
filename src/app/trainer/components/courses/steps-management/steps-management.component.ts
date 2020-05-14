@@ -8,6 +8,7 @@ import { Textbox, Choice, StepCategory, Arrange, Match, Correct, Play, SoundReco
 import { ToolsService } from 'src/app/trainer/services/tools.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VgAPI } from 'videogular2/compiled/core';
+import { ConfirmationDialogService } from 'src/app/shared/modals/confirmation-dialog/confirmation-dialog.service';
 @Component({
   selector: 'app-steps-management',
   templateUrl: './steps-management.component.html',
@@ -19,6 +20,7 @@ export class StepsManagementComponent implements OnInit {
   range: any = 0;
   min = 0;
   max = 100;
+  stepTitle: string;
   onRangeValueChange(event: any) {
     const value = event.value;
     this.range = value;
@@ -42,8 +44,10 @@ export class StepsManagementComponent implements OnInit {
   // stepId: number;
   // itemStep: Step;
   itemSteps = [];
-  itemId: number;
+  itemId: number = 0;
   @Input() courseId: number;
+
+  @Input() itemId1: number;
   title: string;
   correctAnswers: number[];
   stepIcons = {
@@ -64,11 +68,44 @@ export class StepsManagementComponent implements OnInit {
     'match': 'wrapper-match',
     'upload-video': 'wrapper-upload-video'
   };
+
+
+  constructor(
+    public app_ser: AppService,
+    public tool_ser: ToolsService,
+    private toastr: ToastrService,
+    private translate: TranslateService,
+    private route: ActivatedRoute,
+    private confirmationDialogService: ConfirmationDialogService,
+    private router: Router
+  ) {
+    this.langStyle = "wrapper-steps-management-" + this.app_ser.app_lang();
+    this.stepCatogories = this.tool_ser.initTools();
+    this.step = new Step();
+
+  }
   onTabChange(tab) {
 
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    if (event.previousIndex !== event.currentIndex) {
+
+      var s = event.container.data[event.previousIndex];
+      var newIndex = event.currentIndex + 1;
+
+      this.app_ser.post("site_feed/TrainerStep/re_arrange_step/" + s["id"] + "/" + newIndex, {}).subscribe(
+        data => {
+          this.reloadSteps(s["course_item"]);
+
+        },
+        error => {
+        });
+    }
+
+
+    return
+    console.log("event", event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -78,45 +115,99 @@ export class StepsManagementComponent implements OnInit {
         event.currentIndex);
     }
   }
-  constructor(
-    public app_ser: AppService,
-    public tool_ser: ToolsService,
-    private toastr: ToastrService,
-    private translate: TranslateService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-    this.langStyle = "wrapper-steps-management-" + this.app_ser.app_lang();
-    this.stepCatogories = this.tool_ser.initTools();
-    this.step = new Step();
 
-
-    //this.itemId = this.itemId ? this.itemId : 0;
-    //this.reloadSteps();
-    // this.step.question = 'Hi this is tesigng';
-  }
 
   insertStep(type) {
+    this.stepTitle = 'Add Step'
     this.step = new Step();
     this.initStep(type);
   }
-  editStep(step) {
-    console.log(step);
+  editStep(step1) {
+    this.stepTitle = 'Edit Step'
+    const step = JSON.parse(JSON.stringify(step1))
     this.step = new Step();
     this.correctAnswers = [];
 
-    if (!!step.options) {
-      step.options = JSON.parse(step.options);
-      let correct = JSON.parse(step.correct);
-      correct.forEach((c, i) => {
-        if (!!c.correct) {
-          this.correctAnswers.push(i);
+
+    switch (step.type) {
+
+      case "choice":
+        if (step.options) {
+          step.options = JSON.parse(step.options);
+          let correct = JSON.parse(step.correct);
+          correct.forEach((c, i) => {
+            if (c.correct) {
+              this.correctAnswers.push(i);
+            }
+          });
         }
-      });
+        break;
+
+      case "correct":
+        if (step.options) {
+          step.options = JSON.parse(step.options);
+          let correct = JSON.parse(step.correct);
+          correct.forEach((c, i) => {
+            if (c.correct) {
+              this.correctAnswers.push(1);
+            }
+            else {
+              this.correctAnswers.push(0);
+            }
+          });
+        }
+        break;
+      case "arrange":
+
+
+        break;
+
+
+      case "match":
+
+        break;
+
+
+
+      case "play":
+
+        break;
+
+
+      case "sound":
+
+        break;
+
+
+      case "video":
+
+        break;
+
+
+      case "autocue":
+
+        break;
+
+      case "autocue-voice":
+
+        break;
+
+      case "upload-video":
+
+        break;
+
+
+
+
+
+
     }
 
+
+
     Object.assign(this.step, step);
-    console.log(this.step);
+    console.log("this.step", this.step);
+    console.log("this.correctAnswers", this.correctAnswers);
   }
   initStep(type = null) {
     this.correctAnswers = [];
@@ -127,8 +218,10 @@ export class StepsManagementComponent implements OnInit {
         break;
       case "choice":
         tempStep = new Choice();
+        this.correctAnswers = [0];
         break;
       case "correct":
+        this.correctAnswers = [1, 0, 0, 0];
         tempStep = new Correct();
         break;
       case "arrange":
@@ -197,27 +290,35 @@ export class StepsManagementComponent implements OnInit {
   ngOnInit() {
 
   }
-  onPlayerReady(api: VgAPI) { }
-  public reloadSteps(itemId) {
-    console.log(itemId);
-    if (!!itemId && itemId != 0) {
+  onPlayerReady(api: VgAPI) {
+
+  }
+  public reloadSteps(itemId, showNewStep = true) {
+
+    this.itemId = itemId;
+    if (itemId) {
       this.itemId = itemId;
       this.app_ser.post("site_feed/TrainerStep/steps/" + itemId, {}).subscribe(
         data => {
-          /* if(data.rows.length){
-          data.rows.sort(function(a, b) {
-            return a.arrange - b.arrange;
-          });
-        } */
           this.itemSteps = data.rows;
-          //this.onChangeStep();
+
         },
         error => {
         });
     } else {
       this.itemSteps = [];
     }
-    this.initStep('textbox');
+    if (showNewStep)
+      this.initStep('textbox');
+  }
+  selectVideo() {
+    this.app_ser.openGalleryPopup(0, 'video', "select").then(res => {
+      if (res) {
+
+        this.step.video = res.uuid;
+      }
+
+    })
   }
 
   /* public onChangeStep() {
@@ -237,10 +338,55 @@ export class StepsManagementComponent implements OnInit {
   } */
 
   addOption() {
-    this.step.options.push({ "t": "اختيار جديد" });
+    if (this.step.options.length < 5)
+      switch (this.step.type) {
+        case "choice":
+          this.step.options.push({ "t": "اختيار جديد" });
+          break;
+
+        case "correct":
+          this.step.options.push({ "t": "اختيار جديد" });
+          this.correctAnswers.push(0)
+
+          break;
+
+
+        case "match":
+
+          break;
+
+        case "arrange":
+
+          break;
+
+      }
+
+
   }
-  removeOption(opt) {
-    this.step.options.splice(opt, 1);
+  removeOption(index) {
+    switch (this.step.type) {
+      case "choice":
+        this.step.options.splice(index, 1);
+        break;
+
+      case "correct":
+        this.step.options.splice(index, 1);
+        this.correctAnswers.splice(index, 1);
+
+        break;
+
+
+      case "match":
+
+        break;
+
+      case "arrange":
+
+        break;
+
+    }
+
+
   }
   formatTimeInMinutes(value) {
     const sec = parseInt(value, 10); // convert value to number if it's string
@@ -255,25 +401,85 @@ export class StepsManagementComponent implements OnInit {
   }
 
   save() {
-    var copyStep: any = Object.assign({}, this.step)
-    if (!!copyStep.options) {
-      let corr = copyStep.options.map((v, i) => {
-        return { "correct": (this.correctAnswers.includes(i)) };
-      });
-      copyStep.correct = JSON.stringify(corr);
-      copyStep.options = JSON.stringify(copyStep.options);
-    }
-    console.log(copyStep);
+
+    var copyStep: any = this.initInput();
     this.app_ser.post("site_feed/TrainerStep/save/" + (this.step.id ? this.step.id : 0), { data: copyStep }).subscribe(
       data => {
-        // this.router.navigate(["/trainer/courses/list"]);
-        // this.stepper.next();
-        // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+
         this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
-        this.reloadSteps(this.step.course_item);
+        this.reloadSteps(this.step.course_item, false);
       });
 
   }
+  initInput() {
+    var copyStep: any = Object.assign({}, this.step)
+    let sett = { file_types: [], file_message: [] };
+    let att = { files: [] };
+    switch (this.step.type) {
+      case "choice":
+        if (copyStep.options) {
+          let corr = copyStep.options.map((v, i) => {
+            return { "correct": (this.correctAnswers.includes(i)) };
+          });
+          copyStep.correct = JSON.stringify(corr);
+          copyStep.options = JSON.stringify(copyStep.options);
+        }
+        break;
+
+      case "correct":
+        if (copyStep.options) {
+          let corr = copyStep.options.map((v, i) => {
+            return { "correct": (this.correctAnswers[i] ? true : false) };
+          });
+          copyStep.correct = JSON.stringify(corr);
+          copyStep.options = JSON.stringify(copyStep.options);
+        }
+        break;
+
+
+      case "match":
+
+        break;
+
+      case "arrange":
+
+        break;
+
+
+
+    }
+    copyStep.settings = JSON.stringify(sett);
+    copyStep.attachment = JSON.stringify(att);
+    console.log("copyStep", copyStep);
+    return copyStep;
+
+
+  }
+
+  removeStep(s) {
+    this.confirmationDialogService.confirm(this.translate.instant('Delete Step'), 'Do you want to delete this Step?')
+      .then((confirmed) => {
+
+        if (confirmed) {
+          this.app_ser.post("site_feed/TrainerStep/delete/" + s.id, {}).subscribe(
+            data => {
+
+              this.toastr.success("Step: " + s.title + ", deleted succesfully", "Cool!");
+              this.reloadSteps(this.step.course_item);
+            });
+        }
+      })
+      .catch(() => {
+
+      });
+
+
+
+
+  }
+
+
+
 
 
 }
