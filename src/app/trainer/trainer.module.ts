@@ -44,6 +44,7 @@ import { UploadMediaComponent } from './components/media/upload-media/upload-med
 import { OrderByPipe } from '../_pipes/order-by.pipe';
 import { ShowGalleryComponent } from './components/media/show-gallery/show-gallery.component';
 
+
 // import { CourseLoaderComponent } from '../components/utils/course-loader/course-loader.component';
 
 
@@ -89,7 +90,7 @@ import { ShowGalleryComponent } from './components/media/show-gallery/show-galle
 
     OrderByPipe,
 
-    ShowGalleryComponent
+    ShowGalleryComponent,
 
 
 

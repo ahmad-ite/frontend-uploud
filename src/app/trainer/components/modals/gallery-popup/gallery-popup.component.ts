@@ -9,7 +9,7 @@ import { DialogService } from '../../../../services/dialog.service';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
-import { VideoDerivation } from 'src/app/_models/loadData';
+import { VideoDerivation, Course } from 'src/app/_models/loadData';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 
@@ -27,11 +27,13 @@ export class GalleryPopupComponent implements OnInit {
   currentCourse: number = 0; */
   loadGifLoader: any = true;
   activeSecondryTab: string = 'ar';
+  selectedCourse: number;
   langStyle: any;
   @Input() currentCourse: number = 0;
   @Input() activeTab: string;
   @Input() mode: string;
   @Input() lang: string;
+  courses: Course[];
 
   constructor(
     public app_ser: AppService,
@@ -46,6 +48,14 @@ export class GalleryPopupComponent implements OnInit {
     private location: Location,
   ) {
     // this.activeTab = "dubbing";
+    this.selectedCourse = 0;
+    this.app_ser.post("site_feed/TrainerCourse/all_courses", {}).subscribe(
+      data => {
+        this.courses = data;
+        console.log("All Courses",this.courses);
+      },
+      error => {
+      });
 
   }
 
@@ -151,10 +161,15 @@ export class GalleryPopupComponent implements OnInit {
   }
 
   view(element) {
-
+    
   }
   select(element) {
     this.activeModal.close(element)
 
+  }
+  ChangedCourse() {
+   
+
+   
   }
 }

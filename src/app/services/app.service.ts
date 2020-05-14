@@ -26,6 +26,7 @@ import { PaymentGatewayComponent } from '../site/components/modals/payment-gatew
 import { UpdateProfileComponent } from '../site/components/student/update-profile/update-profile.component';
 import { InvoiceComponent } from '../site/components/student/invoice/invoice.component';
 import { AuthenticationService } from '../_services';
+import { GalleryItemPreviewComponent } from '../trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
 
 
 @Injectable({
@@ -431,6 +432,20 @@ export class AppService {
     videoModal.componentInstance.video = video;
     videoModal.componentInstance.details = details;
     return await videoModal.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      if (result == 'false')
+        return false;
+      return result;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      return false;
+    });
+
+  }
+  async openImagePreview(image) {
+    var imageModal = this.modalService.open(GalleryItemPreviewComponent, { windowClass: 'imagePreviewPopup', size: 'lg', centered: true, backdrop: false });
+    imageModal.componentInstance.imageObj = image;
+    return await imageModal.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == 'false')
         return false;

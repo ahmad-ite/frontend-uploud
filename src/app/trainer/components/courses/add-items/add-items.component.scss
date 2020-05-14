@@ -9,189 +9,152 @@ ARABIC STYLE START
   direction: rtl;
   text-align: right;
 
-  #trainerAddItem {
-    mdb-card {
-      border-radius: 20px !important;
-
-      .form-genrl {
-        .label-div {
-          .lbl-genrl {
-            font-weight: bold;
-          }
-
-          .lbl-required:after {
-            font-family: "Font Awesome 5 Pro";
-            content: "\f069";
-            color: red;
-            padding: 0px 3px;
-            font-size: 7px;
-            position: absolute;
-            top: 4px;
-          }
-        }
-
-        .error-msg-div {
-          .error-message {
-            color: red;
-            text-align: left;
-          }
-        }
-
-        select {
-          font-family: "CairoRegular";
-        }
-
-        .btn-add-course {
-          background-image: linear-gradient(to top, #00b5a9, #01637f);
-          color: white !important;
-          font-weight: bold;
-          margin-top: 30px !important;
-          height: 50px;
-        }
-
-        .wrap-btn-upload-cover {
-          position: relative;
-        }
-
-        .lbl-upload-from-gallery {
-          font-size: 10px;
-          position: absolute;
-          top: -10px;
-          display: block;
-          right: 60px;
-          width: 90px;
-        }
-
-        .upload-cover-img-icon {
-          font-size: 40px;
-          color: #00ada4;
-
-
-        }
-
-        .upload-cover-img-icon:hover {
-          cursor: pointer;
-        }
-      }
-
-
-      // ITEMS LISTING STYLES START
-      #wrapper-items-listing {
-        .wrapper-items-listing-inner {
-          mdb-card {
-            padding: 0px 0 40px 0;
-
-            .table-wrapper {
-              .table-items-list {
-                thead {
-                  text-align: center;
-
-                  tr {
-                    th {
-                      vertical-align: middle;
-                      border-top: 0;
-                      padding-top: 30px;
-                    }
-
-                    .actions-th {
-                      text-align: left;
-
-                      a {
-                        padding: 0 10px;
-                      }
-
-                    }
-                  }
-                }
-
-                tbody {
-                  text-align: center;
-
-                  tr {
-                    td {
-                      vertical-align: middle;
-
-                      .arrange-icons-genrl {
-                        color: #00b5a9;
-                        font-size: 20px;
-                        margin: 0 3px;
-                      }
-
-                      .arrange-icons-genrl:hover {
-                        cursor: pointer;
-                      }
-                    }
-
-                    td.item-name a {
-                      color: #00b5a9;
-                      font-weight: bold;
-                    }
-
-                    td.item-name a:hover {
-                      text-decoration: underline;
-                    }
-
-                    td.actions-td {
-                      text-align: left;
-
-
-                      .btn-edit {
-                        background: green;
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-
-                      .btn-delete {
-                        background: #d43f3a;
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-
-                      .btn-steps {
-                        background-image: linear-gradient(to top, #00b5a9, #01637f);
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-        }
-
-
-
-
-      }
-
-      // ITEMS LISTING STYELS END    
+  .modal-header {
+    .modal-title {
+      padding-top: 5px !important;
     }
+
+    .col-cross-icon {
+      text-align: left;
+      padding: 0;
+
+      .cross-icon {
+        font-size: 20px;
+        margin-top: 12px;
+      }
+
+      .cross-icon:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  #trainerAddItem {
+    mdb-tabset {
+      ul.classic-tabs {
+        background-color: transparent !important;
+        box-shadow: 0 0 0 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0px !important;
+
+        li.nav-item {
+          width: 50%;
+          text-align: center;
+          padding: 0 15px;
+          font-size: 20px;
+
+          .nav-link {
+            color: black;
+            font-weight: bold;
+            border-bottom: 5px solid transparent;
+          }
+
+          .nav-link:hover {
+            background: #ececec;
+          }
+        }
+
+        li.nav-item.active {
+          .nav-link {
+
+            color: #00ada4;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 5px solid #00ada4;
+            background-color: #ececec !important;
+          }
+
+          .nav-link:hover {
+            background: #ececec;
+          }
+        }
+      }
+
+      .tab-content {
+        box-shadow: 0 0 0 0 !important;
+      }
+    }
+
+    .wrap-btn-upload-cover {
+      .upload-cover-img-icon {
+        font-size: 40px;
+        color: #00ada4;
+      }
+
+      .upload-cover-img-icon:hover {
+        cursor: pointer;
+      }
+    }
+
+    .form-genrl {
+      .label-div {
+        .lbl-genrl {
+          font-weight: bold;
+        }
+
+        .lbl-required:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f069";
+          color: red;
+          padding: 0px 3px;
+          font-size: 7px;
+          position: absolute;
+          top: 4px;
+        }
+      }
+
+      .error-msg-div {
+        .error-message {
+          color: red;
+          text-align: left;
+        }
+      }
+
+      .cover-img {
+        width: 300px;
+        margin-bottom: 13px;
+        border: 2px solid #00b4a8;
+        border-radius: 20px;
+      }
+
+      select {
+        font-family: "CairoRegular";
+      }
+
+      .btn-add-course {
+        background-image: linear-gradient(to top, #00b5a9, #01637f);
+        color: white !important;
+        font-weight: bold;
+        margin-top: 30px !important;
+        height: 50px;
+      }
+
+      .wrap-btn-upload-cover {
+        position: relative;
+      }
+
+      .lbl-upload-from-gallery {
+        font-size: 10px;
+        position: absolute;
+        top: -10px;
+        display: block;
+        right: 60px;
+        width: 90px;
+      }
+
+      .upload-cover-img-icon {
+        font-size: 40px;
+        color: #00ada4;
+
+
+      }
+
+      .upload-cover-img-icon:hover {
+        cursor: pointer;
+      }
+    }
+
+
 
 
 
@@ -220,189 +183,145 @@ ENGLISH STYLE START
 *****************************************************************************************
 ====================================================================================== */
 .wrapper-add-item-en {
-  #trainerAddItem {
-    mdb-card {
-      border-radius: 20px !important;
-
-      .form-genrl {
-        .label-div {
-          .lbl-genrl {
-            font-weight: bold;
-          }
-
-          .lbl-required:after {
-            font-family: "Font Awesome 5 Pro";
-            content: "\f069";
-            color: red;
-            padding: 0px 3px;
-            font-size: 7px;
-            position: absolute;
-            top: 4px;
-          }
-        }
-
-        .error-msg-div {
-          .error-message {
-            color: red;
-            text-align: right;
-          }
-        }
-
-        select {
-          font-family: "CairoRegular";
-        }
-
-        .btn-add-course {
-          background-image: linear-gradient(to top, #00b5a9, #01637f);
-          color: white !important;
-          font-weight: bold;
-          margin-top: 30px !important;
-          height: 50px;
-        }
-
-        .wrap-btn-upload-cover {
-          position: relative;
-        }
-
-        .lbl-upload-from-gallery {
-          font-size: 10px;
-          position: absolute;
-          top: -10px;
-          display: block;
-          left: 60px;
-          width: 90px;
-        }
-
-        .upload-cover-img-icon {
-          font-size: 40px;
-          color: #00ada4;
-
-
-        }
-
-        .upload-cover-img-icon:hover {
-          cursor: pointer;
-        }
-      }
-
-
-      // ITEMS LISTING STYLES START
-      #wrapper-items-listing {
-        .wrapper-items-listing-inner {
-          mdb-card {
-            padding: 0px 0 40px 0;
-
-            .table-wrapper {
-              .table-items-list {
-                thead {
-                  text-align: center;
-
-                  tr {
-                    th {
-                      vertical-align: middle;
-                      border-top: 0;
-                      padding-top: 30px;
-                    }
-
-                    .actions-th {
-                      text-align: right;
-
-                      a {
-                        padding: 0 10px;
-                      }
-
-                    }
-                  }
-                }
-
-                tbody {
-                  text-align: center;
-
-                  tr {
-                    td {
-                      vertical-align: middle;
-
-                      .arrange-icons-genrl {
-                        color: #00b5a9;
-                        font-size: 20px;
-                        margin: 0 3px;
-                      }
-
-                      .arrange-icons-genrl:hover {
-                        cursor: pointer;
-                      }
-                    }
-
-                    td.item-name a {
-                      color: #00b5a9;
-                      font-weight: bold;
-                    }
-
-                    td.item-name a:hover {
-                      text-decoration: underline;
-                    }
-
-                    td.actions-td {
-                      text-align: right;
-
-
-                      .btn-edit {
-                        background: green;
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-
-                      .btn-delete {
-                        background: #d43f3a;
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-
-                      .btn-steps {
-                        background-image: linear-gradient(to top, #00b5a9, #01637f);
-                        color: white !important;
-                        font-weight: bold;
-                        margin: 0 5px;
-                        font-size: 10px;
-                        padding: 10px 15px;
-
-                        i {
-                          font-size: 12px;
-                        }
-
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-        }
-
-
-
-
-      }
-
-      // ITEMS LISTING STYELS END    
+  .modal-header {
+    .modal-title {
+      padding-top: 5px !important;
     }
+
+    .col-cross-icon {
+      text-align: right;
+      padding: 0;
+
+      .cross-icon {
+        font-size: 20px;
+        margin-top: 12px;
+      }
+
+      .cross-icon:hover {
+        cursor: pointer;
+      }
+
+    }
+  }
+
+  #trainerAddItem {
+
+    mdb-tabset {
+      ul.classic-tabs {
+        background-color: transparent !important;
+        box-shadow: 0 0 0 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0px !important;
+
+        li.nav-item {
+          width: 50%;
+          text-align: center;
+          padding: 0 15px;
+          font-size: 20px;
+
+          .nav-link {
+            color: black;
+            font-weight: bold;
+            border-bottom: 5px solid transparent;
+          }
+
+          .nav-link:hover {
+            background: #ececec;
+          }
+        }
+
+        li.nav-item.active {
+          .nav-link {
+            color: #00ada4;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 5px solid #00ada4;
+            background-color: #ececec !important;
+
+          }
+
+          .nav-link:hover {
+            background: #ececec;
+          }
+        }
+      }
+
+      .tab-content {
+        box-shadow: 0 0 0 0 !important;
+      }
+    }
+
+    .wrap-btn-upload-cover {
+      .upload-cover-img-icon {
+        font-size: 40px;
+        color: #00ada4;
+      }
+
+      .upload-cover-img-icon:hover {
+        cursor: pointer;
+      }
+    }
+
+    .form-genrl {
+      .label-div {
+        .lbl-genrl {
+          font-weight: bold;
+        }
+
+        .lbl-required:after {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f069";
+          color: red;
+          padding: 0px 3px;
+          font-size: 7px;
+          position: absolute;
+          top: 4px;
+        }
+      }
+
+      .error-msg-div {
+        .error-message {
+          color: red;
+          text-align: right;
+        }
+      }
+
+      .cover-img {
+        width: 300px;
+        margin-bottom: 13px;
+        border: 2px solid #00b4a8;
+        border-radius: 20px;
+      }
+
+      select {
+        font-family: "CairoRegular";
+      }
+
+      .btn-add-course {
+        background-image: linear-gradient(to top, #00b5a9, #01637f);
+        color: white !important;
+        font-weight: bold;
+        margin-top: 30px !important;
+        height: 50px;
+      }
+
+      .wrap-btn-upload-cover {
+        position: relative;
+      }
+
+      .lbl-upload-from-gallery {
+        font-size: 10px;
+        position: absolute;
+        top: -10px;
+        display: block;
+        left: 60px;
+        width: 90px;
+      }
+
+
+    }
+
+
 
 
 
@@ -421,3 +340,9 @@ ENGLISH STYLE END
 =========================================================================================
 *****************************************************************************************
 ====================================================================================== */
+
+.itemPopupModal {
+  .modal-content {
+    border-radius: 20px !important;
+  }
+}
