@@ -29,7 +29,7 @@ export class GalleryPopupComponent implements OnInit {
   activeSecondryTab: string = 'ar';
   selectedCourse: number;
   langStyle: any;
-  @Input() currentCourse: number = 0;
+  @Input() currentCourse;
   @Input() activeTab: string;
   @Input() mode: string;
   @Input() lang: string;
@@ -52,7 +52,8 @@ export class GalleryPopupComponent implements OnInit {
     this.app_ser.post("site_feed/TrainerCourse/all_courses", {}).subscribe(
       data => {
         this.courses = data;
-        console.log("All Courses",this.courses);
+        this.selectedCourse = this.currentCourse;
+
       },
       error => {
       });
@@ -161,15 +162,17 @@ export class GalleryPopupComponent implements OnInit {
   }
 
   view(element) {
-    
+
   }
   select(element) {
     this.activeModal.close(element)
 
   }
   ChangedCourse() {
-   
 
-   
+    this.currentCourse = this.selectedCourse;
+
+    this.loadPage(1);
+
   }
 }

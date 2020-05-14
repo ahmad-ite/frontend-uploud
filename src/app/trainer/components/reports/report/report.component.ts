@@ -32,6 +32,7 @@ export class ReportComponent implements OnInit {
   pager: Pager;
   options: ListOption;
   loadGifLoader: boolean;
+  noData: boolean;
 
   constructor(
     public app_ser: AppService,
@@ -69,12 +70,15 @@ export class ReportComponent implements OnInit {
     data1['data[param][to]'] = this.to;
     this.reportData = [];
     this.loadGifLoader = true;
+    this.noData = true;
     this.app_ser.post("site_feed/TrainerReport/students", data1).subscribe(
       data => {
         console.log(data);
         this.loadGifLoader = false;
+        this.noData = false;
         this.pager = this.app_ser.paginate(data.total, data.page + 1, data.size);
         this.reportData = data.rows;
+
       },
       error => {
         this.loadGifLoader = false;

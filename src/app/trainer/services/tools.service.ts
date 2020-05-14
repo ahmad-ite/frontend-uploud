@@ -60,7 +60,7 @@ export class ToolsService {
     step.type = 'match'
     step.name = 'Match';
     step.icon = 'far fa-clone';
-    stepCatogory.steps.push(step);
+    // stepCatogory.steps.push(step);
     /* ********** MATCH END ********** */
 
     /* ********** ARRANGE START ********** */
@@ -68,7 +68,7 @@ export class ToolsService {
     step.type = 'arrange'
     step.name = 'Arrange';
     step.icon = 'far fa-sort-alt';
-    stepCatogory.steps.push(step);
+    // stepCatogory.steps.push(step);
     /* ********** ARRANGE END ********** */
 
 

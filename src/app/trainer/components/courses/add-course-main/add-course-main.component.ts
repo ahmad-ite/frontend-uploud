@@ -94,14 +94,12 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   }
   approve() {
 
-    return
 
-    this.app_ser.post("site_feed/TrainerCourse/ask_approve/" + this.trainer.id, {}).subscribe(
+
+    this.app_ser.post("site_feed/TrainerCourse/ask_approve/" + this.courseId, {}).subscribe(
       data => {
 
-        this.router.navigate(['/profile/' + this.trainer.id + "/" + this.app_ser.urlString(this.trainer.name)]);
-
-
+        this.toastr.success(this.translate.instant('Approval is succeeded'), this.translate.instant('Cool!'));
 
       });
   }

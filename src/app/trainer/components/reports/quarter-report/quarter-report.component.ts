@@ -32,6 +32,8 @@ export class QuarterReportComponent implements OnInit {
     { year: '2015' },
   ]
   langStyle: string;
+  loadGifLoader: boolean;
+  noData: boolean;
   constructor(
     public app_ser: AppService,
     public route: ActivatedRoute,
@@ -87,8 +89,13 @@ export class QuarterReportComponent implements OnInit {
     var data1 = {};
 
     this.quarterReport = [];
+    this.loadGifLoader = true;
+    this.noData = true;
     this.app_ser.post("site_feed/TrainerReport/Trainer_payment/" + this.activeYear, data1).subscribe(
       data => {
+        this.loadGifLoader = false;
+
+        this.noData = false;
         this.quarterReport = data.rows;
       },
       error => {

@@ -19,7 +19,7 @@
       <div class="col-md-12">
         <select [(ngModel)]="selectedCourse" (change)="ChangedCourse()" class="course-dd">
           <option disabled [value]="0">{{'Select Course' | translate}}</option>
-          <!-- <option [value]="0">{{'No course' | translate}}</option> -->
+          <option [value]="0">{{'All' | translate}}</option>
           <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
         </select>
       </div>
@@ -100,7 +100,7 @@
                           (click)="app_ser.openVideoDetailPopup(trainerVideo,true)"
                           [src]="app_ser.img_url(null,'video')" alt="" class="img-fluid img-thumbnail img-hover-cursor">
                         <div class="wrap-view-and-select">
-                          <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                          <a class="text-center view-file" (click)="app_ser.openVideoDetailPopup(trainerVideo,true)"
                             mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
                           <!-- <a class="text-center view-file" (click)="view(uploadImage)"
                                 mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
@@ -165,7 +165,7 @@
                                 class="img-fluid img-thumbnail img-hover-cursor"
                                 (click)="app_ser.openVideoDetailPopup(trainerVideo)">
                               <div class="wrap-view-and-select">
-                                <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                                <a class="text-center view-file" (click)="app_ser.openVideoDetailPopup(trainerVideo)"
                                   mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
                                 <!-- <a class="text-center view-file" (click)="view(uploadImage)"
                                       mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->
@@ -273,7 +273,7 @@
                           class="img-fluid img-thumbnail img-hover-cursor"
                           (click)="app_ser.openVideoDetailPopup(trainerVideo,false)">
                         <div class="wrap-view-and-select">
-                          <a class="text-center view-file" (click)="app_ser.openImagePreview(trainerVideo)"
+                          <a class="text-center view-file" (click)="app_ser.openVideoDetailPopup(trainerVideo,false)"
                             mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a>
                           <!-- <a class="text-center view-file" (click)="view(uploadImage)"
                                 mdbTooltip="{{'View' | translate }}" placement="top"><i class="fal fa-eye"></i> </a> -->

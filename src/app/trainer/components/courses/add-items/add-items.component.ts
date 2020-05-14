@@ -117,7 +117,7 @@ export class AddItemsComponent implements OnInit {
     }
   }
   selectImg() {
-    this.app_ser.openGalleryPopup(0, "image", "select").then(res => {
+    this.app_ser.openGalleryPopup(this.item.course, "image", "select").then(res => {
       if (res) {
 
         this.item.image = res.uuid;

@@ -103,19 +103,12 @@ export class StepsManagementComponent implements OnInit {
         });
     }
 
-
-    return
-    console.log("event", event);
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    }
   }
+  dropArrange(event: CdkDragDrop<string[]>) {
+    console.log("Event", event
+    )
 
+  }
 
   insertStep(type) {
     this.stepTitle = 'Add Step'
@@ -356,7 +349,7 @@ export class StepsManagementComponent implements OnInit {
           break;
 
         case "arrange":
-
+          this.step.options.push({ "t": "اختيار جديد" });
           break;
 
       }
@@ -381,7 +374,7 @@ export class StepsManagementComponent implements OnInit {
         break;
 
       case "arrange":
-
+        this.step.options.splice(index, 1);
         break;
 
     }
@@ -406,12 +399,23 @@ export class StepsManagementComponent implements OnInit {
     this.app_ser.post("site_feed/TrainerStep/save/" + (this.step.id ? this.step.id : 0), { data: copyStep }).subscribe(
       data => {
 
-        this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
+        // this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
+        if (this.step.id) {
+          this.toastr.success("added succesfully", "Cool!");
+        }
+        else {
+          this.toastr.success("edit succesfully", "Cool!");
+        }
         this.reloadSteps(this.step.course_item, false);
       });
 
   }
   initInput() {
+    if (this.step.type == "play" && !this.step.video)
+      this.toastr.error(this.translate.instant('Error Video'), this.translate.instant('error'));
+
+
+    return;
     var copyStep: any = Object.assign({}, this.step)
     let sett = { file_types: [], file_message: [] };
     let att = { files: [] };

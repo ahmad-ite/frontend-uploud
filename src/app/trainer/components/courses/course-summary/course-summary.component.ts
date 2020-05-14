@@ -92,15 +92,18 @@ export class CourseSummaryComponent implements OnInit {
       //     result['settings][' + key] = result.settings[key];
       //   }
       // }
-      delete result.settings;
-      this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
-        data => {
-          // this.router.navigate(["/trainer/courses/list"]);
-          // this.stepper.next();
-          // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-          this.toastr.success("Item: " + result.name + ", added succesfully", "Cool!");
-          this.initData();
-        });
+      if (result) {
+        delete result.settings;
+        this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
+          data => {
+            // this.router.navigate(["/trainer/courses/list"]);
+            // this.stepper.next();
+            // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+            this.toastr.success("Item: " + result.name + ", added succesfully", "Cool!");
+            this.initData();
+          });
+      }
+
 
       return result;
     }, (reason) => {
