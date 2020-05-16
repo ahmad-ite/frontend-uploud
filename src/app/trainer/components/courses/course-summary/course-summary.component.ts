@@ -17,7 +17,7 @@ import { ConfirmationDialogService } from 'src/app/shared/modals/confirmation-di
 export class CourseSummaryComponent implements OnInit {
   langStyle: any;
   id: any;
-
+  @Input() courseId: number;
   courseItems: any[];
   courseInfo: CourseView;
   // @Input() stepperRef: any;
@@ -35,7 +35,7 @@ export class CourseSummaryComponent implements OnInit {
     /* this.courseInfo = new CourseView();
     this.courseItems = []; */
     this.langStyle = "wrapper-trainer-course-summary-" + this.app_ser.app_lang();
-    this.id = this.route.snapshot.params['courseId'];
+    // this.id = this.courseId;
 
   }
   shadows: boolean = true;
@@ -43,8 +43,8 @@ export class CourseSummaryComponent implements OnInit {
   initData() {
     this.courseInfo = new CourseView();
     this.courseItems = [];
-    if (!!this.id) {
-      this.app_ser.post("site_feed/TrainerCourse/view/" + this.id, {}).subscribe(
+    if (this.courseId) {
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
         data => {
           this.courseInfo = data.row;
           this.courseItems = data.items;
@@ -70,7 +70,7 @@ export class CourseSummaryComponent implements OnInit {
     var itemModal = this.modalService.open(AddItemsComponent, { windowClass: 'itemPopupModal', size: 'lg', centered: true, backdrop: true });
     let copyItem = new Item();
     if (!item) {
-      copyItem.course = this.id;
+      copyItem.course = this.courseId;
     } else {
       copyItem = JSON.parse(JSON.stringify(item))
       copyItem.settings = JSON.parse(item.settings)
@@ -94,13 +94,19 @@ export class CourseSummaryComponent implements OnInit {
       // }
       if (result) {
         delete result.settings;
+
         this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
           data => {
-            // this.router.navigate(["/trainer/courses/list"]);
-            // this.stepper.next();
-            // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
-            this.toastr.success("Item: " + result.name + ", added succesfully", "Cool!");
+
+            if (!result.id) {
+
+              this.toastr.success(this.translate.instant('added succesfully'), this.translate.instant('Cool!'));
+            }
+            else {
+              this.toastr.success(this.translate.instant('edit succesfully'), this.translate.instant('Cool!'));
+            }
             this.initData();
+            this.onItemSteps.emit(data.item_id);
           });
       }
 
@@ -116,6 +122,7 @@ export class CourseSummaryComponent implements OnInit {
   openItemSteps(item) {
     //this.router.navigate(["/trainer/courses/" + this.id + "/items/" + item.id + "/edit"]);
     //this.itemId= item.id;
+    // alert(item.id);
     this.onItemSteps.emit(item.id);
     //this.stepperRef.next();
   }
@@ -131,7 +138,8 @@ export class CourseSummaryComponent implements OnInit {
               // this.stepper.next();
               // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
               console.log("delete", data)
-              this.toastr.success("Item: deleted succesfully", "Cool!");
+              this.toastr.success(this.translate.instant('deleted succesfully'), this.translate.instant('Cool!'));
+
               this.initData();
             });
         }

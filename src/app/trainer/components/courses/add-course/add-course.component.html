@@ -29,7 +29,7 @@
               name="courseName" [(ngModel)]="course.name" placeholder="{{ 'Course name' | translate }}" />
           </div>
 
-          <div class="form-group">
+          <div *ngIf="0" class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
                 <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Course Code' | translate }}</label>
@@ -102,7 +102,8 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
-                <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
+                <label mdbTooltip="{{app_ser.inst('Centenary pass rate for course certification') }}" placement="top"
+                  for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
               </div>
               <div class="col-md-6 error-msg-div">
                 <div class="error-message" *ngIf="pass_mark.errors?.required && pass_mark.touched">
@@ -119,7 +120,9 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
-                <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'RepeatCount' | translate }}</label>
+                <label for="" class="mb-2 lbl-genrl lbl-required"
+                  mdbTooltip="{{app_ser.inst('The number of repeat runs available for this course') }}"
+                  placement="top">{{ 'RepeatCount' | translate }}</label>
               </div>
               <div class="col-md-6 error-msg-div">
                 <div class="error-message" *ngIf="repeat_count.errors?.required && repeat_count.touched">
@@ -139,9 +142,27 @@
                 <input id="customSwitch1" type="checkbox" class="custom-control-input" #is_ordering="ngModel"
                   name="is_ordering" [(ngModel)]="course.is_ordering"
                   (change)="course.is_ordering = !!course.is_ordering? 1 : 0">
-                <label class="custom-control-label lbl-genrl" for="customSwitch1">{{ 'Ordering' | translate }}</label>
+                <label mdbTooltip="{{app_ser.inst('Watch the course items in order') }}" placement="top"
+                  class="custom-control-label lbl-genrl" for="customSwitch1">{{ 'Ordering Items' | translate }}</label>
               </div>
             </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6 label-div">
+                <label for="" class="mb-2 lbl-genrl lbl-required">{{'Upload Cover Image' | translate}}</label>
+              </div>
+              <div class="col-md-6 error-msg-div">
+                <div class="error-message" *ngIf="false"> {{ 'Cover Image' | translate }}
+                  {{ 'is required' | translate }}</div>
+              </div>
+              <div class="col-md-12" *ngIf="course.cover_image">
+                <img [src]="app_ser.img_url(course.cover_image)" alt="" class="img-fluid img-thumbnail cover-img">
+              </div>
+            </div>
+            <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
+                class="fal fa-cloud-upload upload-cover-img-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
+                          media gallery' | translate}}</span></a>
           </div>
 
           <div class="form-group">
@@ -158,7 +179,6 @@
               name="description" [(ngModel)]="course.description"
               placeholder="{{ 'CourseDescription' | translate }}"></textarea>
           </div>
-
 
 
           <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"

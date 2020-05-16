@@ -163,6 +163,7 @@ export class AddItemsComponent implements OnInit {
   } */
 
   save() {
+    this.item.is_basic = 1;
     this.activeModal.close(this.item);
   }
 

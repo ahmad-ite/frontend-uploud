@@ -48,6 +48,23 @@ ARABIC STYLE START
           margin-top: 30px !important;
           height: 50px;
         }
+
+     .wrap-btn-upload-cover {
+       .upload-cover-img-icon {
+        font-size: 40px;
+        color: #00ada4;
+      }
+
+      .upload-cover-img-icon:hover {
+        cursor: pointer;
+      }
+    }
+     .cover-img {
+        width: 300px;
+        margin-bottom: 13px;
+        border: 2px solid #00b4a8;
+        border-radius: 20px;
+      }
       }
     }
   }

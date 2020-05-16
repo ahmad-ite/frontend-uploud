@@ -9,7 +9,7 @@
         <!-- =============================== STEP 1 - STEP BASIC INFO START =============================== -->
         <mdb-step name="1- {{ 'Course' | translate }}" class="step1">
           <!-- <app-trainer-courses></app-trainer-courses> -->
-          <app-add-course #course></app-add-course>
+          <app-add-course #course (onSavedCourse)="courseId=$event; stepper.next()"></app-add-course>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <!-- <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
@@ -22,9 +22,10 @@
         <mdb-step name="2- {{ 'Course-Items' | translate }}" class="step2">
           <!-- <app-course-summary></app-course-summary> -->
           <!-- <app-add-items></app-add-items> -->
-          <label *ngIf="!courseId">الرجاء اختيار دورة</label>
 
-          <app-course-summary *ngIf="courseId" (onItemSteps)="itemId=$event; stepper.next()"></app-course-summary>
+
+          <app-course-summary [courseId]="courseId" (onItemSteps)="itemId=$event;  stepper.next()">
+          </app-course-summary>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <div class="wrap-next-and-prev-buttons">
             <!-- <button mdbBtn size="sm" color="secondary" (click)="stepper.previous()" class="btn-genrl btn-back"><i

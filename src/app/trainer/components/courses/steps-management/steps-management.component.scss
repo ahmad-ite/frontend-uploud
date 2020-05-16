@@ -93,6 +93,13 @@ ARABIC STYLE START
             }
           }
 
+            .btn-add-course {
+          background-image: linear-gradient(to top, #00b5a9, #01637f);
+          color: white !important;
+          font-weight: bold;
+          margin-top: 30px !important;
+          height: 50px;
+        }
           /* ********************* TABS LIST STYLES END ********************* */
 
           /* ********************* OPTIONS CONTENT START ********************* */
@@ -336,7 +343,7 @@ ARABIC STYLE START
 
         // CARD FOOTER CUSTOM STYLES END
 
-        // SWITCH BUTTON INPUT STYLES START 
+        // SWITCH BUTTON INPUT STYLES START
         .custom-switch {
           padding-right: 22px !important;
           padding-top: 10px;

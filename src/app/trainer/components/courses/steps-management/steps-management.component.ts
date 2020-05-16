@@ -301,8 +301,8 @@ export class StepsManagementComponent implements OnInit {
     } else {
       this.itemSteps = [];
     }
-    if (showNewStep)
-      this.initStep('textbox');
+    // if (showNewStep)
+    //   this.initStep('textbox');
   }
   selectVideo() {
     this.app_ser.openGalleryPopup(0, 'video', "select").then(res => {
@@ -399,12 +399,11 @@ export class StepsManagementComponent implements OnInit {
     this.app_ser.post("site_feed/TrainerStep/save/" + (this.step.id ? this.step.id : 0), { data: copyStep }).subscribe(
       data => {
 
-        // this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
         if (!this.step.id) {
-          this.toastr.success("added succesfully", "Cool!");
+          this.toastr.success(this.translate.instant('added succesfully'), this.translate.instant('Cool!'));
         }
         else {
-          this.toastr.success("edit succesfully", "Cool!");
+          this.toastr.success(this.translate.instant('edit succesfully'), this.translate.instant('Cool!'));
         }
         this.reloadSteps(this.step.course_item, false);
       });
@@ -468,7 +467,9 @@ export class StepsManagementComponent implements OnInit {
         if (confirmed) {
           this.app_ser.post("site_feed/TrainerStep/delete/" + parseInt(s.id), {}).subscribe(
             data => {
-              this.toastr.success("deleted succesfully", "Cool!");
+
+              this.toastr.success(this.translate.instant('deleted succesfully'), this.translate.instant('Cool!'));
+
               this.reloadSteps(this.step.course_item);
             });
         }

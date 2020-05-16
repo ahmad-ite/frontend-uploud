@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild, Output, EventEmitter } from '@angular/core';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { MainCategory, Course, SubCategory } from 'src/app/_models/loadData';
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Globals } from 'src/app/globals';
 import { MatStepper } from '@angular/material';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-course',
   templateUrl: './add-course.component.html',
@@ -14,6 +14,7 @@ import { MatStepper } from '@angular/material';
   encapsulation: ViewEncapsulation.None
 })
 export class AddCourseComponent implements OnInit {
+  @Output() onSavedCourse = new EventEmitter<any>();
   templates: MainCategory[];
   course: Course;
   categories: SubCategory[];
@@ -21,7 +22,7 @@ export class AddCourseComponent implements OnInit {
 
 
   langStyle: any;
-  courseId: number;
+  courseId: any;
   title: string;
 
 
@@ -30,6 +31,7 @@ export class AddCourseComponent implements OnInit {
     public globals: Globals,
     public route: ActivatedRoute,
     public router: Router,
+    private location: Location,
     public app_ser: AppService,
     public translate: TranslateService
   ) {
@@ -61,11 +63,21 @@ export class AddCourseComponent implements OnInit {
 
   }
   save() {
+    if (!this.courseId || this.courseId == "undefined") {
+      // alert(this.courseId)
+      this.courseId = 0;
+    }
     this.app_ser.post("site_feed/TrainerCourse/save/" + this.courseId, { data: this.course }).subscribe(
       data => {
         // this.router.navigate(["/trainer/courses/list"]);
         // this.stepper.next();
-        this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+        this.courseId = data.id;
+        this.onSavedCourse.emit(data.id);
+        this.location.go("/trainer/courses/" + data.id + "/edit")
+
+        // alert(this.courseId)
+        // this.router.navigate(["/trainer/courses/" + data.id + "/edit"]);
+
 
       });
 
@@ -100,5 +112,13 @@ export class AddCourseComponent implements OnInit {
         });
     }
   }
+  selectImg() {
+    this.app_ser.openGalleryPopup(this.courseId, "image", "select").then(res => {
+      if (res) {
 
+        this.course.cover_image = res.uuid;
+      }
+
+    })
+  }
 }

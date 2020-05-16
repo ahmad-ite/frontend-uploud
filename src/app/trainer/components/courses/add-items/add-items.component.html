@@ -68,7 +68,7 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6 label-div">
-                    <label for="" class="mb-2 lbl-genrl lbl-required">{{'Upload Cover Image' | translate}}</label>
+                    <label for="" class="mb-2 lbl-genrl">{{'Upload Cover Image' | translate}}</label>
                   </div>
                   <div class="col-md-6 error-msg-div">
                     <div class="error-message" *ngIf="false"> {{ 'Cover Image' | translate }}
@@ -79,10 +79,11 @@
                   </div>
                 </div>
                 <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
-                    class="fal fa-cloud-upload upload-cover-img-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
+                    class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
+                    class="lbl-upload-from-gallery">{{'Upload from
                 media gallery' | translate}}</span></a>
               </div>
-              <div class="form-group">
+              <div *ngIf="0" class="form-group">
                 <div class="row">
                   <div class="col-md-6 label-div">
                     <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
@@ -98,7 +99,7 @@
                   #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="item.pass_mark"
                   placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
               </div>
-              <div class="form-group">
+              <div *ngIf="0" class="form-group">
                 <div class="custom-control custom-switch">
                   <div class="label-div">
                     <input id="customSwitch2" type="checkbox" class="custom-control-input" #is_basic="ngModel"
@@ -111,7 +112,7 @@
           </div>
         </mdb-tab>
         <!--Panel 2-->
-        <mdb-tab heading="{{'Settings'| translate}}">
+        <mdb-tab *ngIf="0" heading="{{'Settings'| translate}}">
           <div *ngIf="0" class="row">
             <div class="col-12">
               <div class="custom-control custom-switch">
