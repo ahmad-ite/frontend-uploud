@@ -1,14 +1,27 @@
 <div [ngClass]="langStyle">
   <section id="trainerGallery">
     <!-- Breadcrumbs start  -->
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb custom-breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/trainer"><i class="fal fa-home-lg-alt"></i>
-            {{'Home' | translate}}</a></li>
-        <li class="breadcrumb-item active"><i class="fal fa-upload"></i> {{'Upload Gallery' | translate}}</li>
-      </ol>
-    </nav>
+    <div>
+      <div class="col-md-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb custom-breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/trainer"><i class="fal fa-home-lg-alt"></i>
+                {{'Home' | translate}}</a></li>
+            <li class="breadcrumb-item active"><i class="fal fa-upload"></i> {{'Upload Gallery1' | translate}}</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-md-6">
+        <select [(ngModel)]="selectedCourse" (change)="ChangedCourse()" class="course-dd">
+          <option disabled [value]="0">{{'Select Course' | translate}}</option>
+          <option [value]="0">{{'All' | translate}}</option>
+          <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
+        </select>
+      </div>
+    </div>
+
     <!-- Breadcrumbs End  -->
+
     <mdb-card>
       <mdb-card-body>
         <ngb-tabset [destroyOnHide]="false" (tabChange)="onTabChange($event)" [activeId]="activeTab"
@@ -21,12 +34,12 @@
                 <img src="../../../../assets/images/spiner.gif" alt=""
                   style="width: 70px;height: auto;display: block;margin: 100px auto;">
               </div>
-              <div class="wrapper-tab-images wrapper-tab-genrl" *ngIf="trainerContent.length">
-                <!-- <div class="file-upload-wrapper">
+              <div class="wrapper-tab-images wrapper-tab-genrl">
+                <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate }}</button>
-                </div> -->
+                </div>
                 <div class="wrapper-files-listing-image-panel">
                   <div class="row">
                     <div class="col-md-3" *ngFor="let uploadImage of trainerContent">
@@ -55,12 +68,12 @@
                 <img src="../../../../assets/images/spiner.gif" alt=""
                   style="width: 70px;height: auto;display: block;margin: 100px auto;">
               </div>
-              <div class="wrapper-tab-videos wrapper-tab-genrl" *ngIf="trainerContent.length">
-                <!-- <div class="file-upload-wrapper">
+              <div class="wrapper-tab-videos wrapper-tab-genrl">
+                <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate }}</button>
-                </div> -->
+                </div>
                 <div class="wrapper-files-listing-video-panel">
                   <div class="row">
                     <div class="col-md-3" *ngFor="let trainerVideo of trainerContent">
@@ -99,11 +112,11 @@
                   </ng-template>
                   <ng-template ngbTabContent>
                     <div class="wrapper-tab-dubbing-videos wrapper-tab-genrl">
-                      <!-- <div class="file-upload-wrapper">
+                      <div class="file-upload-wrapper">
                         <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                          (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt"
-                            style="font-size: 14px"></i> {{'Upload' | translate }}</button>
-                      </div> -->
+                          (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                          {{'Upload' | translate }}</button>
+                      </div>
                       <div class="wrapper-files-listing-dubbing-panel">
                         <!-- ROW IMAGE NOT FOUND START  -->
                         <div class="row">
@@ -164,11 +177,11 @@
                   </ng-template>
                   <ng-template ngbTabContent>
                     <div class="wrapper-tab-subtitles wrapper-tab-genrl">
-                      <!-- <div class="file-upload-wrapper">
+                      <div class="file-upload-wrapper">
                         <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                          (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt"
-                            style="font-size: 14px"></i> {{'Upload' | translate }}</button>
-                      </div> -->
+                          (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                          {{'Upload' | translate }}</button>
+                      </div>
                       <div class="wrapper-files-listing-subtitles-panel">
                         <div class="row">
                           <div class="col-md-12">
@@ -214,11 +227,11 @@
                   style="width: 70px;height: auto;display: block;margin: 100px auto;">
               </div>
               <div class="wrapper-tab-audio wrapper-tab-genrl" *ngIf="trainerContent.length">
-                <!-- <div class="file-upload-wrapper">
+                <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate }}</button>
-                </div> -->
+                </div>
                 <div class="wrapper-audio-files-listing-panel">
                   <div class="row">
                     <div class="col-md-3" *ngFor="let trainerVideo of trainerContent">

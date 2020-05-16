@@ -127,6 +127,7 @@ import { UpdateProfileComponent } from './site/components/student/update-profile
 import { PaymentGatewayComponent } from './site/components/modals/payment-gateway/payment-gateway.component';
 import { InvoiceComponent } from './site/components/student/invoice/invoice.component';
 import { GalleryItemPreviewComponent } from './trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
+import { UploadGalleryPopupComponent } from './trainer/components/modals/upload-gallery-popup/upload-gallery-popup.component';
 
 // import { SearchComponent } from './site/components/modals/search/search.component';
 // import { CourseLoaderComponent } from './components/utils/course-loader/course-loader.component';
@@ -249,7 +250,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateProfileComponent,
     PaymentGatewayComponent,
     InvoiceComponent,
-    GalleryItemPreviewComponent
+    GalleryItemPreviewComponent,
+    UploadGalleryPopupComponent
 
   ],
   imports: [
@@ -351,7 +353,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UpdateProfileComponent,
     PaymentGatewayComponent,
     InvoiceComponent,
-    GalleryItemPreviewComponent
+    GalleryItemPreviewComponent,
+    UploadGalleryPopupComponent
 
   ]
   ,

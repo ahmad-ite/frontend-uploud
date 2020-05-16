@@ -400,7 +400,7 @@ export class StepsManagementComponent implements OnInit {
       data => {
 
         // this.toastr.success("Step: " + this.step.title + ", added succesfully", "Cool!");
-        if (this.step.id) {
+        if (!this.step.id) {
           this.toastr.success("added succesfully", "Cool!");
         }
         else {
@@ -411,11 +411,13 @@ export class StepsManagementComponent implements OnInit {
 
   }
   initInput() {
-    if (this.step.type == "play" && !this.step.video)
-      this.toastr.error(this.translate.instant('Error Video'), this.translate.instant('error'));
+    if (this.step.type == "play" && !this.step.video) {
+      return this.toastr.error(this.translate.instant('Error Video'), this.translate.instant('error'));
+    }
 
 
-    return;
+
+
     var copyStep: any = Object.assign({}, this.step)
     let sett = { file_types: [], file_message: [] };
     let att = { files: [] };
@@ -463,22 +465,16 @@ export class StepsManagementComponent implements OnInit {
   removeStep(s) {
     this.confirmationDialogService.confirm(this.translate.instant('Delete Step'), 'Do you want to delete this Step?')
       .then((confirmed) => {
-
         if (confirmed) {
-          this.app_ser.post("site_feed/TrainerStep/delete/" + s.id, {}).subscribe(
+          this.app_ser.post("site_feed/TrainerStep/delete/" + parseInt(s.id), {}).subscribe(
             data => {
-
-              this.toastr.success("Step: " + s.title + ", deleted succesfully", "Cool!");
+              this.toastr.success("deleted succesfully", "Cool!");
               this.reloadSteps(this.step.course_item);
             });
         }
       })
       .catch(() => {
-
       });
-
-
-
 
   }
 

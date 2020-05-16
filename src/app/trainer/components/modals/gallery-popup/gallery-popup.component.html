@@ -34,10 +34,10 @@
                 <img src="../../../../assets/images/spiner.gif" alt=""
                   style="width: 70px;height: auto;display: block;margin: 100px auto;">
               </div>
-              <div class="wrapper-tab-images wrapper-tab-genrl" *ngIf="trainerContent.length">
+              <div class="wrapper-tab-images wrapper-tab-genrl">
                 <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate}}</button> <span
                     class="or-select">{{'or select from gallery' | translate }}</span>
                   <div class="btn-animate-icon">
@@ -82,10 +82,10 @@
                 <img src="../../../../assets/images/spiner.gif" alt=""
                   style="width: 70px;height: auto;display: block;margin: 100px auto;">
               </div>
-              <div class="wrapper-tab-videos wrapper-tab-genrl" *ngIf="trainerContent.length">
+              <div class="wrapper-tab-videos wrapper-tab-genrl">
                 <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate}}</button>
                 </div>
                 <div class="wrapper-files-listing-video-panel">
@@ -137,8 +137,8 @@
                     <div class="wrapper-tab-dubbing-videos wrapper-tab-genrl">
                       <div class="file-upload-wrapper">
                         <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                          (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt"
-                            style="font-size: 14px"></i> {{'Upload' | translate}}</button>
+                          (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                          {{'Upload' | translate}}</button>
                       </div>
                       <div class="wrapper-files-listing-dubbing-panel">
                         <!-- ROW IMAGE NOT FOUND START  -->
@@ -211,8 +211,8 @@
                     <div class="wrapper-tab-subtitles wrapper-tab-genrl">
                       <div class="file-upload-wrapper">
                         <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                          (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt"
-                            style="font-size: 14px"></i> {{'Upload' | translate}}</button>
+                          (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                          {{'Upload' | translate}}</button>
                       </div>
                       <div class="wrapper-files-listing-subtitles-panel">
                         <div class="row">
@@ -261,7 +261,7 @@
               <div class="wrapper-tab-audio wrapper-tab-genrl" *ngIf="trainerContent.length">
                 <div class="file-upload-wrapper">
                   <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect
-                    (click)="openFileUploadModal()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
+                    (click)="uploadMedia()"><i class="far fa-cloud-upload-alt" style="font-size: 14px"></i>
                     {{'Upload' | translate }}</button>
                 </div>
                 <div class="wrapper-audio-files-listing-panel">

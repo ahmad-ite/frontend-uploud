@@ -27,6 +27,7 @@ import { UpdateProfileComponent } from '../site/components/student/update-profil
 import { InvoiceComponent } from '../site/components/student/invoice/invoice.component';
 import { AuthenticationService } from '../_services';
 import { GalleryItemPreviewComponent } from '../trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
+import { UploadGalleryPopupComponent } from '../trainer/components/modals/upload-gallery-popup/upload-gallery-popup.component';
 
 
 @Injectable({
@@ -468,6 +469,28 @@ export class AppService {
     galleryModal.componentInstance.lang = lang;
 
     return await galleryModal.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      if (result == 'false')
+        return false;
+      return result;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      return false;
+    });
+
+  }
+
+  async openUploadGalleryPopup(course = 0, type = 'video', lang = "ar") {
+
+    var uploadGalleryModal = this.modalService.open(UploadGalleryPopupComponent, { windowClass: 'galleryPopupModal', size: 'lg', centered: true, backdrop: false });
+    // videoModal.componentInstance.video = video;
+    // videoModal.componentInstance.details = details;
+
+    uploadGalleryModal.componentInstance.currentCourse = course;
+    uploadGalleryModal.componentInstance.activeTab = type;
+    uploadGalleryModal.componentInstance.lang = lang;
+
+    return await uploadGalleryModal.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == 'false')
         return false;
@@ -970,8 +993,14 @@ export class AppService {
       case "video":
         return ['mp4', '3gp', 'ogg', 'wmv ', 'webm ', 'flv', 'AVI', 'avi'];
         break;
+      case "dubbing":
+        return ['mp4', '3gp', 'ogg', 'wmv ', 'webm ', 'flv', 'AVI', 'avi'];
+        break;
       case "audio":
         return ['mp3', 'wav'];
+        break;
+      case "subtitle":
+        return ['srt', 'vtt'];
         break;
 
     }

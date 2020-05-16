@@ -175,4 +175,9 @@ export class GalleryPopupComponent implements OnInit {
     this.loadPage(1);
 
   }
+  uploadMedia() {
+    this.app_ser.openUploadGalleryPopup(this.currentCourse, this.activeTab, this.activeSecondryTab).then(res => {
+      this.loadPage(1);
+    });
+  }
 }

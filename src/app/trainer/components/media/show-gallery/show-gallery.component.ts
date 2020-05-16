@@ -30,6 +30,8 @@ export class ShowGalleryComponent implements OnInit {
   loadGifLoader: any = true;
   activeSecondryTab: string = 'ar';
   langStyle: string;
+  selectedCourse: number = 0;
+  courses: any;
 
 
   constructor(
@@ -47,6 +49,14 @@ export class ShowGalleryComponent implements OnInit {
     // this.activeTab = "dubbing";
     this.trainerContent = [];
     this.loadPage(1);
+    this.app_ser.post("site_feed/TrainerCourse/all_courses", {}).subscribe(
+      data => {
+        this.courses = data;
+        this.selectedCourse = this.currentCourse;
+
+      },
+      error => {
+      });
     this.langStyle = "wrapper-show-gallery-" + this.app_ser.app_lang();
   }
 
@@ -144,6 +154,20 @@ export class ShowGalleryComponent implements OnInit {
 
     this.trainerContent = [];
     this.loadPage(1);
+  }
+
+  uploadMedia() {
+
+    this.app_ser.openUploadGalleryPopup(this.currentCourse, this.activeTab, this.activeSecondryTab).then(res => {
+      this.loadPage(1);
+    });
+  }
+  ChangedCourse() {
+
+    this.currentCourse = this.selectedCourse;
+
+    this.loadPage(1);
+
   }
 }
 
