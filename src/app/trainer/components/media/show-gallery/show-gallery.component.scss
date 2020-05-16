@@ -10,6 +10,19 @@ ARABIC STYLE START
   text-align: right;
 
   #trainerGallery {
+    .course-dd {
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      max-width: 400px;
+      cursor: pointer;
+      border: 1px solid #00b4a8;
+      height: 49px;
+      font-size: 20px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+
     mdb-card {
       border-radius: 20px !important;
 
@@ -325,6 +338,19 @@ ARABIC STYLE START
     ====================================================================================== */
 .wrapper-show-gallery-en {
   #trainerGallery {
+    .course-dd {
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      max-width: 400px;
+      cursor: pointer;
+      border: 1px solid #00b4a8;
+      height: 49px;
+      font-size: 20px;
+      box-shadow: 0 0 0 0;
+      outline: 0;
+    }
+
     mdb-card {
       border-radius: 20px !important;
 

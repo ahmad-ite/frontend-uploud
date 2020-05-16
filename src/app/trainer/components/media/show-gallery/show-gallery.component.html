@@ -7,7 +7,8 @@
           <ol class="breadcrumb custom-breadcrumb">
             <li class="breadcrumb-item"><a routerLink="/trainer"><i class="fal fa-home-lg-alt"></i>
                 {{'Home' | translate}}</a></li>
-            <li class="breadcrumb-item active"><i class="fal fa-upload"></i> {{'Upload Gallery1' | translate}}</li>
+            <li class="breadcrumb-item active"><i class="fal fa-photo-video"></i> {{'View Media Gallery' | translate}}
+            </li>
           </ol>
         </nav>
       </div>
@@ -19,9 +20,7 @@
         </select>
       </div>
     </div>
-
     <!-- Breadcrumbs End  -->
-
     <mdb-card>
       <mdb-card-body>
         <ngb-tabset [destroyOnHide]="false" (tabChange)="onTabChange($event)" [activeId]="activeTab"
@@ -173,7 +172,7 @@
                 id="tabset-languages-subtitle">
                 <ngb-tab *ngFor="let tab of app_ser.langList" id="{{tab.code}}">
                   <ng-template ngbTabTitle>
-                    <span>{{ tab.name }}</span>
+                    <span>{{ tab.name | translate}}</span>
                   </ng-template>
                   <ng-template ngbTabContent>
                     <div class="wrapper-tab-subtitles wrapper-tab-genrl">
