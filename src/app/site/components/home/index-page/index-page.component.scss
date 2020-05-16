@@ -847,6 +847,10 @@ ARABIC STYLE START
       }
     }
 
+    .main-categories-first {
+      margin-top: -60px !important;
+    }
+
     .wrapper-app-video {
       vg-player {
         video {
@@ -2131,6 +2135,10 @@ ARABIC STYLE START
   @media (max-width:575px) {
     .container-custom-width {
       max-width: calc(100% - 20px) !important;
+    }
+
+    .main-categories-first {
+      margin-top: -60px !important;
     }
 
     .wrapper-app-video {
