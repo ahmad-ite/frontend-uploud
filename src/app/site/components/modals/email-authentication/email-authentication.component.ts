@@ -70,8 +70,12 @@ export class EmailAuthenticationComponent implements OnInit {
         // this.router.navigate(["/"]);
         // this.router.navigate(['trainer-profile-setup']);
         // this.router.navigate(['update-profile']);
-        if (data.is_trainer)
-          this.router.navigate(['/update-profile/' + data.id + "/" + this.app_ser.urlString(data.name)])
+        if (data.is_trainer) {
+          this.router.navigate(['/trainer'])
+
+          // this.router.navigate(['/update-profile/' + data.id + "/" + this.app_ser.urlString(data.name)])
+
+        }
         else {
           this.router.navigate(['/'])
         }

@@ -28,6 +28,7 @@ import { InvoiceComponent } from '../site/components/student/invoice/invoice.com
 import { AuthenticationService } from '../_services';
 import { GalleryItemPreviewComponent } from '../trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
 import { UploadGalleryPopupComponent } from '../trainer/components/modals/upload-gallery-popup/upload-gallery-popup.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Injectable({
@@ -49,6 +50,8 @@ export class AppService {
   constructor(
     public globals: Globals,
     public toastr: ToastrService,
+    public router: Router,
+    public route: ActivatedRoute,
     private modalService: NgbModal,
     public activeModal: NgbActiveModal,
     private authenticationService: AuthenticationService,
@@ -277,11 +280,25 @@ export class AppService {
       this.closeResult = `Closed with: ${result}`;
       if (result == 'false')
         return false;
+
+      this.viewTrainerPanel();
       return result;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       return false;
     });
+
+  }
+  viewTrainerPanel() {
+    let user = this.getCurrentUser();
+
+    if (user.is_trainer) {
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      };
+      this.router.navigate(['/trainer'])
+      return;
+    }
 
   }
 

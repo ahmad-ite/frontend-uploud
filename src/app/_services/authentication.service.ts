@@ -9,12 +9,15 @@ import { userInfo } from 'os';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '../services/app.service';
+import { Router } from '@angular/router';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  constructor(private toastr: ToastrService, private http: HttpClient, public globals: Globals,
+  constructor(private toastr: ToastrService,
+    public router: Router,
+    private http: HttpClient, public globals: Globals,
     private translate: TranslateService, public app_ser: AppService, ) {
 
 
@@ -35,7 +38,7 @@ export class AuthenticationService {
     return formBody.join('&');
   }
   login_social(responce) {
-    
+
     var postData: any = new FormData();
     postData.append('email', responce.email);
     postData.append('name', responce.name);
@@ -43,7 +46,7 @@ export class AuthenticationService {
 
     return this.http.post<any>("site_feed/account/login_social", postData)
       .pipe(map(user => {
-        
+
         if (user.error) {
 
 
@@ -87,14 +90,20 @@ export class AuthenticationService {
 
         }
         else {
-          
+
           if (data && data.data.token) {
             // store user details in local storage to keep user logged in
             localStorage.setItem('currentUser', JSON.stringify(data.data));
             this.currentUserSubject.next(data);
 
-            if (data.data.is_trainer)
-              this.globals.role = 2
+            if (data.data.is_trainer) {
+              this.globals.role = 2;
+
+              // this.router.navigate(['/trainer'])
+
+
+            }
+
             else
               this.globals.role = 1
           }

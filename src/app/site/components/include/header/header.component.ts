@@ -52,7 +52,21 @@ export class HeaderComponent implements OnInit {
 
   }
   showLogin() {
-    this.app_ser.openSignIn();
+    this.app_ser.openSignIn().then(res => {
+      // this.viewTrainerPanel();
+    });
+
+  }
+  viewTrainerPanel() {
+    let user = this.app_ser.getCurrentUser();
+
+    if (user.is_trainer) {
+      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+        return false;
+      };
+      this.router.navigate(['/trainer'])
+      return;
+    }
 
   }
   showSignUpType() {
@@ -96,6 +110,8 @@ export class HeaderComponent implements OnInit {
     return this.app_ser.img_url(user.image, 'user')
 
   }
+
+
   viewProfile() {
     let user = this.app_ser.getCurrentUser();
     // if (user.is_trainer) {
@@ -188,7 +204,7 @@ export class HeaderComponent implements OnInit {
     else if (this.router.url == '/') {
       return 'wrapper-header'
     }
-    else if (this.router.url.includes('/trainer-view')){
+    else if (this.router.url.includes('/trainer-view')) {
       return 'wrapper-header'
     }
     else {
