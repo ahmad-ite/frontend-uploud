@@ -28,14 +28,14 @@ export class TrainerViewComponent implements OnInit {
     // data1.page=0;
     this.app_ser.post("site_feed/course/view_trainer/" + this.id, {}).subscribe(
       data => {
-        
+
         this.trainerData = data;
 
 
 
       },
       error => {
-        
+
         // this.toastr.error(error.error.message, 'Error');
 
       });
@@ -46,7 +46,7 @@ export class TrainerViewComponent implements OnInit {
   }
 
   view_trainer(id) {
-    
+
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
