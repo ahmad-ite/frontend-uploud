@@ -197,6 +197,11 @@
               {{courseDetail.students_count}}</p>
             <p class="course-level"><i class="fal fa-analytics"></i>{{'Course Level' | translate}}:
               {{courseDetail.course_level.name}} </p>
+
+
+            <p *ngIf="courseDetail.issued_by" class="no-of-lessons"><i
+                class="fas fa-file-certificate"></i>{{'certificate of achievement' | translate}}:
+              {{courseDetail.issued_by}}</p>
           </div>
           <div *ngIf="!app_ser.isTrainer()">
             <a mdbTooltip="{{app_ser.inst('register_course') }}" placement="top" *ngIf="!courseDetail.register"
