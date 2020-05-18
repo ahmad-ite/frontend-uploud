@@ -473,6 +473,13 @@ ARABIC STYLE START
       }
     }
 
+    .certificate-focus-kun-text {
+      background: -webkit-linear-gradient(top, #00b4a8, #00647f);
+      padding: 10px 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .what-you-learn {
       box-shadow: 0px 0px 6px lightgrey;
       margin: 20px 0;
@@ -1478,6 +1485,13 @@ ENGLISH STYLE START
           text-decoration: underline;
         }
       }
+    }
+
+    .certificate-focus-kun-text {
+      background: -webkit-linear-gradient(top, #00b4a8, #00647f);
+      padding: 10px 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .what-you-learn {

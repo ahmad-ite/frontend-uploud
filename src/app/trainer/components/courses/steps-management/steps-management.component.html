@@ -1,7 +1,7 @@
 <div [ngClass]="langStyle">
-  <label *ngIf="!itemId">الرجاء اختيار محور لعرض البيانات</label>
+  <label *ngIf="!itemId" class="please-choose-item">{{'Please choose an item to view the data' | translate}}</label>
   <div class="wrapper-steps-main" *ngIf="itemId">
-    <div class="row row-controls">
+    <div class="row row-controls mb-0">
       <div class="col-12">
         <div class="wrap-steps-controls">
           <ngb-tabset type="pills" [destroyOnHide]="false" (tabChange)="onTabChange($event)" [activeId]="activeTab"
@@ -43,8 +43,7 @@
                       <i class="far " [ngClass]="stepIcons[thumb.type]"></i>
                       <p [title]="thumb.instructions" class="thumb-question"
                         style="display:block;text-overflow:ellipsis;;overflow:hidden;max-height:200px;display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">
-                        {{thumb.question}}
-                      </p>
+                        {{thumb.question}} </p>
                     </div>
                   </div>
                 </div>
@@ -60,8 +59,10 @@
                         <span class="time">{{'Time' | translate}}: {{formatTimeInMinutes(thumb.expected_time)}} </span>
                       </div>
                     </div>
-                    <div class=" col-6 wrap-option-del">
-                      <i class="far fa-trash-alt option-del-icon" (click)="removeStep(thumb)"></i>
+                    <div class=" col-12 wrap-option-del">
+                      <i class="far fa-trash-alt option-del-icon" (click)="removeStep(thumb)"
+                        style="color: red;font-size: 18px;margin-top:15px;" mdbTooltip="{{'Delete Step' | translate}}"
+                        placement="top"></i>
                     </div>
                   </div>
                 </div>
@@ -72,7 +73,6 @@
       </div>
       <div class="col-8 p-0">
         <div class="wrap-steps-content">
-
           <!-- **************************************** INSERT shared TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type &&false">
             <mdb-card>
@@ -178,7 +178,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="step.type=='play'">
                     <div class="form-group">
                       <div class="row">
@@ -191,11 +190,9 @@
                         </div>
                       </div>
                       <a (click)="selectVideo()" class="wrap-btn-upload-cover"><i
-                          class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
-                          class="lbl-upload-from-gallery">{{'Upload from
+                          class="fal fa-cloud-upload upload-video-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
                                     media gallery' | translate}}</span></a>
                     </div>
-
                     <div *ngIf="!!step.video">
                       <vg-player (onPlayerReady)="onPlayerReady($event)">
                         <vg-controls>
@@ -214,9 +211,7 @@
                         </video>
                       </vg-player>
                     </div>
-
                   </div>
-
                   <div *ngIf="step.type=='choice'">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -280,7 +275,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="step.type=='correct'">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -344,7 +338,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="step.type=='arrange'">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -409,7 +402,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="step.type=='match'">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -491,7 +483,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="step.type=='upload-video'">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -531,11 +522,9 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -543,9 +532,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT shared TOOL END **************************************** -->
-
-
-
           <!-- **************************************** INSERT textbox TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='textbox'">
             <mdb-card>
@@ -651,22 +637,9 @@
                       </div>
                     </div>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -674,8 +647,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT textbox TOOL END **************************************** -->
-
-
           <!-- **************************************** INSERT play TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='play'">
             <mdb-card>
@@ -724,7 +695,6 @@
                     </div>
                   </div>
                   <div class="row">
-
                     <div class="col-md-12">
                       <div class="form-group form-group-genrl">
                         <div class="row">
@@ -745,7 +715,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div>
                     <div class="form-group">
                       <div class="row">
@@ -758,11 +727,9 @@
                         </div>
                       </div>
                       <a (click)="selectVideo()" class="wrap-btn-upload-cover"><i
-                          class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
-                          class="lbl-upload-from-gallery">{{'Upload from
+                          class="fal fa-cloud-upload upload-video-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
                                                 media gallery' | translate}}</span></a>
                     </div>
-
                     <div *ngIf="step.video">
                       <vg-player (onPlayerReady)="onPlayerReady($event)">
                         <vg-controls>
@@ -781,15 +748,10 @@
                         </video>
                       </vg-player>
                     </div>
-
                   </div>
-
-
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -797,9 +759,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT play TOOL END **************************************** -->
-
-
-
           <!-- **************************************** INSERT choice TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='choice'">
             <mdb-card>
@@ -905,9 +864,6 @@
                       </div>
                     </div>
                   </div>
-
-
-
                   <div>
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -930,7 +886,6 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                             </li>
                           </ul>
@@ -969,12 +924,9 @@
                       </div>
                     </div>
                   </div>
-
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -982,8 +934,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT choice TOOL END **************************************** -->
-
-
           <!-- **************************************** INSERT arrange TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='arrange'">
             <mdb-card>
@@ -1089,8 +1039,6 @@
                       </div>
                     </div>
                   </div>
-
-
                   <!-- Options -->
                   <div>
                     <div class="form-group form-group-genrl">
@@ -1103,7 +1051,6 @@
                           <ul class="arrange-options-ul">
                             <!-- <li>{{item}}</li> -->
                             <li *ngFor="let option of step.options; let i = index" class="optoins-li">
-
                               <div *ngIf="0" class="row align-items-center">
                                 <div class="col-12">
                                   <div class="wrap-option-input">
@@ -1115,7 +1062,6 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                               <div class="row align-items-center">
                                 <div class="col-12">
@@ -1132,8 +1078,7 @@
                             </li>
                           </ul>
                           <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
-                              class="far fa-plus-circle"></i>
-                            {{'Add Option'| translate}} </button>
+                              class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
                         </div>
                       </div>
                     </div>
@@ -1194,7 +1139,6 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                             </li>
                           </ul>
@@ -1233,12 +1177,9 @@
                       </div>
                     </div>
                   </div>
-
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -1246,8 +1187,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT arrange TOOL END **************************************** -->
-
-
           <!-- **************************************** INSERT correct TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='correct'">
             <mdb-card>
@@ -1353,7 +1292,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div>
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -1362,7 +1300,7 @@
                           <div class="error-message"> {{ 'Options' | translate }} {{ 'is required' | translate }}</div>
                         </div>
                         <div class="input-field-div">
-                          <ul class="choice-option-ul">
+                          <ul class="correct-options-ul">
                             <!-- <li>{{item}}</li> -->
                             <li *ngFor="let option of step.options; let i = index" class="optoins-li">
                               <div class="row align-items-center">
@@ -1376,13 +1314,11 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                             </li>
                           </ul>
                           <button rounded="true" mdbBtn class="btn-add-option" (click)="addOption()"> <i
-                              class="far fa-plus-circle"></i>
-                            {{'Add Option'| translate}} </button>
+                              class="far fa-plus-circle"></i> {{'Add Option'| translate}} </button>
                         </div>
                       </div>
                     </div>
@@ -1395,19 +1331,16 @@
                         </div>
                         <div class="input-field-div">
                           <ul class="correct-options-ul">
-
                             <li *ngFor="let option of step.options; let i = index" class="optoins-li">
                               <div class="row align-items-center">
                                 <div class="col-12">
                                   <div class="wrap-answers">
                                     <div class="form-control form-control-genrl"> {{ option.t }} </div>
-
                                     <div class="wrap-checkbox-buttons">
                                       <mdb-checkbox [(ngModel)]="correctAnswers[i]"
                                         [name]="correctAnswers[i]?'templatechecked':'templateUnchecked'"
                                         class="input-check-custom">
                                       </mdb-checkbox>
-
                                     </div>
                                   </div>
                                 </div>
@@ -1418,7 +1351,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="0">
                     <div class="form-group form-group-genrl">
                       <div class="row">
@@ -1441,7 +1373,6 @@
                                     </div>
                                   </div>
                                 </div>
-
                               </div>
                             </li>
                           </ul>
@@ -1480,12 +1411,9 @@
                       </div>
                     </div>
                   </div>
-
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                     <!-- <button rounded="true" mdbBtn class="" type="submit" class="btn-cancel"> Cancel</button> -->
                   </div>
                 </form>
@@ -1493,8 +1421,6 @@
             </mdb-card>
           </section>
           <!-- **************************************** INSERT correct TOOL END **************************************** -->
-
-
           <!-- **************************************** upload media TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]"
             *ngIf="step.type=='upload-video' ||step.type=='upload-sound'||step.type=='upload-document' ||step.type=='upload-image'">
@@ -1601,7 +1527,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="0" class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -1639,18 +1564,15 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                   </div>
                 </form>
               </mdb-card-body>
             </mdb-card>
           </section>
           <!-- **************************************** upload media  TOOL END **************************************** -->
-
           <!-- **************************************** Recording TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='video' ||step.type=='sound'">
             <mdb-card>
@@ -1756,7 +1678,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="0" class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -1794,19 +1715,15 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                   </div>
                 </form>
               </mdb-card-body>
             </mdb-card>
           </section>
           <!-- **************************************** Recording  TOOL END **************************************** -->
-
-
           <!-- ****************************************  AutoCue TOOL START **************************************** -->
           <section [ngClass]="stepWrapperClasses[step.type]" *ngIf="step.type=='autocue' ||step.type=='autocue-voice'">
             <mdb-card>
@@ -1912,7 +1829,6 @@
                       </div>
                     </div>
                   </div>
-
                   <div *ngIf="0" class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -1950,20 +1866,15 @@
                       </div>
                     </div>
                   </div>
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save" (click)="save()"><i
-                        class="far fa-save"></i>
-                      {{'Save'| translate}}</button>
+                        class="far fa-save"></i> {{'Save'| translate}}</button>
                   </div>
                 </form>
               </mdb-card-body>
             </mdb-card>
           </section>
           <!-- **************************************** upload AutoCue  TOOL END **************************************** -->
-
-
-
           <!-- **************************************** PLAY TOOL START **************************************** -->
           <section class="wrapper-play" *ngIf="false && step.type=='play'">
             <mdb-card>
@@ -1973,7 +1884,6 @@
               <mdb-card-body>
                 <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
                 <form class="p-2 form-genrl">
-
                   <!-- <div class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -1987,7 +1897,6 @@
                       </div>
                     </div>
                   </div> -->
-
                   <div class="card-custom-footer">
                     <button rounded="true" mdbBtn class="" type="submit" class="btn-save"><i class="far fa-save"></i>
                       {{'Save'| translate}}</button>
@@ -2007,7 +1916,6 @@
               <mdb-card-body>
                 <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
                 <form class="p-2 form-genrl">
-
                   <div class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -2089,7 +1997,6 @@
               <mdb-card-body>
                 <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
                 <form class="p-2 form-genrl">
-
                   <div class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -2186,7 +2093,6 @@
               <mdb-card-body>
                 <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
                 <form class="p-2 form-genrl">
-
                   <div class="form-group form-group-genrl">
                     <div class="row">
                       <div class="label-div">
@@ -2239,7 +2145,5 @@
     </div>
     <!-- <button rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course">
       {{'Save' | translate}}</button> -->
-
   </div>
-
 </div>

@@ -1,4 +1,4 @@
-<div [ngClass]="langStyle" style="margin-top: 60px;">
+<div [ngClass]="langStyle">
   <div class="row mb-4">
     <div class="col-md-12">
       <h3 class="text-center mt-5 hdng-gradient">{{ 'Add new course' | translate }}</h3>
@@ -22,8 +22,6 @@
         <mdb-step name="2- {{ 'Course-Items' | translate }}" class="step2">
           <!-- <app-course-summary></app-course-summary> -->
           <!-- <app-add-items></app-add-items> -->
-
-
           <app-course-summary [courseId]="courseId" (onItemSteps)="itemId=$event;  stepper.next()">
           </app-course-summary>
           <!-- BUTTONS CONTINUE AND BACK START -->
@@ -41,20 +39,20 @@
           <!-- <label *ngIf="!itemId">الرجاء اختيار محور</label> -->
           <app-steps-management [courseId]="course.courseId"></app-steps-management>
           <!-- BUTTONS CONTINUE AND BACK START -->
-          <!-- <div class="wrap-next-and-prev-buttons">
-            <button mdbBtn size="sm" color="secondary" class="btn-genrl btn-back" (click)="stepper.previous()"><i
-                class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button>
+          <div class="wrap-next-and-prev-buttons">
+            <!-- <button mdbBtn size="sm" color="secondary" class="btn-genrl btn-back" (click)="stepper.previous()"><i
+                class="far fa-long-arrow-left"></i> {{ 'Back' | translate }}</button> -->
             <button mdbBtn size="sm" color="primary" class="btn-genrl btn-continue"
               (click)="stepper.next(); updateTrainerProfile('bank')">{{ 'next' | translate }} <i
                 class="far fa-long-arrow-right"></i></button>
-          </div> -->
+          </div>
           <!-- BUTTONS CONTINUE AND BACK END -->
         </mdb-step>
         <!-- =============================== STEP 3 - STEP BANK DETAILS END =============================== -->
         <!-- =============================== STEP 4 - STEP FINISH START =============================== -->
         <mdb-step name="{{ 'Finish' | translate }}" class="step4">
-          <p *ngIf="!courseId" class="pl-2">الرجاء اختيار دورة</p>
-          <p *ngIf="courseId" class="pl-2">
+          <p *ngIf="!courseId" class="please-select-course">{{'Please select a course' | translate}}</p>
+          <p *ngIf="courseId" class="please-select-course">
             {{ 'Do you want to save your data and send it to the Admins for approval?' | translate }} </p>
           <!-- BUTTONS SUBMIT AND BACK START -->
           <div *ngIf="courseId" class="wrap-next-and-prev-buttons">

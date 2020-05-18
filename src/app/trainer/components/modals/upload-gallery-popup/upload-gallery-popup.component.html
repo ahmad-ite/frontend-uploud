@@ -30,23 +30,35 @@
           <ngb-tab id="image">
             <ng-template ngbTabTitle><b><i class="far fa-images"></i> {{'Images' | translate}}</b></ng-template>
             <ng-template ngbTabContent>
-
-
-
               <div class="row justify-content-center" style="padding: 50px 0;">
-                <div class="col-md-9 center mb-3">
+                <div class="col-md-11 center mb-3">
                   <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here"
                     (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
                       class="wrapper-browse-btn">
-                      <button type="button" (click)="openFileSelector()">Browse Files</button><br>
+                      <!-- <button type="button" (click)="openFileSelector()">Browse Files</button><br>
                       <p class="txt-files-limit">{{'Maximum Files'|translate}}: {{maximumFiles}} </p>
                       <br>
-                      <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}:
-                        {{maximumFilesize}} {{'GB'|translate}}</p>
+                      <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}: {{maximumFilesize}}
+                        {{'GB'|translate}}</p>
                       <br>
-                      <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p>
-
+                      <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p> -->
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-browse">{{'Browse Files' | translate}}</button><br>
+                      <div class="div-or"><span>{{'or' | translate}}</span></div>
+                      <p class="txt-drag-and-drop text-center">{{'Drag and drop files' | translate}}</p>
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12 text-center">
+                          <span class="no-of-files-limit files-settings-genrl">{{'Maximum Files'|translate}}:
+                            {{maximumFiles}} </span>
+                          <span class="divider">|</span>
+                          <span class="files-size-limit files-settings-genrl"> {{'Maximum Filesize'|translate}}:
+                            {{maximumFilesize}} {{'GB'|translate}}</span>
+                          <span class="divider">|</span>
+                          <span class="files-extension files-settings-genrl">{{'Allowed Extensions'|translate}}:
+                            {{allawdExtension()}}</span>
+                        </div>
+                      </div>
                     </ng-template>
                   </ngx-file-drop>
                   <div *ngIf="uploadded_files.length" class="upload-table">
@@ -55,10 +67,8 @@
                         <tr>
                           <th>#</th>
                           <th>{{'Name'|translate}}</th>
-
-
                           <th>{{'Size'|translate}} ({{ round( totalSize /1048576 )}} MB)</th>
-                          <th> {{'Progress'|translate}}</th>
+                          <th class="th-progress"> {{'Progress'|translate}}</th>
                           <th> {{'Status'|translate}}</th>
                           <th> {{'Actions'|translate}}</th>
                         </tr>
@@ -68,10 +78,9 @@
                           <td><strong>{{i+1}}</strong></td>
                           <td><strong>{{ item.file.name }}</strong></td>
                           <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
-                          <td>
+                          <td class="td-progress">
                             <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">
-                              {{item.uploaded}} %
-                            </ngb-progressbar>
+                              {{item.uploaded}} % </ngb-progressbar>
                           </td>
                           <td><strong>{{item.status|translate}}</strong></td>
                           <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
@@ -92,7 +101,6 @@
                   </div>
                 </div>
               </div>
-
             </ng-template>
           </ngb-tab>
           <!-- **************************************** UPLOAD IMAGE GALLERY TAB END **************************************** -->
@@ -101,19 +109,34 @@
             <ng-template ngbTabTitle><b><i class="far fa-video"></i> {{'Video' | translate }}</b></ng-template>
             <ng-template ngbTabContent>
               <div class="row justify-content-center" style="padding: 50px 0;">
-                <div class="col-md-9 center mb-3">
+                <div class="col-md-11 center mb-3">
                   <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here"
                     (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
                       class="wrapper-browse-btn">
-                      <button type="button" (click)="openFileSelector()">Browse Files</button><br>
+                      <!-- <button type="button" (click)="openFileSelector()">Browse Files</button><br>
                       <p class="txt-files-limit">{{'Maximum Files'|translate}}: {{maximumFiles}} </p>
                       <br>
-                      <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}:
-                        {{maximumFilesize}} {{'GB'|translate}}</p>
+                      <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}: {{maximumFilesize}}
+                        {{'GB'|translate}}</p>
                       <br>
-                      <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p>
-
+                      <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p> -->
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-browse">{{'Browse Files' | translate}}</button><br>
+                      <div class="div-or"><span>{{'or' | translate}}</span></div>
+                      <p class="txt-drag-and-drop text-center">{{'Drag and drop files' | translate}}</p>
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12 text-center">
+                          <span class="no-of-files-limit files-settings-genrl">{{'Maximum Files'|translate}}:
+                            {{maximumFiles}} </span>
+                          <span class="divider">|</span>
+                          <span class="files-size-limit files-settings-genrl"> {{'Maximum Filesize'|translate}}:
+                            {{maximumFilesize}} {{'GB'|translate}}</span>
+                          <span class="divider">|</span>
+                          <span class="files-extension files-settings-genrl">{{'Allowed Extensions'|translate}}:
+                            {{allawdExtension()}}</span>
+                        </div>
+                      </div>
                     </ng-template>
                   </ngx-file-drop>
                   <div *ngIf="uploadded_files.length" class="upload-table">
@@ -122,8 +145,6 @@
                         <tr>
                           <th>#</th>
                           <th>{{'Name'|translate}}</th>
-
-
                           <th>{{'Size'|translate}} ({{ round( totalSize /1048576 )}} MB)</th>
                           <th> {{'Progress'|translate}}</th>
                           <th> {{'Status'|translate}}</th>
@@ -137,8 +158,7 @@
                           <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
                           <td>
                             <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">
-                              {{item.uploaded}} %
-                            </ngb-progressbar>
+                              {{item.uploaded}} % </ngb-progressbar>
                           </td>
                           <td><strong>{{item.status|translate}}</strong></td>
                           <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
@@ -175,20 +195,35 @@
                   </ng-template>
                   <ng-template ngbTabContent>
                     <div class="row justify-content-center" style="padding: 50px 0;">
-                      <div class="col-md-9 center mb-3">
+                      <div class="col-md-11 center mb-3">
                         <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here"
                           (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
                           (onFileLeave)="fileLeave($event)">
                           <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
                             class="wrapper-browse-btn">
-                            <button type="button" (click)="openFileSelector()">Browse Files</button><br>
+                            <!-- <button type="button" (click)="openFileSelector()">Browse Files</button><br>
                             <p class="txt-files-limit">{{'Maximum Files'|translate}}: {{maximumFiles}} </p>
                             <br>
-                            <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}:
-                              {{maximumFilesize}} {{'GB'|translate}}</p>
+                            <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}: {{maximumFilesize}}
+                              {{'GB'|translate}}</p>
                             <br>
-                            <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p>
-
+                            <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p> -->
+                            <button type="button" (click)="openFileSelector()"
+                              class="btn-browse">{{'Browse Files' | translate}}</button><br>
+                            <div class="div-or"><span>{{'or' | translate}}</span></div>
+                            <p class="txt-drag-and-drop text-center">{{'Drag and drop files' | translate}}</p>
+                            <div class="row" style="margin-top: 20px;">
+                              <div class="col-md-12 text-center">
+                                <span class="no-of-files-limit files-settings-genrl">{{'Maximum Files'|translate}}:
+                                  {{maximumFiles}} </span>
+                                <span class="divider">|</span>
+                                <span class="files-size-limit files-settings-genrl"> {{'Maximum Filesize'|translate}}:
+                                  {{maximumFilesize}} {{'GB'|translate}}</span>
+                                <span class="divider">|</span>
+                                <span class="files-extension files-settings-genrl">{{'Allowed Extensions'|translate}}:
+                                  {{allawdExtension()}}</span>
+                              </div>
+                            </div>
                           </ng-template>
                         </ngx-file-drop>
                         <div *ngIf="uploadded_files.length" class="upload-table">
@@ -197,8 +232,6 @@
                               <tr>
                                 <th>#</th>
                                 <th>{{'Name'|translate}}</th>
-
-
                                 <th>{{'Size'|translate}} ({{ round( totalSize /1048576 )}} MB)</th>
                                 <th> {{'Progress'|translate}}</th>
                                 <th> {{'Status'|translate}}</th>
@@ -212,8 +245,7 @@
                                 <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
                                 <td>
                                   <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">
-                                    {{item.uploaded}} %
-                                  </ngb-progressbar>
+                                    {{item.uploaded}} % </ngb-progressbar>
                                 </td>
                                 <td><strong>{{item.status|translate}}</strong></td>
                                 <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
@@ -238,7 +270,6 @@
                 </ngb-tab>
               </ngb-tabset>
               <!-- LANGUAGE TAB END -->
-
             </ng-template>
           </ngb-tab>
           <!-- **************************************** UPLOAD DUBBING VIDEO GALLERY TAB END **************************************** -->
@@ -256,20 +287,35 @@
                   </ng-template>
                   <ng-template ngbTabContent>
                     <div class="row justify-content-center" style="padding: 50px 0;">
-                      <div class="col-md-9 center mb-3">
+                      <div class="col-md-11 center mb-3">
                         <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here"
                           (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
                           (onFileLeave)="fileLeave($event)">
                           <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
                             class="wrapper-browse-btn">
-                            <button type="button" (click)="openFileSelector()">Browse Files</button><br>
+                            <!-- <button type="button" (click)="openFileSelector()">Browse Files</button><br>
                             <p class="txt-files-limit">{{'Maximum Files'|translate}}: {{maximumFiles}} </p>
                             <br>
-                            <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}:
-                              {{maximumFilesize}} {{'GB'|translate}}</p>
+                            <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}: {{maximumFilesize}}
+                              {{'GB'|translate}}</p>
                             <br>
-                            <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p>
-
+                            <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p> -->
+                            <button type="button" (click)="openFileSelector()"
+                              class="btn-browse">{{'Browse Files' | translate}}</button><br>
+                            <div class="div-or"><span>{{'or' | translate}}</span></div>
+                            <p class="txt-drag-and-drop text-center">{{'Drag and drop files' | translate}}</p>
+                            <div class="row" style="margin-top: 20px;">
+                              <div class="col-md-12 text-center">
+                                <span class="no-of-files-limit files-settings-genrl">{{'Maximum Files'|translate}}:
+                                  {{maximumFiles}} </span>
+                                <span class="divider">|</span>
+                                <span class="files-size-limit files-settings-genrl"> {{'Maximum Filesize'|translate}}:
+                                  {{maximumFilesize}} {{'GB'|translate}}</span>
+                                <span class="divider">|</span>
+                                <span class="files-extension files-settings-genrl">{{'Allowed Extensions'|translate}}:
+                                  {{allawdExtension()}}</span>
+                              </div>
+                            </div>
                           </ng-template>
                         </ngx-file-drop>
                         <div *ngIf="uploadded_files.length" class="upload-table">
@@ -278,8 +324,6 @@
                               <tr>
                                 <th>#</th>
                                 <th>{{'Name'|translate}}</th>
-
-
                                 <th>{{'Size'|translate}} ({{ round( totalSize /1048576 )}} MB)</th>
                                 <th> {{'Progress'|translate}}</th>
                                 <th> {{'Status'|translate}}</th>
@@ -293,8 +337,7 @@
                                 <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
                                 <td>
                                   <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">
-                                    {{item.uploaded}} %
-                                  </ngb-progressbar>
+                                    {{item.uploaded}} % </ngb-progressbar>
                                 </td>
                                 <td><strong>{{item.status|translate}}</strong></td>
                                 <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
@@ -319,7 +362,6 @@
                 </ngb-tab>
               </ngb-tabset>
               <!-- LANGUAGE TAB ENG -->
-
             </ng-template>
           </ngb-tab>
           <!-- **************************************** UPLOAD SUBTITLES VIDEO GALLERY TAB END **************************************** -->
@@ -328,19 +370,30 @@
             <ng-template ngbTabTitle><b><i class="far fa-microphone-alt"></i> {{'Audio' | translate }}</b></ng-template>
             <ng-template ngbTabContent>
               <div class="row justify-content-center" style="padding: 50px 0;">
-                <div class="col-md-9 center mb-3">
+                <div class="col-md-11 center mb-3">
                   <ngx-file-drop class="wrapper-browse-btn1" dropZoneLabel="Drop files here"
                     (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                     <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector"
                       class="wrapper-browse-btn">
-                      <button type="button" (click)="openFileSelector()">Browse Files</button><br>
-                      <p class="txt-files-limit">{{'Maximum Files'|translate}}: {{maximumFiles}} </p>
-                      <br>
-                      <p class="txt-files-limit"> {{'Maximum Filesize'|translate}}:
-                        {{maximumFilesize}} {{'GB'|translate}}</p>
-                      <br>
-                      <p class="txt-files-limit">{{'Allowed Extensions'|translate}}: {{allawdExtension()}}</p>
-
+                      <button type="button" (click)="openFileSelector()"
+                        class="btn-browse">{{'Browse Files' | translate}}</button><br>
+                      <div class="div-or"><span>{{'or' | translate}}</span></div>
+                      <p class="txt-drag-and-drop text-center">{{'Drag and drop files' | translate}}</p>
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12 text-center">
+                          <span class="no-of-files-limit files-settings-genrl">{{'Maximum Files'|translate}}:
+                            {{maximumFiles}} </span>
+                          <span class="divider">|</span>
+                          <span class="files-size-limit files-settings-genrl"> {{'Maximum Filesize'|translate}}:
+                            {{maximumFilesize}} {{'GB'|translate}}</span>
+                          <span class="divider">|</span>
+                          <span class="files-extension files-settings-genrl">{{'Allowed Extensions'|translate}}:
+                            {{allawdExtension()}}</span>
+                        </div>
+                      </div>
+                      <!-- <span class="divider"></span>
+                      
+                      <span class="divider"></span> -->
                     </ng-template>
                   </ngx-file-drop>
                   <div *ngIf="uploadded_files.length" class="upload-table">
@@ -349,8 +402,6 @@
                         <tr>
                           <th>#</th>
                           <th>{{'Name'|translate}}</th>
-
-
                           <th>{{'Size'|translate}} ({{ round( totalSize /1048576 )}} MB)</th>
                           <th> {{'Progress'|translate}}</th>
                           <th> {{'Status'|translate}}</th>
@@ -364,8 +415,7 @@
                           <td><strong>{{ round( item.file.size /1048576 )}} MB</strong></td>
                           <td>
                             <ngb-progressbar style="color: black;" type="success" [value]="item.uploaded">
-                              {{item.uploaded}} %
-                            </ngb-progressbar>
+                              {{item.uploaded}} % </ngb-progressbar>
                           </td>
                           <td><strong>{{item.status|translate}}</strong></td>
                           <td><button [ngClass]="{'enabled': item.uploaded==0, 'disabled': item.uploaded!=0}"
