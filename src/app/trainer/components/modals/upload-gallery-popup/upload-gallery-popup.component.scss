@@ -1204,3 +1204,142 @@ ENGLISH STYLE START
   =========================================================================================
   *****************************************************************************************
   ====================================================================================== */
+
+ngx-file-drop {
+  .ngx-file-drop__drop-zone {
+    border: 2px dashed #00b5a9 !important;
+    height: 200px !important;
+
+    .ngx-file-drop__content {
+      height: 200px !important;
+      display: block !important;
+
+      .btn-browse {
+        padding: 10px 20px;
+        border-radius: 100px;
+        display: block;
+        margin: 25px auto 0;
+      }
+
+      .div-or {
+        position: relative;
+        border-top: 1px solid #17b7ab;
+        margin: 40px 0 10px !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        max-width: 200px !important;
+        color: #17b7ab;
+      }
+
+      .div-or span {
+        position: absolute;
+        z-index: 9999;
+        top: -13px;
+        background: #fff;
+        width: 40px;
+        height: 25px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+      }
+
+      .txt-drag-and-drop {
+        margin: 14px auto 10px;
+        color: black;
+      }
+
+
+
+      .files-settings-genrl {
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .divider {
+        padding: 0 10px;
+        color: #32bbb0;
+      }
+    }
+  }
+}
+
+.upload-table {
+  table {
+    margin-top: 40px;
+
+    thead {
+      tr {
+        th {
+          text-align: center;
+          vertical-align: middle;
+          border-top: 0 !important;
+        }
+
+        .th-progress {
+          width: 80px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          text-align: center;
+          vertical-align: middle;
+
+          .btn-success {
+            background-image: linear-gradient(to top, #00b5a9, #01637f);
+            color: white !important;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 10px;
+            padding: 10px 20px;
+            border-radius: 100px;
+          }
+
+          .btn-danger {
+            background: #d43f3a;
+            color: white !important;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 10px;
+            padding: 10px 20px;
+            border-radius: 100px;
+          }
+        }
+
+        .td-progress {
+          width: 80px;
+        }
+      }
+    }
+  }
+}
+
+.btn-success {
+  background-image: linear-gradient(to top, #00b5a9, #01637f);
+  color: white !important;
+  font-weight: bold;
+  margin: 0 5px;
+  font-size: 10px;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+.btn-danger {
+  background: #d43f3a;
+  color: white !important;
+  font-weight: bold;
+  margin: 0 5px;
+  font-size: 10px;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+.progress {
+  height: 8px !important;
+  border-radius: 100px !important;
+}

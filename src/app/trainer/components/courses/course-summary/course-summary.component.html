@@ -1,5 +1,5 @@
 <div [ngClass]="langStyle">
-  <label *ngIf="!courseId">الرجاء اختيار دورة</label>
+  <label *ngIf="!courseId" class="please-select-course">{{'Please select a course' | translate}}</label>
   <section *ngIf="courseId" id="courseViewSummary">
     <!-- Breadcrumbs Start  -->
     <!-- <nav aria-label="breadcrumb">
@@ -23,7 +23,6 @@
             <div class="col-md-12">
               <button mdbBtn rounded="true" class="waves-light gradient-btn" (click)="openItemDialog('Add Item')"
                 mdbWavesEffect><i class="far fa-plus-circle"></i> {{'Add Item' | translate}}</button>
-
               <!-- <a routerLink="/trainer/courses/media-gallery">
                     <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
                         class="far fa-photo-video"></i> {{'Gallery' | translate}}</button>
