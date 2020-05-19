@@ -354,6 +354,7 @@ export class Details {
 export class CourseView {
   id: number;
   type: string;
+  issued_by: any;
   name: string;
   code: number;
   template: string;
