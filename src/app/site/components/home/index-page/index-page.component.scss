@@ -91,7 +91,7 @@ ARABIC STYLE START
 
   // }
   .main-categories-first {
-    margin-top: -100px !important;
+    margin-top: -210px !important;
   }
 
   .wrapper-main-categories {
@@ -125,6 +125,7 @@ ARABIC STYLE START
       .category-title:hover {
         cursor: pointer;
       }
+
 
       /* ================= STYLES TEMPLATE VIDEO START ================= */
       .wrapper-template-video {
@@ -562,6 +563,10 @@ ARABIC STYLE START
 
     /* =============== MASTER CLASS START =============== */
     .MasterClass {
+      .row-categories {
+        align-items: flex-end !important;
+      }
+
       border-top-left-radius: 0;
       border-top-right-radius: 0;
 
@@ -847,9 +852,7 @@ ARABIC STYLE START
       }
     }
 
-    .main-categories-first {
-      margin-top: -60px !important;
-    }
+
 
     .wrapper-app-video {
       vg-player {
@@ -951,6 +954,10 @@ ARABIC STYLE START
       }
     }
 
+    .main-categories-first {
+      margin-top: -60px !important;
+    }
+
     .wrap-kun-text {
       position: absolute;
       top: 345px;
@@ -991,6 +998,10 @@ ARABIC STYLE START
           }
         }
       }
+    }
+
+    .main-categories-first {
+      margin-top: -80px !important;
     }
   }
 
@@ -1116,6 +1127,10 @@ ARABIC STYLE START
 
       }
     }
+
+    .main-categories-first {
+      margin-top: -80px !important;
+    }
   }
 
   /* Large devices (desktops, 992px and up) */
@@ -1214,6 +1229,10 @@ ARABIC STYLE START
           }
         }
       }
+    }
+
+    .main-categories-first {
+      margin-top: -155px !important;
     }
   }
 
@@ -1399,10 +1418,7 @@ ARABIC STYLE START
   // .wrapper-main-categories{
 
   // }
-  .main-categories-first {
-    margin-top: -100px !important;
-    z-index: 999999;
-  }
+
 
   .wrapper-main-categories {
     margin-top: 20px;
@@ -1871,6 +1887,10 @@ ARABIC STYLE START
 
     /* =============== MASTER CLASS START =============== */
     .MasterClass {
+      .row-categories {
+        align-items: flex-end !important;
+      }
+
       border-top-left-radius: 0;
       border-top-right-radius: 0;
 
@@ -2115,6 +2135,11 @@ ARABIC STYLE START
 
   }
 
+  .main-categories-first {
+    margin-top: -100px !important;
+    z-index: 999999;
+  }
+
 
   @keyframes cssAnimation {
     to {
@@ -2137,9 +2162,7 @@ ARABIC STYLE START
       max-width: calc(100% - 20px) !important;
     }
 
-    .main-categories-first {
-      margin-top: -60px !important;
-    }
+
 
     .wrapper-app-video {
       .container-custom-width-video {
@@ -2261,6 +2284,10 @@ ARABIC STYLE START
       }
     }
 
+    .main-categories-first {
+      margin-top: -60px !important;
+    }
+
     .wrap-kun-text {
       position: absolute;
       top: 345px;
@@ -2302,6 +2329,10 @@ ARABIC STYLE START
         }
       }
     }
+
+    .main-categories-first {
+      margin-top: -80px !important;
+    }
   }
 
   /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -2322,6 +2353,10 @@ ARABIC STYLE START
           }
         }
       }
+    }
+
+    .main-categories-first {
+      margin-top: -80px !important;
     }
   }
 
@@ -2422,6 +2457,10 @@ ARABIC STYLE START
         }
       }
     }
+
+    .main-categories-first {
+      margin-top: -155px !important;
+    }
   }
 
 
@@ -2494,6 +2533,10 @@ ARABIC STYLE START
           }
         }
       }
+    }
+
+    .main-categories-first {
+      margin-top: -210px !important;
     }
   }
 
