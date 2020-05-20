@@ -71,6 +71,7 @@ export class CourseSummaryComponent implements OnInit {
     let copyItem = new Item();
     if (!item) {
       copyItem.course = this.courseId;
+
     } else {
       copyItem = JSON.parse(JSON.stringify(item))
       copyItem.settings = JSON.parse(item.settings)
@@ -80,6 +81,7 @@ export class CourseSummaryComponent implements OnInit {
         }
       };
     }
+    itemModal.componentInstance.courseInfo = this.courseInfo;
     itemModal.componentInstance.item = copyItem;
     itemModal.componentInstance.title = title;
 

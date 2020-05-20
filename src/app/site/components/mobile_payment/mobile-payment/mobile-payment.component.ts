@@ -352,7 +352,6 @@ export class MobilePaymentComponent implements OnInit {
 
   onMyFrameLoad(event) {
 
-    // alert(this.bankPageLoadCounter);
     if (this.bankPageLoadCounter > 0) {
 
 

@@ -381,6 +381,8 @@ export class CourseView {
   show_summary: any;
   isStar: number;
   templateID: number;
+  template_id: number;
+
   date: string;
   skills: any[];
   items: Item[];
@@ -425,6 +427,9 @@ export class Item {
   duration: number;
   apply_repeat: number;
   steps_count: number;
+  session_archive: any;
+  session_time: any;
+
 }
 
 export class Apply {

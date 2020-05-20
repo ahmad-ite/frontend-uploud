@@ -1,7 +1,7 @@
 
-import { Component, OnInit, Input, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Inject, ViewEncapsulation, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbDateStruct, NgbDatepicker, NgbCalendar, NgbTimepicker, NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -10,9 +10,10 @@ import { DialogService } from '../../../../services/dialog.service';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
-import { VideoDerivation, Item } from 'src/app/_models/loadData';
+import { VideoDerivation, Item, CourseView } from 'src/app/_models/loadData';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
+import { padNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 
 @Component({
@@ -29,6 +30,11 @@ export class AddItemsComponent implements OnInit {
   //items: any[];
   shadows: boolean = true;
   @Input() title: string;
+  @Input() courseInfo: CourseView;
+
+  model: NgbDateStruct;
+  date: { year: number, month: number };
+  @ViewChild('dp', { static: false }) dp: NgbDatepicker;
   settingsKeys = {
     'Exam': {
       'save_answers_on_move': 'save_answers_on_move',
@@ -49,6 +55,8 @@ export class AddItemsComponent implements OnInit {
       'input_repeat': 'input_repeat_lesson'
     }
   };
+  number: number;
+  time: NgbTimeStruct;
   constructor(
     public app_ser: AppService,
     private translate: TranslateService,
@@ -59,9 +67,12 @@ export class AddItemsComponent implements OnInit {
     private toastr: ToastrService,
     private modalService: NgbModal,
     public activeModal: NgbActiveModal,
-    private location: Location,
+
+    private calendar: NgbCalendar
   ) {
+    this.number = Date.now();
     this.langStyle = "wrapper-add-item-" + this.app_ser.app_lang();
+
     //this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
     //this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
     /* if(!this.item){
@@ -71,10 +82,57 @@ export class AddItemsComponent implements OnInit {
 
   }
 
+  selectToday() {
+    this.time = { hour: 13, minute: 30, second: 0 };
+    this.model = this.calendar.getToday();
+
+
+  }
+
+  setCurrent() {
+    //Current Date
+    this.dp.navigateTo()
+  }
+  setDate() {
+    //Set specific date
+    this.dp.navigateTo({ year: 2013, month: 2 });
+  }
+
+  navigateEvent(event) {
+    this.date = event.next;
+  }
+
   ngOnInit() {
     // this.item = new Item();
-    //this.reloadItems();
-    console.log(this.item);
+    this.initDate();
+
+
+  }
+  initDate() {
+    console.log("ddd", this.courseInfo, this.item);
+    if (this.courseInfo.template_id == 122) {
+      this.selectToday()
+      if (!this.item.session_time) {
+        this.selectToday()
+      }
+      else {
+        var res = this.item.session_time.split(" ");
+
+
+        var date = res[0].split("-");
+        this.model.year = parseInt(date[0]);
+        this.model.month = parseInt(date[1]);
+        this.model.day = parseInt(date[2]);
+
+        var t = res[1].split(":");
+        this.time.hour = parseInt(t[0]);
+        this.time.minute = parseInt(t[1]);
+        this.time.second = parseInt(t[2]);
+
+
+      }
+    }
+
   }
 
   sortBy(m = "") {
@@ -163,6 +221,14 @@ export class AddItemsComponent implements OnInit {
   } */
 
   save() {
+
+    console.log("time", this.time, this.model);
+
+    if (this.courseInfo.template_id == 122 && this.time && this.model) {
+      this.item.session_time = this.model.year + "-" + this.model.month + "-" + this.model.day + " " + this.time.hour + ":" + this.time.minute + ":00";
+      console.log(" this.item.session_time", this.item.session_time);
+    }
+
     this.item.is_basic = 1;
     this.activeModal.close(this.item);
   }

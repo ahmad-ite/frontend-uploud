@@ -128,6 +128,7 @@ import { PaymentGatewayComponent } from './site/components/modals/payment-gatewa
 import { InvoiceComponent } from './site/components/student/invoice/invoice.component';
 import { GalleryItemPreviewComponent } from './trainer/components/modals/gallery-item-preview/gallery-item-preview.component';
 import { UploadGalleryPopupComponent } from './trainer/components/modals/upload-gallery-popup/upload-gallery-popup.component';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 // import { SearchComponent } from './site/components/modals/search/search.component';
 // import { CourseLoaderComponent } from './components/utils/course-loader/course-loader.component';
@@ -261,6 +262,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCheckboxModule,
     NgxUploaderModule,
     MatInputModule,
+    DlDateTimeDateModule,  // <--- Determines the data type of the model
+    DlDateTimePickerModule,
+
     // BotDetectCaptchaModule,mdb
     MatFormFieldModule,
     MatSelectModule,

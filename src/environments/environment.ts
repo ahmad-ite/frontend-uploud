@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  api: "https://kun.academy/",
+  baseUrl: "https://kun.academy/",
   // baseUrl: "http://3.224.244.83/",
   // baseUrl: "http://localhost/kun/",
   // baseUrl:"../../",
-  // apiUrl: "http://kun.academy/"
+  apiUrl: "http://kun.academy/"
 
 };
 

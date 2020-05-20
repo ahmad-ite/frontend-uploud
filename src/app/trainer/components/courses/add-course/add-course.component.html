@@ -55,7 +55,7 @@
                   {{ 'Template' | translate }} {{ 'is required' | translate }} </div>
               </div>
             </div>
-            <select (change)="onChangeTemplate()"
+            <select [disabled]="course.template_id==122 && course.id" (change)="onChangeTemplate()"
               class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" [(ngModel)]="course.template_id"
               #template="ngModel" name="template" style="height: 50px;" required>
               <option [ngValue]="0">{{ 'Select' | translate }} {{'Template'| translate}}</option>
@@ -99,54 +99,58 @@
               <option [ngValue]="3">{{ 'LevelAdv' | translate }}</option>
             </select>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6 label-div">
-                <label mdbTooltip="{{app_ser.inst('Centenary pass rate for course certification') }}" placement="top"
-                  for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
+          <div *ngIf="course.template_id!=122">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 label-div">
+                  <label mdbTooltip="{{app_ser.inst('Centenary pass rate for course certification') }}" placement="top"
+                    for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
+                </div>
+                <div class="col-md-6 error-msg-div">
+                  <div class="error-message" *ngIf="pass_mark.errors?.required && pass_mark.touched">
+                    {{ 'PassMark' | translate }} {{ 'is required' | translate }}</div>
+                  <div class="error-message" *ngIf="pass_mark.errors?.pattern && pass_mark.touched">
+                    {{ 'bw-0-100' | translate }}</div>
+                </div>
               </div>
-              <div class="col-md-6 error-msg-div">
-                <div class="error-message" *ngIf="pass_mark.errors?.required && pass_mark.touched">
-                  {{ 'PassMark' | translate }} {{ 'is required' | translate }}</div>
-                <div class="error-message" *ngIf="pass_mark.errors?.pattern && pass_mark.touched">
-                  {{ 'bw-0-100' | translate }}</div>
+              <input class="form-control form-control-genrl mb-4" type="number" min="0" max="100" step="1"
+                #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="course.pass_mark"
+                placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6 label-div">
+                  <label for="" class="mb-2 lbl-genrl lbl-required"
+                    mdbTooltip="{{app_ser.inst('The number of repeat runs available for this course') }}"
+                    placement="top">{{ 'RepeatCount' | translate }}</label>
+                </div>
+                <div class="col-md-6 error-msg-div">
+                  <div class="error-message" *ngIf="repeat_count.errors?.required && repeat_count.touched">
+                    {{ 'RepeatCount' | translate }} {{ 'is required' | translate }}</div>
+                  <div class="error-message" *ngIf="repeat_count.errors?.pattern && repeat_count.touched">
+                    {{ 'Invalid' | translate }}</div>
+                </div>
+              </div>
+              <input class="form-control form-control-genrl mb-4" type="number" min="0" step="1" #repeat_count="ngModel"
+                required name="repeat_count" [(ngModel)]="course.repeat_count"
+                placeholder="{{ 'RepeatCount' | translate }}" pattern="[0-9]*" />
+            </div>
+
+            <div class="form-group">
+              <div class="custom-control custom-switch ">
+                <div class="label-div">
+                  <input id="customSwitch1" type="checkbox" class="custom-control-input" #is_ordering="ngModel"
+                    name="is_ordering" [(ngModel)]="course.is_ordering"
+                    (change)="course.is_ordering = !!course.is_ordering? 1 : 0">
+                  <label mdbTooltip="{{app_ser.inst('Watch the course items in order') }}" placement="top"
+                    class="custom-control-label lbl-genrl"
+                    for="customSwitch1">{{ 'Ordering Items' | translate }}</label>
+                </div>
               </div>
             </div>
-            <input class="form-control form-control-genrl mb-4" type="number" min="0" max="100" step="1"
-              #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="course.pass_mark"
-              placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
           </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-6 label-div">
-                <label for="" class="mb-2 lbl-genrl lbl-required"
-                  mdbTooltip="{{app_ser.inst('The number of repeat runs available for this course') }}"
-                  placement="top">{{ 'RepeatCount' | translate }}</label>
-              </div>
-              <div class="col-md-6 error-msg-div">
-                <div class="error-message" *ngIf="repeat_count.errors?.required && repeat_count.touched">
-                  {{ 'RepeatCount' | translate }} {{ 'is required' | translate }}</div>
-                <div class="error-message" *ngIf="repeat_count.errors?.pattern && repeat_count.touched">
-                  {{ 'Invalid' | translate }}</div>
-              </div>
-            </div>
-            <input class="form-control form-control-genrl mb-4" type="number" min="0" step="1" #repeat_count="ngModel"
-              required name="repeat_count" [(ngModel)]="course.repeat_count"
-              placeholder="{{ 'RepeatCount' | translate }}" pattern="[0-9]*" />
-          </div>
-
-          <div class="form-group">
-            <div class="custom-control custom-switch ">
-              <div class="label-div">
-                <input id="customSwitch1" type="checkbox" class="custom-control-input" #is_ordering="ngModel"
-                  name="is_ordering" [(ngModel)]="course.is_ordering"
-                  (change)="course.is_ordering = !!course.is_ordering? 1 : 0">
-                <label mdbTooltip="{{app_ser.inst('Watch the course items in order') }}" placement="top"
-                  class="custom-control-label lbl-genrl" for="customSwitch1">{{ 'Ordering Items' | translate }}</label>
-              </div>
-            </div>
-          </div>
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">

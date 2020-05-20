@@ -10,25 +10,6 @@
     </div>
   </div>
   <section id="trainerAddItem" *ngIf="!!item">
-    <!-- Breadcrumbs start  -->
-    <!-- <nav aria-label="breadcrumb">
-      <ol class="breadcrumb custom-breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/"><i class="fal fa-home-lg-alt"></i> {{'Home' | translate}}</a></li>
-        <li class="breadcrumb-item"><a routerLink="/trainer/courses/list"><i class="fal fa-book"></i>
-            {{'Courses' | translate}}</a></li>
-        <li class="breadcrumb-item active"><i class="fal fa-layer-plus"></i> {{'Add Item' | translate}}</li>
-      </ol>
-    </nav> -->
-    <!-- Breadcrumbs End  -->
-    <!-- <select class="custom-select" [(ngModel)]="itemId" (change)="onChangeItem()">
-      <option selected value="0">{{'Add Item' | translate}}</option>
-      <option [value]="item.id" *ngFor="let item of items">
-        {{ item.name}}
-      </option>
-    </select> -->
-    <!-- <mdb-card>
-      <mdb-card-body> -->
-    <!-- <form class="border border-light p-5 custom-form-class-genrl" novalidate #addCourseForm="ngForm"> -->
     <form class="p-2 pb-4 form-genrl" novalidate #addItemForm="ngForm">
       <!-- Nav Tabs -->
       <mdb-tabset #staticTabs [buttonClass]="'classic-tabs tabs-3'" [contentClass]="'card'">
@@ -36,78 +17,154 @@
         <mdb-tab heading="{{'Item'| translate}}">
           <div class="row">
             <div class="col-12">
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-6 label-div">
-                    <label for="" class="mb-2 lbl-genrl lbl-required">{{'Item Type'| translate}}</label>
+              <!--  Item Info -->
+              <div *ngIf="!(courseInfo.template_id== 122)">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl lbl-required">{{'Item Type'| translate}}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="type.errors?.required && type.touched">
+                        {{ 'Item Type' | translate }} {{ 'is required' | translate }} </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 error-msg-div">
-                    <div class="error-message" *ngIf="type.errors?.required && type.touched">
-                      {{ 'Item Type' | translate }} {{ 'is required' | translate }} </div>
+                  <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" name="type"
+                    #type="ngModel" [(ngModel)]="item.type" style="height: 50px;" required>
+                    <option [value]="'Lesson'"> {{'Lesson' | translate}}</option>
+                    <option [value]="'Exam'"> {{'Exam' | translate}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Item Name' | translate }}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="itemName.errors?.required && itemName.touched">
+                        {{ 'Item Name' | translate }} {{ 'is required' | translate }}</div>
+                    </div>
+                  </div>
+                  <input class="form-control form-control-genrl mb-4" type="text" name="itemName" #itemName="ngModel"
+                    [(ngModel)]="item.name" placeholder="{{ 'Item Name' | translate }}" required />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl">{{'Upload Cover Image' | translate}}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="false"> {{ 'Cover Image' | translate }}
+                        {{ 'is required' | translate }}</div>
+                    </div>
+                    <div class="col-md-12" *ngIf="item.image">
+                      <img [src]="app_ser.img_url(item.image)" alt="" class="img-fluid img-thumbnail cover-img">
+                    </div>
+                  </div>
+                  <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
+                      class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
+                      class="lbl-upload-from-gallery">{{'Upload from
+                      media gallery' | translate}}</span></a>
+                </div>
+                <div *ngIf="0" class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="pass_mark.errors?.required && pass_mark.touched">
+                        {{ 'PassMark' | translate }} {{ 'is required' | translate }}</div>
+                      <div class="error-message" *ngIf="pass_mark.errors?.pattern && pass_mark.touched">
+                        {{ 'bw-0-100' | translate }}</div>
+                    </div>
+                  </div>
+                  <input class="form-control form-control-genrl mb-4" type="number" min="0" max="100" step="1"
+                    #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="item.pass_mark"
+                    placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
+                </div>
+                <div *ngIf="0" class="form-group">
+                  <div class="custom-control custom-switch">
+                    <div class="label-div">
+                      <input id="customSwitch2" type="checkbox" class="custom-control-input" #is_basic="ngModel"
+                        name="is_basic" [(ngModel)]="item.is_basic" (change)="item.is_basic = !!item.is_basic? 1 : 0">
+                      <label class="custom-control-label lbl-genrl"
+                        for="customSwitch2">{{ 'Basic' | translate }}</label>
+                    </div>
                   </div>
                 </div>
-                <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" name="type"
-                  #type="ngModel" [(ngModel)]="item.type" style="height: 50px;" required>
-                  <option [value]="'Lesson'"> {{'Lesson' | translate}}</option>
-                  <option [value]="'Exam'"> {{'Exam' | translate}}</option>
-                </select>
               </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-6 label-div">
-                    <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Item Name' | translate }}</label>
+              <!--  Session Info -->
+              <div *ngIf="(courseInfo.template_id== 122)">
+
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Session Name' | translate }}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="itemName.errors?.required && itemName.touched">
+                        {{ 'Session Name' | translate }} {{ 'is required' | translate }}</div>
+                    </div>
                   </div>
-                  <div class="col-md-6 error-msg-div">
-                    <div class="error-message" *ngIf="itemName.errors?.required && itemName.touched">
-                      {{ 'Item Name' | translate }} {{ 'is required' | translate }}</div>
+                  <input class="form-control form-control-genrl mb-4" type="text" name="itemName" #itemName="ngModel"
+                    [(ngModel)]="item.name" placeholder="{{ 'Item Name' | translate }}" required />
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl">{{'Upload Cover Image' | translate}}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="error-message" *ngIf="false"> {{ 'Cover Image' | translate }}
+                        {{ 'is required' | translate }}</div>
+                    </div>
+                    <div class="col-md-12" *ngIf="item.image">
+                      <img [src]="app_ser.img_url(item.image)" alt="" class="img-fluid img-thumbnail cover-img">
+                    </div>
+                  </div>
+                  <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
+                      class="fal fa-cloud-upload upload-cover-img-icon"></i>
+                    <span class="lbl-upload-from-gallery">{{'Upload from
+                                      media gallery' | translate}}</span></a>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6 label-div">
+                      <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Date' | translate }}</label>
+                    </div>
+                    <div class="col-md-6 error-msg-div">
+                      <div class="input-group">
+                        <ngb-timepicker [(ngModel)]="time" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                        <input class=" form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
+                          ngbDatepicker #d="ngbDatepicker">
+
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                            type="button">📅</button>
+                        </div>
+
+
+                      </div>
+                      <!-- <hr /> -->
+                      <!-- <code>Time: {{ time | json }}</code>
+                      <code>Model: {{ model | json }}</code> -->
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-switch">
+                    <div class="label-div">
+                      <input id="customSwitch2" type="checkbox" class="custom-control-input" #session_archive="ngModel"
+                        name="session_archive" [(ngModel)]="item.session_archive"
+                        (change)="item.session_archive =item.session_archive? 1 : 0">
+                      <label class="custom-control-label lbl-genrl"
+                        for="customSwitch2">{{ 'Save Archive?' | translate }}</label>
+                    </div>
                   </div>
                 </div>
-                <input class="form-control form-control-genrl mb-4" type="text" name="itemName" #itemName="ngModel"
-                  [(ngModel)]="item.name" placeholder="{{ 'Item Name' | translate }}" required />
               </div>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-6 label-div">
-                    <label for="" class="mb-2 lbl-genrl">{{'Upload Cover Image' | translate}}</label>
-                  </div>
-                  <div class="col-md-6 error-msg-div">
-                    <div class="error-message" *ngIf="false"> {{ 'Cover Image' | translate }}
-                      {{ 'is required' | translate }}</div>
-                  </div>
-                  <div class="col-md-12" *ngIf="item.image">
-                    <img [src]="app_ser.img_url(item.image)" alt="" class="img-fluid img-thumbnail cover-img">
-                  </div>
-                </div>
-                <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
-                    class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
-                    class="lbl-upload-from-gallery">{{'Upload from
-                media gallery' | translate}}</span></a>
-              </div>
-              <div *ngIf="0" class="form-group">
-                <div class="row">
-                  <div class="col-md-6 label-div">
-                    <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'PassMark' | translate }}</label>
-                  </div>
-                  <div class="col-md-6 error-msg-div">
-                    <div class="error-message" *ngIf="pass_mark.errors?.required && pass_mark.touched">
-                      {{ 'PassMark' | translate }} {{ 'is required' | translate }}</div>
-                    <div class="error-message" *ngIf="pass_mark.errors?.pattern && pass_mark.touched">
-                      {{ 'bw-0-100' | translate }}</div>
-                  </div>
-                </div>
-                <input class="form-control form-control-genrl mb-4" type="number" min="0" max="100" step="1"
-                  #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="item.pass_mark"
-                  placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
-              </div>
-              <div *ngIf="0" class="form-group">
-                <div class="custom-control custom-switch">
-                  <div class="label-div">
-                    <input id="customSwitch2" type="checkbox" class="custom-control-input" #is_basic="ngModel"
-                      name="is_basic" [(ngModel)]="item.is_basic" (change)="item.is_basic = !!item.is_basic? 1 : 0">
-                    <label class="custom-control-label lbl-genrl" for="customSwitch2">{{ 'Basic' | translate }}</label>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </mdb-tab>
