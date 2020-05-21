@@ -14,6 +14,7 @@ import { VideoDerivation, Item, CourseView } from 'src/app/_models/loadData';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 import { padNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
+import * as moment from 'moment';
 
 
 @Component({
@@ -24,10 +25,9 @@ import { padNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class AddItemsComponent implements OnInit {
   langStyle: any;
-  //courseId: number;
-  //itemId: number;
+
   @Input() item: Item;
-  //items: any[];
+
   shadows: boolean = true;
   @Input() title: string;
   @Input() courseInfo: CourseView;
@@ -70,21 +70,49 @@ export class AddItemsComponent implements OnInit {
 
     private calendar: NgbCalendar
   ) {
+    this.time = { hour: 11, minute: 11, second: 11 };
     this.number = Date.now();
     this.langStyle = "wrapper-add-item-" + this.app_ser.app_lang();
 
-    //this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
-    //this.itemId = parseInt(this.route.snapshot.params['itemId'] ? this.route.snapshot.params['itemId'] : 0);
-    /* if(!this.item){
-      this.item = new Item();
-    } */
+
 
 
   }
 
   selectToday() {
-    this.time = { hour: 13, minute: 30, second: 0 };
     this.model = this.calendar.getToday();
+    var now = moment();
+    let options = {
+      timeZone: 'Asia/Dubai',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false,
+      second: 'numeric',
+    },
+      formatter = new Intl.DateTimeFormat([], options);
+
+
+
+
+    var res = formatter.format(new Date()).split(",");
+
+
+    var date = res[0].split("/");
+    this.model.year = parseInt(date[2]);
+    this.model.month = parseInt(date[0]);
+    this.model.day = parseInt(date[1]);
+
+    var t = res[1].split(":");
+    this.time.hour = parseInt(t[0]);
+    this.time.minute = parseInt(t[1]);
+    this.time.second = parseInt(t[2]);
+
+
+    // this.time = { hour: 13, minute: 30, second: 0 };
+    // this.model = this.calendar.getToday();
 
 
   }
@@ -109,7 +137,7 @@ export class AddItemsComponent implements OnInit {
 
   }
   initDate() {
-    console.log("ddd", this.courseInfo, this.item);
+
     if (this.courseInfo.template_id == 122) {
       this.selectToday()
       if (!this.item.session_time) {
@@ -224,13 +252,32 @@ export class AddItemsComponent implements OnInit {
 
     console.log("time", this.time, this.model);
 
-    if (this.courseInfo.template_id == 122 && this.time && this.model) {
+    if (this.courseInfo.template_id == 122 && this.time && this.model && (!this.item.id)) {
       this.item.session_time = this.model.year + "-" + this.model.month + "-" + this.model.day + " " + this.time.hour + ":" + this.time.minute + ":00";
       console.log(" this.item.session_time", this.item.session_time);
     }
+    else {
+      delete this.item.session_time;
+    }
 
     this.item.is_basic = 1;
-    this.activeModal.close(this.item);
+    delete this.item.settings;
+    this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!this.item.id ? this.item.id : 0), { data: this.item }).subscribe(
+      data => {
+
+        if (!this.item.id) {
+
+          this.toastr.success(this.translate.instant('added succesfully'), this.translate.instant('Cool!'));
+        }
+        else {
+          this.toastr.success(this.translate.instant('edit succesfully'), this.translate.instant('Cool!'));
+        }
+        this.activeModal.close(this.item);
+      });
+
+
+
+
   }
 
 }

@@ -32,6 +32,7 @@ export class CourseSummaryComponent implements OnInit {
     private confirmationDialogService: ConfirmationDialogService,
     private modalService: NgbModal
   ) {
+    this.courseInfo = new CourseView();
     /* this.courseInfo = new CourseView();
     this.courseItems = []; */
     this.langStyle = "wrapper-trainer-course-summary-" + this.app_ser.app_lang();
@@ -41,7 +42,7 @@ export class CourseSummaryComponent implements OnInit {
   shadows: boolean = true;
 
   initData() {
-    this.courseInfo = new CourseView();
+
     this.courseItems = [];
     if (this.courseId) {
       this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
@@ -81,35 +82,37 @@ export class CourseSummaryComponent implements OnInit {
         }
       };
     }
-    itemModal.componentInstance.courseInfo = this.courseInfo;
+    itemModal.componentInstance.courseInfo = JSON.parse(JSON.stringify(this.courseInfo));
+    console.log("this.courseInfo11", this.courseInfo);
     itemModal.componentInstance.item = copyItem;
     itemModal.componentInstance.title = title;
 
     return await itemModal.result.then((result) => {
-      console.log(result);
-      //var copyResult = Object.assign({}, result);
-      //let copyResult = JSON.parse(JSON.stringify(result))
-      // for (const key in result.settings) {
-      //   if (result.settings.hasOwnProperty(key)) {
-      //     result['settings][' + key] = result.settings[key];
-      //   }
-      // }
+
+
       if (result) {
-        delete result.settings;
 
-        this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
-          data => {
+        this.initData();
+        console.log("this.result.", result);
+        console.log("this.courseInfo.", this.courseInfo);
+        if (this.courseInfo.template_id !== 122) {
 
-            if (!result.id) {
+          this.onItemSteps.emit(result.id);
+        }
 
-              this.toastr.success(this.translate.instant('added succesfully'), this.translate.instant('Cool!'));
-            }
-            else {
-              this.toastr.success(this.translate.instant('edit succesfully'), this.translate.instant('Cool!'));
-            }
-            this.initData();
-            this.onItemSteps.emit(data.item_id);
-          });
+        // this.app_ser.post("site_feed/TrainerCourse/save_item/" + (!!result.id ? result.id : 0), { data: result }).subscribe(
+        //   data => {
+
+        //     if (!result.id) {
+
+        //       this.toastr.success(this.translate.instant('added succesfully'), this.translate.instant('Cool!'));
+        //     }
+        //     else {
+        //       this.toastr.success(this.translate.instant('edit succesfully'), this.translate.instant('Cool!'));
+        //     }
+        //     this.initData();
+        //     this.onItemSteps.emit(data.item_id);
+        //   });
       }
 
 

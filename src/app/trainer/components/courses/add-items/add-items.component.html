@@ -134,9 +134,10 @@
                     </div>
                     <div class="col-md-6 error-msg-div">
                       <div class="input-group">
-                        <ngb-timepicker [(ngModel)]="time" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
-                        <input class=" form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model"
-                          ngbDatepicker #d="ngbDatepicker">
+                        <ngb-timepicker [disabled]="item.id" [(ngModel)]="time" [ngModelOptions]="{standalone: true}">
+                        </ngb-timepicker>
+                        <input [disabled]="item.id" class=" form-control" placeholder="yyyy-mm-dd" name="dp"
+                          [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
 
                         <div class="input-group-append">
                           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"

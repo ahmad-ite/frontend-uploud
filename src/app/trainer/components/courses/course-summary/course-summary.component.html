@@ -85,8 +85,9 @@
                     <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect
                       (click)="deleteItem(item.id);"><i class="fal fa-trash-alt"></i>
                       {{'Delete Item' | translate}}</button>
-                    <button mdbBtn rounded="true" class="waves-light btn-steps" (click)="openItemSteps(item)"
-                      mdbWavesEffect><i class="fal fa-layer-group"></i> {{'Steps' | translate}}</button></td>
+                    <button *ngIf="this.courseInfo.template_id != 122" mdbBtn rounded="true"
+                      class="waves-light btn-steps" (click)="openItemSteps(item)" mdbWavesEffect><i
+                        class="fal fa-layer-group"></i> {{'Steps' | translate}}</button></td>
                 </tr>
               </tbody>
               <!--Table body-->
