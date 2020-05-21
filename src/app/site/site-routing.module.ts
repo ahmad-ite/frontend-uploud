@@ -35,6 +35,7 @@ import { KunCertificatesComponent } from './components/home/kun-certificates/kun
 
 import { TestComponent } from './components/test/test/test.component';
 import { TestStreamComponent } from './components/student/stream/test-stream/test-stream.component';
+import { LiveStreamingComponent } from './components/live/live-streaming/live-streaming.component';
 
 
 
@@ -196,6 +197,10 @@ const routes: Routes = [
         path: 'certificates',
         component: KunCertificatesComponent
         // , canActivate: [AuthTrainer]
+      },
+      {
+        path: 'live-streaming',
+        component: LiveStreamingComponent
       }
 
 

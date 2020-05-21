@@ -85,6 +85,7 @@ import { TestComponent } from './components/test/test/test.component';
 import { PublisherComponent } from './components/student/stream/publisher/publisher.component';
 import { SubscriberComponent } from './components/student/stream/subscriber/subscriber.component';
 import { TestStreamComponent } from './components/student/stream/test-stream/test-stream.component';
+import { LiveStreamingComponent } from './components/live/live-streaming/live-streaming.component';
 
 
 
@@ -169,6 +170,8 @@ import { TestStreamComponent } from './components/student/stream/test-stream/tes
     SubscriberComponent,
 
     TestStreamComponent,
+
+    LiveStreamingComponent,
 
 
 

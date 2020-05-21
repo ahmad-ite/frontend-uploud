@@ -1,0 +1,38 @@
+<div [ngClass]="langStyle">
+  <div class="session-title">
+    <div class="container">
+      <h3>دورة تدريبية حية لأكاديمية كن</h3>
+    </div>
+  </div>
+  <div class="wrapper-main-stream-box">
+    <div class="stream-sessions-sidebar">
+      <div class="session-inner" *ngFor="let session of sessionData, let i=index;"
+        [ngStyle]="{'height': (i==0) ?0 +'%'  : ( !( i==active_item_index) ? (100/(sessionData.length))+'%' : (200/(sessionData.length))+'%') }"
+        [ngClass]="{'activeSessionTile':( i==active_item_index), 'inActiveSessionTile': !(i==active_item_index)}">
+        <div class="tile" *ngIf="i>0" (mouseenter)="changeStyle($event, i)" (mouseleave)="changeStyle($event, i)">
+          <a class="session-item">&nbsp;</a>
+          <div class="summary-session-box" [ngClass]="opacityShowHide" *ngIf="i==itemMouseOverIndex">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="wrap-session-summary">
+                  <h3 class="title"><i class="fal fa-video"></i> {{session.title}}</h3>
+                  <p class="date text-style-genrl">تاريخ: {{session.date}}</p>
+                  <p class="type text-style-genrl">نوع: {{session.type}}</p>
+                  <p class="archived text-style-genrl">مؤرشف: {{session.is_archived}}</p>
+                  <hr style="margin: 10px 0 5px;">
+                  <button class="btn btn-start-session btn-rounded">بدء الجلسة</button>
+                </div>
+              </div>
+              <div class="col-md-12">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stream-box">
+      <img src="../../../../../assets/images/video-call-bg.jpg" alt="" class="img-fluid">
+    </div>
+  </div>
+  <div class="wrapper-streaming-controls">Streaming controls goes here</div>
+</div>

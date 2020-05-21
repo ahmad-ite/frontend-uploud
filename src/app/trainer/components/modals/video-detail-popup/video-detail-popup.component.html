@@ -1,4 +1,4 @@
-<div class="wrapper-video-detail">
+<div [ngClass]="langStyle">
   <div class="row">
     <div class="col-md-12">
       <div class="wrap-header">
@@ -36,27 +36,27 @@
       <div class="wrap-dubbing-subtitles">
         <div class="row">
           <div class="col-md-6">
-            <h4 class="hdng-dubbing">Dubbings</h4>
+            <h4 class="hdng-dubbing">{{'Dubbing' | translate}}</h4>
             <div class="wrap-dubbing-ul">
               <ul>
                 <li *ngFor="let dubbing of app_ser.dubbingList">
                   <div class="row align-items-center" style="margin-bottom: 10px;">
                     <div class="col-md-3 col-dubbing-title">
-                      <p class="dubbing-name">{{dubbing.name}}</p>
+                      <p class="dubbing-name">{{dubbing.name | translate}}</p>
                     </div>
                     <div class="col-md-9 col-update-btns">
                       <div *ngIf="!video.dubbing[dubbing.code]">
                         <button mdbBtn rounded="true" class="waves-light btn-select" mdbWavesEffect
-                          (click)="galleryUploadModal()"><i class="fal fa-edit"></i> Select</button>
+                          (click)="galleryUploadModal()"><i class="fal fa-edit"></i> {{'Select' | translate}}</button>
                       </div>
                       <div *ngIf="video.dubbing[dubbing.code]">
                         <p class="dubbing-selected-name"
                           (click)="app_ser.showDubbingVideo(video.dubbing[dubbing.code].file,video.dubbing[dubbing.code].name)">
-                          {{video.dubbing[dubbing.code].name}} </p>
+                          {{video.dubbing[dubbing.code].name | translate}} </p>
                         <button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect><i
-                            class="fal fa-edit"></i> Update</button>
+                            class="fal fa-edit"></i> {{'Update' | translate}}</button>
                         <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect><i
-                            class="fal fa-trash-alt"></i> Delete</button>
+                            class="fal fa-trash-alt"></i> {{'Delete' | translate}}</button>
                       </div>
                     </div>
                   </div>
@@ -65,17 +65,17 @@
             </div>
           </div>
           <div class="col-md-6">
-            <h4 class="hdng-subtitles">Subtitles</h4>
+            <h4 class="hdng-subtitles">{{'Subtitle' | translate}}</h4>
             <div class="wrap-dubbing-ul">
               <ul>
                 <li *ngFor="let dubbing of app_ser.dubbingList">
                   <div class="row" style="margin-bottom: 10px;">
                     <div class="col-md-3 col-dubbing-title">
-                      <p class="subtitle-name">{{dubbing.name}}</p>
+                      <p class="subtitle-name">{{dubbing.name | translate}}</p>
                     </div>
                     <div class="col-md-9 col-update-btns">
                       <button mdbBtn rounded="true" class="waves-light btn-select" mdbWavesEffect><i
-                          class="fal fa-edit"></i> Select</button>
+                          class="fal fa-edit"></i> {{'Select' | translate}}</button>
                     </div>
                   </div>
                 </li>
