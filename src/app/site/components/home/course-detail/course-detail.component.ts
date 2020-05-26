@@ -283,11 +283,23 @@ export class CourseDetailComponent implements OnInit {
     this.app_ser.post("site_feed/userCourse/add_register_with_payment/" + this.courseDetail.id, { payment: payment }).subscribe(
       register => {
         // alert(register.id);
-        this.router.navigate(["steps/" + register.id + "/" + this.app_ser.urlString(this.courseDetail.name)]);
+        this.navidateRegister(register.id);
       },
       error => {
 
       });
+  }
+  navidateRegister(registerId) {
+    if (this.courseDetail.template_id == 122) {
+      this.router.navigate(["showLive/" + registerId + "/" + this.app_ser.urlString(this.courseDetail.name)]);
+
+    }
+    else {
+      this.router.navigate(["steps/" + registerId + "/" + this.app_ser.urlString(this.courseDetail.name)]);
+
+    }
+
+
   }
   checkStartPayment() {
 
@@ -325,7 +337,8 @@ export class CourseDetailComponent implements OnInit {
 
   completeCourse() {
     // alert(this.courseDetail.register.id);
-    this.router.navigate(["steps/" + this.courseDetail.register.id + "/" + this.app_ser.urlString(this.courseDetail.name)]);
+    this.navidateRegister(this.courseDetail.register.id);
+    // this.router.navigate(["steps/" + this.courseDetail.register.id + "/" + this.app_ser.urlString(this.courseDetail.name)]);
 
   }
 

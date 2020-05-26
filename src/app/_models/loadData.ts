@@ -619,6 +619,25 @@ export class activeItem {
 
 }
 
+export class Session {
+
+
+  type: string;
+  index: any = -1;
+  item: Item;
+  start: any;
+  status: any;//soon,active,closed/finished
+
+
+  constructor() {
+    this.index = -1;
+    this.item = new Item();
+    this.type = "Session";
+    this.status = "";
+  }
+
+}
+
 export class activeStep {
 
 

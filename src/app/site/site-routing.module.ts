@@ -161,12 +161,7 @@ const routes: Routes = [
         // , canActivate: [AuthStudent]
       },
 
-      {
-        path: 'steps/:regId/:name',
-        component: StepsComponent
-        // , canActivate: [AuthStudent]
 
-      },
       {
         path: 'redirect/:ref',
         component: RedirectComponent
@@ -199,7 +194,17 @@ const routes: Routes = [
         // , canActivate: [AuthTrainer]
       },
       {
-        path: 'live-streaming',
+        path: 'steps/:regId/:name',
+        component: StepsComponent
+        // , canActivate: [AuthStudent]
+
+      },
+      {
+        path: 'showLive/:regId/:name',
+        component: LiveStreamingComponent
+      },
+      {
+        path: 'showLive/:regId',
         component: LiveStreamingComponent
       }
 
