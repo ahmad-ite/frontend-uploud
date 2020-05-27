@@ -212,6 +212,11 @@
             <a mdbTooltip="{{app_ser.inst('rejoin_course') }}" placement="top" *ngIf=" courseDetail.register"
               class="btn btn-get-it-now" (click)="register()">{{'Register Again' | translate}}</a>
           </div>
+
+          <div *ngIf="checkOwnerLive()">
+
+            <a class="btn btn-get-it-now" (click)="registerOwner()">{{'Start' | translate}}</a>
+          </div>
         </div>
         <div class="col-md-4">
           <div class="wrapper-course-outline">

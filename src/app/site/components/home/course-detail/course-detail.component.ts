@@ -278,7 +278,20 @@ export class CourseDetailComponent implements OnInit {
 
 
   }
+  registerOwner() {
+    this.router.navigate(["startLive/" + this.courseDetail.id + "/" + this.app_ser.urlString(this.courseDetail.name)]);
 
+  }
+
+  checkOwnerLive() {
+    var user = this.app_ser.getCurrentUser();
+    if (user.id == this.courseDetail.trainer_id && this.courseDetail.template_id == 122) {
+      return true;
+
+    }
+    return false;
+
+  }
   joinWithCourse(payment = 0) {
     this.app_ser.post("site_feed/userCourse/add_register_with_payment/" + this.courseDetail.id, { payment: payment }).subscribe(
       register => {
