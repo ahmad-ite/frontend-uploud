@@ -16,9 +16,12 @@
               <div class="col-md-12">
                 <div class="wrap-session-summary">
                   <h3 class="title"><i class="fal fa-video"></i> {{sessionData[itemMouseOverIndex].item.name}}</h3>
-                  <p class="date text-style-genrl">تاريخ: {{sessionData[itemMouseOverIndex].item.session_time}}</p>
-                  <p class="type text-style-genrl">الحالة: {{sessionData[itemMouseOverIndex].status|translate}}</p>
-                  <p class="archived text-style-genrl">مؤرشف:
+                  <p class="date text-style-genrl">{{'SessionDate' | translate}}:
+                    {{sessionData[itemMouseOverIndex].item.session_time}}</p>
+                  <p class="type text-style-genrl">{{'Case' | translate}}: <span
+                      [ngClass]="sessionData[itemMouseOverIndex].status">{{sessionData[itemMouseOverIndex].status|translate}}</span>
+                  </p>
+                  <p class="archived text-style-genrl">{{'Archived' | translate}}:
                     {{sessionData[itemMouseOverIndex].item.is_archived? "نعم":"لا"}}</p>
                   <!-- <hr style="margin: 10px 0 5px;">
                   <button class="btn btn-start-session btn-rounded">بدء الجلسة</button> -->
@@ -37,19 +40,20 @@
       </div>
       <div *ngIf="!(active_item_index==-1)">
         <!-- <img src="../../../../../assets/images/video-call-bg.jpg" alt="" class="img-fluid"> -->
-
-        <div class="wrap-session-summary">
-          <h3 class="title"><i class="fal fa-video"></i> {{sessionData[active_item_index].item.name}}</h3>
-          <p class="date text-style-genrl">تاريخ: {{sessionData[active_item_index].item.session_time}}</p>
-          <p class="type text-style-genrl">الحالة: {{sessionData[active_item_index].status}}</p>
-          <p class="archived text-style-genrl">مؤرشف: {{sessionData[active_item_index].item.is_archived}}</p>
-          <hr style="margin: 10px 0 5px;">
-          <button class="btn btn-start-session btn-rounded" (click)="startSession(active_item_index)">بدء
-            الجلسة</button>
+        <div class="wrap-session-content">
+          <h3 class="sess-title"><i class="fal fa-video"></i> {{sessionData[active_item_index].item.name}}</h3>
+          <p class="sess-date text-style-genrl"><i class="fal fa-calendar-alt"></i> {{'SessionDate' | translate}}:
+            {{sessionData[active_item_index].item.session_time}}</p>
+          <p class="sess-type text-style-genrl"><i class="fal fa-calendar-star"></i> {{'Case' | translate}}: <span
+              [ngClass]="sessionData[active_item_index].status">{{sessionData[active_item_index].status | translate }}</span>
+          </p>
+          <p class="sess-archived text-style-genrl"><i class="fal fa-file-archive"></i> {{'Archived' | translate}}:
+            {{sessionData[active_item_index].item.is_archived}}</p>
+          <hr class="divider-session-info">
+          <button class="btn btn-start-session btn-rounded"
+            (click)="startSession(active_item_index)">{{'Start Session' | translate}}</button>
         </div>
-
       </div>
-
     </div>
   </div>
   <div class="wrapper-streaming-controls">Streaming controls goes here</div>
