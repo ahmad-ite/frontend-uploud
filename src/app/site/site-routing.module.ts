@@ -206,7 +206,16 @@ const routes: Routes = [
       {
         path: 'showLive/:regId',
         component: LiveStreamingComponent
-      }
+      },
+
+      {
+        path: 'startLive/:courseId/:name',
+        component: LiveStreamingComponent
+      },
+      {
+        path: 'startLive/:courseId',
+        component: LiveStreamingComponent
+      },
 
 
     ]

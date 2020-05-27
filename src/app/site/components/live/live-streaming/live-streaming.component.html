@@ -41,7 +41,7 @@
         <div class="wrap-session-summary">
           <h3 class="title"><i class="fal fa-video"></i> {{sessionData[active_item_index].item.name}}</h3>
           <p class="date text-style-genrl">تاريخ: {{sessionData[active_item_index].item.session_time}}</p>
-          <p class="type text-style-genrl">الحالة: {{sessionData[active_item_index].status}}</p>
+          <p class="type text-style-genrl">الحالة: {{sessionData[active_item_index].status|translate}}</p>
           <p class="archived text-style-genrl">مؤرشف: {{sessionData[active_item_index].item.is_archived}}</p>
           <hr style="margin: 10px 0 5px;">
           <button class="btn btn-start-session btn-rounded" (click)="startSession(active_item_index)">بدء

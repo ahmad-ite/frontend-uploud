@@ -92,6 +92,7 @@ export class LiveStreamingComponent implements OnInit {
   prevTime: Date;
   nextTime: Date;
   sessionData: any[];
+  courseId: any;
   constructor(
     public app_ser: AppService,
     public route: ActivatedRoute,
@@ -106,17 +107,34 @@ export class LiveStreamingComponent implements OnInit {
 
   }
   initData() {
-    this.courseGifLoader = true;
+    if (this.regId) {
+      this.courseGifLoader = true;
 
-    this.app_ser.post("site_feed/UserCourse/view_live_course/" + this.regId, {}).subscribe(
-      data => {
+      this.app_ser.post("site_feed/UserCourse/view_live_course/" + this.regId, {}).subscribe(
+        data => {
 
-        this.courseDetail = data;
-        this.initSessions();
-        this.rating_arr = this.app_ser.initStarRating(this.courseDetail.average_rate);
-        this.courseGifLoader = false;
+          this.courseDetail = data;
+          this.initSessions();
+          this.rating_arr = this.app_ser.initStarRating(this.courseDetail.average_rate);
+          this.courseGifLoader = false;
 
-      })
+        })
+    }
+
+    if (this.courseId) {
+      this.courseGifLoader = true;
+
+      this.app_ser.post("site_feed/TrainerCourse/view_live_course/" + this.courseId, {}).subscribe(
+        data => {
+
+          this.courseDetail = data;
+          this.initSessions();
+          this.rating_arr = this.app_ser.initStarRating(this.courseDetail.average_rate);
+          this.courseGifLoader = false;
+
+        })
+    }
+
   }
   initSessions() {
     this.selectToday();
@@ -125,16 +143,42 @@ export class LiveStreamingComponent implements OnInit {
     for (var i = 0; i < this.courseDetail.items.length; i++) {
       var sess = new Session();
       sess.item = this.courseDetail.items[i];
-      sess.status = this.checkStatus(i);
+      sess.status = this.initStatus(i);
 
       this.sessionData.push(sess);
     }
   }
-  checkStatus(i) {
+  initStatus(i) {
     var status = "finished"
     var sessTime = new Date(this.courseDetail.items[i].session_time);
+    console.log("sessTime", sessTime);
+    console.log("currentTime", this.currentTime);
+    console.log("prevTime", this.prevTime);
+    console.log("nextTime", this.nextTime);
+    console.log("-----------");
     if (sessTime < this.prevTime)
       return "finished";
+
+    if (sessTime >= this.currentTime && sessTime <= this.nextTime) {
+      this.active_item_index = i;
+      return "now";
+    }
+    if (sessTime > this.prevTime && sessTime < this.currentTime) {
+      this.active_item_index = i;
+      return "soon";
+    }
+
+
+    if (sessTime > this.nextTime) {
+      if (this.active_item_index == -1) {
+        this.active_item_index = i;
+      }
+      return "future";
+    }
+
+
+    return "future";
+
     if (sessTime > this.prevTime && sessTime < this.currentTime) {
       this.active_item_index = i;
       return "soon";
@@ -155,12 +199,27 @@ export class LiveStreamingComponent implements OnInit {
 
   }
   startSession(index) {
-    var url = "https://kun.academy/live/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
-    window.open(url, "_blank");
+    // alert(index);
+    if (this.checkSessionStatus(this.sessionData[index].status)) {
+      var url = "https://kun.academy/live/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
+
+      var url = "http://localhost:4400/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
+
+
+      window.open(url, "_blank");
+    }
+  }
+  checkSessionStatus(status) {
+    // alert(status);
+    if (status == "now" || status == "soon")
+      return true;
+
+    return false;
 
   }
   ngOnInit() {
-    this.regId = this.route.snapshot.params['regId'];
+    this.regId = this.route.snapshot.params['regId'] ? this.route.snapshot.params['regId'] : 0;
+    this.courseId = this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0;
     this.courseDetail = new CourseView();
     this.active_item_index = -1;
     this.initData();
