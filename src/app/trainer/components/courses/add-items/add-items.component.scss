@@ -110,6 +110,67 @@ ARABIC STYLE START
         }
       }
 
+      // CALENDER STYLES START
+      .calendar {
+        border: 2px solid #02aea5 !important;
+        color: #02aea5 !important;
+        width: 60px;
+        height: 60px;
+        padding: 0 !important;
+        margin: 0 10px 0 0 !important;
+        border-radius: 0 !important;
+
+        i.fa-calendar-alt {
+          font-size: 30px;
+        }
+      }
+
+      .form-control-date {
+        height: 60px;
+        font-size: 25px;
+        text-align: center;
+        border-radius: 0;
+        border: 2px solid #00b4a8;
+        max-width: 350px !important;
+      }
+
+      ngb-datepicker.dropdown-menu {
+        width: 350px !important;
+        border-radius: 0;
+        border: 2px solid #00b4a8;
+
+        .ngb-dp-header {
+          .custom-select {
+            background-position: 5px !important;
+          }
+        }
+
+        .ngb-dp-content {
+          .ngb-dp-month {
+            width: 100% !important;
+
+            .ngb-dp-week {
+              padding: 0 !important;
+
+              .ngb-dp-day {
+                width: 14.2857% !important;
+
+                .btn-light {
+                  width: 100% !important;
+                  border-radius: 0 !important;
+                }
+              }
+            }
+          }
+
+        }
+
+
+
+      }
+
+      // CALENDER STYLES END
+
       .cover-img {
         width: 300px;
         margin-bottom: 13px;
@@ -286,6 +347,66 @@ ENGLISH STYLE START
         }
       }
 
+      // CALENDER STYLES START
+      .calendar {
+        border: 2px solid #02aea5 !important;
+        color: #02aea5 !important;
+        width: 60px;
+        height: 60px;
+        padding: 0 !important;
+        margin: 0 10px 0 0 !important;
+        border-radius: 0 !important;
+
+        i.fa-calendar-alt {
+          font-size: 30px;
+        }
+      }
+
+      .form-control-date {
+        height: 60px;
+        font-size: 25px;
+        text-align: center;
+        border-radius: 0;
+        border: 2px solid #00b4a8;
+        max-width: 350px !important;
+      }
+
+      ngb-datepicker.dropdown-menu {
+        width: 350px !important;
+        border-radius: 0;
+        border: 2px solid #00b4a8;
+
+        .ngb-dp-header {
+          .custom-select {
+            background-position: 5px !important;
+          }
+        }
+
+        .ngb-dp-content {
+          .ngb-dp-month {
+            width: 100% !important;
+
+            .ngb-dp-week {
+              padding: 0 !important;
+
+              .ngb-dp-day {
+                width: 14.2857% !important;
+
+                .btn-light {
+                  width: 100% !important;
+                  border-radius: 0 !important;
+                }
+              }
+            }
+          }
+
+        }
+
+
+
+      }
+
+      // CALENDER STYLES END
       .cover-img {
         width: 300px;
         margin-bottom: 13px;

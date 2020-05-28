@@ -62,8 +62,7 @@
                     </div>
                   </div>
                   <a (click)="selectImg()" class="wrap-btn-upload-cover"><i
-                      class="fal fa-cloud-upload upload-cover-img-icon"></i> <span
-                      class="lbl-upload-from-gallery">{{'Upload from
+                      class="fal fa-cloud-upload upload-cover-img-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
                       media gallery' | translate}}</span></a>
                 </div>
                 <div *ngIf="0" class="form-group">
@@ -95,7 +94,6 @@
               </div>
               <!--  Session Info -->
               <div *ngIf="(courseInfo.template_id== 122)">
-
                 <div class="form-group">
                   <div class="row">
                     <div class="col-md-6 label-div">
@@ -132,26 +130,29 @@
                     <div class="col-md-6 label-div">
                       <label for="" class="mb-2 lbl-genrl lbl-required">{{ 'Date' | translate }}</label>
                     </div>
-                    <div class="col-md-6 error-msg-div">
-                      <div class="input-group">
-                        <ngb-timepicker [disabled]="item.id" [(ngModel)]="time" [ngModelOptions]="{standalone: true}">
-                        </ngb-timepicker>
-                        <input [disabled]="item.id" class=" form-control" placeholder="yyyy-mm-dd" name="dp"
-                          [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
-                            type="button">📅</button>
+                    <div class="col-md-12 error-msg-div">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <input [disabled]="item.id" class="form-control form-control-date" placeholder="yyyy-mm-dd"
+                              name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                                  class="fal fa-calendar-alt"></i></button>
+                            </div>
+                          </div>
                         </div>
-
-
+                        <div class="col-md-12">
+                          <ngb-timepicker [disabled]="item.id" [(ngModel)]="time" [ngModelOptions]="{standalone: true}"
+                            class="datePicker">
+                          </ngb-timepicker>
+                        </div>
                       </div>
                       <!-- <hr /> -->
                       <!-- <code>Time: {{ time | json }}</code>
                       <code>Model: {{ model | json }}</code> -->
                     </div>
                   </div>
-
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-switch">
@@ -165,7 +166,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </mdb-tab>
