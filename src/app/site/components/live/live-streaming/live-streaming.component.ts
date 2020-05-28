@@ -161,11 +161,11 @@ export class LiveStreamingComponent implements OnInit {
 
     if (sessTime >= this.currentTime && sessTime <= this.nextTime) {
       this.active_item_index = i;
-      return "now";
+      return "soon";
     }
     if (sessTime > this.prevTime && sessTime < this.currentTime) {
       this.active_item_index = i;
-      return "soon";
+      return "now";
     }
 
 
@@ -203,7 +203,7 @@ export class LiveStreamingComponent implements OnInit {
     if (this.checkSessionStatus(this.sessionData[index].status)) {
       var url = "https://kun.academy/live/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
 
-      var url = "http://localhost:4400/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
+      // var url = "http://localhost:4400/#/session/" + this.sessionData[index].item.id + "/" + this.app_ser.getCurrentUser().id;
 
 
       window.open(url, "_blank");

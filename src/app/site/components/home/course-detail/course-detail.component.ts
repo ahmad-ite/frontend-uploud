@@ -285,7 +285,7 @@ export class CourseDetailComponent implements OnInit {
 
   checkOwnerLive() {
     var user = this.app_ser.getCurrentUser();
-    if (user.id == this.courseDetail.trainer_id && this.courseDetail.template_id == 122) {
+    if (user && user.id == this.courseDetail.trainer_id && this.courseDetail.template_id == 122) {
       return true;
 
     }

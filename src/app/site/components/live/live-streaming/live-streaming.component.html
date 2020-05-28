@@ -42,15 +42,20 @@
         <!-- <img src="../../../../../assets/images/video-call-bg.jpg" alt="" class="img-fluid"> -->
         <div class="wrap-session-content">
           <h3 class="sess-title"><i class="fal fa-video"></i> {{sessionData[active_item_index].item.name}}</h3>
+          <p class="sess-date text-style-genrl"><i class="fal fa-chalkboard-teacher"></i>المدرب:
+            {{courseDetail.trainer}}
+          </p>
+
           <p class="sess-date text-style-genrl"><i class="fal fa-calendar-alt"></i> {{'SessionDate' | translate}}:
             {{sessionData[active_item_index].item.session_time}}</p>
           <p class="sess-type text-style-genrl"><i class="fal fa-calendar-star"></i> {{'Case' | translate}}: <span
               [ngClass]="sessionData[active_item_index].status">{{sessionData[active_item_index].status | translate }}</span>
           </p>
           <p class="sess-archived text-style-genrl"><i class="fal fa-file-archive"></i> {{'Archived' | translate}}:
-            {{sessionData[active_item_index].item.is_archived}}</p>
+            {{sessionData[active_item_index].item.is_archived? "نعم":"لا"}}</p>
           <hr class="divider-session-info">
           <button class="btn btn-start-session btn-rounded"
+            [disabled]="!checkSessionStatus(this.sessionData[active_item_index].status)"
             (click)="startSession(active_item_index)">{{'Start Session' | translate}}</button>
         </div>
       </div>
