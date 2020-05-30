@@ -18,6 +18,7 @@ export class CourseSummaryComponent implements OnInit {
   langStyle: any;
   id: any;
   @Input() courseId: number;
+  @Input() CourseInput: Course;
   courseItems: any[];
   courseInfo: CourseView;
   // @Input() stepperRef: any;
@@ -41,7 +42,7 @@ export class CourseSummaryComponent implements OnInit {
   }
   shadows: boolean = true;
 
-  initData() {
+  async initData() {
 
     this.courseItems = [];
     if (this.courseId) {
@@ -49,6 +50,8 @@ export class CourseSummaryComponent implements OnInit {
         data => {
           this.courseInfo = data.row;
           this.courseItems = data.items;
+          console.log("TrainerCourse data", data);
+
 
         },
         error => {
@@ -65,8 +68,47 @@ export class CourseSummaryComponent implements OnInit {
 
   }
 
+  updateData() {
+    if (!this.courseId && !this.courseInfo.template_id) {
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
+        data => {
+          this.courseInfo = data.row;
+          this.courseItems = data.items
+
+        },
+        error => {
+        });
+
+
+
+    }
+    return true;
+  }
+
   async openItemDialog(title, item = null) {
-    console.log(item);
+
+    if (!this.courseInfo.template_id) {
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
+        data => {
+          this.courseInfo = data.row;
+          this.courseItems = data.items;
+          this.initDialogData(title, item)
+
+        },
+        error => {
+        });
+
+
+
+    }
+    else {
+      this.initDialogData(title, item)
+    }
+
+
+  }
+
+  async initDialogData(title, item) {
 
     var itemModal = this.modalService.open(AddItemsComponent, { windowClass: 'itemPopupModal', size: 'lg', centered: true, backdrop: true });
     let copyItem = new Item();
@@ -82,6 +124,8 @@ export class CourseSummaryComponent implements OnInit {
         }
       };
     }
+    console.log("this.courseInfo11", this.courseInfo);
+    console.log("this.courseInfo11 CourseInput", this.CourseInput);
     itemModal.componentInstance.courseInfo = JSON.parse(JSON.stringify(this.courseInfo));
     console.log("this.courseInfo11", this.courseInfo);
     itemModal.componentInstance.item = copyItem;
@@ -120,7 +164,6 @@ export class CourseSummaryComponent implements OnInit {
     }, (reason) => {
       return false;
     });
-
   }
 
 

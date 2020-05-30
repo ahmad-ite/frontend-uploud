@@ -12,7 +12,7 @@ import { GoogleLoginProvider, FacebookLoginProvider, AuthService } from 'angular
 import { Socialusers } from '../../../../_models/socialusers'
 import { SocialloginService } from '../../../../services/sociallogin.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { User, Trainer, InputTrainer, TrainerDoc, Details } from '../../../../_models/loadData';
+import { User, Trainer, InputTrainer, TrainerDoc, Details, Course } from '../../../../_models/loadData';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 import { VgAPI } from 'videogular2/compiled/core';
@@ -41,6 +41,7 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   itemId: number = 0;
   courseId: number = 0;
   openSteps: boolean = true;
+  courseInfo: Course;
   /*   mode: string = 'add';
     courseId: number;
     itemId: number; */
@@ -81,6 +82,15 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
     // this.trainer.is_trainer = 0;
     this.templateChecked = 0;
 
+
+
+  }
+  xx(data) {
+
+    console.log("data", data);
+    this.courseInfo = data;
+    this.courseId = this.courseInfo.id;
+    // this.;
 
 
   }
@@ -306,5 +316,32 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
   //   pdfModal.componentInstance.path = path;
   // }
 
+  updateData() {
+    if (this.courseId && (!this.courseInfo)) {
+
+      this.app_ser.post("site_feed/TrainerCourse/view/" + this.courseId, {}).subscribe(
+        data => {
+          this.courseInfo = data.row;
+        },
+        error => {
+        });
+
+
+
+    }
+    return true;
+  }
+
+  getItemTitle() {
+    if (this.courseInfo && this.courseInfo.template_id == 122)
+      return "Sessions";
+    return 'Course-Items'
+  }
+  showUnliveStepers() {
+    console.log("this.courseInfo", this.courseInfo);
+    if (this.courseInfo && this.courseInfo.template_id == 122)
+      return false;
+    return true;
+  }
 }
 

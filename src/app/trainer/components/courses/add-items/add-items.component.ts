@@ -10,7 +10,7 @@ import { DialogService } from '../../../../services/dialog.service';
 import { AppService } from '../../../../services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FileSystemDirectoryEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
-import { VideoDerivation, Item, CourseView } from 'src/app/_models/loadData';
+import { VideoDerivation, Item, CourseView, Course } from 'src/app/_models/loadData';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 import { padNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
@@ -30,7 +30,7 @@ export class AddItemsComponent implements OnInit {
 
   shadows: boolean = true;
   @Input() title: string;
-  @Input() courseInfo: CourseView;
+  @Input() courseInfo: Course;
 
   model: NgbDateStruct;
   date: { year: number, month: number };
@@ -78,7 +78,12 @@ export class AddItemsComponent implements OnInit {
 
 
   }
-
+  getTitleName() {
+    if (this.courseInfo.template_id == 122) {
+      return "Session";
+    }
+    return "Item";
+  }
   selectToday() {
     this.model = this.calendar.getToday();
     var now = moment();

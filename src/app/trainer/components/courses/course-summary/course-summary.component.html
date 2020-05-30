@@ -16,22 +16,22 @@
       <p class="status">Status: <span>{{courseInfo.status}}</span> </p> -->
     <!-- </div> -->
     <!-- Course Grid Start -->
-    <div class="wrap-course-summary-inner">
+    <div class="wrap-course-summary-inner" *ngIf=" updateData()">
       <mdb-card cascade="true" narrower="true" [ngClass]="{ 'z-depth-0': !shadows }">
         <div class="wrapper-top-area">
           <div class="row m-0">
             <div class="col-md-12">
-              <button mdbBtn rounded="true" class="waves-light gradient-btn" (click)="openItemDialog('Add Item')"
-                mdbWavesEffect><i class="far fa-plus-circle"></i> {{'Add Item' | translate}}</button>
-              <!-- <a routerLink="/trainer/courses/media-gallery">
-                    <button mdbBtn rounded="true" class="waves-light gradient-btn" mdbWavesEffect><i
-                        class="far fa-photo-video"></i> {{'Gallery' | translate}}</button>
-                  </a> -->
+              <button *ngIf="courseInfo.template_id!=122" mdbBtn rounded="true" class="waves-light gradient-btn"
+                (click)="openItemDialog('Add Item')" mdbWavesEffect><i class="far fa-plus-circle"></i>
+                {{'Add Item' | translate}}</button>
+              <button *ngIf="courseInfo.template_id==122" mdbBtn rounded="true" class="waves-light gradient-btn"
+                (click)="openItemDialog('Add Item')" mdbWavesEffect><i class="far fa-plus-circle"></i>
+                {{'Add Session' | translate}}</button>
             </div>
           </div>
         </div>
         <div class="px-4">
-          <div class="table-wrapper">
+          <div *ngIf="courseInfo.template_id!=122" class="table-wrapper">
             <!--Table-->
             <table class="table table-hover mb-0 table-course-data">
               <!--Table head-->
@@ -85,7 +85,7 @@
                     <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect
                       (click)="deleteItem(item.id);"><i class="fal fa-trash-alt"></i>
                       {{'Delete Item' | translate}}</button>
-                    <button *ngIf="this.courseInfo.template_id != 122" mdbBtn rounded="true"
+                    <button *ngIf="this.CourseInput && this.CourseInput.template_id != 122" mdbBtn rounded="true"
                       class="waves-light btn-steps" (click)="openItemSteps(item)" mdbWavesEffect><i
                         class="fal fa-layer-group"></i> {{'Steps' | translate}}</button></td>
                 </tr>
@@ -94,12 +94,62 @@
             </table>
             <!--Table-->
           </div>
+
+
+
+          <div *ngIf="courseInfo.template_id==122" class="table-wrapper">
+            <!--Table-->
+            <table class="table table-hover mb-0 table-course-data">
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th class="th-lg">
+                    <a> # </a>
+                  </th>
+
+
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Session Name'|translate}} </a>
+                  </th>
+
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Date'|translate}}</a>
+                  </th>
+
+
+                  <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Save Archive?'|translate}}</a>
+                  </th>
+
+                  <th class="th-lg actions-th">
+                    <a>{{'Actions'|translate}} </a>
+                  </th>
+                </tr>
+              </thead>
+              <!--Table head-->
+              <!--Table body-->
+              <tbody>
+                <tr *ngFor="let item of courseItems | orderBy:'arrange',let i =index">
+                  <td>{{i+1}}</td>
+
+                  <td>{{item.name}}</td>
+
+                  <td>{{item.session_time}}</td>
+                  <td>{{item.is_archived? "نعم":"لا"}}</td>
+                  <td class="actions-td">
+
+                    <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect
+                      (click)="deleteItem(item.id);"><i class="fal fa-trash-alt"></i>
+                      {{'Delete Session' | translate}}</button>
+
+                  </td>
+                </tr>
+              </tbody>
+              <!--Table body-->
+            </table>
+            <!--Table-->
+          </div>
           <hr class="my-0" />
-          <!-- Pagination Start -->
-          <!-- <div class="d-flex justify-content-between wrapper-pagination">
-          <jw-pagination [pager]="pager" (changePage)="onChangePage($event)" style="display: block; margin: 25px auto"></jw-pagination>
-        </div> -->
-          <!-- Pagination End -->
         </div>
       </mdb-card>
     </div>

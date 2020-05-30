@@ -240,7 +240,7 @@
                 <div class="body-inner">
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="wrap-course-outline-summary">
+                      <div *ngIf="courseDetail.template_id!=122" class="wrap-course-outline-summary">
                         <p class="course-time"><i class="fal fa-clock"
                             aria-hidden="true"></i><strong>{{'Course Duration' | translate}} :</strong>
                           {{app_ser.secToTime(courseItem.duration)}}</p>
@@ -257,6 +257,19 @@
                         <br>
                         <!-- <a href="" class="btn-resume-test"><i class="fal fa-play icon-btn-genrl"></i>استئناف
                         الاختبار</a> -->
+                      </div>
+                      <div *ngIf="courseDetail.template_id==122" class="wrap-course-outline-summary">
+                        <p class="course-time"><i class="fal fa-clock"
+                            aria-hidden="true"></i><strong>{{'SessionDate' | translate}}
+                            :</strong>
+                          {{courseItem.session_time}}</p>
+                        <p class="sess-archived text-style-genrl"><i class="fal fa-file-archive"></i>
+                          {{'Archived' | translate}}:
+                          {{courseItem.is_archived? "نعم":"لا"}}</p>
+
+                        <br>
+                        <!-- <a href="" class="btn-resume-test"><i class="fal fa-play icon-btn-genrl"></i>استئناف
+                                                الاختبار</a> -->
                       </div>
                     </div>
                     <!-- <div class="col-md-4">

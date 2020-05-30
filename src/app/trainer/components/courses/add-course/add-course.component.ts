@@ -83,7 +83,9 @@ export class AddCourseComponent implements OnInit {
         // this.router.navigate(["/trainer/courses/list"]);
         // this.stepper.next();
         this.courseId = data.id;
-        this.onSavedCourse.emit(data.id);
+        this.course.id = data.id;
+        console.log("this.course", this.course);
+        this.onSavedCourse.emit(this.course);
         this.location.go("/trainer/courses/" + data.id + "/edit")
 
         // alert(this.courseId)

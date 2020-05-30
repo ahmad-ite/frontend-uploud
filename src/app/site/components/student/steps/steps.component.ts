@@ -2186,12 +2186,9 @@ export class StepsComponent implements OnInit {
             this.courseGifLoader = false;
           }
         );
-
     }
-
-
-
   }
+
   startRecording(media = 'audio', marquee = true) {
     if (!this.isRecording) {
       this.isRecording = true;

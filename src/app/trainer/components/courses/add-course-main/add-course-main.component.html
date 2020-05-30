@@ -4,12 +4,13 @@
       <h3 class="text-center mt-5 hdng-gradient">{{ 'Add new course' | translate }}</h3>
       <p class="text-center txt-complete-course-steps">{{'Create your course in three steps' | translate }}</p>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12" *ngIf="updateData()">
       <mdb-stepper #stepper [linear]="true" (stepChange)="onStepChange($event)" class="stepper-add-course">
         <!-- =============================== STEP 1 - STEP BASIC INFO START =============================== -->
         <mdb-step name="1- {{ 'Course' | translate }}" class="step1">
           <!-- <app-trainer-courses></app-trainer-courses> -->
-          <app-add-course #course (onSavedCourse)="courseId=$event; stepper.next()"></app-add-course>
+          <app-add-course #course (onSavedCourse)="xx($event);stepper.next()">
+          </app-add-course>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <!-- <div class="wrap-next-and-prev-buttons">
             <button mdbBtn size="sm" color="primary" (click)="stepper.next(); updateTrainerProfile('experince')"
@@ -19,10 +20,11 @@
         </mdb-step>
         <!-- =============================== STEP 1 - STEP BASIC INFO END =============================== -->
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS START =============================== -->
-        <mdb-step name="2- {{ 'Course-Items' | translate }}" class="step2">
+        <mdb-step name="2- {{ getItemTitle() | translate }}" class="step2">
           <!-- <app-course-summary></app-course-summary> -->
           <!-- <app-add-items></app-add-items> -->
-          <app-course-summary [courseId]="courseId" (onItemSteps)="itemId=$event;  stepper.next()">
+          <app-course-summary [courseId]="courseId" [CourseInput]="courseInfo"
+            (onItemSteps)="itemId=$event;  stepper.next()">
           </app-course-summary>
           <!-- BUTTONS CONTINUE AND BACK START -->
           <div class="wrap-next-and-prev-buttons">
@@ -35,7 +37,7 @@
         </mdb-step>
         <!-- =============================== STEP 2 - STEP EXPERIENCE AND SKILLS END =============================== -->
         <!-- =============================== STEP 3 - STEP BANK DETAILS START =============================== -->
-        <mdb-step name="3- {{ 'Item-Steps'| translate }}" class="step3">
+        <mdb-step *ngIf="showUnliveStepers()" name="3- {{ 'Item-Steps'| translate }}" class="step3">
           <!-- <label *ngIf="!itemId">الرجاء اختيار محور</label> -->
           <app-steps-management [courseId]="course.courseId"></app-steps-management>
           <!-- BUTTONS CONTINUE AND BACK START -->
