@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Data } from '../../../../_models/loadData';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -21,6 +22,7 @@ export class AboutComponent implements OnInit {
     public router: Router,
     private ngxService: NgxUiLoaderService,
     private modalService: NgbModal,
+    public translate: TranslateService,
     
   ) { 
     this.langStyle = "wrapper-about-lang-" + this.app_ser.app_lang();

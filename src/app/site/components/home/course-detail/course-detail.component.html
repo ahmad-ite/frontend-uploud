@@ -77,11 +77,12 @@
                 <div *ngIf="0" class="subtitle" (click)="showSubtitle()"><i
                     class="fal fa-closed-captioning subtitle-control-icon"></i>
                   <div class="content-subtitle">
-                    <p class="title-subtitle"><i class="fal fa-language subtitle-title-icon"></i> Subtitle</p>
+                    <p class="title-subtitle"><i class="fal fa-language subtitle-title-icon"></i>
+                      {{'Subtitle'|translate}}</p>
                     <ul class="subtitle-ul">
-                      <li>Ar</li>
-                      <li>En</li>
-                      <li>Default</li>
+                      <li>{{'Ar'|translate}}</li>
+                      <li>{{'En'|translate}}</li>
+                      <li>{{'Default'|translate}}</li>
                     </ul>
                   </div>
                 </div>
@@ -185,22 +186,21 @@
               {{courseDetail.create_date | date:'mediumDate' }}</p>
             <p class="no-of-lessons"><i class="fal fa-book"></i>{{'No of Lessons' | translate}}:
               {{courseDetail.lessons}}</p>
-            <p class="trainer-name"><i class="fal fa-chalkboard-teacher"></i>مدرب: <a *ngIf="courseDetail.trainer_id"
+            <p class="trainer-name"><i class="fal fa-chalkboard-teacher"></i>{{'trainer_course'|translate}}: <a
+                *ngIf="courseDetail.trainer_id"
                 routerLink="/trainer-view/{{courseDetail.trainer_id}}">{{courseDetail.trainer}}</a>
               <span *ngIf="!courseDetail.trainer_id">{{'Focus Academy' | translate}}</span> </p>
             <!-- <p class=" trainer-name"><i class="fal fa-chalkboard-teacher"></i>مدرب: <a
                   routerLink="/trainer-view/{{trainer.id}}">{{courseDetail.trainer}}</a> </p> -->
-            <p class="course-time"><i class="fal fa-clock"></i>{{'Course Duration' | translate}} :
+            <p class="course-time"><i class="fal fa-clock"></i>{{'Course Duration' | translate}}:
               {{app_ser.formatTime(courseDetail.duration).hours}} {{'hour' | translate}}
               {{app_ser.formatTime(courseDetail.duration).minutes}} {{'Minutes' | translate}} </p>
             <p class="registered-students"><i class="fal fa-users"></i>{{'No of Students' | translate}}:
               {{courseDetail.students_count}}</p>
             <p class="course-level"><i class="fal fa-analytics"></i>{{'Course Level' | translate}}:
               {{courseDetail.course_level.name}} </p>
-
-
             <p *ngIf="courseDetail.issued_by" class="no-of-lessons"><i
-                class="fas fa-file-certificate"></i>{{'certificate of achievement' | translate}}:
+                class="fal fa-file-certificate"></i>{{'certificate of achievement' | translate}}:
               {{courseDetail.issued_by}}</p>
           </div>
           <div *ngIf="!app_ser.isTrainer()">
@@ -212,16 +212,14 @@
             <a mdbTooltip="{{app_ser.inst('rejoin_course') }}" placement="top" *ngIf=" courseDetail.register"
               class="btn btn-get-it-now" (click)="register()">{{'Register Again' | translate}}</a>
           </div>
-
           <div *ngIf="checkOwnerLive()">
-
             <a class="btn btn-get-it-now" (click)="registerOwner()">{{'Start' | translate}}</a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="wrapper-course-outline">
             <div class="hdng-course-outline">
-              <h4 class="mb-0">محتوى الدورة</h4>
+              <h4 class="mb-0">{{'Course Content'|translate}}</h4>
             </div>
             <div class="course-outline-inner" *ngFor="let courseItem of courseDetail.items; let i = index;">
               <div class="wrap-outline-item" mdbWavesEffect>
@@ -260,13 +258,10 @@
                       </div>
                       <div *ngIf="courseDetail.template_id==122" class="wrap-course-outline-summary">
                         <p class="course-time"><i class="fal fa-clock"
-                            aria-hidden="true"></i><strong>{{'SessionDate' | translate}}
-                            :</strong>
+                            aria-hidden="true"></i><strong>{{'SessionDate' | translate}} :</strong>
                           {{courseItem.session_time}}</p>
                         <p class="sess-archived text-style-genrl"><i class="fal fa-file-archive"></i>
-                          {{'Archived' | translate}}:
-                          {{courseItem.is_archived? "نعم":"لا"}}</p>
-
+                          {{'Archived' | translate}}: {{courseItem.is_archived? "نعم":"لا"}}</p>
                         <br>
                         <!-- <a href="" class="btn-resume-test"><i class="fal fa-play icon-btn-genrl"></i>استئناف
                                                 الاختبار</a> -->

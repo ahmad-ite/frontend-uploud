@@ -122,6 +122,40 @@ ENGLISH STYLE START
   direction: ltr;
   text-align: left;
 
+  body {
+    font-family: "HelveticaNeueLight";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "HelveticaNeuelight";
+  }
+
+  p {
+    font-family: "HelveticaNeuelight";
+  }
+
+  span {
+    font-family: "HelveticaNeuelight";
+  }
+
+  a {
+    font-family: "HelveticaNeuelight";
+  }
+
+  div {
+    font-family: "HelveticaNeuelight";
+  }
+
+  input {
+    font-family: "HelveticaNeuelight";
+
+  }
+
   .wrap-modal-header {
     padding: 1rem;
     border-bottom: 1px solid #dee2e6;

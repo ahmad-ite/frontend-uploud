@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppService } from '../../../../services/app.service';
 import { TrainerData } from '../../../../_models/loadData';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-trainer-view',
@@ -13,14 +14,15 @@ export class TrainerViewComponent implements OnInit {
 
   trainerData: TrainerData;
   id: Number;
-
+  langStyle: any;
 
   constructor(
     public app_ser: AppService,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public translate: TranslateService
   ) {
-
+    this.langStyle = newFunction() + this.app_ser.app_lang();
     this.id = this.route.snapshot.params['id'];
     this.trainerData = new TrainerData();
 
@@ -61,5 +63,9 @@ export class TrainerViewComponent implements OnInit {
 
   }
 
+}
+
+function newFunction() {
+  return "wrapper-trainer-view-";
 }
 

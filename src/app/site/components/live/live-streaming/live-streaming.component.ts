@@ -5,6 +5,7 @@ import { NgbModal, ModalDismissReasons, NgbCalendar, NgbDateStruct, NgbTimeStruc
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { CourseView, Session } from 'src/app/_models/loadData';
 import { Location } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-live-streaming',
@@ -100,6 +101,7 @@ export class LiveStreamingComponent implements OnInit {
     private ngxService: NgxUiLoaderService,
     private modalService: NgbModal,
     private location: Location,
+    public translate: TranslateService,
   ) {
     this.langStyle = "live-streaming-main-" + this.app_ser.app_lang();
 

@@ -1,7 +1,7 @@
 <div [ngClass]="langStyle">
   <div class="session-title">
     <div class="container">
-      <h3>دورة تدريبية حية لأكاديمية كن</h3>
+      <h3>{{'Live Training Course for the Kun Academy' | translate}}</h3>
     </div>
   </div>
   <div class="wrapper-main-stream-box">
@@ -43,9 +43,7 @@
         <div class="wrap-session-content">
           <h3 class="sess-title"><i class="fal fa-video"></i> {{sessionData[active_item_index].item.name}}</h3>
           <p class="sess-date text-style-genrl"><i class="fal fa-chalkboard-teacher"></i>المدرب:
-            {{courseDetail.trainer}}
-          </p>
-
+            {{courseDetail.trainer}} </p>
           <p class="sess-date text-style-genrl"><i class="fal fa-calendar-alt"></i> {{'SessionDate' | translate}}:
             {{sessionData[active_item_index].item.session_time}}</p>
           <p class="sess-type text-style-genrl"><i class="fal fa-calendar-star"></i> {{'Case' | translate}}: <span

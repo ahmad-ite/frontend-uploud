@@ -1,4 +1,4 @@
-<div class="wrapper-trainer-view" style="min-height: 1500px;">
+<div [ngClass]="langStyle" style="min-height: 1500px;">
   <!-- <div class="cover-photo">
 
     <mat-video title="kun Academy" [autoplay]="false" [preload]="true" [fullscreen]="true" [showFrameByFrame]="true"
@@ -61,10 +61,10 @@
         </div>
       </div>
       <div class="col-md-9">
-        <h4 class="hdng-genrl">سيرة شخصية:</h4>
+        <h4 class="hdng-genrl">{{'Biography'|translate}}:</h4>
         <p class="about-info">{{trainerData.trainer.description}}</p>
         <div class="wrap-trainer-courses mt-5">
-          <h4 class="hdng-genrl">الدورات التي يدرسها {{trainerData.trainer.name}} :</h4>
+          <h4 class="hdng-genrl">{{'Courses taught by' | translate}} {{trainerData.trainer.name}} :</h4>
           <div class="row">
             <div class="col-md-4 col-padd-custom" *ngFor="let trainerCourse of trainerData.trainer.courses">
               <!-- <mdb-card [ngStyle]="{background: 'url(' + app_ser.img_url(trainerCourse.cover_image) + ')'}"
@@ -160,7 +160,7 @@
           </div>
         </div>
         <div class="wrap-more-trainers  mt-5 mb-5">
-          <h4 class="hdng-genrl">المزيد من المدربين:</h4>
+          <h4 class="hdng-genrl">{{'More Trainers'| translate}}:</h4>
           <div class="row mt-2 mb-2">
             <div class="col-md-4 col-padd-custom" *ngFor="let trainer of trainerData.other_trainers|slice:0:3">
               <!-- <a class="link-card" routerLink="/trainer-view/{{trainer.id}}"> -->
@@ -183,7 +183,7 @@
                       <!-- <h4>منتهى الرمحي</h4> -->
                       <h4>{{trainer.name}}</h4>
                     </mdb-card-title>
-                    <p>مدرب ومستشار معتمد</p>
+                    <p>{{'Certified Trainer and Advisor' | translate}}</p>
                     <hr>
                     <!--Quotation-->
                     <p> {{trainer.description | slice:1:100}}</p>

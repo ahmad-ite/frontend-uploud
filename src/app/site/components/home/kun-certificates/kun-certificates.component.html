@@ -2,12 +2,19 @@
   <img src="../../../../../assets/images/certificate.jpg" alt="" class="img-fluid img-certificate">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" *ngIf="app_ser.app_lang()=='ar'">
         <h1 class="hdng-certificate">عن شهادة اكاديمية كُن </h1>
         <p class="certificate-description">تتيح لك أكاديمية كُن الحصول على شهادة إنجاز للدورة موقعة من قبل أفضل المدربين
           مبيعاً على مستوى الوطن العربي وعلى مستوى العالم. ستساعدك شهادة كُن على إبراز مهاراتك وقدراتك في سيرتك الذاتية
           مما سيعطيك الأولوية أن تكون من أفضل المرشحين للوظيفة المرجوة . نعمل على اعتماد شهادة كُن من قبل جهات مختلفة
           محلية ودولية</p>
+      </div>
+      <div class="col-md-12" *ngIf="app_ser.app_lang()=='en'">
+        <h1 class="hdng-certificate">About Kun Certificates</h1>
+        <p class="certificate-description">Kun Academy will issue completion certificates signed by the best-selling
+          trainers in the Arab World and Worldwide. Kun Certificates will allow you to highlight your key skills and
+          your capabilities in your curriculum vitae and will prioritize your position as a candidate for the desired
+          job. We are working on certifying our certificates locally and internationally.</p>
       </div>
     </div>
   </div>

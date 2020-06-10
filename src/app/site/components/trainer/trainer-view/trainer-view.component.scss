@@ -1,4 +1,11 @@
-.wrapper-trainer-view {
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-view-ar {
   direction: rtl;
   text-align: right;
 
@@ -224,6 +231,291 @@
     padding: 5px;
   }
 }
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ARABIC STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE START
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+.wrapper-trainer-view-en {
+  direction: ltr;
+  text-align: left;
+
+  body {
+    font-family: "HelveticaNeueLight";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "HelveticaNeuelight";
+  }
+
+  p {
+    font-family: "HelveticaNeuelight";
+  }
+
+  span {
+    font-family: "HelveticaNeuelight";
+  }
+
+  a {
+    font-family: "HelveticaNeuelight";
+  }
+
+  div {
+    font-family: "HelveticaNeuelight";
+  }
+
+  input {
+    font-family: "HelveticaNeuelight";
+
+  }
+
+  .container-custom-width-video {
+    max-width: 1300px !important;
+  }
+
+  // .trainer-video {
+  //   vg-player {
+  //     border-bottom-left-radius: 100px !important;
+  //     height: 700px !important;
+
+  //     vg-controls {
+  //       padding: 0 70px !important;
+  //     }
+  //   }
+  // }
+  /* ================= STYLES TRAINER VIDEO START ================= */
+  .trainer-video {
+    position: relative;
+    background: #0c1c23;
+
+
+
+    vg-player {
+      // border-bottom-left-radius: 100px;
+      // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+      vg-overlay-play.video-big-play-icon {
+        .vg-icon-play_arrow:before {
+          font-family: "Font Awesome 5 Pro";
+          content: "\f144";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          font-weight: 200;
+          color: #00b5a9;
+        }
+
+        .vg-icon-play_arrow:before:hover {
+          cursor: pointer;
+        }
+      }
+
+      vg-controls {
+        padding: 0 70px;
+      }
+
+      video {
+        height: 750px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  /* ================= STYLES TRAINER VIDEO END ================= */
+
+  .wrapper-biography-summary {
+    box-shadow: 0px 0px 10px lightgrey;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid white;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px black;
+    // margin-top: -150px;
+  }
+
+  .wrap-trainer-name {
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
+  .trainer-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 20px;
+    color: black;
+  }
+
+  .trainer-designation {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00b5a9;
+  }
+
+  .personal-summary {
+    text-align: right;
+
+    p {
+      color: gray;
+
+      i {
+        margin: 0 5px;
+        color: #00b5a9;
+      }
+    }
+  }
+
+  .custom-class-avatar {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    overflow: hidden;
+    border: 3px solid #fff !important;
+    box-shadow: 0px 0px 2px grey;
+    background: white;
+
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .testimonial-card {
+    border-radius: 20px !important;
+  }
+
+  .testimonial-card:hover {
+    cursor: pointer;
+  }
+
+  .gradient-trainer-bg {
+    background: linear-gradient(180deg, #01637f, #00b5a9) !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+  }
+
+  .link-card {
+    color: black;
+  }
+
+
+  .price {
+    margin-bottom: 0;
+
+    .current-discounted-price {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      margin: 0 5px;
+    }
+  }
+
+  .star-rating {
+    margin-bottom: 0;
+
+    i {
+      font-size: 10px;
+      margin: 2px;
+    }
+
+    .star-full {
+      color: #FFDA00;
+
+    }
+
+    .star-half {
+      color: #FFDA00;
+    }
+
+    .star-empty {
+      color: #BCBCBC;
+    }
+
+    .rating-text {
+      font-size: 12px;
+      font-weight: bold;
+      margin: 0 5px;
+    }
+  }
+
+  .btn-view-course {
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 100px;
+
+    a {
+      color: white;
+    }
+  }
+
+  .btn-view-course:hover {
+    color: white !important;
+  }
+
+  .card-image {
+    border-radius: 15px !important;
+    min-height: 290px !important;
+    background-size: 100%;
+    background-position: center center;
+  }
+
+  .wrap-content-course {
+    border-radius: 15px !important;
+    min-height: 290px !important;
+  }
+
+  .wrap-trainer-courses .row .col-padd-custom {
+    padding: 5px;
+  }
+
+  .wrap-more-trainers .row .col-padd-custom {
+    padding: 5px;
+  }
+}
+
+/* ======================================================================================
+*****************************************************************************************
+=========================================================================================
+ENGLISH STYLE END
+=========================================================================================
+*****************************************************************************************
+====================================================================================== */
+
 
 
 .card-main {

@@ -1,7 +1,8 @@
 <div [ngClass]="langStyle">
   <ngx-ui-loader class="wrapper-app-video" *ngIf="!load_data.app_video"></ngx-ui-loader>
   <div class="wrap-app-video-background" *ngIf="!load_data.app_video">
-    <img src="../../../../../assets/images/app-video-bg.PNG" alt="" class="img-fluid">
+    <img src="../../../../../assets/images/app-video-bg.PNG" alt="" class="img-fluid"
+      style="width: 100%;max-width:100%;">
   </div>
   <div class="wrapper-app-video">
     <div class="wrapper-app-video-inner">
@@ -29,8 +30,8 @@
       </div>
     </div>
     <div class="wrap-kun-text">
-      <h1>مرحبا بكم في أكاديمية كُن</h1>
-      <h5>المنصة العربية للتدريب عن بعد</h5>
+      <h1>{{'Welcome to Kun Academy' | translate}}</h1>
+      <h5>{{'Best training platform for arabic world' | translate}}</h5>
     </div>
   </div>
   <div class="wrapper-main-categories" *ngFor="let template of this.load_data.main_categories; let i = index"
@@ -172,15 +173,15 @@
         <div class="col-md-6">
           <div class="wrap-best-courses">
             <i class="icon-genrl fal fa-hand-holding-seedling"></i>
-            <h3>اكتشاف أفضل الدورات تصنيفا</h3>
-            <a href="" class="lnk-view-now">تصفح الآن</a>
+            <h3>{{'Explore our Best Seller Courses' | translate}}</h3>
+            <a href="" class="lnk-view-now">{{'Visit Now' | translate}}</a>
           </div>
         </div>
         <div class="col-md-6">
           <div class="wrap-top-rated-courses">
             <i class="icon-genrl fal fa-hand-holding-seedling"></i>
-            <h3>أعلى تصنيف الدورات الشهر الماضي</h3>
-            <a href="" class="lnk-view-now">تصفح الآن</a>
+            <h3>{{'Top rated courses last month' | translate}}</h3>
+            <a href="" class="lnk-view-now">{{'Visit Now' | translate}}</a>
           </div>
         </div>
       </div>

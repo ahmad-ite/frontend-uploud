@@ -549,6 +549,7 @@ ARABIC STYLE START
 
             .carousel-inner {
               // overflow: visible !important;
+              z-index: 999;
 
               .carousel-item {
                 transition: transform 1s ease-in-out !important;
@@ -890,6 +891,8 @@ ARABIC STYLE START
                   }
 
                   .carousel-inner {
+                    z-index: 999;
+
                     .carousel-item-custom {
                       .custom-col-padding {
                         .card-main {
@@ -1071,6 +1074,8 @@ ARABIC STYLE START
                   }
 
                   .carousel-inner {
+                    z-index: 999;
+
                     .carousel-item-custom {
                       .custom-col-padding {
                         .card-main {
@@ -1211,12 +1216,6 @@ ARABIC STYLE START
                   }
                 }
 
-                // .card-main:hover {
-                //   transform: scale(1.8) !important;
-                //   transition: 0.3s ease-in-out !important;
-                //   z-index: 9999999 !important;
-                //   transform-origin: center;
-                // }
               }
             }
 
@@ -1239,7 +1238,7 @@ ARABIC STYLE START
 
 
   /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1500px) and (max-width: 3000px) {
+  @media (min-width: 1500px) and (max-width: 2500px) {
     .container-custom-width-video {
       max-width: 1170px !important;
     }
@@ -1289,12 +1288,6 @@ ARABIC STYLE START
                   }
                 }
 
-                // .card-main:hover {
-                //   transform: scale(1.8) !important;
-                //   transition: 0.3s ease-in-out !important;
-                //   z-index: 9999999 !important;
-                //   transform-origin: center;
-                // }
               }
             }
 
@@ -1308,6 +1301,105 @@ ARABIC STYLE START
       }
     }
   }
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 2501px) and (max-width: 3500px) {
+    .wrapper-main-categories {
+      .wrapper-categories-inner {
+        .wrapper-template-video {
+          vg-player {
+            height: 610px !important;
+          }
+        }
+
+        .wrapper-courses {
+          .container-all-courses {
+            .carousel-courses {
+              .custom-col-padding {
+                .card-main {
+
+
+                  .wrapper-inner-course {
+
+                    height: 300px !important;
+
+                    .main-div-course {
+
+                      .course-img {
+
+                        height: 300px !important;
+                      }
+                    }
+
+                    .wrapper-hover-course-video {
+                      .wrap-course-over-vg-player {
+                        vg-player {
+                          height: 300px !important;
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 3501px) {
+    .wrapper-main-categories {
+      .wrapper-categories-inner {
+        .wrapper-template-video {
+          vg-player {
+            height: 810px !important;
+          }
+        }
+
+        .wrapper-courses {
+          .container-all-courses {
+            .carousel-courses {
+              .custom-col-padding {
+                .card-main {
+
+
+                  .wrapper-inner-course {
+
+                    height: 400px !important;
+
+                    .main-div-course {
+
+                      .course-img {
+
+                        height: 400px !important;
+                      }
+                    }
+
+                    .wrapper-hover-course-video {
+                      .wrap-course-over-vg-player {
+                        vg-player {
+                          height: 400px !important;
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+
 
   /* ================= MEDIA QUERY END ================= */
 
@@ -1334,6 +1426,40 @@ ARABIC STYLE START
 .wrapper-index-page-en {
   direction: ltr;
   text-align: left;
+
+  body {
+    font-family: "HelveticaNeueLight";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "HelveticaNeuelight";
+  }
+
+  p {
+    font-family: "HelveticaNeuelight";
+  }
+
+  span {
+    font-family: "HelveticaNeuelight";
+  }
+
+  a {
+    font-family: "HelveticaNeuelight";
+  }
+
+  div {
+    font-family: "HelveticaNeuelight";
+  }
+
+  input {
+    font-family: "HelveticaNeuelight";
+
+  }
 
   .container-custom-width {
     max-width: calc(100% - 150px) !important;
@@ -1435,15 +1561,15 @@ ARABIC STYLE START
 
       .category-title {
         position: absolute;
-        right: 25px;
+        left: 25px;
         top: 25px;
         color: white;
         font-size: 24px;
         font-weight: bold;
         padding: 3px 20px 8px;
         border-radius: 4px;
-        border-bottom-left-radius: 19px;
-        border-top-right-radius: 20px;
+        border-bottom-right-radius: 19px;
+        border-top-left-radius: 20px;
         text-shadow: 0px 2px 1px #252525;
         z-index: 999;
       }
@@ -1626,7 +1752,7 @@ ARABIC STYLE START
                     .summary-course span {
                       margin-bottom: 0;
                       font-size: 5px;
-                      margin: 0 0 0 3px;
+                      margin: 0 3px 0 0;
                       line-height: 0px;
                       text-shadow: 0px 0px 2px black;
 
@@ -1719,11 +1845,11 @@ ARABIC STYLE START
                 }
 
                 .transition-right:hover {
-                  transform-origin: left !important;
+                  transform-origin: right !important;
                 }
 
                 .transition-left:hover {
-                  transform-origin: right !important;
+                  transform-origin: left !important;
                 }
 
                 .wrapper-inner-course:hover .overlay-course-summary-hover {
@@ -1737,11 +1863,11 @@ ARABIC STYLE START
                   .summary-course span {
                     margin-bottom: 0;
                     font-size: 8px;
-                    margin: 0 0 0 3px;
+                    margin: 0 3px 0 0;
                   }
 
                   .summary-course i {
-                    margin: 0 0 0 3px;
+                    margin: 0 3px 0 0;
                   }
 
                   -moz-animation: cssAnimation 0s ease-in 5s forwards;
@@ -1873,6 +1999,7 @@ ARABIC STYLE START
 
             .carousel-inner {
               // overflow: visible !important;
+              z-index: 999;
 
               .carousel-item {
                 transition: transform 1s ease-in-out !important;
@@ -2220,6 +2347,8 @@ ARABIC STYLE START
                   }
 
                   .carousel-inner {
+                    z-index: 999;
+
                     .carousel-item-custom {
                       .custom-col-padding {
                         .card-main {
@@ -2438,12 +2567,6 @@ ARABIC STYLE START
                   }
                 }
 
-                // .card-main:hover {
-                //   transform: scale(1.8) !important;
-                //   transition: 0.3s ease-in-out !important;
-                //   z-index: 9999999 !important;
-                //   transform-origin: center;
-                // }
               }
             }
 
@@ -2466,7 +2589,7 @@ ARABIC STYLE START
 
 
   /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1500px) and (max-width: 3000px) {
+  @media (min-width: 1500px) and (max-width: 2500px) {
     .container-custom-width-video {
       max-width: 1170px !important;
     }
@@ -2515,13 +2638,6 @@ ARABIC STYLE START
                     }
                   }
                 }
-
-                // .card-main:hover {
-                //   transform: scale(1.8) !important;
-                //   transition: 0.3s ease-in-out !important;
-                //   z-index: 9999999 !important;
-                //   transform-origin: center;
-                // }
               }
             }
 
@@ -2537,6 +2653,104 @@ ARABIC STYLE START
 
     .main-categories-first {
       margin-top: -210px !important;
+    }
+  }
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 2501px) and (max-width: 3500px) {
+    .wrapper-main-categories {
+      .wrapper-categories-inner {
+        .wrapper-template-video {
+          vg-player {
+            height: 610px !important;
+          }
+        }
+
+        .wrapper-courses {
+          .container-all-courses {
+            .carousel-courses {
+              .custom-col-padding {
+                .card-main {
+
+
+                  .wrapper-inner-course {
+
+                    height: 300px !important;
+
+                    .main-div-course {
+
+                      .course-img {
+
+                        height: 300px !important;
+                      }
+                    }
+
+                    .wrapper-hover-course-video {
+                      .wrap-course-over-vg-player {
+                        vg-player {
+                          height: 300px !important;
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 3501px) {
+    .wrapper-main-categories {
+      .wrapper-categories-inner {
+        .wrapper-template-video {
+          vg-player {
+            height: 810px !important;
+          }
+        }
+
+        .wrapper-courses {
+          .container-all-courses {
+            .carousel-courses {
+              .custom-col-padding {
+                .card-main {
+
+
+                  .wrapper-inner-course {
+
+                    height: 400px !important;
+
+                    .main-div-course {
+
+                      .course-img {
+
+                        height: 400px !important;
+                      }
+                    }
+
+                    .wrapper-hover-course-video {
+                      .wrap-course-over-vg-player {
+                        vg-player {
+                          height: 400px !important;
+                        }
+                      }
+                    }
+                  }
+                }
+
+              }
+            }
+
+
+          }
+        }
+      }
     }
   }
 

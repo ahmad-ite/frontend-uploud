@@ -4011,6 +4011,43 @@ ENGLISH STYLE START
 *****************************************************************************************
 ====================================================================================== */
 .wrapper-courseInside-lang-en {
+  direction: ltr;
+  text-align: left;
+
+  body {
+    font-family: "HelveticaNeueLight";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "HelveticaNeuelight";
+  }
+
+  p {
+    font-family: "HelveticaNeuelight";
+  }
+
+  span {
+    font-family: "HelveticaNeuelight";
+  }
+
+  a {
+    font-family: "HelveticaNeuelight";
+  }
+
+  div {
+    font-family: "HelveticaNeuelight";
+  }
+
+  input {
+    font-family: "HelveticaNeuelight";
+
+  }
+
   .wrapper-course-inside {
     background-image: url(../../../../../assets/images/kun-background-pattern-white.png);
     background-position: center;
@@ -4370,11 +4407,12 @@ ENGLISH STYLE START
         }
 
         .summary-lesson-box {
+          direction: ltr;
           position: absolute;
           top: 3px;
           right: 23px;
           background: white;
-          text-align: right;
+          text-align: left;
           width: 200px;
           padding: 15px;
           border-radius: 20px;
@@ -4385,6 +4423,9 @@ ENGLISH STYLE START
 
 
           .wrap-course-outline-summary {
+            direction: ltr;
+            text-align: left;
+
             .lesson-title {
               color: #00b5a9;
               font-size: 18px;
@@ -7968,6 +8009,6 @@ ENGLISH STYLE END
 
 
 
-pre.question{
+pre.question {
   overflow: hidden;
 }
