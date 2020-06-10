@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { MatMenuTrigger } from '@angular/material';
 import { Data, videoAPI, Media, MainCategory, SubCategory } from '../../../../_models/loadData';
@@ -11,7 +11,7 @@ import { SignUpComponent } from '../../registration/sign-up/sign-up.component';
 import { AppService } from '../../../../services/app.service';
 
 import { AuthenticationService } from '../../../../_services/authentication.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { NgxUiLoaderService } from "ngx-ui-loader";
 import { VgAPI, VgCoreModule } from 'videogular2/compiled/core';
 import { VgControlsModule } from 'videogular2/compiled/controls';
@@ -24,9 +24,9 @@ import { MetafrenzyService } from 'ngx-metafrenzy';
   styleUrls: ['./index-page.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class IndexPageComponent implements OnInit {
+export class IndexPageComponent implements OnInit, AfterViewInit {
 
-  // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
+
   pdfSrc: any;
   courseGifLoader: boolean = false;
 
@@ -35,7 +35,9 @@ export class IndexPageComponent implements OnInit {
 
     this.load_data = data;
   }
+  ngAfterViewInit() {
 
+  }
 
 
   @ViewChild(MatMenuTrigger, null) trigger: MatMenuTrigger;
@@ -79,6 +81,58 @@ export class IndexPageComponent implements OnInit {
     private readonly metafrenzyService: MetafrenzyService,
     private modalService: NgbModal
   ) {
+
+
+  }
+  initData() {
+    this.ngxService.start();
+
+    this.activeMainCategoryObj = null;
+    var data1 = { data: { page: 0, size: 6 } };
+    this.load_data = new Data();
+
+
+    this.app_ser.post("site_feed/course/load_data/" + this.activeSubCategory, data1).subscribe(
+      data => {
+
+
+        this.globals.appVideo = data.app_video;
+        this.globals.appVideoDeravations = data.video_derivation;
+        this.ngxService.stop();
+
+        this.isLoading = 1;
+        this.subCategories = data.sub_categories;
+        this.load_data = data;
+        var itr = 0;
+        for (const value of this.load_data.main_categories) {
+          this.load_data.main_categories[itr].slide_courses = this.chunk(value.courses, 6);
+          itr++;
+        }
+        // this.filterCategory(this.activeSubCategory);
+        setTimeout(() => {
+
+          data1 = { data: { page: 0, size: 100 } };
+          this.app_ser.post("site_feed/course/load_data/" + this.activeSubCategory, data1).subscribe(
+            data => {
+              var itr = 0;
+              for (const value of data.main_categories) {
+                this.load_data.main_categories[itr].slide_courses = this.chunk(value.courses, 6);
+                itr++;
+              }
+
+
+            });
+
+        }, 1);
+
+
+      },
+      error => {
+
+      });
+  }
+
+  ngOnInit() {
     this.templateVideoApi = [];
     this.courseApi = null;
     this.mutePlay = true;
@@ -91,80 +145,14 @@ export class IndexPageComponent implements OnInit {
     this.initData();
     this.langStyle = "wrapper-index-page-" + this.app_ser.app_lang();
 
-  }
-  initData() {
-    this.ngxService.start();
-
-    this.activeMainCategoryObj = null;
-    var data1 = { data: { page: 0, size: 100 } };
-    this.load_data = new Data();
+    this.router.events.subscribe((e) => {
 
 
-    this.app_ser.post("site_feed/course/load_data/" + this.activeSubCategory, data1).subscribe(
-      data => {
+      if (e instanceof NavigationEnd) {
+        // Function you want to call here
 
-        this.globals.appVideo = data.app_video;
-        this.globals.appVideoDeravations = data.video_derivation;
-
-
-        this.isLoading = 1;
-        this.subCategories = data.sub_categories;
-        this.load_data = data;
-        var itr = 0;
-        for (const value of this.load_data.main_categories) {
-          this.load_data.main_categories[itr].slide_courses = this.chunk(value.courses, 6);
-          itr++;
-        }
-        // this.filterCategory(this.activeSubCategory);
-
-        this.ngxService.stop();
-
-      },
-      error => {
-
-      });
-  }
-  // filterCategory(cat_id) {
-  //   // this.router.routeReuseStrategy.shouldReuseRoute = function () {
-  //   //   return false;
-  //   // };
-  //   this.activeSubCategory = cat_id;
-
-  //   this.load_data.main_categories = []
-
-  //   if (cat_id) {
-  //     let main_cat_obj: MainCategory;
-  //     for (let i = 0, len = this.load_data_temp.main_categories.length; i < len; i += 1) {
-  //       let temp_arr = [];
-  //       main_cat_obj = this.app_ser.copyObj(this.load_data_temp.main_categories[i]);
-  //       for (let j = 0, len1 = main_cat_obj.courses.length; j < len1; j += 1) {
-  //         if (main_cat_obj.courses[j].course_category == cat_id) {
-  //           temp_arr.push(main_cat_obj.courses[j]);
-  //         }
-  //       }
-
-  //       if (temp_arr.length != 0) {
-  //         main_cat_obj.courses = temp_arr;
-  //         this.load_data.main_categories.push(main_cat_obj);
-  //       }
-  //     }
-  //   }
-  //   else {
-  //     this.load_data = this.app_ser.copyObj(this.load_data_temp);
-  //   }
-
-  //   var itr = 0;
-  //   for (const value of this.load_data.main_categories) {
-
-  //     this.load_data.main_categories[itr].slide_courses = [];
-  //     this.load_data.main_categories[itr].slide_courses = this.chunk(value.courses, 6);
-  //     itr++;
-  //   }
-  //   // this.main_categories_test = this.load_data.main_categories;
-
-  // }
-  ngOnInit() {
-
+      }
+    });
   }
 
 
@@ -289,17 +277,18 @@ export class IndexPageComponent implements OnInit {
 
     switch (mode) {
       case "video_app":
-        this.appVideoApi = api;
-        this.appVideoApi.getDefaultMedia().subscriptions.loadedData.subscribe(() => {
-          this.appVideoApi.volume = 0.3;
-          this.appVideoApi.getDefaultMedia().currentTime = 0.1;
-          this.appVideoApi.play();
 
+        if (!this.appVideoApi) {
 
-          // this.appVideoApi.pause();
-          // this.appVideoApi.play();
+          this.appVideoApi = api;
+          this.appVideoApi.getDefaultMedia().subscriptions.loadedData.subscribe(() => {
+            this.appVideoApi.volume = 0.3;
+            this.appVideoApi.getDefaultMedia().currentTime = 0.1;
+            this.appVideoApi.play();
 
-        });
+          });
+        }
+
 
         // this.api = api;
         break;
@@ -365,7 +354,7 @@ export class IndexPageComponent implements OnInit {
 
   }
   previousSlide() {
-    alert('hellow');
+    // alert('hellow');
   }
   courseBorderRadiusClasses(index, length) {
 
