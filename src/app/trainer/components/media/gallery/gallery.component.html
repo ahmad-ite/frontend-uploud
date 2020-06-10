@@ -87,7 +87,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD DUBBING VIDEO GALLERY TAB START **************************************** -->
-          <ngb-tab id="dubbing">
+          <ngb-tab *ngIf="0" id="dubbing">
             <ng-template ngbTabTitle><b><i class="far fa-film"></i> {{'Dubbing Videos' | translate}}</b></ng-template>
             <ng-template ngbTabContent>
               <!-- LANGUAGE TAB START -->
@@ -151,7 +151,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD DUBBING VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD SUBTITLES VIDEO GALLERY TAB START **************************************** -->
-          <ngb-tab id="subtitle">
+          <ngb-tab *ngIf="0" id="subtitle">
             <ng-template ngbTabTitle><b><i class="far fa-closed-captioning"></i> {{'Subtitle' | translate }}</b>
             </ng-template>
             <ng-template ngbTabContent>
@@ -206,7 +206,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD SUBTITLES VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD AUDIO GALLERY TAB END **************************************** -->
-          <ngb-tab id="audio">
+          <ngb-tab *ngIf="0" id="audio">
             <ng-template ngbTabTitle><b><i class="far fa-microphone-alt"></i> {{'Audio' | translate }}</b></ng-template>
             <ng-template ngbTabContent>
               <div class="loader" *ngIf="loadGifLoader">
