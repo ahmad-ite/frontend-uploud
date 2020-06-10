@@ -18,7 +18,7 @@ import { VgAPI } from 'videogular2/compiled/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CategoryCoursesComponent implements OnInit {
-
+  langStyle: any;
   closeResult: string;
   isLoading: number = 0;
   load_data: Data;
@@ -56,7 +56,7 @@ export class CategoryCoursesComponent implements OnInit {
     public route: ActivatedRoute,
     private ngxService: NgxUiLoaderService,
   ) {
-
+    this.langStyle = "wrapper-catogory-course-" + this.app_ser.app_lang();
     this.sliderRowCount = this.sliderCount / this.sliderColumnCount;
     this.playVideoOnHover = false;
     this.playSlideOnHover = -1;

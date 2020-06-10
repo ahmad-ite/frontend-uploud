@@ -51,6 +51,12 @@
             <a data-target="#basicExample" (click)="frame.show()" mdbWavesEffect class="btn-search"><i
                 class="far fa-search" aria-hidden="true"></i></a>
           </button>
+          <div class="wrap-language-mobile" style="display: inline-block">
+            <a *ngIf="app_ser.app_lang()=='ar'" class="nav-link" (click)="changedLang();"><i class="fal fa-globe"></i>
+              English</a>
+            <a *ngIf="app_ser.app_lang()=='en'" class="nav-link" (click)="changedLang();" style="font-family:cairo;"><i
+                class="fal fa-globe"></i> العربية</a>
+          </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light navbar-top-header">
           <button class="navbar-toggler custom-navbar-toggler" type="button" data-toggle="collapse"
@@ -86,12 +92,12 @@
                   <a data-target="#basicExample" (click)="frame.show()" mdbWavesEffect class="btn-search"><i
                       class="far fa-search" aria-hidden="true"></i></a>
                 </li>
-                <!-- <li class="nav-item">
-                        <a *ngIf="app_ser.app_lang()=='ar'" class="nav-link" (click)="changedLang();"><i
-                            class="fal fa-globe"></i> العربية</a>
-                        <a *ngIf="app_ser.app_lang()=='en'" class="nav-link" (click)="changedLang();"><i
-                            class="fal fa-globe"></i> English</a>
-                      </li> -->
+                <li class="nav-item d-none d-lg-block">
+                  <a *ngIf="app_ser.app_lang()=='ar'" class="nav-link" (click)="changedLang();"><i
+                      class="fal fa-globe"></i> English</a>
+                  <a *ngIf="app_ser.app_lang()=='en'" class="nav-link" (click)="changedLang();"
+                    style="font-family:cairo;"><i class="fal fa-globe"></i> العربية</a>
+                </li>
                 <!-- <li class="nav-item">
                           <a routerLink="/" class="nav-link">الصفحة الرئيسية</a>
                         </li> -->
@@ -134,7 +140,7 @@
                             class="fal fa-user-cog"></i> {{ 'Dashboard' | translate }}</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" class="user-items-dd" (click)="myLibrary()"><i
-                            class="far fa-book-user"></i> {{ 'myCourses' | translate }}</a>
+                            class="fal fa-book-user"></i> {{ 'myCourses' | translate }}</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" class="user-items-dd" (click)="logout()"><i class="fal fa-sign-in"></i>
                           {{ 'signOut' | translate }}</a>

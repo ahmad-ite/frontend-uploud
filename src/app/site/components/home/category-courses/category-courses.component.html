@@ -2,7 +2,7 @@
 </app-navigation> -->
 <!-- <app-search></app-search> -->
 <!-- <ngx-ui-loader></ngx-ui-loader> -->
-<div class="wrapper-catogory-course-page">
+<div [ngClass]="langStyle">
   <ngx-ui-loader class="wrapper-app-video" *ngIf="!mainCategory.id"></ngx-ui-loader>
   <div class="wrapper-category-courses-inner">
     <div style="position: relative">

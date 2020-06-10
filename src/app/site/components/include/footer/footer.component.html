@@ -4,12 +4,9 @@
       <div class="row" style="margin-bottom: 30px;">
         <div class="col-md-4">
           <!-- <img src="../../../assets/images/Logo.png" alt="" class="img-fluid footer-logo"> -->
-          <h3 class="footer-hdng-genrl">أكاديمية كُن </h3>
-          <p><span>أكاديمية كُن هي المنصة الأولى عربياً التي تقدم التدريب عبر الإنترنت بطريقة مختلفة تتحدى التكنولوجيا
-              الحديثة وجميع أساليب وتقنيات التدريب الحديثة. أكاديمية كُن تقدم العديد من أشكال التدريب كالتدريب التقليدي
-              الذي يعتمد على الفيديو وعلى النصوص المصورة ولأول مرة ستقدم أكاديمية كُن تقنية التدريب التفاعلي باستخدام
-              الأدوات التفاعلية التي تم تطويرها</span><span><a routerLink="/about" class="link-view-more">عرض
-                المزيد</a></span></p>
+          <h3 class="footer-hdng-genrl">{{'Kun Academy'|translate}} </h3>
+          <p><span>{{'AboutFooter' | translate}}</span><span><a routerLink="/about"
+                class="link-view-more">{{'View More' | translate}}</a></span></p>
           <div class="wrap-download-mobile-app-icons">
             <a href="https://apps.apple.com/us/app/kun-academy/id1482771056?ls=1" class="icon-mobile-app app-store"
               target="_blank">
@@ -33,7 +30,7 @@
           </div>
         </div>
         <div class="col-md-2">
-          <h3 class="footer-hdng-genrl">برامجنا</h3>
+          <h3 class="footer-hdng-genrl">{{'Our programs'|translate}}</h3>
           <ul class="ul-genrl ul-support">
             <li *ngFor="let template of globals.footerTemplates">
               <a (click)="templateNavigation(template)"> {{app_ser.stringLang(template.name, template.name_en)}}</a>
@@ -53,34 +50,34 @@
                     </ul> -->
         </div>
         <div class="col-md-2">
-          <h3 class="footer-hdng-genrl">عن أكاديمية كُن</h3>
+          <h3 class="footer-hdng-genrl">{{'About Kun'|translate}}</h3>
           <ul class="ul-genrl ul-support">
-            <li><a routerLink="/blogs">المدونة</a></li>
-            <li><a routerLink="/about">عن أكاديمية كُن</a></li>
+            <li><a routerLink="/blogs">{{'Blog'|translate}}</a></li>
+            <li><a routerLink="/about">{{'About Kun Academy'|translate}}</a></li>
             <!-- <li><a routerLink="">فريقنا</a></li> -->
-            <li><a routerLink="/terms">الشروط والأحكام</a></li>
+            <li><a routerLink="/terms">{{'Terms and Conditions' | translate}}</a></li>
             <!-- <li><a routerLink="">القانونية والخصوصية</a></li> -->
             <!-- <li>Social Media Icons Here ...</li> -->
           </ul>
         </div>
         <div class="col-md-2">
-          <h3 class="footer-hdng-genrl">خدامات الدعم</h3>
+          <h3 class="footer-hdng-genrl">{{'Support Services'|translate}}</h3>
           <ul class="ul-genrl ul-quick-links">
-            <li><a routerLink="/contact">اتصل بنا</a></li>
+            <li><a routerLink="/contact">{{'Contact Us'|translate}}</a></li>
             <!-- <li><a routerLink="">الأسئلة والتعليمات</a></li> -->
             <!-- <li><a routerLink="">شراكاتنا وعملاؤنا</a></li> -->
           </ul>
         </div>
         <div class="col-md-2">
-          <h3 class="footer-hdng-genrl">المسار المهني</h3>
+          <h3 class="footer-hdng-genrl">{{'Navigating your career'|translate}}</h3>
           <ul class="ul-genrl ul-quick-links">
-            <li><a routerLink="/certificates">عن شهادة اكاديمية كُن </a></li>
-            <li><a routerLink="/jobs">جد وظيفتك</a></li>
+            <li><a routerLink="/certificates">{{'About Kun Academy Certificate'|translate}}</a></li>
+            <li><a routerLink="/jobs">{{'Find a job'|translate}}</a></li>
             <!-- <li><a>خريجينا</a></li>
             <li><a>توظيف خريجينا</a></li>
             <li><a>قصص نجاح</a></li>
             <li><a>مشاريع مشاركينا</a></li> -->
-            <li><a>كن مدربا</a></li>
+            <li><a>{{'Bacome a trainer'|translate}}</a></li>
           </ul>
         </div>
         <!-- <div class="col-md-4">
