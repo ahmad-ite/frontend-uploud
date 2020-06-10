@@ -63,6 +63,7 @@ export class AddCourseMainComponent implements OnInit, AfterViewInit {
 
 
     this.courseId = parseInt(this.route.snapshot.params['courseId'] ? this.route.snapshot.params['courseId'] : 0);
+    this.updateData();
 
 
   }

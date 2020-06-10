@@ -43,6 +43,10 @@
                     </a>
                   </th>
                   <th class="th-lg">
+                    <a (click)="sortBy('')">{{'Kun Student?'|translate}} <i class="far fa-sort-circle"></i>
+                    </a>
+                  </th>
+                  <th class="th-lg">
                     <a (click)="sortBy('')"> {{'Course name'|translate}}<i class="far fa-sort-circle"></i>
                     </a>
                   </th>
@@ -90,6 +94,8 @@
                 <tr class="tr-hover" *ngFor="let report of reportData; let i=index">
                   <td>{{ i+1+((pager.currentPage -1) * pager.pageSize)}}</td>
                   <td> {{report.student_name}}</td>
+
+                  <td> {{(report.kun_related==1?"Yes":"No")|translate}}</td>
                   <td>{{report.course_name}}</td>
                   <!-- <td>{{trainerCourse.template}}</td>
                     <td>{{trainerCourse.course_category}}</td> -->

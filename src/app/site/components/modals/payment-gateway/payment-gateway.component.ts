@@ -312,6 +312,13 @@ export class PaymentGatewayComponent implements OnInit {
       },
       error => {
         this.loader = false;
+        if (error && error.error == 3) {// Payment Status is started
+
+        }
+        else {
+          this.toastr.error(this.translate.instant('The data is incorrect'), this.translate.instant('error'));
+
+        }
 
       });
 

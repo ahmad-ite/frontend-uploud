@@ -373,7 +373,7 @@
                 <a class="waves-effect" mdbWavesEffect>
                   <i class="fal fa-cogs icon-genrl-style"></i> Available Tools </a> </mdb-item-head>
             </mdb-item> -->
-            <mdb-item class="no-collase">
+            <mdb-item *ngIf="0" class="no-collase">
               <mdb-item-head mdbWavesEffect>
                 <a routerLink="/trainer/profile/{{app_ser.getCurrentUser().id}}" class="waves-effect" mdbWavesEffect>
                   <i class="fal fa-user icon-genrl-style"></i> {{'Profile' | translate}} </a>

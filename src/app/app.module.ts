@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
-
+import { Ng2TelInputModule } from 'ng2-tel-input';
 // import { RouteReuseStrategy } from '@angular/router';
 import { Globals } from './globals';
 import { AppComponent } from './app.component';
@@ -262,6 +262,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCheckboxModule,
     NgxUploaderModule,
     MatInputModule,
+    Ng2TelInputModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
     DlDateTimePickerModule,
 

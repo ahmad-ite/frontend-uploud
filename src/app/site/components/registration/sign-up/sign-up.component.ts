@@ -28,6 +28,7 @@ export class SignUpComponent implements OnInit {
   emailChecked: boolean;
   emailLoader: boolean = false;
   loader: boolean;
+  hasErrorPhone: boolean = true;
 
   constructor(
     // public captchaComponent: CaptchaComponent,
@@ -95,7 +96,7 @@ export class SignUpComponent implements OnInit {
 
 
   checked({ value, valid }) {
-    if (!valid || !this.templateChecked || !this.user.captcha)
+    if (!valid || !this.user.phone || this.hasErrorPhone || !this.templateChecked || !this.user.captcha)
       return false;
     return true;
   }
@@ -106,6 +107,8 @@ export class SignUpComponent implements OnInit {
       return
     }
     this.loader = true;
+    console.log("user", this.user);
+
     this.app_ser.post("site_feed/account/sign_up", { data: this.user }).subscribe(
       data => {
         // this.dialogRef.close()
@@ -161,8 +164,25 @@ export class SignUpComponent implements OnInit {
 
   }
 
+  hasError($event) {
+    console.log("hasError event", $event)
+    this.hasErrorPhone = !$event;
 
 
+  }
+  onCountryChange($event) {
+    console.log(" onCountryChange event", $event)
+
+  }
+  getNumber($event) {
+    this.user.phone = $event;
+    console.log("getNumber event", $event)
+
+  }
+  telInputObject($event) {
+    console.log(" telInputObject event", $event)
+
+  }
 
 
 }

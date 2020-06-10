@@ -135,9 +135,14 @@
             <div class="view w-100">
               <h1 class="text-center course-name-summary-rating">{{courseData.name}}</h1>
               <div class="wrap-rating">
-                <span class="course-star-rating" *ngFor="let rate of app_ser.initStarRating(courseData.average_rate)">
+                <span class="course-star-rating" *ngFor="let rate of app_ser.initStarRating(5)">
                   <i [class]="rate"></i>
                 </span>
+                <!-- <span class="course-star-rating" *ngFor="let rate of app_ser.initStarRating(courseData.average_rate)">
+  <i [class]="rate"></i>
+</span> -->
+
+
                 <!-- <span class="course-star-rating"><i class="fas fa-star star-full"></i></span>
                 <span class="course-star-rating"><i class="fas fa-star star-full"></i></span>
                 <span class="course-star-rating"><i class="fas fa-star star-full"></i></span>

@@ -337,10 +337,17 @@ export class MobilePaymentComponent implements OnInit {
 
       },
       error => {
+        console.log("err=>", error);
         // this.toastr.error(this.translate.instant('Payment is invalid'), this.translate.instant('error'));
-
         this.loader = false;
-        this.failure();
+        if (error && error.error == 3) {// Payment Status is started
+
+        }
+        else {
+          this.toastr.error(this.translate.instant('The data is incorrect'), this.translate.instant('error'));
+          this.failure();
+        }
+
 
 
 
@@ -351,6 +358,7 @@ export class MobilePaymentComponent implements OnInit {
   }
 
   onMyFrameLoad(event) {
+    console.log('event', event);
 
     if (this.bankPageLoadCounter > 0) {
 

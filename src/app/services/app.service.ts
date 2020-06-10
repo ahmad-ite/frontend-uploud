@@ -685,7 +685,7 @@ export class AppService {
 
 
 
-          throw response.msg
+          throw response
 
 
 
@@ -723,7 +723,7 @@ export class AppService {
 
 
 
-          throw response.msg
+          throw response
 
 
 

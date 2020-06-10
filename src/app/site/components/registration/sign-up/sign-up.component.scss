@@ -30,6 +30,16 @@ ARABIC STYLE START
   text-align: right;
   border-radius: 20px !important;
 
+  .form-group-phone-country-select{
+    .iti--allow-dropdown{
+      width: 100% !important;
+    }
+    .iti__country-list{
+      left: 0 !important;
+      bottom: 0 !important;
+      max-height: 370px !important;
+    }
+  }
   .error-message {
     color: #f44336;
   }
