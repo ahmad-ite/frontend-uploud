@@ -28,7 +28,6 @@
             <input class="form-control form-control-genrl mb-4" type="text" #courseName="ngModel" required
               name="courseName" [(ngModel)]="course.name" placeholder="{{ 'Course name' | translate }}" />
           </div>
-
           <div *ngIf="0" class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
@@ -80,23 +79,21 @@
                 {{ app_ser.stringLang(category.name, category.name_en)}}</option>
             </select>
           </div>
-
-
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
                 <label for="" class="mb-2 lbl-genrl lbl-required">{{'Level'| translate}}</label>
               </div>
               <div class="col-md-6 error-msg-div">
-                <div class="error-message" *ngIf="level.errors?.required && level.touched">
-                  {{ 'Level' | translate }} {{ 'is required' | translate }} </div>
+                <div class="error-message" *ngIf="level.errors?.required && level.touched"> {{ 'Level' | translate }}
+                  {{ 'is required' | translate }} </div>
               </div>
             </div>
             <select class="mdb-select md-form form-control form-control-genral dd-genrl mb-4" [(ngModel)]="course.level"
               #level="ngModel" name="level" style="height: 50px;" required>
-              <option [ngValue]="1">{{ 'LevelBegin' | translate }}</option>
-              <option [ngValue]="2">{{ 'LevelIntermed' | translate }}</option>
-              <option [ngValue]="3">{{ 'LevelAdv' | translate }}</option>
+              <option [ngValue]="1">{{ 'Beginner' | translate }}</option>
+              <option [ngValue]="2">{{ 'Intermediate' | translate }}</option>
+              <option [ngValue]="3">{{ 'Advanced' | translate }}</option>
             </select>
           </div>
           <div *ngIf="course.template_id!=122">
@@ -117,7 +114,6 @@
                 #pass_mark="ngModel" required name="pass_mark" [(ngModel)]="course.pass_mark"
                 placeholder="{{ 'PassMark' | translate }}" pattern="0*([0-9]|[1-8][0-9]|9[0-9]|100)" />
             </div>
-
             <div class="form-group">
               <div class="row">
                 <div class="col-md-6 label-div">
@@ -136,7 +132,6 @@
                 required name="repeat_count" [(ngModel)]="course.repeat_count"
                 placeholder="{{ 'RepeatCount' | translate }}" pattern="[0-9]*" />
             </div>
-
             <div class="form-group">
               <div class="custom-control custom-switch ">
                 <div class="label-div">
@@ -150,7 +145,6 @@
               </div>
             </div>
           </div>
-
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
@@ -168,7 +162,6 @@
                 class="fal fa-cloud-upload upload-cover-img-icon"></i> <span class="lbl-upload-from-gallery">{{'Upload from
                           media gallery' | translate}}</span></a>
           </div>
-
           <div class="form-group">
             <div class="row">
               <div class="col-md-6 label-div">
@@ -183,8 +176,6 @@
               name="description" [(ngModel)]="course.description"
               placeholder="{{ 'CourseDescription' | translate }}"></textarea>
           </div>
-
-
           <button [ngClass]="{'enabled':checked(addCourseForm),'disabled':!checked(addCourseForm) }" (click)="save()"
             rounded="true" mdbBtn color="info" block="true" class="my-4" type="submit" class="btn-add-course">
             {{'Save' | translate}}</button>

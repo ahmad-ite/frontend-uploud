@@ -198,10 +198,10 @@
             <p class="registered-students"><i class="fal fa-users"></i>{{'No of Students' | translate}}:
               {{courseDetail.students_count}}</p>
             <p class="course-level"><i class="fal fa-analytics"></i>{{'Course Level' | translate}}:
-              {{courseDetail.course_level.name}} </p>
+              {{courseDetail.course_level.name|translate}} </p>
             <p *ngIf="courseDetail.issued_by" class="no-of-lessons"><i
-                class="fal fa-file-certificate"></i>{{'certificate of achievement' | translate}}:
-              {{courseDetail.issued_by}}</p>
+                class="fal fa-file-certificate"></i>{{'Completion Certificate' | translate}}:
+              {{courseDetail.issued_by | translate}}</p>
           </div>
           <div *ngIf="!app_ser.isTrainer()">
             <a mdbTooltip="{{app_ser.inst('register_course') }}" placement="top" *ngIf="!courseDetail.register"
