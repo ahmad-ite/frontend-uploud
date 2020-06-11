@@ -67,13 +67,13 @@
                       <div class="wrap-video-thumbnail">
                         <img *ngIf="trainerVideo.video_derivation && trainerVideo.video_derivation.gif"
                           [src]="app_ser.img_url(trainerVideo.video_derivation.gif,'video')"
-                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true)" alt=""
+                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true,currentCourse)" alt=""
                           class="img-fluid img-thumbnail img-hover-cursor">
                         <img *ngIf="!(trainerVideo.video_derivation && trainerVideo.video_derivation.gif)"
-                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true)"
+                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true,currentCourse)"
                           [src]="app_ser.img_url(null,'video')" alt="" class="img-fluid img-thumbnail img-hover-cursor">
                         <a class="text-center file-name-video"
-                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true)">{{trainerVideo.file_name}}</a>
+                          (click)="app_ser.openVideoDetailPopup(trainerVideo,true,currentCourse)">{{trainerVideo.file_name}}</a>
                       </div>
                     </div>
                   </div>
@@ -87,7 +87,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD DUBBING VIDEO GALLERY TAB START **************************************** -->
-          <ngb-tab *ngIf="0" id="dubbing">
+          <ngb-tab id="dubbing">
             <ng-template ngbTabTitle><b><i class="far fa-film"></i> {{'Dubbing Videos' | translate}}</b></ng-template>
             <ng-template ngbTabContent>
               <!-- LANGUAGE TAB START -->
@@ -151,7 +151,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD DUBBING VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD SUBTITLES VIDEO GALLERY TAB START **************************************** -->
-          <ngb-tab *ngIf="0" id="subtitle">
+          <ngb-tab id="subtitle">
             <ng-template ngbTabTitle><b><i class="far fa-closed-captioning"></i> {{'Subtitle' | translate }}</b>
             </ng-template>
             <ng-template ngbTabContent>
@@ -206,7 +206,7 @@
           </ngb-tab>
           <!-- **************************************** UPLOAD SUBTITLES VIDEO GALLERY TAB END **************************************** -->
           <!-- **************************************** UPLOAD AUDIO GALLERY TAB END **************************************** -->
-          <ngb-tab *ngIf="0" id="audio">
+          <ngb-tab id="audio">
             <ng-template ngbTabTitle><b><i class="far fa-microphone-alt"></i> {{'Audio' | translate }}</b></ng-template>
             <ng-template ngbTabContent>
               <div class="loader" *ngIf="loadGifLoader">

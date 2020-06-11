@@ -6,6 +6,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class Globals {
   role: number = 1;
   appVideo: string;
+  lang: string
   appVideoDeravations: VideoDerivation;
   paymentModal: NgbActiveModal;
   test: any = "test";

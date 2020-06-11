@@ -289,23 +289,48 @@ export class StepsComponent implements OnInit {
 
     this.confirmationDialogService.confirm(this.translate.instant('Please Confirm ..'), 'finish_course_confirm')
       .then((confirmed) => {
-
         if (confirmed) {
-          this.courseGifLoader = true;
-          this.app_ser
-            .post("site_feed/UserCourse/finish_course/" + this.regId, {
-              review: this.courseReview,
-              rating: this.courseRating
-            })
-            .subscribe(data => {
-              this.courseGifLoader = false;
-              this.router.navigate(["my-library/completed-courses"]);
-            });
-        }
-      })
-      .catch(() => {
+          this.app_ser.openInpuCertificate().then(res => {
 
+
+            this.courseGifLoader = true;
+            this.app_ser
+              .post("site_feed/UserCourse/finish_course/" + this.regId, {
+                review: this.courseReview,
+                rating: this.courseRating,
+                name: res ? res : "",
+              })
+              .subscribe(data => {
+                this.courseGifLoader = false;
+                console.log("eee", data, res)
+                if (res) {
+                  this.app_ser.showPdf(data).then(res => {
+                    this.router.navigate(["my-library/completed-courses"]);
+                  });
+                }
+                else {
+                  this.router.navigate(["my-library/completed-courses"]);
+                }
+
+
+
+              });
+
+          })
+            .catch(() => {
+
+            });
+
+        }
       });
+
+    ////
+
+
+
+
+
+
 
 
 

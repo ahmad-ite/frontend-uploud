@@ -310,7 +310,7 @@ export class UploadGalleryPopupComponent implements OnInit {
     }
   }
   saveFile(i) {
-    var post_data = { uuid: this.uploadded_files[i].uuid, course: this.uploadded_files[i].course, dubbing: 0, name: this.uploadded_files[i].file.name, file_type: this.uploadded_files[i].file.type, size: this.uploadded_files[i].file.size, type: this.activeTab, lang: this.activeSecondryTab };
+    var post_data = { uuid: this.uploadded_files[i].uuid, course: this.currentCourse, dubbing: 0, name: this.uploadded_files[i].file.name, file_type: this.uploadded_files[i].file.type, size: this.uploadded_files[i].file.size, type: this.activeTab, lang: this.activeSecondryTab };
 
     if (this.activeTab == "dubbing") {
       post_data.dubbing = 1;

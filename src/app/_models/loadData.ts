@@ -482,6 +482,7 @@ export class VideoDerivation {
   q_1080: string;
   dubbings: Dubbings;
   dubbing: Dubbings;
+  subtitle: Subtitles;
   subtitles: Subtitles;
 }
 export class Dubbings {

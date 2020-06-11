@@ -32,7 +32,14 @@ export class AppComponent {
     public sanitizer: DomSanitizer
   ) {
     this.loaded = false;
-    translate.setDefaultLang("ar");
+    if (this.globals.lang) {
+      translate.setDefaultLang(this.globals.lang);
+    }
+    else {
+      translate.setDefaultLang("ar");
+      this.globals.lang = "ar";
+    }
+
 
 
     this.loadTrans();
@@ -62,7 +69,7 @@ export class AppComponent {
         },
 
         err => {
-          
+
         }
       );
     }, 1);
@@ -90,17 +97,17 @@ export class AppComponent {
 
   changedLang() {
     let lang = this.translate.getDefaultLang();
-    
+
     if (lang == "ar") {
       this.translate.setDefaultLang("en");
       this.cssUrl = "src/scss/ar-global.scss";
-     
+
     } else {
       this.translate.setDefaultLang("ar");
       this.cssUrl = "src/scss/en-global.scss";
-     
+
     }
-    
+
   }
 
   logout() {

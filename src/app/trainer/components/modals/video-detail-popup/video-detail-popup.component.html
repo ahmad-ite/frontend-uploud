@@ -47,16 +47,19 @@
                     <div class="col-md-9 col-update-btns">
                       <div *ngIf="!video.dubbing[dubbing.code]">
                         <button mdbBtn rounded="true" class="waves-light btn-select" mdbWavesEffect
-                          (click)="galleryUploadModal()"><i class="fal fa-edit"></i> {{'Select' | translate}}</button>
+                          (click)="editDubbingfile(dubbing)"><i class="fal fa-edit"></i>
+                          {{'Select' | translate}}</button>
                       </div>
                       <div *ngIf="video.dubbing[dubbing.code]">
                         <p class="dubbing-selected-name"
                           (click)="app_ser.showDubbingVideo(video.dubbing[dubbing.code].file,video.dubbing[dubbing.code].name)">
                           {{video.dubbing[dubbing.code].name | translate}} </p>
-                        <button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect><i
-                            class="fal fa-edit"></i> {{'Update' | translate}}</button>
-                        <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect><i
-                            class="fal fa-trash-alt"></i> {{'Delete' | translate}}</button>
+                        <button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect
+                          (click)="editDubbingfile(dubbing)"><i class="fal fa-edit"></i>
+                          {{'Update' | translate}}</button>
+                        <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect
+                          (click)="deleteDubbingfile(dubbing)"><i class="fal fa-trash-alt"></i>
+                          {{'Delete' | translate}}</button>
                       </div>
                     </div>
                   </div>
@@ -73,9 +76,27 @@
                     <div class="col-md-3 col-dubbing-title">
                       <p class="subtitle-name">{{dubbing.name | translate}}</p>
                     </div>
-                    <div class="col-md-9 col-update-btns">
+                    <!-- <div class="col-md-9 col-update-btns">
                       <button mdbBtn rounded="true" class="waves-light btn-select" mdbWavesEffect><i
                           class="fal fa-edit"></i> {{'Select' | translate}}</button>
+                    </div> -->
+
+                    <div class="col-md-9 col-update-btns">
+                      <div *ngIf="!video.subtitle[dubbing.code]">
+                        <button mdbBtn rounded="true" class="waves-light btn-select" mdbWavesEffect
+                          (click)="editSubtitlefile(dubbing)"><i class="fal fa-edit"></i>
+                          {{'Select' | translate}}</button>
+                      </div>
+                      <div *ngIf="video.subtitle[dubbing.code]">
+                        <p class="dubbing-selected-name">
+                          {{video.subtitle[dubbing.code].name | translate}} </p>
+                        <button mdbBtn rounded="true" class="waves-light btn-edit" mdbWavesEffect
+                          (click)="editSubtitlefile(dubbing)"><i class="fal fa-edit"></i>
+                          {{'Update' | translate}}</button>
+                        <button mdbBtn rounded="true" class="waves-light btn-delete" mdbWavesEffect
+                          (click)="deleteSubtitlefile(dubbing)"><i class="fal fa-trash-alt"></i>
+                          {{'Delete' | translate}}</button>
+                      </div>
                     </div>
                   </div>
                 </li>

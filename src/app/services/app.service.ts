@@ -406,9 +406,19 @@ export class AppService {
 
 
   }
-  showPdf(path) {
+  async showPdf(path) {
     var pdfModal = this.modalService.open(ViewPdfComponent, { windowClass: 'view-pdf', size: 'lg', centered: true });
     pdfModal.componentInstance.path = path;
+
+    return await pdfModal.result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      if (result == 'false')
+        return false;
+      return result;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      return false;
+    });
   }
   async showInvoice() {
 
@@ -445,10 +455,11 @@ export class AppService {
     this.openVideoDetailPopup(input);
 
   }
-  async openVideoDetailPopup(video, details = false) {
+  async openVideoDetailPopup(video, details = false, courseId = 0) {
     var videoModal = this.modalService.open(VideoDetailPopupComponent, { windowClass: 'videoDetailPopup', size: 'lg', centered: true, backdrop: false });
     videoModal.componentInstance.video = video;
     videoModal.componentInstance.details = details;
+    videoModal.componentInstance.courseId = courseId;
     return await videoModal.result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       if (result == 'false')

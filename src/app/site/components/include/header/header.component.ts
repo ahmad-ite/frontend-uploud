@@ -14,6 +14,7 @@ import { AuthenticationService } from '../../../../_services/authentication.serv
 import { ActivatedRoute, Router, NavigationEnd, RoutesRecognized } from '@angular/router';
 import { SignupTypeComponent } from '../../registration/signup-type/signup-type.component';
 import { ModalModule, TooltipModule, PopoverModule, ButtonsModule, ModalDirective } from 'ng-uikit-pro-standard'
+import { Globals } from 'src/app/globals';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit {
     public app_ser: AppService,
     public router: Router,
     public route: ActivatedRoute,
+    public globals: Globals,
     private modalService: NgbModal
 
   ) {
@@ -86,15 +88,21 @@ export class HeaderComponent implements OnInit {
   }
   changedLang() {
     let lang = this.translate.getDefaultLang();
-    if (lang == "ar")
+    if (lang == "ar") {
       this.translate.setDefaultLang('en');
-
-    else
+      this.globals.lang = "en";
+    }
+    else {
       this.translate.setDefaultLang('ar');
+      this.globals.lang = "ar";
+    }
+
     // this.router.navigateByUrl(this.router.url);
+    this.globals.appVideo = null;
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
+
     this.router.navigate([this.router.url]);
 
 
