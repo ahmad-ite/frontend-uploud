@@ -1,0 +1,20 @@
+<div>
+  <div class="modal-header">
+    <div class="row" style="width: 100%;">
+      <div class="col-11">
+        <h4 class="modal-title">{{activeVideo.name}}</h4>
+      </div>
+      <div class="col-1 col-cross-icon">
+        <i class="fal fa-times cross-icon" (click)="activeModal.close(false)"></i>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <cloudflare-stream [controls]="true" [src]="activeVideo.uuid"></cloudflare-stream>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-cancel"
+      (click)="activeModal.close(false)">{{ 'close' | translate }}</button>
+  </div>
+</div>

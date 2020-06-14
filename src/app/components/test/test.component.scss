@@ -1,0 +1,41 @@
+
+
+
+
+.stream-thumb-wrap{
+  position: relative;
+  cursor: pointer;
+  background-image: url(../../../assets/images/video-thumbnail.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+}
+.stream-title{
+    text-align: center;
+    color: white !important;
+    font-size: 16px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 45px;
+    height: 100%;
+    cursor: pointer;
+
+  }
+
+.img-overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.stream-default-img{
+
+}
+
+.input-upload{
+      border: 1px solid lightgray;
+    padding: 10px;
+}

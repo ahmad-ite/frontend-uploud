@@ -2,7 +2,9 @@
 
 # compiled output
 /dist
+/live
 /online
+/e2e
 /.vscode
 /v5
 /online1
